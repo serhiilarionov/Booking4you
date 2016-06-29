@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "pgsql": {
+    "host": "localhost",
+    "port": 5432,
+    "database": "b4u",
+    "password": "123321",
+    "name": "pgsql",
+    "user": "user",
+    "connector": "postgresql"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "Category",
+  "plural": "categories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "deleted_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "parent_id": {
+      "type": "number"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "position": {
+      "type": "number",
+      "required": true,
+      "default": "1"
+    },
+    "active": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "deleted_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "companies": {
+      "type": "hasMany",
+      "model": "Company",
+      "foreignKey": "category_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

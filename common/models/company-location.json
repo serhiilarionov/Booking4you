@@ -1,0 +1,43 @@
+{
+  "name": "CompanyLocation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "id",
+    "company_id"
+  ],
+  "properties": {
+    "company_id": {
+      "type": "number",
+      "required": true
+    },
+    "point": {
+      "type": "geopoint"
+    },
+    "building_id": {
+      "type": "number"
+    },
+    "street_id": {
+      "type": "number"
+    },
+    "district_id": {
+      "type": "number"
+    },
+    "city_id": {
+      "type": "number"
+    },
+    "room": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

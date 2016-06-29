@@ -1,0 +1,47 @@
+{
+  "name": "CompanyDetail",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "id",
+    "company_id"
+  ],
+  "properties": {
+    "company_id": {
+      "type": "number",
+      "required": true
+    },
+    "phone": {
+      "type": [
+        "object"
+      ]
+    },
+    "email": {
+      "type": [
+        "object"
+      ]
+    },
+    "website": {
+      "type": [
+        "object"
+      ]
+    },
+    "work_time": {
+      "type": [
+        "object"
+      ]
+    },
+    "image_list": {
+      "type": [
+        "object"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
