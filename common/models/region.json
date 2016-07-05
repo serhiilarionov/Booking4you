@@ -1,0 +1,50 @@
+{
+  "name": "Region",
+  "plural": "regions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "countryId": {
+      "type": "number",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "required": true
+    },
+    "point": {
+      "type": "geopoint"
+    },
+    "bound": {
+      "type": "geopoint"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cities": {
+      "type": "hasMany",
+      "model": "City",
+      "foreignKey": "regionId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

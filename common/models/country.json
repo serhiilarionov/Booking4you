@@ -1,0 +1,46 @@
+{
+  "name": "Country",
+  "plural": "counties",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "required": true
+    },
+    "point": {
+      "type": "geopoint"
+    },
+    "bound": {
+      "type": "geopoint"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "regions": {
+      "type": "hasMany",
+      "model": "Region",
+      "foreignKey": "countryId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
