@@ -1,39 +1,23 @@
 {
-  "name": "CompanyLocation",
+  "name": "Building",
+  "plural": "buildings",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "hidden": [
-    "id",
-    "company_id"
-  ],
   "properties": {
-    "company_id": {
-      "type": "number",
+    "number": {
+      "type": "string",
       "required": true
     },
     "point": {
       "type": "geopoint"
-    },
-    "building_id": {
-      "type": "number"
-    },
-    "street_id": {
-      "type": "number"
-    },
-    "district_id": {
-      "type": "number"
-    },
-    "city_id": {
-      "type": "number"
-    },
-    "room": {
-      "type": "string"
-    },
-    "detail": {
-      "type": "string"
+    }
+  },
+  "indexes": {
+    "streetIdNumberIndex": {
+      "keys": {"streetId": 1, "number": 1}
     }
   },
   "validations": [],

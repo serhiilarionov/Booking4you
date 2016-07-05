@@ -47,5 +47,33 @@
   "CompanyLocation": {
     "dataSource": "pgsql",
     "public": false
+  },
+  "Country": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Region": {
+    "dataSource": "db",
+    "public": true
+  },
+  "City": {
+    "dataSource": "db",
+    "public": true
+  },
+  "District": {
+    "dataSource": "db",
+    "public": true
+  },
+  "StreetType": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Street": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Building": {
+    "dataSource": "db",
+    "public": true
   }
 }

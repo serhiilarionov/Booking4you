@@ -1,0 +1,38 @@
+{
+  "name": "District",
+  "plural": "districts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "point": {
+      "type": "geopoint"
+    },
+    "bound": {
+      "type": "geopoint"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "streets": {
+      "type": "hasMany",
+      "model": "Street",
+      "foreignKey": "districtId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
