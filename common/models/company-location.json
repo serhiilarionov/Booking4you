@@ -7,26 +7,26 @@
   },
   "hidden": [
     "id",
-    "company_id"
+    "companyId"
   ],
   "properties": {
-    "company_id": {
+    "companyId": {
       "type": "number",
       "required": true
     },
     "point": {
       "type": "geopoint"
     },
-    "building_id": {
+    "buildingId": {
       "type": "number"
     },
-    "street_id": {
+    "streetId": {
       "type": "number"
     },
-    "district_id": {
+    "districtId": {
       "type": "number"
     },
-    "city_id": {
+    "cityId": {
       "type": "number"
     },
     "room": {

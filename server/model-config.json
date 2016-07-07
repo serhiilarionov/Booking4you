@@ -14,22 +14,22 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "pgsql"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": false
   },
   "Category": {
@@ -49,31 +49,31 @@
     "public": false
   },
   "Country": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": true
   },
   "Region": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": true
   },
   "City": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": true
   },
   "District": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": true
   },
   "StreetType": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": true
   },
   "Street": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": true
   },
   "Building": {
-    "dataSource": "db",
+    "dataSource": "pgsql",
     "public": true
   }
 }

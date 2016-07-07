@@ -7,9 +7,9 @@
     "validateUpsert": true
   },
   "hidden": [
-    "created_at",
-    "updated_at",
-    "deleted_at"
+    "createdAt",
+    "updatedAt",
+    "deletedAt"
   ],
   "properties": {
     "id": {
@@ -24,7 +24,7 @@
       "type": "string",
       "required": true
     },
-    "category_id": {
+    "categoryId": {
       "type": "number",
       "required": true
     },
@@ -36,15 +36,18 @@
       "required": true,
       "default": true
     },
-    "created_at": {
-      "type": "date"
-    },
-    "updated_at": {
-      "type": "date"
-    },
-    "deleted_at": {
+    "createdAt": {
       "type": "date",
-      "required": false
+      "default": "$now"
+    },
+    "updatedAt": {
+      "type": "date",
+      "default": "$now"
+    },
+    "deletedAt": {
+      "type": "date",
+      "required": false,
+      "default": "$now"
     }
   },
   "validations": [],

@@ -22,7 +22,7 @@
       "type": "string",
       "required": true
     },
-    "parent_id": {
+    "parentId": {
       "type": "number"
     },
     "icon": {
@@ -47,7 +47,7 @@
     "companies": {
       "type": "hasMany",
       "model": "Company",
-      "foreignKey": "category_id"
+      "foreignKey": "categoryId"
     }
   },
   "acls": [
