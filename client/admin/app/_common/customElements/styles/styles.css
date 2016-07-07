@@ -1,0 +1,17 @@
+#c-table .control-buttons {
+    background: #FAFAFA;
+    margin: 0;
+    padding: 10px;
+    min-width: 80px;
+}
+
+#c-table .active-checkbox {
+    padding-top: 15px;
+}
+
+#c-table .form-input {
+    width: 100% !important;;
+}
+#c-table  .action-buttons {
+    min-width: 80px;
+}

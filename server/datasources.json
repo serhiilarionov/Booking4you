@@ -7,9 +7,9 @@
     "host": "localhost",
     "port": 5432,
     "database": "b4u",
-    "password": "123321",
+    "password": "test123",
     "name": "pgsql",
-    "user": "user",
+    "user": "postgres",
     "connector": "postgresql"
   }
 }
