@@ -7,12 +7,13 @@
     "validateUpsert": true
   },
   "hidden": [
-    "deleted_at"
+    "deletedAt"
   ],
   "properties": {
     "id": {
       "type": "Number",
-      "id": true
+      "id": true,
+      "generated": true
     },
     "name": {
       "type": "string",
@@ -38,7 +39,7 @@
       "required": true,
       "default": true
     },
-    "deleted_at": {
+    "deletedAt": {
       "type": "date"
     }
   },

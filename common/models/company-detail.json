@@ -10,6 +10,11 @@
     "companyId"
   ],
   "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true
+    },
     "companyId": {
       "type": "number",
       "required": true

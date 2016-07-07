@@ -14,7 +14,8 @@
   "properties": {
     "id": {
       "type": "Number",
-      "id": true
+      "id": true,
+      "generated": true
     },
     "name": {
       "type": "string",
