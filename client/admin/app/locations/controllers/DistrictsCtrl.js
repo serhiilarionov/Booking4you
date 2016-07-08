@@ -28,12 +28,7 @@ angular.module('app.locations')
               required: true
             },
             {
-              dataField: 'name_orig',
-              title: 'Оригинальное название',
-              required: true
-            },
-            {
-              dataField: 'city_id',
+              dataField: 'cityId',
               title: 'ID Района',
               required: true,
               editorType: 'selectBox',

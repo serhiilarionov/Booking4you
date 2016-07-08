@@ -1,6 +1,6 @@
 {
   "name": "Country",
-  "plural": "counties",
+  "plural": "countries",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

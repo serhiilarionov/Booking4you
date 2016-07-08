@@ -18,3 +18,4 @@ coverage
 node_modules
 npm-debug.log
 client/admin/bower_components
+client/admin/build

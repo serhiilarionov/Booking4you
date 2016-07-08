@@ -24,7 +24,7 @@ angular.module('app.locations')
               readOnly: true
             },
             {
-              dataField: 'street_id',
+              dataField: 'streetId',
               title: 'ID Улицы',
               required: true,
               editorType: 'selectBox',

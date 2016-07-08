@@ -33,12 +33,7 @@ angular.module('app.locations')
               required: true
             },
             {
-              dataField: 'name_orig',
-              title: 'Оригинальное название',
-              required: true
-            },
-            {
-              dataField: 'country_id',
+              dataField: 'countryId',
               title: 'ID Страны',
               required: true,
               editorType: 'selectBox',

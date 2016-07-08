@@ -34,11 +34,6 @@ angular.module('app.locations')
               required: true
             },
             {
-              dataField: 'name_orig',
-              title: 'Оригинальное название',
-              required: true
-            },
-            {
               dataField: 'point',
               title: 'Point',
               required: true

@@ -70,8 +70,6 @@ angular.module('app', [
 .run(function ($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-    console.log('qwe');
-    // editableOptions.theme = 'bs3';
 
 });
 
