@@ -13,7 +13,7 @@ var testData;
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('City', function () {
+describe('Street', function () {
   before(function (done) {
     help.createBuilding()
       .then(function(data) {
@@ -35,32 +35,32 @@ describe('City', function () {
     help.destroyModelsTest(meta).then(function(){done()}).catch(done);
   });
 
-  it('should return list of cities', function (done) {
-    db.City.all()
-      .then(function (cities) {
-        cities.should.be.an('array');
-        var city = _.first(cities).__data;
-        should.exist(city);
-        city.should.have.keys('id', 'name', 'slug', 'point', 'bound', 'active', 'regionId');
-        city.id.should.be.a('number');
-        city.name.should.be.a('string');
-        city.slug.should.be.a('string');
-        city.active.should.be.a('boolean');
-        city.regionId.should.be.a('number');
+  it('should return list of streets', function (done) {
+    db.Street.all()
+      .then(function (streets) {
+        streets.should.be.an('array');
+        var street = _.first(streets).__data;
+        should.exist(street);
+        street.should.have.keys('id', 'name', 'point', 'bound', 'streetTypeId', 'cityId', 'districtId');
+        street.id.should.be.a('number');
+        street.name.should.be.a('string');
+        street.streetTypeId.should.be.a('number');
+        street.cityId.should.be.a('number');
+        street.districtId.should.be.a('number');
         done();
       })
       .catch(done);
   });
 
-  it('should update city', function (done) {
+  it('should update street', function (done) {
     var updatedName = 'updated';
-    db.City.update({id: testData.city.id}, {name: updatedName})
+    db.Street.update({id: testData.street.id}, {name: updatedName})
       .then(function () {
-        return db.City.findById(testData.city.id)
+        return db.Street.findById(testData.street.id)
       })
-      .then(function (city) {
-        should.exist(city);
-        city.name.should.be.equal(updatedName);
+      .then(function (street) {
+        should.exist(street);
+        street.name.should.be.equal(updatedName);
         done();
       })
       .catch(done);

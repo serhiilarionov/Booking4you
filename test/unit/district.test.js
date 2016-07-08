@@ -13,7 +13,7 @@ var testData;
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('City', function () {
+describe('District', function () {
   before(function (done) {
     help.createBuilding()
       .then(function(data) {
@@ -35,32 +35,30 @@ describe('City', function () {
     help.destroyModelsTest(meta).then(function(){done()}).catch(done);
   });
 
-  it('should return list of cities', function (done) {
-    db.City.all()
-      .then(function (cities) {
-        cities.should.be.an('array');
-        var city = _.first(cities).__data;
-        should.exist(city);
-        city.should.have.keys('id', 'name', 'slug', 'point', 'bound', 'active', 'regionId');
-        city.id.should.be.a('number');
-        city.name.should.be.a('string');
-        city.slug.should.be.a('string');
-        city.active.should.be.a('boolean');
-        city.regionId.should.be.a('number');
+  it('should return list of districts', function (done) {
+    db.District.all()
+      .then(function (districts) {
+        districts.should.be.an('array');
+        var district = _.first(districts).__data;
+        should.exist(district);
+        district.should.have.keys('id', 'name', 'point', 'bound', 'cityId');
+        district.id.should.be.a('number');
+        district.name.should.be.a('string');
+        district.cityId.should.be.a('number');
         done();
       })
       .catch(done);
   });
 
-  it('should update city', function (done) {
+  it('should update district', function (done) {
     var updatedName = 'updated';
-    db.City.update({id: testData.city.id}, {name: updatedName})
+    db.District.update({id: testData.district.id}, {name: updatedName})
       .then(function () {
-        return db.City.findById(testData.city.id)
+        return db.District.findById(testData.district.id)
       })
-      .then(function (city) {
-        should.exist(city);
-        city.name.should.be.equal(updatedName);
+      .then(function (district) {
+        should.exist(district);
+        district.name.should.be.equal(updatedName);
         done();
       })
       .catch(done);

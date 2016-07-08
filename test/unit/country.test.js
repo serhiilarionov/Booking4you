@@ -13,7 +13,7 @@ var testData;
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('City', function () {
+describe('Country', function () {
   before(function (done) {
     help.createBuilding()
       .then(function(data) {
@@ -35,32 +35,31 @@ describe('City', function () {
     help.destroyModelsTest(meta).then(function(){done()}).catch(done);
   });
 
-  it('should return list of cities', function (done) {
-    db.City.all()
-      .then(function (cities) {
-        cities.should.be.an('array');
-        var city = _.first(cities).__data;
-        should.exist(city);
-        city.should.have.keys('id', 'name', 'slug', 'point', 'bound', 'active', 'regionId');
-        city.id.should.be.a('number');
-        city.name.should.be.a('string');
-        city.slug.should.be.a('string');
-        city.active.should.be.a('boolean');
-        city.regionId.should.be.a('number');
+  it('should return list of countries', function (done) {
+    db.Country.all()
+      .then(function (countries) {
+        countries.should.be.an('array');
+        var country = _.first(countries).__data;
+        should.exist(country);
+        country.should.have.keys('id', 'code', 'name', 'active', 'point', 'bound');
+        country.id.should.be.a('number');
+        country.code.should.be.a('string');
+        country.name.should.be.a('string');
+        country.active.should.be.a('boolean');
         done();
       })
       .catch(done);
   });
 
-  it('should update city', function (done) {
+  it('should update country', function (done) {
     var updatedName = 'updated';
-    db.City.update({id: testData.city.id}, {name: updatedName})
+    db.Country.update({id: testData.country.id}, {name: updatedName})
       .then(function () {
-        return db.City.findById(testData.city.id)
+        return db.Country.findById(testData.country.id)
       })
-      .then(function (city) {
-        should.exist(city);
-        city.name.should.be.equal(updatedName);
+      .then(function (country) {
+        should.exist(country);
+        country.name.should.be.equal(updatedName);
         done();
       })
       .catch(done);

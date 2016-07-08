@@ -13,7 +13,7 @@ var testData;
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('City', function () {
+describe('Region', function () {
   before(function (done) {
     help.createBuilding()
       .then(function(data) {
@@ -35,32 +35,32 @@ describe('City', function () {
     help.destroyModelsTest(meta).then(function(){done()}).catch(done);
   });
 
-  it('should return list of cities', function (done) {
-    db.City.all()
-      .then(function (cities) {
-        cities.should.be.an('array');
-        var city = _.first(cities).__data;
-        should.exist(city);
-        city.should.have.keys('id', 'name', 'slug', 'point', 'bound', 'active', 'regionId');
-        city.id.should.be.a('number');
-        city.name.should.be.a('string');
-        city.slug.should.be.a('string');
-        city.active.should.be.a('boolean');
-        city.regionId.should.be.a('number');
+  it('should return list of regions', function (done) {
+    db.Region.all()
+      .then(function (regions) {
+        regions.should.be.an('array');
+        var region = _.first(regions).__data;
+        should.exist(region);
+        region.should.have.keys('id', 'slug', 'name', 'active', 'point', 'bound', 'countryId');
+        region.id.should.be.a('number');
+        region.slug.should.be.a('string');
+        region.name.should.be.a('string');
+        region.active.should.be.a('boolean');
+        region.countryId.should.be.a('number');
         done();
       })
       .catch(done);
   });
 
-  it('should update city', function (done) {
+  it('should update region', function (done) {
     var updatedName = 'updated';
-    db.City.update({id: testData.city.id}, {name: updatedName})
+    db.Region.update({id: testData.region.id}, {name: updatedName})
       .then(function () {
-        return db.City.findById(testData.city.id)
+        return db.Region.findById(testData.region.id)
       })
-      .then(function (city) {
-        should.exist(city);
-        city.name.should.be.equal(updatedName);
+      .then(function (region) {
+        should.exist(region);
+        region.name.should.be.equal(updatedName);
         done();
       })
       .catch(done);

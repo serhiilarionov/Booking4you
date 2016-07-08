@@ -13,7 +13,7 @@ var testData;
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('City', function () {
+describe('StreetType', function () {
   before(function (done) {
     help.createBuilding()
       .then(function(data) {
@@ -35,32 +35,28 @@ describe('City', function () {
     help.destroyModelsTest(meta).then(function(){done()}).catch(done);
   });
 
-  it('should return list of cities', function (done) {
-    db.City.all()
-      .then(function (cities) {
-        cities.should.be.an('array');
-        var city = _.first(cities).__data;
-        should.exist(city);
-        city.should.have.keys('id', 'name', 'slug', 'point', 'bound', 'active', 'regionId');
-        city.id.should.be.a('number');
-        city.name.should.be.a('string');
-        city.slug.should.be.a('string');
-        city.active.should.be.a('boolean');
-        city.regionId.should.be.a('number');
+  it('should return list of streetTypes', function (done) {
+    db.StreetType.all()
+      .then(function (streetTypes) {
+        streetTypes.should.be.an('array');
+        var streetType = _.first(streetTypes).__data;
+        should.exist(streetType);
+        streetType.should.have.keys('id', 'name');
+        streetType.id.should.be.a('number');
         done();
       })
       .catch(done);
   });
 
-  it('should update city', function (done) {
+  it('should update streetType', function (done) {
     var updatedName = 'updated';
-    db.City.update({id: testData.city.id}, {name: updatedName})
+    db.StreetType.update({id: testData.streetType.id}, {name: updatedName})
       .then(function () {
-        return db.City.findById(testData.city.id)
+        return db.StreetType.findById(testData.streetType.id)
       })
-      .then(function (city) {
-        should.exist(city);
-        city.name.should.be.equal(updatedName);
+      .then(function (streetType) {
+        should.exist(streetType);
+        streetType.name.should.be.equal(updatedName);
         done();
       })
       .catch(done);
