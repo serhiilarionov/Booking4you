@@ -81,11 +81,21 @@ gulp.task('vendor', function(){
             //.on('error', swallowError)
             .pipe(gulp.dest(destinations.js))
     })
+});
+
+gulp.task('maps', function(){
+    _.forIn(scripts.maps, function(path, name){
+        if (!fs.existsSync(__dirname + '/' + path)) {
+            throw console.error('Required path doesn\'t exist: ' + __dirname + '/' + path, script)
+        }
+        gulp.src(path)
+          .pipe(gulp.dest(destinations.js))
+    })
 
 });
 
-gulp.task('prod', ['vendor', 'build']);
-gulp.task('dev', ['vendor', 'js', 'watch', 'connect']);
+gulp.task('prod', ['vendor','maps',  'build']);
+gulp.task('dev', ['vendor','maps',  'js', 'watch', 'connect']);
 gulp.task('default', ['dev']);
 
 var swallowError = function(error){

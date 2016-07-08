@@ -12,7 +12,6 @@
       "angular-resource",
       "angular-bootstrap",
       "angular-simple-logger",
-      "angular-google-maps",
       "restangular",
       "fastclick",
       "moment",
@@ -79,7 +78,6 @@
     "angular-ui-router": "bower_components/angular-ui-router/release/angular-ui-router.min.js",
     "google-maps": "https://maps.googleapis.com/maps/api/js?v=3.exp",
     "angular-bootstrap": "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
-    "angular-google-maps": "bower_components/angular-google-maps/dist/angular-google-maps.min.js",
     "angular-simple-logger": "bower_components/angular-simple-logger/dist/angular-simple-logger.min.js",
     "angular-easyfb": "bower_components/angular-easyfb/angular-easyfb.min.js",
     "angular-google-plus": "bower_components/angular-google-plus/dist/angular-google-plus.min.js",
@@ -133,5 +131,8 @@
     "jquery-jvectormap-world-mill-en": "bower_components/bower-jvectormap/jquery-jvectormap-world-mill-en.js",
     "lodash": "bower_components/lodash/lodash.min.js",
     "magnific-popup": "bower_components/magnific-popup/dist/jquery.magnific-popup.js"
+  },
+  "maps": {
+    "angular-resource": "bower_components/angular-resource/angular-resource.min.js.map"
   }
 }

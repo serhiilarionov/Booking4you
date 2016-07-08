@@ -32,7 +32,7 @@ angular.module('app.catalog').controller('CompaniesController', function (catego
           required: true
         },
         {
-          dataField: 'category_id',
+          dataField: 'categoryId',
           title: 'ID категории',
           editorType: 'selectBox',
           editorOptions: {
