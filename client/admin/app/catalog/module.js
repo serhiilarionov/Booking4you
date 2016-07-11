@@ -33,8 +33,8 @@ angular.module('app.catalog', ['ui.router'])
                   controller: 'CompaniesController as companies',
                   templateUrl: "app/catalog/views/companies.html",
                   resolve: {
-                      categories: function (Categories) {
-                          return Categories.list();
+                      categories: function (Category) {
+                          return Category.find();
                       }
                   }
               }

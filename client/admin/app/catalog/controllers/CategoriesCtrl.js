@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.catalog').controller('CategoriesController', function () {
+angular.module('app.catalog').controller('CategoriesController', function (Category) {
   var vm = this;
 
   //UI settings
@@ -8,7 +8,7 @@ angular.module('app.catalog').controller('CategoriesController', function () {
     categoriesTableSettings: {
       name: 'categoriesTable',
       title: 'Категории',
-      apiUrl: '/categories',
+      resource: Category,
       buttons: {
         add: true,
         refresh: true,

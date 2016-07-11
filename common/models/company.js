@@ -9,7 +9,7 @@ module.exports = function(Company) {
     Company.disableRemoteMethod("findById", false);
     Company.disableRemoteMethod("findOne", false);
 
-    Company.disableRemoteMethod("deleteById", true);
+    Company.disableRemoteMethod("deleteById", false);
 
     Company.disableRemoteMethod("confirm", true);
     Company.disableRemoteMethod("count", false);

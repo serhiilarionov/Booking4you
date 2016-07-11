@@ -1,5 +1,5 @@
 angular.module('customElements')
-  .directive('cTable', function ($compile, DTOptionsBuilder, DTColumnBuilder, BaseTableCrud) {
+  .directive('cTable', function ($compile, DTOptionsBuilder, DTColumnBuilder, BaseTableCrud, Category) {
     return {
       restrict: 'A',
       scope: true,
@@ -14,8 +14,11 @@ angular.module('customElements')
             });
             $scope.settings = settings;
             $scope.scope = $scope;
-            
-            var crud = new BaseTableCrud(settings.apiUrl);
+
+            var crud = null;
+            if (settings.apiUrl) {
+              crud = new BaseTableCrud(settings.apiUrl);
+            }
             $scope.table = {
               dataList: {},
               dataListArray: [],
@@ -63,21 +66,12 @@ angular.module('customElements')
              * Function will add new row to the table
              */
             $scope.addNewRow = function () {
-              if (settings.actions && settings.actions.add) {
-                settings.actions.add($scope.newData)
-                  .then(function () {
-                    $scope.tableInstance.changeData(_dataList);
-                    $scope.hideModal(settings.name + 'NewRowModal');
-                    $scope.newData = {active: false};
-                  })
-              } else {
-                crud.add($scope.newData)
-                  .then(function () {
-                    $scope.tableInstance.changeData(_dataList);
-                    $scope.hideModal(settings.name + 'NewRowModal');
-                    $scope.newData = {active: false};
-                  })
-              }
+              return _selectPromise($scope.newData, 'add', 'create')
+                .then(function () {
+                  $scope.tableInstance.changeData(_dataList);
+                  $scope.hideModal(settings.name + 'NewRowModal');
+                  $scope.newData = {active: false};
+                })
             };
 
             /**
@@ -90,21 +84,12 @@ angular.module('customElements')
                   newData[field] = data[field];
                 }
               }
-              if (_.keys(newData).length) {
-                if (settings.actions &&  settings.actions.edit) {
-                  settings.actions.edit(id, newData)
-                    .then(function () {
-                      $scope.tableInstance.changeData(_dataList);
-                      $scope.hideModal(settings.name + 'EditRowModal');
-                    })
-                } else {
-                  crud.edit(id, newData)
-                    .then(function () {
-                      $scope.tableInstance.changeData(_dataList);
-                      $scope.hideModal(settings.name + 'EditRowModal');
-                    })
-                }
-              }
+              newData.id =  data.id;
+              return _selectPromise(newData, 'edit', 'upsert')
+                .then(function () {
+                  $scope.tableInstance.changeData(_dataList);
+                  $scope.hideModal(settings.name + 'EditRowModal');
+                });
             };
 
             /**
@@ -112,19 +97,11 @@ angular.module('customElements')
              * @param id
              */
             $scope.removeRow = function (id) {
-              if (settings.actions &&  settings.actions.remove) {
-                settings.actions.remove(id)
-                  .then(function () {
-                    $scope.tableInstance.changeData(_dataList);
-                    $scope.hideModal(settings.name + 'RemoveRowModal');
-                  })
-              } else {
-                crud.remove(id)
-                  .then(function () {
-                    $scope.tableInstance.changeData(_dataList);
-                    $scope.hideModal(settings.name + 'RemoveRowModal');
-                  })
-              }
+              return _selectPromise({id: id}, 'remove', 'deleteById')
+                .then(function () {
+                  $scope.tableInstance.changeData(_dataList);
+                  $scope.hideModal(settings.name + 'RemoveRowModal');
+                });
             };
 
             /**
@@ -188,6 +165,13 @@ angular.module('customElements')
              * @private
              */
             function _dataList() {
+              if (settings.resource) {
+                return settings.resource.find()
+                  .$promise
+                  .then(function (res) {
+                    return res;
+                  });
+              }
               if (settings.dataSource) {
                 return settings.dataSource()
                   .then(function (res) {
@@ -200,6 +184,25 @@ angular.module('customElements')
                     $scope.table.dataListArray = res;
                     return res;
                   })
+              }
+            }
+
+            /**
+             * Function return action promise
+             * @param data Data for action
+             * @param actionName action name
+             * @param resourceActionName resource action name
+             * @returns {*}
+             * @private
+             */
+            function _selectPromise(data, actionName, resourceActionName) {
+              if (settings.resource) {
+                return settings.resource[resourceActionName || actionName](data).$promise;
+              }
+              if (settings.actions && settings.actions.add) {
+                return settings.actions[actionName](data);
+              } else {
+                return crud[actionName](data);
               }
             }
 

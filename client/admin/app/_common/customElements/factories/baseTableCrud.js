@@ -58,8 +58,8 @@ angular.module('customElements')
        * @param newData Data for update row data
        * @returns {*}
        */
-      function edit(id, newData) {
-        return $http.put(_apiUrl + '/' + encodeURI(id), newData)
+      function edit(newData) {
+        return $http.put(_apiUrl + '/' + encodeURI(newData.id), newData)
           .then(function (res) {
             return res.data;
           })
@@ -74,7 +74,7 @@ angular.module('customElements')
        * @returns {*}
        */
       function remove(id) {
-        return $http.delete(_apiUrl + '/' + encodeURI(id))
+        return $http.delete(_apiUrl + '/' + encodeURI(id.id))
           .then(function (res) {
             return res.data;
           })

@@ -2546,6 +2546,39 @@ module.factory(
 
         /**
          * @ngdoc method
+         * @name lbServices.Company#deleteById
+         * @methodOf lbServices.Company
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Company` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/companies/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
          * @name lbServices.Company#count
          * @methodOf lbServices.Company
          *
@@ -2705,6 +2738,66 @@ module.factory(
          */
         R["update"] = R["updateAll"];
 
+        /**
+         * @ngdoc method
+         * @name lbServices.Company#destroyById
+         * @methodOf lbServices.Company
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Company` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Company#removeById
+         * @methodOf lbServices.Company
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Company` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
 
     /**
     * @ngdoc property
@@ -2741,7 +2834,7 @@ module.factory(
   "Country",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/counties/:id",
+      urlBase + "/countries/:id",
       { 'id': '@id' },
       {
 
@@ -2750,7 +2843,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/counties/:id/regions/:fk",
+          url: urlBase + "/countries/:id/regions/:fk",
           method: "GET"
         },
 
@@ -2759,7 +2852,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/counties/:id/regions/:fk",
+          url: urlBase + "/countries/:id/regions/:fk",
           method: "DELETE"
         },
 
@@ -2768,32 +2861,32 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/counties/:id/regions/:fk",
+          url: urlBase + "/countries/:id/regions/:fk",
           method: "PUT"
         },
 
         // INTERNAL. Use Country.regions() instead.
         "prototype$__get__regions": {
           isArray: true,
-          url: urlBase + "/counties/:id/regions",
+          url: urlBase + "/countries/:id/regions",
           method: "GET"
         },
 
         // INTERNAL. Use Country.regions.create() instead.
         "prototype$__create__regions": {
-          url: urlBase + "/counties/:id/regions",
+          url: urlBase + "/countries/:id/regions",
           method: "POST"
         },
 
         // INTERNAL. Use Country.regions.destroyAll() instead.
         "prototype$__delete__regions": {
-          url: urlBase + "/counties/:id/regions",
+          url: urlBase + "/countries/:id/regions",
           method: "DELETE"
         },
 
         // INTERNAL. Use Country.regions.count() instead.
         "prototype$__count__regions": {
-          url: urlBase + "/counties/:id/regions/count",
+          url: urlBase + "/countries/:id/regions/count",
           method: "GET"
         },
 
@@ -2831,7 +2924,7 @@ module.factory(
          * </em>
          */
         "create": {
-          url: urlBase + "/counties",
+          url: urlBase + "/countries",
           method: "POST"
         },
 
@@ -2870,7 +2963,7 @@ module.factory(
          */
         "createMany": {
           isArray: true,
-          url: urlBase + "/counties",
+          url: urlBase + "/countries",
           method: "POST"
         },
 
@@ -2908,7 +3001,7 @@ module.factory(
          * </em>
          */
         "upsert": {
-          url: urlBase + "/counties",
+          url: urlBase + "/countries",
           method: "PUT"
         },
 
@@ -2940,7 +3033,7 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/counties/:id/exists",
+          url: urlBase + "/countries/:id/exists",
           method: "GET"
         },
 
@@ -2975,7 +3068,7 @@ module.factory(
          * </em>
          */
         "findById": {
-          url: urlBase + "/counties/:id",
+          url: urlBase + "/countries/:id",
           method: "GET"
         },
 
@@ -3009,7 +3102,7 @@ module.factory(
          */
         "find": {
           isArray: true,
-          url: urlBase + "/counties",
+          url: urlBase + "/countries",
           method: "GET"
         },
 
@@ -3042,7 +3135,7 @@ module.factory(
          * </em>
          */
         "findOne": {
-          url: urlBase + "/counties/findOne",
+          url: urlBase + "/countries/findOne",
           method: "GET"
         },
 
@@ -3076,7 +3169,7 @@ module.factory(
          * The number of instances updated
          */
         "updateAll": {
-          url: urlBase + "/counties/update",
+          url: urlBase + "/countries/update",
           method: "POST"
         },
 
@@ -3109,7 +3202,7 @@ module.factory(
          * </em>
          */
         "deleteById": {
-          url: urlBase + "/counties/:id",
+          url: urlBase + "/countries/:id",
           method: "DELETE"
         },
 
@@ -3141,7 +3234,7 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/counties/count",
+          url: urlBase + "/countries/count",
           method: "GET"
         },
       }
@@ -4021,7 +4114,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/counties/:id/regions/:fk",
+          url: urlBase + "/countries/:id/regions/:fk",
           method: "GET"
         },
 
@@ -4030,7 +4123,7 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/counties/:id/regions/:fk",
+          url: urlBase + "/countries/:id/regions/:fk",
           method: "DELETE"
         },
 
@@ -4039,39 +4132,39 @@ module.factory(
           params: {
           'fk': '@fk'
           },
-          url: urlBase + "/counties/:id/regions/:fk",
+          url: urlBase + "/countries/:id/regions/:fk",
           method: "PUT"
         },
 
         // INTERNAL. Use Country.regions() instead.
         "::get::Country::regions": {
           isArray: true,
-          url: urlBase + "/counties/:id/regions",
+          url: urlBase + "/countries/:id/regions",
           method: "GET"
         },
 
         // INTERNAL. Use Country.regions.create() instead.
         "::create::Country::regions": {
-          url: urlBase + "/counties/:id/regions",
+          url: urlBase + "/countries/:id/regions",
           method: "POST"
         },
 
         // INTERNAL. Use Country.regions.createMany() instead.
         "::createMany::Country::regions": {
           isArray: true,
-          url: urlBase + "/counties/:id/regions",
+          url: urlBase + "/countries/:id/regions",
           method: "POST"
         },
 
         // INTERNAL. Use Country.regions.destroyAll() instead.
         "::delete::Country::regions": {
-          url: urlBase + "/counties/:id/regions",
+          url: urlBase + "/countries/:id/regions",
           method: "DELETE"
         },
 
         // INTERNAL. Use Country.regions.count() instead.
         "::count::Country::regions": {
-          url: urlBase + "/counties/:id/regions/count",
+          url: urlBase + "/countries/:id/regions/count",
           method: "GET"
         },
       }
