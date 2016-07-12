@@ -10,11 +10,11 @@ module.exports = {
           dataSource.models.User.create([
             {
               "email": "test@test.test",
-              'password': "test"
+              "password": "test"
             },
             {
-              'email': 'admin@admin.com',
-              'password': "admin"
+              "email": "admin@admin.com",
+              "password": "admin"
             }
           ], next);
         })

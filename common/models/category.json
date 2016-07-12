@@ -49,6 +49,11 @@
       "type": "hasMany",
       "model": "Company",
       "foreignKey": "categoryId"
+    },
+    "services": {
+      "type": "hasMany",
+      "model": "CompanyService",
+      "foreignKey": "categoryId"
     }
   },
   "acls": [

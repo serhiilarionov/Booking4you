@@ -56,12 +56,17 @@
     "details": {
       "type": "hasOne",
       "model": "CompanyDetail",
-      "foreignKey": "company_id"
+      "foreignKey": "companyId"
     },
     "location": {
       "type": "hasOne",
       "model": "CompanyLocation",
-      "foreignKey": "company_id"
+      "foreignKey": "companyId"
+    },
+    "service": {
+      "type": "hasOne",
+      "model": "CompanyService",
+      "foreignKey": "companyId"
     }
   },
   "acls": [

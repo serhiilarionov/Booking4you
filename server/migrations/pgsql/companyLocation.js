@@ -9,7 +9,7 @@ module.exports = {
           'point': "33.421607, 47.936635",
           'buildingId': 1,
           'streetId': 1,
-          'district_id': 5,
+          'districtId': 5,
           'cityId': 1,
           'room': '',
           'detail': ''
@@ -19,7 +19,7 @@ module.exports = {
           'point': "33.377237, 47.888798",
           'buildingId': 2,
           'streetId': 2,
-          'district_id': 1,
+          'districtId': 1,
           'cityId': 1,
           'room': '',
           'detail': 'район Песочной'
@@ -29,7 +29,7 @@ module.exports = {
           'point': "33.437559, 47.995350",
           'buildingId': 3,
           'streetId': 3,
-          'district_id': 3,
+          'districtId': 3,
           'cityId': 1,
           'room': '',
           'detail': ''
@@ -39,7 +39,7 @@ module.exports = {
           'point': "33.286898, 47.885698",
           'buildingId': 4,
           'streetId': 4,
-          'district_id': 7,
+          'districtId': 7,
           'cityId': 1,
           'room': '',
           'detail': ''
@@ -49,7 +49,7 @@ module.exports = {
           'point': "33.321911, 47.907665",
           'buildingId': 5,
           'streetId': 5,
-          'district_id': 7,
+          'districtId': 7,
           'cityId': 1,
           'room': '',
           'detail': ''
@@ -59,7 +59,7 @@ module.exports = {
           'point': "33.312606, 47.907304",
           'buildingId': 6,
           'streetId': 5,
-          'district_id': 7,
+          'districtId': 7,
           'cityId': 1,
           'room': '',
           'detail': ''
@@ -69,7 +69,7 @@ module.exports = {
           'point': "33.426990, 47.970498",
           'buildingId': 7,
           'streetId': 6,
-          'district_id': 5,
+          'districtId': 5,
           'cityId': 1,
           'room': '',
           'detail': ''
@@ -79,7 +79,7 @@ module.exports = {
           'point': "35.046775, 48.432023",
           'buildingId': 8,
           'streetId': 7,
-          'district_id': 10,
+          'districtId': 10,
           'cityId': 2,
           'room': '',
           'detail': ''
@@ -89,7 +89,7 @@ module.exports = {
           'point': "34.805495, 48.430485",
           'buildingId': 9,
           'streetId': 8,
-          'district_id': 12,
+          'districtId': 12,
           'cityId': 2,
           'room': '',
           'detail': ''
@@ -99,7 +99,7 @@ module.exports = {
           'point': "35.122061, 48.494692",
           'buildingId': 10,
           'streetId': 9,
-          'district_id': 15,
+          'districtId': 15,
           'cityId': 2,
           'room': '',
           'detail': ''
@@ -109,7 +109,7 @@ module.exports = {
           'point': "35.016339, 48.459405",
           'buildingId': 11,
           'streetId': 10,
-          'district_id': 12,
+          'districtId': 12,
           'cityId': 2,
           'room': '',
           'detail': ''
@@ -119,7 +119,7 @@ module.exports = {
           'point': "35.074855, 48.450705",
           'buildingId': 12,
           'streetId': 11,
-          'district_id': 10,
+          'districtId': 10,
           'cityId': 2,
           'room': '',
           'detail': ''
@@ -129,7 +129,7 @@ module.exports = {
           'point': "35.027667, 48.478605",
           'buildingId': 13,
           'streetId': 12,
-          'district_id': 12,
+          'districtId': 12,
           'cityId': 2,
           'room': '',
           'detail': ''
@@ -139,7 +139,7 @@ module.exports = {
           'point': "30.548981, 50.344374",
           'buildingId': 14,
           'streetId': 13,
-          'district_id': 16,
+          'districtId': 16,
           'cityId': 3,
           'room': '',
           'detail': ''
@@ -149,7 +149,7 @@ module.exports = {
           'point': "30.336987, 50.49294",
           'buildingId': 15,
           'streetId': 14,
-          'district_id': 23,
+          'districtId': 23,
           'cityId': 3,
           'room': '',
           'detail': ''
@@ -159,7 +159,7 @@ module.exports = {
           'point': "30.49466, 50.476915",
           'buildingId': 16,
           'streetId': 15,
-          'district_id': 22,
+          'districtId': 22,
           'cityId': 3,
           'room': '',
           'detail': ''
@@ -169,7 +169,7 @@ module.exports = {
           'point': "30.508665, 50.528409",
           'buildingId': 17,
           'streetId': 16,
-          'district_id': 20,
+          'districtId': 20,
           'cityId': 3,
           'room': '',
           'detail': ''
@@ -179,7 +179,7 @@ module.exports = {
           'point': "30.587725, 50.477161",
           'buildingId': 18,
           'streetId': 17,
-          'district_id': 19,
+          'districtId': 19,
           'cityId': 3,
           'room': '',
           'detail': ''

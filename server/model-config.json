@@ -40,6 +40,10 @@
     "dataSource": "pgsql",
     "public": true
   },
+  "CompanyService": {
+    "dataSource": "pgsql",
+    "public": false
+  },
   "CompanyDetail": {
     "dataSource": "pgsql",
     "public": false

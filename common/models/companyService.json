@@ -1,0 +1,66 @@
+{
+  "name": "CompanyService",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "id",
+    "companyId",
+    "categoryId"
+  ],
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true
+    },
+    "name": {
+      "type": "String",
+      "required": true
+    },
+    "desc": {
+      "type": "String"
+    },
+    "price": {
+      "type": "Number",
+      "dataType": "decimal",
+      "precision": 10,
+      "scale": 2
+    },
+    "salePrice": {
+      "type": "Number",
+      "dataType": "decimal",
+      "precision": 10,
+      "scale": 2
+    },
+    "currency": {
+      "type": "String"
+    },
+    "position": {
+      "type": "Number",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "required": true
+    },
+    "deletedAt": {
+      "type": "date",
+      "required": false,
+      "default": "$now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
