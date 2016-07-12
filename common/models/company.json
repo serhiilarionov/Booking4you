@@ -32,6 +32,9 @@
     "desc": {
       "type": "string"
     },
+    "photo": {
+      "type": "string"
+    },
     "active": {
       "type": "boolean",
       "required": true,
