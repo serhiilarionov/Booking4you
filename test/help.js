@@ -1,14 +1,15 @@
-var testData = require('./testData');
+var testData = require('./testDataCreator');
 var Promise = require('bluebird');
+var superagent = require('superagent');
 
 var loopback = require('../server/server.js');
 var db = loopback.dataSources.pgsql.models;
 
 /**
- * function for create test building
+ * Function will create test building
  * @param done
  */
-function createBuilding(done) {
+function createBuilding() {
   var data = {};
   return db.Country.create(testData.country())
     .then(function (country) {
@@ -42,10 +43,10 @@ function createBuilding(done) {
 }
 
 /**
- * function for create test company
+ * Function will create test company
  * @param done
  */
-function createCompany(done) {
+function createCompany() {
   var data = {};
   return db.Category.create(testData.category())
     .then(function (category) {
@@ -102,11 +103,48 @@ function destroyAddMeta(array, modelName, id, hash) {
   return array.push({modelName: modelName, id: id, hash: hash});
 }
 
+function login() {
+  return db.User.create(testData.user)
+    .then(function () {
+      return new Promise(function(resolve, reject) {
+        superagent
+          .post(testData.apiUrl + '/Users/login')
+          .send(testData.user)
+          .set('Accept', 'application/json')
+          .set('Content-Type', 'application/json')
+          .end(function (err, res) {
+            if (err) {
+              reject(err);
+            }
+            testData.user.id = res.body.userId;
+            testData.user.accessToken = res.body.id;
+            resolve(testData.user);
+          })
+      })
+    })
+}
+
+function logout(accessToken) {
+  return new Promise(function(resolve, reject) {
+    superagent
+      .post(testData.apiUrl + '/Users/logout?access_token=' + accessToken)
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .end(function (err, res) {
+        if (err) {
+          return reject(err);
+        }
+        resolve()
+      })
+  })
+}
 
 module.exports = {
   createBuilding: createBuilding,
   createCompany: createCompany,
   destroyModel: destroyModel,
   destroyModelsTest: destroyModelsTest,
-  destroyAddMeta: destroyAddMeta
+  destroyAddMeta: destroyAddMeta,
+  login: login,
+  logout: logout
 };

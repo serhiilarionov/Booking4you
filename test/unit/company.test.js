@@ -6,14 +6,14 @@ var _ = require('lodash');
 var should = require('chai').should();
 var help = require('../help');
 
-var loopback = require('../../server/server.js');
+var loopback = require('../../server/server');
 var db = loopback.dataSources.pgsql.models;
 var testData;
 
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('Company', function () {
+describe('Company model', function () {
   before(function (done) {
     help.createCompany()
       .then(function(data) {
@@ -36,7 +36,7 @@ describe('Company', function () {
         companies.should.be.an('array');
         var company = _.first(companies).__data;
         should.exist(company);
-        company.should.have.keys('id', 'name', 'title', 'categoryId', 'desc', 'active',
+        company.should.have.keys('id', 'name', 'title', 'categoryId', 'desc', 'active', 'photo',
           'createdAt', 'updatedAt', 'deletedAt');
         company.id.should.be.a('number');
         company.name.should.be.a('string');
@@ -44,6 +44,7 @@ describe('Company', function () {
         company.categoryId.should.be.a('number');
         company.desc.should.be.a('string');
         company.active.should.be.a('boolean');
+        // company.photo.should.be.a('string');
         done();
       })
       .catch(done);

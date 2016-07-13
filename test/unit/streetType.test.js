@@ -6,14 +6,14 @@ var _ = require('lodash');
 var should = require('chai').should();
 var help = require('../help');
 
-var loopback = require('../../server/server.js');
+var loopback = require('../../server/server');
 var db = loopback.dataSources.pgsql.models;
 var testData;
 
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('StreetType', function () {
+describe('StreetType model', function () {
   before(function (done) {
     help.createBuilding()
       .then(function(data) {

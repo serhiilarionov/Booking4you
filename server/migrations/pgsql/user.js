@@ -9,8 +9,8 @@ module.exports = {
 
           dataSource.models.User.create([
             {
-              "email": "test@test.test",
-              "password": "test"
+              "email": "user@user.user",
+              "password": "user"
             },
             {
               "email": "admin@admin.com",

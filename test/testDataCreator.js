@@ -2,14 +2,15 @@ var Chance = require('chance');
 var chance = new Chance();
 
 module.exports = {
-  country: function() {
+  apiUrl: "http://localhost:3000/api",
+  country: function () {
     return {
       'name': chance.country({full: true}),
       'code': chance.country(),
       'active': chance.bool()
     }
   },
-  region: function(countryId) {
+  region: function (countryId) {
     return {
       'slug': chance.string(),
       'name': chance.sentence({words: 2}),
@@ -18,7 +19,7 @@ module.exports = {
       'countryId': countryId
     }
   },
-  city: function(regionId){
+  city: function (regionId) {
     return {
       'name': chance.string(),
       'slug': chance.string(),
@@ -27,19 +28,19 @@ module.exports = {
       'regionId': regionId
     }
   },
-  district: function(cityId) {
+  district: function (cityId) {
     return {
       'name': chance.sentence({words: 2}),
       'point': chance.coordinates(),
       'cityId': cityId
     }
   },
-  streetType: function() {
+  streetType: function () {
     return {
       'name': chance.string()
     }
   },
-  street: function(cityId, districtId, streetTypeId) {
+  street: function (cityId, districtId, streetTypeId) {
     return {
       'name': chance.string(),
       'cityId': cityId,
@@ -47,14 +48,14 @@ module.exports = {
       'streetTypeId': streetTypeId
     }
   },
-  building: function(streetId) {
+  building: function (streetId) {
     return {
       'number': chance.string(),
       'point': chance.coordinates(),
       'streetId': streetId
     }
   },
-  category: function() {
+  category: function () {
     return {
       'name': chance.string(),
       'slug': chance.string(),
@@ -64,13 +65,21 @@ module.exports = {
       'active': chance.bool()
     }
   },
-  company: function(categoryId) {
+  company: function (categoryId) {
     return {
       'name': chance.string(),
       'title': chance.sentence({words: 2}),
       'desc': chance.sentence({words: 10}),
+      'photo': chance.string(),
       'active': chance.bool(),
       'categoryId': categoryId
     }
+  },
+  updatedName: function () {
+    return chance.string()
+  },
+  user: {
+    "email": chance.email(),
+    "password": chance.string()
   }
 };
