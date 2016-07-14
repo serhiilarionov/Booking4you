@@ -53,8 +53,8 @@
     },
     "service": {
       "type": "hasOne",
-      "model": "Service",
-      "foreignKey": "serviceId"
+      "model": "CompanyService",
+      "foreignKey": "companyServiceId"
     }
   },
   "acls": [
