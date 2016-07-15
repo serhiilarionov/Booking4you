@@ -41,8 +41,8 @@ angular.module('app.locations')
             },
             {
               dataField: 'point',
-              title: 'Point',
-              required: true
+              title: 'Point', 
+              editorType: 'points'
             }
           ]
         }

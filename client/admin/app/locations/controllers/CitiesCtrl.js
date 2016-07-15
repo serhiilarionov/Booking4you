@@ -8,8 +8,7 @@ angular.module('app.locations')
       vm.UI = {
         citiesTableSettings: {
           name: 'citiesTable',
-          title: 'Страны',
-          apiUrl: '/cities',
+          title: 'Города',
           resource: City,
           buttons: {
             add: true,
@@ -48,13 +47,11 @@ angular.module('app.locations')
             {
               dataField: 'point',
               title: 'Адресс',
-              required: true,
               editorType: 'points'
             },
             {
               dataField: 'bound',
               title: 'Bound',
-              required: true,
               editorType: 'points'
             },
             {
