@@ -1,6 +1,7 @@
 {
   "name": "smartadmin-angular-version",
   "version": "1.8.2",
+  "directory": "bower_components",
   "dependencies": {
     "angular": "~1.4.9",
     "angular-animate": "~1.4.9",

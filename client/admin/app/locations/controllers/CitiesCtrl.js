@@ -2,14 +2,15 @@
 
 angular.module('app.locations')
   .controller('CitiesController',
-    function (regions) {
+    function (regions, City) {
       var vm = this;
-
+      
       vm.UI = {
         citiesTableSettings: {
           name: 'citiesTable',
           title: 'Страны',
           apiUrl: '/cities',
+          resource: City,
           buttons: {
             add: true,
             refresh: true,
@@ -46,13 +47,15 @@ angular.module('app.locations')
             },
             {
               dataField: 'point',
-              title: 'Point',
-              required: true
+              title: 'Адресс',
+              required: true,
+              editorType: 'points'
             },
             {
               dataField: 'bound',
               title: 'Bound',
-              required: true
+              required: true,
+              editorType: 'points'
             },
             {
               dataField: 'active',

@@ -15,3 +15,64 @@
 #c-table  .action-buttons {
     min-width: 80px;
 }
+
+.c-modal .modal-header {
+    background: #3a3737;
+    color: #fff;
+}
+.c-modal .alert-warning {
+    margin-bottom: 0;
+}
+.c-modal .map {
+    height: 400px;
+    border: 1px solid #bdbdbd;
+    border-top: none;
+    margin-bottom: 15px;
+}
+
+.c-modal .map-hide {
+    width: 40px;
+    height: 10px;
+    background-color: #3a3737;
+    position: absolute;
+    left: calc(100% - 55px);
+    bottom: 5px;
+    cursor: pointer;
+}
+.c-modal .map-hide:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    border: 20px solid transparent;
+    border-bottom: 20px solid #6b6d6b;
+}
+
+.c-modal .map-show {
+    height: 10px;
+    background-color: #3a3737;
+    position: absolute;
+    left: calc(100% - 45px);
+    bottom: 5px;
+    cursor: pointer;
+}
+.c-modal .map-show:before {
+    content: '';
+    position: absolute;
+    bottom: -17px;
+    z-index: 0;
+    border-bottom: 7px solid transparent;
+    border-top: 5px solid #6b6d6b;
+    border-left: 15px solid #6b6d6b;
+    border-right: 15px solid #6b6d6b;
+}
+
+.c-modal .icon-append, .c-modal .icon-prepend {
+    bottom: 5px;
+    top: initial;
+}
+
+.c-points .icon-append {
+    cursor: pointer;
+}
+
+.angular-google-map-container { height: 400px; }

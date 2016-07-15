@@ -18,9 +18,11 @@ angular.module('app', [
     'datatables', 
     'customElements',
     'lbServices',
+    'uiGmapgoogle-maps',
 
     // Smartadmin Angular Common Module
-    'SmartAdmin',
+    'SmartAdmin', 
+    'SmartAdmin.Layout',
 
     // App
     'app.layout',
@@ -28,9 +30,14 @@ angular.module('app', [
     'app.home',
     'app.locations'
 ])
-.config(function ($provide, $httpProvider, RestangularProvider) {
+.config(function ($provide, $httpProvider, RestangularProvider, uiGmapGoogleMapApiProvider) {
 
-
+    uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyBRMg-e1qUCEoSeD8A-NLSQZ3_QKjFJjEU',
+        v: '3.20', //defaults to latest 3.X anyhow
+        libraries: 'weather,geometry,visualization'
+    });
+    
     // Intercept http calls.
     $provide.factory('ErrorHttpInterceptor', function ($q) {
         var errorCounter = 0;
@@ -71,6 +78,20 @@ angular.module('app', [
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 
+})
+  
+.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
 });
 
 
