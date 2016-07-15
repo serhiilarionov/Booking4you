@@ -10,7 +10,10 @@
     "id",
     "companyId",
     "userId",
-    "serviceId"
+    "companyServiceId",
+    "createdAt",
+    "updatedAt",
+    "deletedAt"
   ],
   "properties": {
     "id": {
@@ -36,23 +39,31 @@
     },
     "status": {
       "type": "number"
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "updatedAt": {
+      "type": "date"
+    },
+    "deletedAt": {
+      "type": "date"
     }
   },
-  "indexes": {},
   "validations": [],
   "relations": {
     "user": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "User",
       "foreignKey": "userId"
     },
     "company": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "Company",
       "foreignKey": "companyId"
     },
     "service": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "CompanyService",
       "foreignKey": "companyServiceId"
     }
