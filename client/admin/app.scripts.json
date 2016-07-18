@@ -23,8 +23,12 @@
       "datatables",
       "angular-datatables",
       "angular-datatables.bootstrap",
-      "angular-google-maps"
-
+      "angular-google-maps",
+      "datatables",
+      "datatables-bootstrap",
+      "datatables-tools",
+      "datatables-colvis",
+      "datatables-responsive"
     ],
     "vendor.ui": [
       "select2",
@@ -51,21 +55,6 @@
       "jquery-nestable",
       "jquery-color",
       "jcrop"
-    ],
-    "vendor.datatables": [
-      "datatables",
-      "datatables-bootstrap",
-      "datatables-tools",
-      "datatables-colvis",
-      "datatables-responsive"
-
-    ],
-    "vendor.graphs": [
-      "morris",
-      "dygraphs",
-      "chartjs",
-      "highcharts",
-      "highchartTable"
     ]
   },
   "paths": {

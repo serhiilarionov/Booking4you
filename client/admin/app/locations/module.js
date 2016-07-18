@@ -12,7 +12,7 @@ angular.module('app.locations', ['ui.router'])
         }
       })
       .state('app.locations.countries', {
-        url: '/locations/countries',
+        url: '/locations/countries?{filter}',
         data: {
           title: 'Countries'
         },
@@ -24,7 +24,7 @@ angular.module('app.locations', ['ui.router'])
         }
       })
       .state('app.locations.regions', {
-        url: '/locations/regions',
+        url: '/locations/regions?{filter}',
         data: {
           title: 'Regions'
         },
@@ -41,7 +41,7 @@ angular.module('app.locations', ['ui.router'])
         }
       })
       .state('app.locations.cities', {
-        url: '/locations/cities',
+        url: '/locations/cities?{filter}',
         data: {
           title: 'Cities'
         },
@@ -58,7 +58,7 @@ angular.module('app.locations', ['ui.router'])
         }
       })
       .state('app.locations.districts', {
-        url: '/locations/districts',
+        url: '/locations/districts?{filter}',
         data: {
           title: 'Districts'
         },
@@ -75,7 +75,7 @@ angular.module('app.locations', ['ui.router'])
         }
       })
       .state('app.locations.streets', {
-        url: '/locations/streets',
+        url: '/locations/streets?{filter}',
         data: {
           title: 'Streets'
         },
@@ -95,7 +95,7 @@ angular.module('app.locations', ['ui.router'])
         }
       })
       .state('app.locations.buildings', {
-        url: '/locations/buildings',
+        url: '/locations/buildings?{filter}',
         data: {
           title: 'Buildings'
         },

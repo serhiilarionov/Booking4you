@@ -1,5 +1,5 @@
 angular.module('customElements')
-  .directive('cTable', function ($compile, $rootScope, $http, $timeout,
+  .directive('cTable', function ($compile, $rootScope, $http, $timeout, $state, $stateParams,
                                  uiGmapGoogleMapApi, DTOptionsBuilder, DTColumnBuilder,
                                  BaseTableCrud) {
     return {
@@ -150,6 +150,7 @@ angular.module('customElements')
             $scope.tableOptions = DTOptionsBuilder
               .fromFnPromise(_dataList)
               .withOption('createdRow', _createdRow)
+              .withOption('rowCallback', _onRowClick)
               .withDOM("<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>t" +
                 "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>");
 
@@ -176,9 +177,7 @@ angular.module('customElements')
                   } else {
                     return data;
                   }
-                  }))
-
-
+                }));
             });
 
             /**
@@ -267,6 +266,17 @@ angular.module('customElements')
               $compile(angular.element(row).contents())($scope);
             }
 
+            function _onRowClick(nRow, aData) {
+              if (settings.onRowClick) {
+                $('td', nRow).unbind('click');
+                $('.action-buttons').unbind('click');
+                $('td', nRow).bind('click', function() {
+                  settings.onRowClick(nRow, aData);
+                }); 
+              }
+              return nRow;
+            }
+
             /**
              * Functions generating buttons for edit and delete row
              * @param data Data of the row
@@ -292,7 +302,7 @@ angular.module('customElements')
              * @private
              */
             function _dataList() {
-              return _selectPromise({}, 'list', 'find')
+              return _selectPromise({filter: $stateParams.filter}, 'list', 'find')
                 .then(function (res) {
                   $scope.table.dataListArray = res;
                   return res;

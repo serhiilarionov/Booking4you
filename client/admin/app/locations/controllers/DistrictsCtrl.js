@@ -2,7 +2,7 @@
 
 angular.module('app.locations')
   .controller('DistrictsController',
-    function (cities, District) {
+    function ($state, cities, District) {
       var vm = this;
 
       vm.UI = {
@@ -48,7 +48,15 @@ angular.module('app.locations')
               title: 'Bound',
               editorType: 'points'
             }
-          ]
+          ],
+          onRowClick: function (nRow, aData) {
+            $state.go('app.locations.streets', {
+              filter: angular.toJson({
+                where: {
+                  districtId: aData.id
+                }})
+            });
+          }
         }
       };
 

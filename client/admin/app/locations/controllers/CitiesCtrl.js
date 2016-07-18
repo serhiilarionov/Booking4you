@@ -2,7 +2,7 @@
 
 angular.module('app.locations')
   .controller('CitiesController',
-    function (regions, City) {
+    function ($state, regions, City) {
       var vm = this;
       
       vm.UI = {
@@ -59,7 +59,15 @@ angular.module('app.locations')
               title: 'Активно',
               editorType: 'checkbox'
             }
-          ]
+          ],
+          onRowClick: function (nRow, aData) {
+            $state.go('app.locations.districts', {
+              filter: angular.toJson({
+                where: {
+                  cityId: aData.id
+                }})
+            });
+          }
         }
       };
 
