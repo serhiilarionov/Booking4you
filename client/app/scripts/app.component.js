@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var header_component_1 = require('./parts/header/header.component');
+var footer_component_1 = require("./parts/footer/footer.component");
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -17,7 +18,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'scripts/app.component.html',
-            directives: [header_component_1.HeaderComponent]
+            directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent],
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
