@@ -274,7 +274,10 @@ angular.module('customElements')
              * @private
              */
             function _createdRow(row) {
-              $compile(angular.element(row).contents())($scope);
+              return $timeout(function() {
+                $('.action-buttons').unbind('click');
+                return $compile(angular.element(row).contents())($scope);
+              });
             }
 
             /**
@@ -287,10 +290,9 @@ angular.module('customElements')
             function _onRowClick(nRow, aData) {
               if (settings.onRowClick) {
                 $('td', nRow).unbind('click');
-                $('.action-buttons').unbind('click');
                 $('td', nRow).bind('click', function() {
                   settings.onRowClick(nRow, aData);
-                }); 
+                });
               }
               return nRow;
             }
