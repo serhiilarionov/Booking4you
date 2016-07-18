@@ -187,6 +187,10 @@ angular.module('customElements')
               $scope.tableInstance.changeData(_dataList);
             };
 
+            $scope.goToBack = function () {
+              $stateParams.previousState && $state.go($stateParams.previousState);
+            };
+
             /**
              * Function will add new row to the table
              */
@@ -197,6 +201,13 @@ angular.module('customElements')
                   $scope.hideModal(settings.name + 'NewRowModal');
                   $scope.table.newData = {active: false};
                 })
+            };
+
+            /**
+             * The function resets the filter table
+             */
+            $scope.resetTableFilter = function () {
+              $state.transitionTo($state.current, {}, { reload: true, inherit: false, notify: true });
             };
 
             /**
@@ -266,6 +277,13 @@ angular.module('customElements')
               $compile(angular.element(row).contents())($scope);
             }
 
+            /**
+             * Function added function on table row click
+             * @param nRow
+             * @param aData
+             * @returns {*}
+             * @private
+             */
             function _onRowClick(nRow, aData) {
               if (settings.onRowClick) {
                 $('td', nRow).unbind('click');

@@ -28,6 +28,9 @@ angular.module('app.locations', ['ui.router'])
         data: {
           title: 'Regions'
         },
+        params : {
+          previousState: null
+        },
         views: {
           "content@app": {
             controller: 'RegionsController as regions',
@@ -44,6 +47,9 @@ angular.module('app.locations', ['ui.router'])
         url: '/locations/cities?{filter}',
         data: {
           title: 'Cities'
+        },
+        params : {
+          previousState: null
         },
         views: {
           "content@app": {
@@ -62,6 +68,9 @@ angular.module('app.locations', ['ui.router'])
         data: {
           title: 'Districts'
         },
+        params : {
+          previousState: null
+        },
         views: {
           "content@app": {
             controller: 'DistrictsController as districts',
@@ -78,6 +87,9 @@ angular.module('app.locations', ['ui.router'])
         url: '/locations/streets?{filter}',
         data: {
           title: 'Streets'
+        },
+        params : {
+          previousState: null
         },
         views: {
           "content@app": {
@@ -98,6 +110,9 @@ angular.module('app.locations', ['ui.router'])
         url: '/locations/buildings?{filter}',
         data: {
           title: 'Buildings'
+        },
+        params : {
+          previousState: null
         },
         views: {
           "content@app": {

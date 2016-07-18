@@ -54,7 +54,8 @@ angular.module('app.locations')
               filter: angular.toJson({
                 where: {
                   countryId: aData.id
-                }})
+                }}),
+              previousState: 'app.locations.countries'
             })
           }
         }

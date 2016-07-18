@@ -10,6 +10,9 @@
         <div class="widget-body no-padding">
           <p class="control-buttons">
             <!-- Table control buttons -->
+            <button type="button" class="btn btn-info" ng-click="goToBack()">
+              <i class="fa fa-chevron-left"></i>
+            </button>
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{settings.name}}NewRowModal"
                     ng-if="settings.buttons.add" ng-click="inputMaps = {}">
               <i class="fa fa-plus"></i>&nbsp;Добавить
@@ -17,6 +20,9 @@
             <button ng-click="reloadTableData()" type="button" class="btn btn-info"
                     ng-if="settings.buttons.refresh">
               <i class="fa fa-refresh"></i>&nbsp;Обновить данные
+            </button>
+            <button ng-click="resetTableFilter()" type="button" class="btn btn-info">
+              <i class="fa fa-retweet"></i>&nbsp;Сбросить фильтр
             </button>
             <!--End Table control buttons -->
             <!-- Table -->

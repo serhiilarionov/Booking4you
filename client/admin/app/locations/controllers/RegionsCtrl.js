@@ -64,7 +64,8 @@ angular.module('app.locations')
               filter: angular.toJson({
                 where: {
                   regionId: aData.id
-                }})
+                }}),
+              previousState: 'app.locations.regions'
             });
           }
         }

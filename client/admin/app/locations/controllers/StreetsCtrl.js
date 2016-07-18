@@ -66,7 +66,8 @@ angular.module('app.locations')
               filter: angular.toJson({
                 where: {
                   streetId: aData.id
-                }})
+                }}),
+              previousState: 'app.locations.streets'
             });
           }
         }
