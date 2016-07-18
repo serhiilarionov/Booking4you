@@ -2,14 +2,14 @@
 
 angular.module('app.locations')
   .controller('DistrictsController',
-    function (cities) {
+    function (cities, District) {
       var vm = this;
 
       vm.UI = {
         districtsTableSettings: {
           name: 'districtsTable',
           title: 'Районы',
-          apiUrl: '/districts',
+          resource: District,
           buttons: {
             add: true,
             refresh: true,
@@ -29,7 +29,7 @@ angular.module('app.locations')
             },
             {
               dataField: 'cityId',
-              title: 'ID Района',
+              title: 'ID Города',
               required: true,
               editorType: 'selectBox',
               editorOptions: {
@@ -41,12 +41,12 @@ angular.module('app.locations')
             {
               dataField: 'point',
               title: 'Point',
-              required: true
+              editorType: 'points'
             },
             {
               dataField: 'bound',
               title: 'Bound',
-              required: true
+              editorType: 'points'
             }
           ]
         }

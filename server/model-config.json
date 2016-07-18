@@ -80,6 +80,10 @@
     "dataSource": "pgsql",
     "public": true
   },
+  "Booking": {
+    "dataSource": "pgsql",
+    "public": true
+  },
   "Container": {
     "dataSource": "storage",
     "public": true

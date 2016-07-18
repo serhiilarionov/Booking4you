@@ -1,12 +1,16 @@
 {
-  "name": "Company",
-  "plural": "companies",
+  "name": "Booking",
+  "plural": "bookings",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "hidden": [
+    "id",
+    "companyId",
+    "userId",
+    "companyServiceId",
     "createdAt",
     "updatedAt",
     "deletedAt"
@@ -17,64 +21,51 @@
       "id": true,
       "generated": true
     },
-    "name": {
+    "number": {
       "type": "string",
-      "required": true
-    },
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "categoryId": {
-      "type": "number",
       "required": true
     },
     "desc": {
       "type": "string"
     },
-    "photo": {
+    "date": {
+      "type": "date"
+    },
+    "phone": {
       "type": "string"
     },
     "active": {
-      "type": "boolean",
-      "required": true,
-      "default": true
+      "type": "boolean"
+    },
+    "status": {
+      "type": "number"
     },
     "createdAt": {
-      "type": "date",
-      "default": "$now"
+      "type": "date"
     },
     "updatedAt": {
-      "type": "date",
-      "default": "$now"
+      "type": "date"
     },
     "deletedAt": {
-      "type": "date",
-      "required": false,
-      "default": "$now"
+      "type": "date"
     }
   },
   "validations": [],
   "relations": {
-    "details": {
-      "type": "hasOne",
-      "model": "CompanyDetail",
-      "foreignKey": "companyId"
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
     },
-    "location": {
-      "type": "hasOne",
-      "model": "CompanyLocation",
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
       "foreignKey": "companyId"
     },
     "service": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "CompanyService",
-      "foreignKey": "companyId"
-    },
-    "bookings": {
-      "type": "hasMany",
-      "model": "Booking",
-      "foreignKey": "companyId"
+      "foreignKey": "companyServiceId"
     }
   },
   "acls": [

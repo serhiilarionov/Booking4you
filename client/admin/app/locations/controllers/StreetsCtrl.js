@@ -2,14 +2,14 @@
 
 angular.module('app.locations')
   .controller('StreetsController',
-    function (cities,districts) {
+    function (cities, districts, Street) {
       var vm = this;
 
       vm.UI = {
         streetsTableSettings: {
           name: 'streetsTable',
           title: 'Улицы',
-          apiUrl: '/streets',
+          resource: Street,
           buttons: {
             add: +true,
             refresh: true,
@@ -51,20 +51,14 @@ angular.module('app.locations')
               }
             },
             {
-              dataField: 'streetTypeId',
-              title: 'ID Региона',
-              editorType: 'number',
-              required: true
-            },
-            {
               dataField: 'point',
               title: 'Point',
-              required: true
+              editorType: 'points'
             },
             {
               dataField: 'bound',
               title: 'Bound',
-              required: true
+              editorType: 'points'
             }
           ]
         }

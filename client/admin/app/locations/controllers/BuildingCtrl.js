@@ -2,14 +2,14 @@
 
 angular.module('app.locations')
   .controller('BuildingsController',
-    function (streets) {
+    function (streets, Building) {
       var vm = this;
 
       vm.UI = {
         buildingsTableSettings: {
           name: 'buildingsTable',
           title: 'Здания',
-          apiUrl: '/buildings',
+          resource: Building,
           buttons: {
             add: true,
             refresh: true,
@@ -41,8 +41,8 @@ angular.module('app.locations')
             },
             {
               dataField: 'point',
-              title: 'Point',
-              required: true
+              title: 'Point', 
+              editorType: 'points'
             }
           ]
         }
