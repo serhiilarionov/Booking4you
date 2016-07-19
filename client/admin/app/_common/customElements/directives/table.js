@@ -75,9 +75,17 @@ angular.module('customElements')
           },
           post: function ($scope, element, attrs) {
             setTimeout(function() {
-              element.find('thead').append(document.getElementById('column-filter'));
-              $('[filter-table]').remove();
-              $scope.showFilter = true;
+              if (element.find('thead')) {
+                element.find('thead').append(document.getElementById('column-filter'));
+                $('[filter-table]').remove();
+                $scope.showFilter = true;
+              } else {
+                setTimeout(function() {
+                  element.find('thead').append(document.getElementById('column-filter'));
+                  $('[filter-table]').remove();
+                  $scope.showFilter = true;
+                }, 500);
+              }
             }, 500)
           }
         }

@@ -21,9 +21,6 @@
                     ng-if="settings.buttons.refresh">
               <i class="fa fa-refresh"></i>&nbsp;Обновить данные
             </button>
-            <button ng-click="resetTableFilter()" type="button" class="btn btn-info">
-              <i class="fa fa-retweet"></i>&nbsp;Сбросить фильтр
-            </button>
             <!--End Table control buttons -->
             <!-- Table -->
           <table class="table table-striped table-bordered table-hover" width="100%"
@@ -324,14 +321,36 @@
       <button type="button" class="btn btn-info" ng-click="setFilter()">
         <i class="fa fa-search"></i>
       </button>
+      <button type="button" class="btn" ng-click="resetTableFilter()">
+        <i class="fa fa-search-minus"></i>
+      </button>
     </th>
 
     <th class="hasinput" ng-repeat="col in settings.columns track by $index">
       <input type="text" class="form-control" placeholder="Filter {{col.title}}"
+             ng-if="!col.editorType || col.editorType=='text'"
+             ng-model="col.filter"
+             ng-enter="setFilter();"/>
+
+      <input type="number" class="form-control" placeholder="Filter {{col.title}}"
+             ng-if="col.editorType=='number'"
+             ng-model="col.filter"
+             ng-enter="setFilter();"/>
+
+      <select class="form-control input-sm" ng-model="col.filter" ng-if="col.editorType=='selectBox'">
+        <option
+            ng-repeat="row in col.editorOptions.dataSource || table[col.editorOptions.dataSourceString] track by row.id"
+            value="{{row.id}}"
+            ng-selected="table.editRowData[col.dataField] == row.id">
+          #{{row[col.editorOptions.value]}} ({{row[col.editorOptions.caption]}})
+        </option>
+      </select>
+
+      <input type="checkbox" class="form-control" placeholder="Filter {{col.title}}"
+             ng-if="col.editorType=='checkbox'"
              ng-model="col.filter"
              ng-enter="setFilter();"/>
     </th>
-
 
   </tr>
 </table>

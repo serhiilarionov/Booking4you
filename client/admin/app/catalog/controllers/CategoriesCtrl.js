@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.catalog').controller('CategoriesController', function (Category) {
+angular.module('app.catalog').controller('CategoriesController', function (Category, categories) {
   var vm = this;
 
   //UI settings
@@ -38,7 +38,7 @@ angular.module('app.catalog').controller('CategoriesController', function (Categ
           dataType: 'number',
           editorType: 'selectBox',
           editorOptions: {
-            dataSourceString: 'dataListArray',
+            dataSource: categories,
             value: 'id',
             caption: 'name'
           }
@@ -57,6 +57,7 @@ angular.module('app.catalog').controller('CategoriesController', function (Categ
         {
           dataField: 'active',
           title: 'Активно',
+          dataType: 'boolean',
           editorType: 'checkbox'
         }
       ]

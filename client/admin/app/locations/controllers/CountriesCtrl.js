@@ -47,6 +47,7 @@ angular.module('app.locations')
             {
               dataField: 'active',
               title: 'Активно',
+              dataType: 'boolean',
               editorType: 'checkbox'
             }
           ],

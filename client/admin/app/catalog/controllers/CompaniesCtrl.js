@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.catalog').controller('CompaniesController', function (categories, Company) {
+angular.module('app.catalog').controller('CompaniesController', function (Company, categories) {
   var vm = this;
 
   //UI settings
@@ -50,6 +50,7 @@ angular.module('app.catalog').controller('CompaniesController', function (catego
         {
           dataField: 'active',
           title: 'Активно',
+          dataType: 'boolean',
           editorType: 'checkbox'
         }
       ]

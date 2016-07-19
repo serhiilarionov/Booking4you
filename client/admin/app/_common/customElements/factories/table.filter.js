@@ -21,7 +21,8 @@ angular.module('customElements')
                   };
                   break;
                 }
-                case 'number': {
+                case 'number': 
+                case 'boolean': {
                   filter.where[col.dataField] = col.filter;
                   break;
                 }
