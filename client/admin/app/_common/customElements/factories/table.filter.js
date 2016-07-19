@@ -14,9 +14,25 @@ angular.module('customElements')
         $scope.settings.columns.forEach(function(col) {
           if (col.editorType != 'points') {
             if (col.filter) {
-              filter.where[col.dataField] = {
-                like: '%' + col.filter + '%'
-              };
+              switch (col.dataType) {
+                case 'text': {
+                  filter.where[col.dataField] = {
+                    like: '%' + col.filter + '%'
+                  };
+                  break;
+                }
+                case 'number': {
+                  filter.where[col.dataField] = col.filter;
+                  break;
+                }
+                default: {
+                  filter.where[col.dataField] = {
+                    like: '%' + col.filter + '%'
+                  };
+                  break;
+                }
+              }
+
             } else {
               delete filter.where[col.dataField];
             }

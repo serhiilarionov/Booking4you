@@ -20,6 +20,7 @@ angular.module('app.locations')
             {
               dataField: 'id',
               title: 'ID',
+              dataType: 'number',
               editorType: 'number',
               readOnly: true
             },

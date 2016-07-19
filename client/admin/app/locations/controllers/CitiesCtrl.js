@@ -20,6 +20,7 @@ angular.module('app.locations')
             {
               dataField: 'id',
               title: 'ID',
+              dataType: 'number',
               editorType: 'number',
               readOnly: true
             },
@@ -37,6 +38,7 @@ angular.module('app.locations')
               dataField: 'regionId',
               title: 'ID Региона',
               required: true,
+              dataType: 'number',
               editorType: 'selectBox',
               editorOptions: {
                 dataSource: regions,

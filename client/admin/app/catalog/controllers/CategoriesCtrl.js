@@ -19,6 +19,7 @@ angular.module('app.catalog').controller('CategoriesController', function (Categ
         {
           dataField: 'id',
           title: 'ID',
+          dataType: 'number',
           readOnly: true
         },
         {
@@ -34,6 +35,7 @@ angular.module('app.catalog').controller('CategoriesController', function (Categ
         {
           dataField: 'parentId',
           title: 'ID родителя',
+          dataType: 'number',
           editorType: 'selectBox',
           editorOptions: {
             dataSourceString: 'dataListArray',
@@ -48,8 +50,9 @@ angular.module('app.catalog').controller('CategoriesController', function (Categ
         {
           dataField: 'position',
           title: 'Позиция',
-          required: true,
-          editorType: 'number'
+          dataType: 'number',
+          editorType: 'number',
+          required: true
         },
         {
           dataField: 'active',

@@ -19,6 +19,7 @@ angular.module('app.catalog').controller('CompaniesController', function (catego
         {
           dataField: 'id',
           title: 'ID',
+          dataType: 'number',
           readOnly: true
         },
         {
@@ -34,6 +35,7 @@ angular.module('app.catalog').controller('CompaniesController', function (catego
         {
           dataField: 'categoryId',
           title: 'ID категории',
+          dataType: 'number',
           editorType: 'selectBox',
           editorOptions: {
             dataSource: categories,
