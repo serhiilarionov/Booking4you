@@ -4,7 +4,6 @@ const browserSync = require('browser-sync').create();
 const mainStyleFiles = ['./stylesheets/scss/style.scss', './stylesheets/scss/colors/brown.scss', './stylesheets/scss/rtl.scss'];
 
 gulp.task('serve', function() {
-
   browserSync.init({
     server: {
       baseDir: "./"
