@@ -1,7 +1,7 @@
 angular.module('customElements')
   .directive('cTable', function ($compile, $rootScope, $http, $timeout, $state, $stateParams,
                                  uiGmapGoogleMapApi, DTOptionsBuilder, DTColumnBuilder,
-                                 Table, Map, TableFilter) {
+                                 Table, TableNestedResource, Map, TableFilter) {
     return {
       restrict: 'A',
       scope: true,
@@ -11,7 +11,7 @@ angular.module('customElements')
 
             var map = new Map($scope);
             var table = new Table($scope, $stateParams);            
-            var tableFilter = new TableFilter($scope);
+            var tableFilter = new TableFilter($scope, $stateParams);
 
 
             $scope.stateParams = $stateParams;
@@ -23,6 +23,10 @@ angular.module('customElements')
 
             //select isolated scope and controller scope
             table.setDefaultValue(attrs.cTable, $scope.$parent);
+            
+            if ($scope.settings.nestedResource) {
+              table = new TableNestedResource($scope, $stateParams);
+            }
 
             //Create table
             table.createTable();
@@ -75,18 +79,10 @@ angular.module('customElements')
           },
           post: function ($scope, element, attrs) {
             setTimeout(function() {
-              if (element.find('thead')) {
-                element.find('thead').append(document.getElementById('column-filter'));
-                $('[filter-table]').remove();
-                $scope.showFilter = true;
-              } else {
-                setTimeout(function() {
-                  element.find('thead').append(document.getElementById('column-filter'));
-                  $('[filter-table]').remove();
-                  $scope.showFilter = true;
-                }, 500);
-              }
-            }, 500)
+              element.find('thead').append(document.getElementById('column-filter'));
+              $('[filter-table]').remove();
+              $scope.showFilter = true;
+            }, 1500)
           }
         }
       },

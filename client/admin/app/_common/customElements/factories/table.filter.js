@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('customElements')
-  .factory('TableFilter', function ($state, $stateParams) {
-    return function ($scope) {
+  .factory('TableFilter', function ($state) {
+    return function ($scope, $stateParams) {
       var _TableFilter = this;
 
       /**
@@ -66,7 +66,11 @@ angular.module('customElements')
        * The function resets the filter table
        */
       function reset () {
-        $state.transitionTo($state.current, {}, {reload: true, inherit: false, notify: true});
+        var params = {};
+        if ($stateParams.id) {
+          params.id = $stateParams.id;
+        }
+        $state.transitionTo($state.current, params, {reload: true, inherit: false, notify: true});
       }
 
       _TableFilter.setFilter = setFilter;

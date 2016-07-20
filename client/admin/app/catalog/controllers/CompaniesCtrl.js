@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.catalog').controller('CompaniesController', function (Company, categories) {
+angular.module('app.catalog').controller('CompaniesController', function ($state, $stateParams, Company, Category) {
   var vm = this;
 
   //UI settings
@@ -38,7 +38,7 @@ angular.module('app.catalog').controller('CompaniesController', function (Compan
           dataType: 'number',
           editorType: 'selectBox',
           editorOptions: {
-            dataSource: categories,
+            dataSource: Category.find(),
             value: 'id',
             caption: 'name'
           }
@@ -53,7 +53,14 @@ angular.module('app.catalog').controller('CompaniesController', function (Compan
           dataType: 'boolean',
           editorType: 'checkbox'
         }
-      ]
+      ],
+      onRowClick: function (nRow, aData) {
+        delete $stateParams.filter;
+        $state.go('app.catalog.companyServices', {
+          id: aData.id,
+          previousState: 'app.catalog.companies'
+        })
+      }
     }
   };
 

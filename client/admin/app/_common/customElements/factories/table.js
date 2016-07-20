@@ -3,7 +3,7 @@
 angular.module('customElements')
   .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder, BaseTableCrud) {
     return function ($scope, $stateParams) {
-      var _TableData = this;
+      var _Table = this;
       var crud = null;
 
       function setDefaultValue (cTable, settings) {
@@ -119,7 +119,7 @@ angular.module('customElements')
        */
       function removeRow(id) {
         var settings = $scope.settings;
-        return _selectPromise({id: id}, 'remove', 'deleteById')
+        return _selectPromise({id: id}, 'remove', 'destroyById')
           .then(function () {
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal(settings.name + 'RemoveRowModal');
@@ -145,12 +145,12 @@ angular.module('customElements')
       function _actionsHtml(data) {
         $scope.table.dataList[data.id] = data;
         return '<button ng-if="settings.buttons.edit" class="btn btn-warning" data-toggle="modal" ' +
-          'data-target="#{{settings.name}}EditRowModal"' +
+          'data-target="#' + $scope.settings.name +'EditRowModal"' +
           'ng-click="onStartEditing(' + data.id + ')" >' +
           '   <i class="fa fa-edit"></i>' +
           '</button>&nbsp;' +
           '<button ng-if="settings.buttons.remove" class="btn btn-danger" data-toggle="modal" ' +
-          'data-target="#{{settings.name}}RemoveRowModal" ' +
+          'data-target="#' + $scope.settings.name +'RemoveRowModal" ' +
           'ng-click="setCurrentKeyId(' + data.id + ')" >' +
           '   <i class="fa fa-trash-o"' +
           '</button>';
@@ -210,7 +210,9 @@ angular.module('customElements')
       function _selectPromise(data, actionName, resourceActionName) {
         var settings = $scope.settings;
         if (settings.resource) {
-          return settings.resource[resourceActionName || actionName](data).$promise;
+          var method = settings.resource[resourceActionName || actionName];
+          method || (method = settings.resource);
+          return method(data).$promise;
         }
         if (settings.actions && settings.actions.add) {
           return settings.actions[actionName](data);
@@ -221,20 +223,23 @@ angular.module('customElements')
       
       // ------------------------------------------------ 
 
+      _Table._createdRow = _createdRow;
+      _Table._onRowClick = _onRowClick;
+      
       //public methods
       
-      _TableData.setDefaultValue = setDefaultValue;
+      _Table.setDefaultValue = setDefaultValue;
       
       // Work with table
-      _TableData.createTable = createTable;
-      _TableData.addActionsButtons = addActionsButtons;
-      _TableData.addColumns = addColumns;
+      _Table.createTable = createTable;
+      _Table.addActionsButtons = addActionsButtons;
+      _Table.addColumns = addColumns;
 
       //Work with data
-      _TableData.addNewRow = addNewRow;
-      _TableData.editRow = editRow;
-      _TableData.removeRow = removeRow;
-      _TableData.refresh = refresh;
+      _Table.addNewRow = addNewRow;
+      _Table.editRow = editRow;
+      _Table.removeRow = removeRow;
+      _Table.refresh = refresh;
 
     }
   });

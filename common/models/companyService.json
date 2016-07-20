@@ -6,9 +6,6 @@
     "validateUpsert": true
   },
   "hidden": [
-    "id",
-    "companyId",
-    "categoryId"
   ],
   "properties": {
     "id": {
@@ -54,6 +51,11 @@
   },
   "validations": [],
   "relations": {
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": "companyId"
+    },
     "bookings": {
       "type": "hasMany",
       "model": "Booking",

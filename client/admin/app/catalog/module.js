@@ -22,12 +22,7 @@ angular.module('app.catalog', ['ui.router'])
         views: {
           "content@app": {
             controller: 'CategoriesController as categories',
-            templateUrl: "app/catalog/views/categories.html",
-            resolve: {
-              categories: function (Category) {
-                return Category.find();
-              }
-            }
+            templateUrl: "app/catalog/views/categories.html"
           }
         }
       })
@@ -42,12 +37,22 @@ angular.module('app.catalog', ['ui.router'])
         views: {
           "content@app": {
             controller: 'CompaniesController as companies',
-            templateUrl: "app/catalog/views/companies.html",
-            resolve: {
-              categories: function (Category) {
-                return Category.find();
-              }
-            }
+            templateUrl: "app/catalog/views/companies.html"
+          }
+        }
+      })
+      .state('app.catalog.companyServices', {
+        url: '/catalog/company/:id/services?{filter}',
+        params : {
+          previousState: null
+        },
+        data: {
+          title: 'Company services'
+        },
+        views: {
+          "content@app": {
+            controller: 'CompanyServicesController as companyServices',
+            templateUrl: "app/catalog/views/company.services.html"
           }
         }
       })

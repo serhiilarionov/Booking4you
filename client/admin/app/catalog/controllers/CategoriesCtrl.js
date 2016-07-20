@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.catalog').controller('CategoriesController', function (Category, categories) {
+angular.module('app.catalog').controller('CategoriesController', function (Category) {
   var vm = this;
 
   //UI settings
@@ -38,7 +38,7 @@ angular.module('app.catalog').controller('CategoriesController', function (Categ
           dataType: 'number',
           editorType: 'selectBox',
           editorOptions: {
-            dataSource: categories,
+            dataSource: Category.find(),
             value: 'id',
             caption: 'name'
           }

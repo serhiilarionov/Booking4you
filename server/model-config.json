@@ -42,7 +42,7 @@
   },
   "CompanyService": {
     "dataSource": "pgsql",
-    "public": false
+    "public": true
   },
   "CompanyDetail": {
     "dataSource": "pgsql",

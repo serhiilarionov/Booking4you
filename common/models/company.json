@@ -67,7 +67,7 @@
       "foreignKey": "companyId"
     },
     "service": {
-      "type": "hasOne",
+      "type": "hasMany",
       "model": "CompanyService",
       "foreignKey": "companyId"
     },
