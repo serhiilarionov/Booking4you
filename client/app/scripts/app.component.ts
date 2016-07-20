@@ -10,6 +10,6 @@ import {FooterComponent} from "./parts/footer/footer.component";
 
 export class AppComponent {
   constructor() {
-
+    console.log('aaaa');
   }
 }

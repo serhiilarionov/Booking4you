@@ -1,14 +1,32 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const compass = require('gulp-compass');
+const browserSync = require('browser-sync').create();
+const mainStyleFiles = ['./stylesheets/scss/style.scss', './stylesheets/scss/colors/brown.scss', './stylesheets/scss/rtl.scss'];
 
-gulp.task('sass', function () {
-  return gulp.src('./scss/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+gulp.task('serve', function() {
+
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    },
+    port: 8000,
+    open: false
+  });
+
+  gulp.watch('./stylesheets/scss/**/*.scss', ['compass']);
+  gulp.watch('./**/*.{html,js}').on('change', browserSync.reload);
 });
 
-gulp.task('sass:watch', function () {
-  gulp.watch('./scss/**/*.scss', ['sass']);
+gulp.task('compass', function() {
+  gulp.src(mainStyleFiles)
+    .pipe(compass({
+      config_file: './config.rb',
+      sass: 'stylesheets/scss',
+      css: 'stylesheets/css',
+      sourcemap: true
+    }))
+    .pipe(gulp.dest('./stylesheets/css'))
+    .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['serve']);

@@ -2,8 +2,7 @@
   "name": "b4u-app",
   "version": "0.0.1",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"gulp\"",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
@@ -30,10 +29,11 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "browser-sync": "^2.13.0",
     "concurrently": "^2.0.0",
     "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
     "gulp-sass": "^2.3.2",
-    "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
     "typings": "^1.0.4"
   }

@@ -13,6 +13,7 @@ var header_component_1 = require('./parts/header/header.component');
 var footer_component_1 = require("./parts/footer/footer.component");
 var AppComponent = (function () {
     function AppComponent() {
+        console.log('aaaa');
     }
     AppComponent = __decorate([
         core_1.Component({
