@@ -78,13 +78,14 @@ angular.module('customElements')
 
           },
           post: function ($scope, element, attrs) {
-            $scope.$watch(
+            var listener = $scope.$watch(
               function () { return element.find('thead').length; },
               function (newValue, oldValue) {
                 if (newValue !== oldValue) {
                   element.find('thead').append(document.getElementById('column-filter'));
                   $('[filter-table]').remove();
                   $scope.showFilter = true;
+                  listener();
                 }
               }
             );
