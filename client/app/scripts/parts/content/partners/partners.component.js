@@ -9,22 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var header_component_1 = require('./parts/header/header.component');
-var footer_component_1 = require("./parts/footer/footer.component");
-var content_component_1 = require("./parts/content/content.component");
-var AppComponent = (function () {
-    function AppComponent() {
-        console.log('aaaa');
+var PartnersComponent = (function () {
+    function PartnersComponent() {
     }
-    AppComponent = __decorate([
+    PartnersComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'scripts/app.component.html',
-            directives: [header_component_1.HeaderComponent, content_component_1.ContentComponent, footer_component_1.FooterComponent],
+            selector: 'app-partners',
+            templateUrl: 'scripts/parts/content/partners/partners.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], PartnersComponent);
+    return PartnersComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.PartnersComponent = PartnersComponent;
+//# sourceMappingURL=partners.component.js.map
