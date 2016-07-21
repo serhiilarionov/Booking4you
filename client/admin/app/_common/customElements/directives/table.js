@@ -10,7 +10,7 @@ angular.module('customElements')
           pre: function ($scope, element, attrs) {
 
             var map = new Map($scope);
-            var table = new Table($scope, $stateParams);            
+            var table = new Table($scope, $stateParams);
             var tableFilter = new TableFilter($scope, $stateParams);
 
 
@@ -23,7 +23,7 @@ angular.module('customElements')
 
             //select isolated scope and controller scope
             table.setDefaultValue(attrs.cTable, $scope.$parent);
-            
+
             if ($scope.settings.nestedResource) {
               table = new TableNestedResource($scope, $stateParams);
             }
@@ -44,7 +44,7 @@ angular.module('customElements')
             $scope.setFilter = tableFilter.setFilter;
             tableFilter.setFilterData();
             $scope.resetTableFilter = tableFilter.reset;
-            
+
 
             $scope.goToBack = function () {
               $stateParams.previousState && $state.go($stateParams.previousState);
@@ -78,11 +78,16 @@ angular.module('customElements')
 
           },
           post: function ($scope, element, attrs) {
-            setTimeout(function() {
-              element.find('thead').append(document.getElementById('column-filter'));
-              $('[filter-table]').remove();
-              $scope.showFilter = true;
-            }, 1500)
+            $scope.$watch(
+              function () { return element.find('thead').length; },
+              function (newValue, oldValue) {
+                if (newValue !== oldValue) {
+                  element.find('thead').append(document.getElementById('column-filter'));
+                  $('[filter-table]').remove();
+                  $scope.showFilter = true;
+                }
+              }
+            );
           }
         }
       },
