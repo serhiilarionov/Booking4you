@@ -40,7 +40,18 @@
       ]
     }
   },
-  "files": {},
+  "files": {
+    "loopback#static": [{
+      "name": "admin",
+      "paths": ["/admin"],
+      "params": "$!../client/admin"
+    },
+      {
+        "name": "app",
+        "paths": ["/app"],
+        "params": "$!../client/app"
+      }]
+  },
   "final": {
     "loopback#urlNotFound": {}
   },
