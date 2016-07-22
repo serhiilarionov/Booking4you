@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var header_component_1 = require('./parts/header/header.component');
-var footer_component_1 = require("./parts/footer/footer.component");
-var content_component_1 = require("./parts/content/content.component");
+var footer_component_1 = require('./parts/footer/footer.component');
+// import {ContentComponent} from "./parts/content/content.component";
 var AppComponent = (function () {
     function AppComponent() {
-        console.log('aaaa');
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'scripts/app.component.html',
-            directives: [header_component_1.HeaderComponent, content_component_1.ContentComponent, footer_component_1.FooterComponent],
+            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

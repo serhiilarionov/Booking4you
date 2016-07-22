@@ -9,3 +9,5 @@ import {PartnersComponent} from "./partners/partners.component";
 })
 
 export class ContentComponent{}
+
+console.log('sukaa')

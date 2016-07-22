@@ -1,7 +1,7 @@
 <div id="outer-wrapper">
   <!-- Inner Wrapper -->
   <div id="inner-wrapper">
-    <app-header class="header"></app-header>
+    <div app-header></div>
     <!-- Page Canvas-->
     <div id="page-canvas">
       <!--Off Canvas Navigation-->
@@ -11,7 +11,7 @@
       </nav>
       <!--end Off Canvas Navigation-->
       <!--Page Content-->
-      <app-content id="page-content"></app-content>
+      <router-outlet></router-outlet>
       <!-- end Page Content-->
     </div>
     <!-- end Page Canvas-->

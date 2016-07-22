@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create();
 gulp.task('serve', function() {
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: './'
     },
     files: './**/*.css',
     port: 8000
