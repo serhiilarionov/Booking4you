@@ -4,6 +4,11 @@ var path = require('path');
 
 var app = module.exports = loopback();
 
+app.set('view engine', 'ejs');
+app.set('json spaces', 2);
+
+app.set('views', path.resolve(__dirname, 'views'));
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
@@ -26,6 +31,3 @@ boot(app, __dirname, function(err) {
   if (require.main === module)
     app.start();
 });
-
-app.use(loopback.static(path.resolve(__dirname, '../client')));
-
