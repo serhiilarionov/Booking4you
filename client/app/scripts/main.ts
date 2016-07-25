@@ -1,8 +1,11 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { appRouterProviders }   from './app.routes';
+
 bootstrap(AppComponent, [
-  appRouterProviders
+  appRouterProviders,
+  {provide: LocationStrategy, useClass: HashLocationStrategy}
 ]);
 
 console.log('HELLOsdf as');
