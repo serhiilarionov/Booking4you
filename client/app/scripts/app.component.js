@@ -18,7 +18,7 @@ var AppComponent = (function () {
     }
     AppComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
+            selector: '[app][id=outer-wrapper]',
             templateUrl: 'scripts/app.component.html',
             directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent]
         }), 

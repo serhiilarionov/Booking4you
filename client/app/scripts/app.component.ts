@@ -5,7 +5,7 @@ import {FooterComponent} from './parts/footer/footer.component';
 // import {ContentComponent} from "./parts/content/content.component";
 
 @Component({
-  selector: 'my-app',
+  selector: '[app][id=outer-wrapper]',
   templateUrl: 'scripts/app.component.html',
   directives: [ROUTER_DIRECTIVES, HeaderComponent, FooterComponent]
 })

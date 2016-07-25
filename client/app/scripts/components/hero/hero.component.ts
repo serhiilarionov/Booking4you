@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hero',
+  selector: 'section.hero-image.search-filter-middle.height-500',
   templateUrl: './scripts/components/hero/hero.component.html'
 })
 

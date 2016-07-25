@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
-  selector: '[app-header]',
+  selector: '[app-header].header',
   templateUrl: 'scripts/parts/header/header.component.html',
   directives: [ROUTER_DIRECTIVES]
 })
