@@ -20,6 +20,7 @@ angular.module('app.catalog').controller('CategoriesController', function (Categ
           dataField: 'id',
           title: 'ID',
           dataType: 'number',
+          editorType: 'number',
           readOnly: true
         },
         {

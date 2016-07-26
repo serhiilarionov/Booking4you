@@ -1,0 +1,23 @@
+
+<div id="login-form">
+  <h1>Вход в админ панель</h1>
+
+  <fieldset>
+    <form>
+      <input type="email" name="email" required value="Email"
+             onBlur="if(this.value=='')this.value='Email'"
+             onFocus="if(this.value=='Email')this.value='' "
+             ng-model="login.email">
+      <input type="password" name="password" required value="Пароль"
+             onBlur="if(this.value=='')this.value='Пароль'"
+             onFocus="if(this.value=='Пароль')this.value='' "
+             ng-model="login.password">
+      <div>
+        <div class="login-error" ng-bind="login.loginError"></div>
+        <div><input type="submit" value="ВОЙТИ" ng-click="login.singIn()"></div>
+      </div>
+      <footer class="clearfix">
+      </footer>
+    </form>
+  </fieldset>
+</div>

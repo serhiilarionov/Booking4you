@@ -1,35 +1,11 @@
 'use strict';
 
 angular.module('customElements')
-  .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder, BaseTableCrud) {
+  .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder) {
     return function ($scope, $stateParams) {
       var _Table = this;
       var crud = null;
-
-      function setDefaultValue (cTable, settings) {
-        cTable.split('.').forEach(function (item) {
-          settings = settings[item]
-        });
-        $scope.settings = settings;
-        $scope.scope = $scope;
-
-        $scope.table = {
-          dataList: {},
-          dataListArray: [],
-          selectedRowKeyId: null,
-          editRowData: null,
-          newData: {active: false}
-        };
-        $scope.tableOptions = null;
-        $scope.tableColumns = [];
-        $scope.tableInstance = null;
-
-        if (settings.apiUrl) {
-          crud = new BaseTableCrud(settings.apiUrl);
-        }
-        
-      }
-
+      
       /**
        * Fucntion for create table settings
        */
@@ -227,10 +203,9 @@ angular.module('customElements')
       _Table._onRowClick = _onRowClick;
       
       //public methods
-      
-      _Table.setDefaultValue = setDefaultValue;
-      
+            
       // Work with table
+      _Table.crud = crud;
       _Table.createTable = createTable;
       _Table.addActionsButtons = addActionsButtons;
       _Table.addColumns = addColumns;

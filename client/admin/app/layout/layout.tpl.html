@@ -10,7 +10,7 @@
 <!-- END NAVIGATION -->
 
 <!-- MAIN PANEL -->
-<div id="main" role="main">
+<div id="main" role="main" ng-controller="HomeController as home"  ng-style="home.isAuthenticated || {'margin-left': '0'}">
 
     <!-- RIBBON -->
     <div id="ribbon">
