@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('customElements')
-  .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder) {
+  .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder, ErrorHandler, Notification) {
     return function ($scope, $stateParams) {
       var _Table = this;
       var crud = null;
@@ -67,6 +67,10 @@ angular.module('customElements')
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal($scope.settings.name + 'NewRowModal');
             $scope.table.newData = {active: false};
+            Notification.success();
+          })
+          .catch(function (err) {
+            ErrorHandler.serverResponse(err);
           })
       }
       
@@ -86,7 +90,11 @@ angular.module('customElements')
           .then(function () {
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal(settings.name + 'EditRowModal');
-          });
+            Notification.success();
+          })
+          .catch(function (err) {
+            ErrorHandler.serverResponse(err);
+          })
       }
 
       /**
@@ -99,7 +107,11 @@ angular.module('customElements')
           .then(function () {
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal(settings.name + 'RemoveRowModal');
-          });
+            Notification.success();
+          })
+          .catch(function (err) {
+            ErrorHandler.serverResponse(err);
+          })
       }
 
       /**
@@ -172,7 +184,10 @@ angular.module('customElements')
           .then(function (res) {
             $scope.table.dataListArray = res;
             return res;
-          });
+          })
+          .catch(function (err) {
+            ErrorHandler.serverResponse(err);
+          })
       }
 
       /**

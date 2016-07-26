@@ -12,6 +12,7 @@
       "angular-resource",
       "angular-bootstrap",
       "angular-simple-logger",
+      "notification",
       "restangular",
       "fastclick",
       "moment",
@@ -122,6 +123,7 @@
     "jquery-jvectormap-world-mill-en": "bower_components/bower-jvectormap/jquery-jvectormap-world-mill-en.js",
     "lodash": "bower_components/lodash/lodash.min.js",
     "smartwidgets": "smartadmin-plugin/smartwidgets/jarvis.widget.min.js",
+    "notification": "smartadmin-plugin/notification/SmartNotification.min.js",
     "magnific-popup": "bower_components/magnific-popup/dist/jquery.magnific-popup.js",
     "angular-google-maps": "bower_components/angular-google-maps/dist/angular-google-maps.min.js"
   },

@@ -25,6 +25,7 @@ angular.module('app', [
   'SmartAdmin.Layout',
 
   // App
+  'helpers',
   'app.layout',
   'app.catalog',
   'app.home',
