@@ -318,7 +318,7 @@
 <table filter-table ng-show="showFilter">
   <tr id="column-filter">
     <th class="hasinput">
-      <button type="button" class="btn btn-info" ng-click="setFilter()">
+      <button type="button" class="btn btn-info" ng-click="search()">
         <i class="fa fa-search"></i>
       </button>
       <button type="button" class="btn" ng-click="resetTableFilter()">
@@ -330,12 +330,12 @@
       <input type="text" class="form-control" placeholder="Filter {{col.title}}"
              ng-if="!col.editorType || col.editorType=='text'"
              ng-model="col.filter"
-             ng-enter="setFilter();"/>
+             ng-enter="search();"/>
 
       <input type="number" class="form-control" placeholder="Filter {{col.title}}"
              ng-if="col.editorType=='number'"
              ng-model="col.filter"
-             ng-enter="setFilter();"/>
+             ng-enter="search();"/>
 
       <select class="form-control input-sm" ng-model="col.filter" ng-if="col.editorType=='selectBox'">
         <option
@@ -349,7 +349,7 @@
       <input type="checkbox" class="form-control" placeholder="Filter {{col.title}}"
              ng-if="col.editorType=='checkbox'"
              ng-model="col.filter"
-             ng-enter="setFilter();"/>
+             ng-enter="search();"/>
     </th>
 
   </tr>

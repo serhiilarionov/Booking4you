@@ -8,7 +8,7 @@ angular.module('customElements')
       /**
        * Function will set filter params
        */
-      function setFilter () {
+      function search () {
         var filter = angular.fromJson($stateParams.filter);
         filter || (filter = {where: {}});
         $scope.settings.columns.forEach(function(col) {
@@ -21,7 +21,7 @@ angular.module('customElements')
                   };
                   break;
                 }
-                case 'number': 
+                case 'number':
                 case 'boolean': {
                   filter.where[col.dataField] = col.filter;
                   break;
@@ -33,7 +33,6 @@ angular.module('customElements')
                   break;
                 }
               }
-
             } else {
               delete filter.where[col.dataField];
             }
@@ -46,7 +45,7 @@ angular.module('customElements')
       /**
        * Function sets the value for filter in header inputs
        */
-      function setFilterData() {
+      function setFilterDataFromUrl() {
         var stateFilterData = angular.fromJson($stateParams.filter);
         stateFilterData && (stateFilterData = stateFilterData.where);
         $scope.settings.columns.forEach(function (col) {
@@ -73,8 +72,8 @@ angular.module('customElements')
         $state.transitionTo($state.current, params, {reload: true, inherit: false, notify: true});
       }
 
-      _TableFilter.setFilter = setFilter;
-      _TableFilter.setFilterData = setFilterData;
+      _TableFilter.search = search;
+      _TableFilter.setFilterData = setFilterDataFromUrl;
       _TableFilter.reset = reset;
 
     }

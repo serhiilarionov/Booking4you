@@ -111,7 +111,7 @@ angular.module('customElements')
 
         map.display = true;
 
-      };
+      }
       
       _Map.findAddress = findAddress;
       _Map.showMap = showMap;

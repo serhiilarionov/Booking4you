@@ -1,4 +1,4 @@
-<aside id="left-panel">
+<aside id="left-panel" ng-controller="HomeController as home" ng-show="home.isAuthenticated">
 
     <!-- User info -->
     <div login-info></div>
@@ -48,7 +48,7 @@
                         <a data-ui-sref="app.locations.streets">Улицы</a>
                     </li>
                     <li data-ui-sref-active="active">
-                        <a data-ui-sref="app.locations.buildings({qwe: 'asdasd', sad: 'e343'})">Здания</a>
+                        <a data-ui-sref="app.locations.buildings">Здания</a>
                     </li>
 
                 </ul>

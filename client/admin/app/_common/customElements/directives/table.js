@@ -1,7 +1,7 @@
 angular.module('customElements')
   .directive('cTable', function ($compile, $rootScope, $http, $timeout, $state, $stateParams,
                                  uiGmapGoogleMapApi, DTOptionsBuilder, DTColumnBuilder,
-                                 Table, TableNestedResource, Map, TableFilter) {
+                                 Table, TableNestedResource, Map, TableFilter, BaseTableCrud) {
     return {
       restrict: 'A',
       scope: true,
@@ -21,11 +21,30 @@ angular.module('customElements')
             $scope.findAddress = map.findAddress;
             $scope.showMap = map.showMap;
 
-            //select isolated scope and controller scope
-            table.setDefaultValue(attrs.cTable, $scope.$parent);
+            $scope.settings = $scope.$parent;
+            attrs.cTable.split('.').forEach(function (item) {
+              $scope.settings = $scope.settings[item]
+            });
+
+            $scope.scope = $scope;
+
+            $scope.table = {
+              dataList: {},
+              dataListArray: [],
+              selectedRowKeyId: null,
+              editRowData: null,
+              newData: {active: false}
+            };
+            $scope.tableOptions = null;
+            $scope.tableColumns = [];
+            $scope.tableInstance = null;
 
             if ($scope.settings.nestedResource) {
               table = new TableNestedResource($scope, $stateParams);
+            }
+
+            if ($scope.settings.apiUrl) {
+              table.crud = new BaseTableCrud(settings.apiUrl);
             }
 
             //Create table
@@ -41,7 +60,7 @@ angular.module('customElements')
 
 
             // Filtering
-            $scope.setFilter = tableFilter.setFilter;
+            $scope.search = tableFilter.search;
             tableFilter.setFilterData();
             $scope.resetTableFilter = tableFilter.reset;
 

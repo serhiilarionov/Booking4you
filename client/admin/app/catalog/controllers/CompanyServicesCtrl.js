@@ -3,6 +3,8 @@
 angular.module('app.catalog').controller('CompanyServicesController', function ($stateParams, Company, Category) {
   var vm = this;
 
+  var companies = Category.find();
+
   //UI settings
   vm.UI = {
     servicesTableSettings: {
@@ -35,7 +37,7 @@ angular.module('app.catalog').controller('CompanyServicesController', function (
           dataType: 'number',
           editorType: 'selectBox',
           editorOptions: {
-            dataSource: Category.find(),
+            dataSource: companies,
             value: 'id',
             caption: 'name'
           }
@@ -46,7 +48,7 @@ angular.module('app.catalog').controller('CompanyServicesController', function (
           dataType: 'number',
           editorType: 'selectBox',
           editorOptions: {
-            dataSource: Company.find(),
+            dataSource: companies,
             value: 'id',
             caption: 'name'
           },

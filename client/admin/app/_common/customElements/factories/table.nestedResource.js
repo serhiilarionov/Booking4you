@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('customElements')
-  .factory('TableNestedResource', function (Table, DTOptionsBuilder) {
+  .factory('TableNestedResource', function (Table, DTOptionsBuilder, ErrorHandler, Notification) {
     return function ($scope, $stateParams) {
       var _TableNestedResource = new Table($scope, $stateParams);
 
@@ -27,6 +27,10 @@ angular.module('customElements')
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal($scope.settings.name + 'NewRowModal');
             $scope.table.newData = {active: false};
+            Notification.success();
+          })
+          .catch(function (err) {
+            ErrorHandler.serverResponse(err);
           })
       }
       
@@ -46,7 +50,11 @@ angular.module('customElements')
           .then(function () {
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal(settings.name + 'EditRowModal');
-          });
+            Notification.success();
+          })
+          .catch(function (err) {
+            ErrorHandler.serverResponse(err);
+          })
       }
 
       /**
@@ -61,7 +69,11 @@ angular.module('customElements')
             .then(function () {
               $scope.tableInstance.changeData(_dataList);
               $scope.hideModal(settings.name + 'RemoveRowModal');
-            });
+              Notification.success();
+            })
+            .catch(function (err) {
+              ErrorHandler.serverResponse(err);
+            })
         } else {
           return false;
         }
