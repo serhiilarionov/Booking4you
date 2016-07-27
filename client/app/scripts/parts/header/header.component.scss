@@ -1,0 +1,52 @@
+@import "main";
+.header {
+  height: $header-height;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+
+  .container-fluid {
+    height: 100%;
+    @include display(flex);
+    @include justify-content(space-between);
+
+    > span {
+      @include flex-grow(2);
+    }
+
+    > div {
+      @include display(flex);
+      @include align-items(center);
+    }
+  }
+
+  .logo {
+    display: block;
+    font-family: 'Pacifico';
+    font-size: 2em;
+    margin-top: -16px;
+    color: $c-blue-main;
+
+    span {
+      font-size: 1.5em;
+    }
+
+    &:hover, &:focus {
+      text-decoration: none;
+      color: darken($c-blue-main, 10%);
+    }
+  }
+
+  a {
+    padding: 0 5px;
+    font-size: 12px;
+
+    &.register {
+      font-weight: 700;
+    }
+
+    &:hover, &:focus {
+      text-decoration: none;
+      color: darken($c-blue-main, 10%);
+    }
+  }
+}

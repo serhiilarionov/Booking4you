@@ -1,0 +1,41 @@
+@import "main";
+.hero {
+  height: 500px;
+  @include background(url("/scripts/components/hero/assets/restaurant-bg.jpg") center no-repeat);
+  background-size: cover;
+  color: white;
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
+
+  form, .form-group {
+    @include display(flex);
+  }
+
+  h1 {
+    font-size: 3em;
+    font-weight: bold;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-bottom: 38px;
+  }
+
+  .form-group {
+    margin: 10px 8px;
+    @include flex-direction(column);
+
+    &:last-child {
+      @include justify-content(flex-end);
+    }
+  }
+
+  .btn {
+    @include background($c-blue-main);
+    color: white;
+  }
+
+  i {
+    line-height: inherit;
+  }
+}

@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { HeaderComponent } from './parts/header/header.component'
 import {FooterComponent} from './parts/footer/footer.component';
-// import {ContentComponent} from "./parts/content/content.component";
 
 @Component({
-  selector: '[app][id=outer-wrapper]',
+  selector: 'app',
   templateUrl: 'scripts/app.component.html',
-  directives: [ROUTER_DIRECTIVES, HeaderComponent, FooterComponent]
+  styleUrls: ['scripts/app.component.css'],
+  directives: [ROUTER_DIRECTIVES, HeaderComponent, FooterComponent],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent {

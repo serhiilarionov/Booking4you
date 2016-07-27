@@ -9,24 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var header_component_1 = require('./parts/header/header.component');
-var footer_component_1 = require('./parts/footer/footer.component');
-// import {ContentComponent} from "./parts/content/content.component";
-var AppComponent = (function () {
-    function AppComponent() {
+var HeroComponent = (function () {
+    function HeroComponent() {
     }
-    AppComponent = __decorate([
+    HeroComponent.prototype.ngOnInit = function () {
+        $('.selectpicker').selectpicker();
+    };
+    HeroComponent = __decorate([
         core_1.Component({
-            selector: 'app',
-            templateUrl: 'scripts/app.component.html',
-            styleUrls: ['scripts/app.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent],
-            encapsulation: core_1.ViewEncapsulation.None
+            selector: 'section.hero-image.search-filter-middle.height-500',
+            templateUrl: './scripts/components/hero/hero.component.html',
+            styleUrls: ['./scripts/components/hero/hero.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], HeroComponent);
+    return HeroComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HeroComponent = HeroComponent;
+//# sourceMappingURL=hero.component.js.map

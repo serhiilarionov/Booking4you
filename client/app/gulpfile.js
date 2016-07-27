@@ -1,5 +1,7 @@
 const gulp = require('gulp');
-const compass = require('gulp-compass');
+const sass = require('gulp-sass');
+const cache = require('gulp-cached');
+const remember = require('gulp-remember');
 const browserSync = require('browser-sync').create();
 
 gulp.task('serve', function() {
@@ -7,25 +9,29 @@ gulp.task('serve', function() {
     server: {
       baseDir: './'
     },
-    files: './**/*.css',
+    files: './stylesheets/**/*.css',
     port: 8000
   });
 
-  gulp.watch(['./scripts/**/*.{js,html}', './index.html']).on('change', function(file) {
-    browserSync.reload(file.path)
-  });
+  gulp.watch(['./scripts/**/*.+(js|html|css)', './index.html']).on('change', browserSync.reload);
 });
 
-gulp.task('compass', function() {
-  gulp.src('./stylesheets/scss/**/*.scss')
-    .pipe(compass({
-      config_file: './config.rb',
-      sass: './stylesheets/scss',
-      css: './stylesheets/css',
-      task: 'watch',
-      sourcemap: true
-    }))
-    .pipe(gulp.dest('./stylesheets/css'));
+const sassPaths = ['scripts/**/*.scss'];
+gulp.task('sass', function () {
+  return gulp.src(sassPaths, {base: './'})
+    .pipe(cache('sass'))
+      .pipe(sass({
+        includePaths: [
+          'node_modules/bourbon/app/assets/stylesheets',
+          'stylesheets'
+        ]
+      }).on('error', sass.logError))
+    .pipe(remember('sass'))
+    .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', ['serve', 'compass']);
+gulp.task('sass:watch', ['sass'], function() {
+  gulp.watch(sassPaths, ['sass']);
+});
+
+gulp.task('default', ['serve', 'sass:watch']);

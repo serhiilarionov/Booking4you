@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-select/bootstrap-select.min.css">
-  <link rel="stylesheet" href="stylesheets/css/colors/brown.css">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
   <!-- 1. Load libraries -->
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="bower_components/bootstrap-select/bootstrap-select.min.js"></script>
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
   <!-- Polyfill(s) for older browsers -->
   <script src="node_modules/core-js/client/shim.min.js"></script>
   <script src="node_modules/zone.js/dist/zone.js"></script>
@@ -25,15 +25,17 @@
   </script>
   <style>
     .app-loading {
-      padding: 100px 0;
+      padding: 150px 0;
       text-align: center;
+      font-family: 'Pacifico';
+      font-size: 3em;
     }
   </style>
 </head>
 <!-- 3. Display the application -->
 <body>
-<div app id="outer-wrapper">
+<app id="outer-wrapper">
   <h1 class="app-loading">Loading...</h1>
-</div>
+</app>
 </body>
 </html>

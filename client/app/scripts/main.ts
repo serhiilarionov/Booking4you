@@ -7,5 +7,3 @@ bootstrap(AppComponent, [
   appRouterProviders,
   {provide: LocationStrategy, useClass: HashLocationStrategy}
 ]);
-
-console.log('HELLOsdf as');

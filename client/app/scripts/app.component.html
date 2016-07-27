@@ -1,21 +1,7 @@
-<!-- Inner Wrapper -->
 <div id="inner-wrapper">
-  <div app-header class="header"></div>
-  <!-- Page Canvas-->
-  <div id="page-canvas">
-    <!--Off Canvas Navigation-->
-    <nav class="off-canvas-navigation">
-      <header>Navigation</header>
-      <div class="main-navigation navigation-off-canvas"></div>
-    </nav>
-    <!--end Off Canvas Navigation-->
-    <!--Page Content-->
+  <app-header></app-header>
+  <div class="content">
     <router-outlet></router-outlet>
-    <!-- end Page Content-->
   </div>
-  <!-- end Page Canvas-->
-  <!--Page Footer-->
-  <footer app-footer id="page-footer"></footer>
-  <!--end Page Footer-->
+  <app-footer></app-footer>
 </div>
-<!-- end Inner Wrapper -->

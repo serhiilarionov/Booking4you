@@ -9,24 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var header_component_1 = require('./parts/header/header.component');
-var footer_component_1 = require('./parts/footer/footer.component');
-// import {ContentComponent} from "./parts/content/content.component";
-var AppComponent = (function () {
-    function AppComponent() {
+var hero_component_1 = require('../../components/hero/hero.component');
+var HomePageComponent = (function () {
+    function HomePageComponent() {
     }
-    AppComponent = __decorate([
+    HomePageComponent = __decorate([
         core_1.Component({
-            selector: 'app',
-            templateUrl: 'scripts/app.component.html',
-            styleUrls: ['scripts/app.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent],
-            encapsulation: core_1.ViewEncapsulation.None
+            selector: '[home-page][id=page-content]',
+            templateUrl: 'scripts/pages/home/home-page.component.html',
+            directives: [hero_component_1.HeroComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], HomePageComponent);
+    return HomePageComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HomePageComponent = HomePageComponent;
+//# sourceMappingURL=home-page.component.js.map

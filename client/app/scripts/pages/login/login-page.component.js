@@ -9,24 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var header_component_1 = require('./parts/header/header.component');
-var footer_component_1 = require('./parts/footer/footer.component');
-// import {ContentComponent} from "./parts/content/content.component";
-var AppComponent = (function () {
-    function AppComponent() {
+var login_form_conponent_1 = require('../../components/auth/login/login-form.conponent');
+var LoginPageComponent = (function () {
+    function LoginPageComponent() {
     }
-    AppComponent = __decorate([
+    LoginPageComponent = __decorate([
         core_1.Component({
-            selector: 'app',
-            templateUrl: 'scripts/app.component.html',
-            styleUrls: ['scripts/app.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent],
-            encapsulation: core_1.ViewEncapsulation.None
+            selector: '[login-page][id=page-content]',
+            templateUrl: 'scripts/pages/login/login-page.component.html',
+            directives: [login_form_conponent_1.LoginFormComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], LoginPageComponent);
+    return LoginPageComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.LoginPageComponent = LoginPageComponent;
+//# sourceMappingURL=login-page.component.js.map
