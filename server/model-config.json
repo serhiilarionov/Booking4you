@@ -84,6 +84,10 @@
     "dataSource": "pgsql",
     "public": true
   },
+  "Logs": {
+    "dataSource": "pgsql",
+    "public": true
+  },
   "Container": {
     "dataSource": "storage",
     "public": true

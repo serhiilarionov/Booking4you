@@ -1,0 +1,58 @@
+{
+  "name": "Logs",
+  "plural": "logs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "deletedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true
+    },
+    "userId": {
+      "type": "Number"
+    },
+    "loggableType": {
+      "type": "string"
+    },
+    "loggableId": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "before": {
+      "type": "object",
+      "required": false
+    },
+    "after": {
+      "type": "object",
+      "required": false
+    },
+    "date": {
+      "type": "date",
+      "required": true,
+      "default": "$now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
