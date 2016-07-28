@@ -40,6 +40,27 @@
       "required": true,
       "default": true
     },
+    "point": {
+      "type": "geopoint"
+    },
+    "buildingId": {
+      "type": "number"
+    },
+    "streetId": {
+      "type": "number"
+    },
+    "districtId": {
+      "type": "number"
+    },
+    "cityId": {
+      "type": "number"
+    },
+    "room": {
+      "type": "string"
+    },
+    "locationDetail": {
+      "type": "string"
+    },
     "createdAt": {
       "type": "date",
       "default": "$now"
