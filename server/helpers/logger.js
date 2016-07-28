@@ -39,5 +39,8 @@ module.exports = function(Model) {
         })
         .catch(next);
     }
+    else {
+      next();
+    }
   });
 };
