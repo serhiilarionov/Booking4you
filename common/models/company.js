@@ -32,4 +32,35 @@ module.exports = function (Company) {
   Company.disableRemoteMethod('__create__details', false);
   Company.disableRemoteMethod('__deleteById__details', false);
   Company.disableRemoteMethod('__updateById__details', false);
+
+
+  Company.sift = function(msg, cb) {
+    var app = Company.app;
+    var CompanyLocation = app.models.CompanyLocation;
+    
+    CompanyLocation.find(msg)
+      .then(function (locations) {
+        var promises = [];
+        locations.forEach(function (location) {
+          promises.push(
+            Company.findOne({where: {id: location.companyId},
+              fields: {id: true, name: true, title: true, categoryId: true, desc: true, active: true}
+            })
+          )
+        });
+        Promise.all(promises).then(function (companies) {
+          cb(null, companies);
+        });
+      })
+      .catch(cb);
+  };
+
+  Company.remoteMethod(
+    'sift',
+    {
+      accepts: {arg: 'argument', type: 'object', http: {source: 'body'}},
+      returns: {arg: 'companies', type: 'object'}
+    }
+  );
+
 };

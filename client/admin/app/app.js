@@ -28,6 +28,7 @@ angular.module('app', [
   'helpers',
   'app.layout',
   'app.catalog',
+  'app.company',
   'app.home',
   'app.locations',
   'app.login'
