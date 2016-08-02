@@ -34,16 +34,17 @@ module.exports = function (Company) {
   Company.disableRemoteMethod('__updateById__details', false);
 
 
-  Company.sift = function(msg, cb) {
+  Company.sift = function (msg, cb) {
     var app = Company.app;
     var CompanyLocation = app.models.CompanyLocation;
-    
+
     CompanyLocation.find(msg)
       .then(function (locations) {
         var promises = [];
         locations.forEach(function (location) {
           promises.push(
-            Company.findOne({where: {id: location.companyId},
+            Company.findOne({
+              where: {id: location.companyId},
               fields: {id: true, name: true, title: true, categoryId: true, desc: true, active: true}
             })
           )
@@ -62,5 +63,56 @@ module.exports = function (Company) {
       returns: {arg: 'companies', type: 'object'}
     }
   );
+  
+  Company.findWithCategory = function (filter, cb) {
+    filter || (filter = {});
+    var dataSource = Company.dataSource;
 
+    var sql = 'SELECT company.name AS companyName, ' +
+      'company.title, ' +
+      'company.desc, ' +
+      'company.photo, ' +
+      'company.active AS companyActive, ' +
+      'company.point, ' +
+      'company.buildingId, ' +
+      'company.streetId, ' +
+      'company.districtId, ' +
+      'company.cityId, ' +
+      'company.room, ' +
+      'company.locationDetail, ' +
+      'category.name AS categoryName, ' +
+      'category.slug, ' +
+      'category.parentId, ' +
+      'category.icon, ' +
+      'category.position, ' +
+      'category.active AS categoryActive FROM company ' +
+      'left join categoryCompany on company.id = categoryCompany.companyId ' +
+      'left join category on categoryCompany.categoryId = category.id ';
+
+    if (filter.where) {
+      sql += 'where ';
+
+      for (var keys = Object.keys(filter.where), i = 0, end = keys.length; i < end; i++) {
+        var key = keys[i], value = filter.where[key];
+        sql += key + ' = \'' + value + '\'';
+        if (i + 1 < end) {
+          sql += ' and '
+        }
+      }
+    }
+
+    dataSource.connector.execute(sql, function (err, companies) {
+      cb(err, companies);
+    });
+  };
+
+
+  Company.remoteMethod(
+    'findWithCategory',
+    {
+      http: {verb: 'get'},
+      accepts: {arg: 'argument', type: 'object'},
+      returns: {arg: 'data', type: ['Company'], root: true}
+    }
+  );
 };
