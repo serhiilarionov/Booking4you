@@ -55,7 +55,7 @@ module.exports = function (Category) {
       'category.position, ' +
       'category.active AS categoryActive FROM category ' +
       'left join categoryCompany on category.id = categoryCompany.categoryId ' +
-      'left join company on categoryCompany.categoryId = company.id ';
+      'left join company on categoryCompany.companyId = company.id ';
     
     if (filter.where) {
       sql += 'where ';
