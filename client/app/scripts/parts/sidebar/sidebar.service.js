@@ -9,21 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HeroComponent = (function () {
-    function HeroComponent() {
+var Subject_1 = require('rxjs/Subject');
+var SidebarService = (function () {
+    function SidebarService() {
+        // Observable source
+        this.toggledSource = new Subject_1.Subject();
+        // Observable stream
+        this.toggled$ = this.toggledSource.asObservable();
     }
-    HeroComponent.prototype.ngOnInit = function () {
-        $('.selectpicker').selectpicker();
+    // Service command
+    SidebarService.prototype.toggle = function () {
+        this.toggledSource.next(null);
     };
-    HeroComponent = __decorate([
-        core_1.Component({
-            selector: 'hero',
-            templateUrl: './scripts/components/hero/hero.component.html',
-            styleUrls: ['./scripts/components/hero/hero.component.css']
-        }), 
+    SidebarService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], HeroComponent);
-    return HeroComponent;
+    ], SidebarService);
+    return SidebarService;
 }());
-exports.HeroComponent = HeroComponent;
-//# sourceMappingURL=hero.component.js.map
+exports.SidebarService = SidebarService;
+//# sourceMappingURL=sidebar.service.js.map

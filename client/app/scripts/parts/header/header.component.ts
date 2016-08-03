@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { SidebarService } from '../sidebar/sidebar.service';
+declare var $: any;
 
 @Component({
   selector: 'app-header',
@@ -8,4 +10,11 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   directives: [ROUTER_DIRECTIVES]
 })
 
-export class HeaderComponent {}
+export class HeaderComponent {
+  constructor(private el: ElementRef, private sidebar: SidebarService) {
+    this.el = el.nativeElement;
+  }
+  onSidebarToggle() {
+    this.sidebar.toggle();
+  }
+}

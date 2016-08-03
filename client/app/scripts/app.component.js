@@ -12,19 +12,28 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var header_component_1 = require('./parts/header/header.component');
 var footer_component_1 = require('./parts/footer/footer.component');
-// import {ContentComponent} from "./parts/content/content.component";
+var sidebar_component_1 = require('./parts/sidebar/sidebar.component');
+var sidebar_service_1 = require('./parts/sidebar/sidebar.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(sidebar, el) {
+        this.sidebar = sidebar;
+        this.el = el;
+        this.$el = $(el.nativeElement);
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sidebar.toggled$.subscribe(function () { return _this.$el.toggleClass('sidebar-opened'); });
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app',
             templateUrl: 'scripts/app.component.html',
             styleUrls: ['scripts/app.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent],
-            encapsulation: core_1.ViewEncapsulation.None
+            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent, sidebar_component_1.SidebarComponent],
+            encapsulation: core_1.ViewEncapsulation.None,
+            providers: [sidebar_service_1.SidebarService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [sidebar_service_1.SidebarService, core_1.ElementRef])
     ], AppComponent);
     return AppComponent;
 }());

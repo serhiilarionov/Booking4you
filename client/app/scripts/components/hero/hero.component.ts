@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 declare var $: any;
 
 @Component({
-  selector: 'section.hero-image.search-filter-middle.height-500',
+  selector: 'hero',
   templateUrl: './scripts/components/hero/hero.component.html',
   styleUrls: ['./scripts/components/hero/hero.component.css']
 })

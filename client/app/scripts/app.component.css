@@ -1,12 +1,68 @@
+.content {
+  background: #f4f4f2;
+  -webkit-flex-grow: 2;
+  -moz-flex-grow: 2;
+  flex-grow: 2;
+  -ms-flex-positive: 2;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column; }
+
+.inner-wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column; }
+
+.inner-wrapper {
+  position: relative;
+  left: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s; }
+  .sidebar-opened .inner-wrapper {
+    left: -200px; }
+
+/**
+ * RESET STYLES
+ */
+body {
+  height: 100%; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat';
   text-transform: uppercase; }
 
 p, div, a {
   font-family: Arial, sans-serif; }
-
-.content {
-  background: #f4f4f2; }
 
 input, select, .btn, .dropdown-menu, .form-control {
   border-top-left-radius: 0;
@@ -23,7 +79,19 @@ input, textarea, input.form-control, textarea.form-control {
   -moz-box-shadow: inset 0px 1px 0.5px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0px 1px 0.5px rgba(0, 0, 0, 0.15);
   border: none; }
+  .bs-searchbox input, .bs-searchbox textarea, .bs-searchbox input.form-control, .bs-searchbox textarea.form-control {
+    border: 1px solid #c7c7c7; }
   input:focus, textarea:focus, input.form-control:focus, textarea.form-control:focus {
     -webkit-box-shadow: inset 0px 1px 0.5px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: inset 0px 1px 0.5px rgba(0, 0, 0, 0.15);
     box-shadow: inset 0px 1px 0.5px rgba(0, 0, 0, 0.15); }
+
+.btn {
+  border: none;
+  font-weight: bold; }
+
+div:not([class*="bootstrap-select"]) > .btn-default {
+  background: #36b6ff;
+  color: #fff; }
+  div:not([class*="bootstrap-select"]) > .btn-default:hover {
+    background: #0094e9; }

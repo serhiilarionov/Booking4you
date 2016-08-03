@@ -15,7 +15,7 @@ var HomePageComponent = (function () {
     }
     HomePageComponent = __decorate([
         core_1.Component({
-            selector: '[home-page][id=page-content]',
+            selector: 'home-page',
             templateUrl: 'scripts/pages/home/home-page.component.html',
             directives: [hero_component_1.HeroComponent]
         }), 

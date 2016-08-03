@@ -15,7 +15,7 @@ var LoginPageComponent = (function () {
     }
     LoginPageComponent = __decorate([
         core_1.Component({
-            selector: '[login-page][id=page-content]',
+            selector: 'login-page',
             templateUrl: 'scripts/pages/login/login-page.component.html',
             directives: [login_form_conponent_1.LoginFormComponent]
         }), 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[login-form]',
+  selector: 'login-form',
   templateUrl: 'scripts/components/auth/login/login-form.component.html'
 })
 
