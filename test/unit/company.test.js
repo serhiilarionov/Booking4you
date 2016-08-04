@@ -36,15 +36,14 @@ describe('Company model', function () {
         companies.should.be.an('array');
         var company = _.first(companies).__data;
         should.exist(company);
-        company.should.have.keys('id', 'name', 'title', 'categoryId', 'desc', 'active', 'photo',
-          'createdAt', 'updatedAt', 'deletedAt');
+        company.should.have.keys("active", "buildingId", "cityId", "createdAt", "deletedAt",
+          "desc", "districtId", "id", "locationDetail", "name", "point", "room", "streetId",
+          "photo", "title", "updatedAt");
         company.id.should.be.a('number');
         company.name.should.be.a('string');
         company.title.should.be.a('string');
-        company.categoryId.should.be.a('number');
         company.desc.should.be.a('string');
         company.active.should.be.a('boolean');
-        // company.photo.should.be.a('string');
         done();
       })
       .catch(done);

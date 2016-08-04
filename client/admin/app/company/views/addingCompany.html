@@ -127,7 +127,23 @@
                                       </section>
                                       <!-- End Title-->
 
-                                      <!-- Select box-->
+                                      <!-- City box-->
+                                      <section class="col form-input">
+                                        <label class="input">Город
+                                          <select class="form-control input-sm" id="companyCitySelectBoxAdd"
+                                                  ng-model="addingCompany.newCompany['cityId']">
+                                            <option
+                                                ng-repeat="row in addingCompany.cities track by row.id"
+                                                value="{{row.id}}"
+                                                ng-selected="addingCompany.newCompany['cityId'] == row.id">
+                                              #{{row.id}} ({{row.name}})
+                                            </option>
+                                          </select>
+                                        </label>
+                                      </section>
+                                      <!-- End City box-->
+
+                                      <!-- Category box-->
                                       <section class="col form-input">
                                         <label class="input">Категория
                                           <select class="form-control input-sm" id="companyCategorySelectBoxAdd"
@@ -141,7 +157,7 @@
                                           </select>
                                         </label>
                                       </section>
-                                      <!-- End Select box-->
+                                      <!-- End Category box-->
 
                                       <!-- Desc -->
                                       <section class="col form-input">
@@ -152,6 +168,20 @@
                                       </section>
                                       <!-- End Desc-->
 
+                                      <!-- Photo -->
+                                      <section class="col form-input">
+                                        <label class="label">File input</label>
+                                        <div class="input input-file">
+                                          <span class="button">
+                                            <input type="file" id="file" name="file"
+                                                   file-model="addingCompany.photo"
+                                                   onchange="this.parentNode.nextSibling.nextSibling.value = this.value">Browse
+                                          </span>
+                                          <input type="text" placeholder="Include some files" readonly="">
+                                        </div>
+                                      </section>
+                                      <!-- End Photo -->
+
                                       <!-- Active -->
                                       <section class="col form-input active-checkbox">
                                         <label class="checkbox">
@@ -160,6 +190,7 @@
                                           <i></i>Активно</label>
                                       </section>
                                       <!-- End Active -->
+
                                     </div>
                                   </fieldset>
                                 </form>

@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('app.company').controller('AddingCompanyController', function ($scope, $state, $stateParams,
+angular.module('app.company').controller('AddingCompanyController', function ($scope, $state, $stateParams, $http,
                                                                               Company, Category, City, Street,
-                                                                              Notification) {
+                                                                              Notification, Container) {
   var vm = this;
   vm.companyFilter = {
     name: "",
@@ -20,56 +20,68 @@ angular.module('app.company').controller('AddingCompanyController', function ($s
   };
 
   vm.filter = function () {
-    vm.filter = angular.fromJson($stateParams.filter);
-    vm.filter || (vm.filter = {where: {}});
+    var filter = angular.fromJson($stateParams.filter);
+    filter || (filter = {where: {}});
 
     Object.keys(vm.companyFilter).forEach(function (col) {
       if (vm.companyFilter[col]) {
-        vm.filter.where[col] = vm.companyFilter[col];
+        filter.where[col] = vm.companyFilter[col];
       }
     });
 
-    Company.sift(vm.filter, function(res) {
-      vm.companies = res.companies;
+    Company.find({"filter": filter}, function (res) {
+      vm.companies = res;
     });
   };
 
-  vm.find = function(value) {
-    return _.find(vm.categories, function(category) {
+  vm.find = function (value) {
+    return _.find(vm.categories, function (category) {
       return category.id == value
     });
   };
 
-  vm.addNewRow = function() {
+  vm.addNewRow = function () {
+    vm.newCompany.photo = vm.photo.name;
     Company.create(vm.newCompany)
       .$promise
-      .then(function() {
-        Company.sift(vm.filter, function(res) {
-          vm.companies = res.companies;
-        });
+      .then(function (company) {
+        var fd = new FormData();
+        fd.append('test', vm.photo);
+        fd.append('cityId', parseInt(company.cityId));
+        fd.append('categoryId', parseInt(company.categoryId));
+        fd.append('companyId', parseInt(company.id));
+
+        return $http.post('/api/containers/test/upload', fd, {
+          transformRequest: angular.identity,
+          headers: {'Content-Type': undefined},
+          responseType: "arraybuffer"
+        })
+      })
+      .then(function () {
+        vm.filter();
         angular.element('#companyNewRowModal').modal('hide');
         Notification.success();
       })
-      .catch(function(err) {
+      .catch(function (err) {
         Notification.error("Error", err.data.error.message);
       });
   };
 
-  vm.editRow = function() {
+  vm.editRow = function () {
     Company.upsert({id: vm.selectedCompany.id}, vm.selectedCompany)
       .$promise
-      .then(function() {
-        Company.sift(vm.filter, function(res) {
+      .then(function () {
+        Company.sift(vm.filter, function (res) {
           vm.companies = res.companies;
         });
         angular.element('#companyEditRowModal').modal('hide');
         Notification.success();
       })
-      .catch(function(err) {
+      .catch(function (err) {
         Notification.error("Error", err.data.error.message);
       });
   };
-  vm.onStartEditing = function(selectedIndex) {
+  vm.onStartEditing = function (selectedIndex) {
     vm.selectedCompany = angular.copy(vm.companies[selectedIndex]);
   }
 });
