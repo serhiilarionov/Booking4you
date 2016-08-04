@@ -48,8 +48,7 @@
     "companies": {
       "type": "hasMany",
       "model": "Company",
-      "foreignKey": "categoryId",
-      "through": "CategoryCompany"
+      "foreignKey": "categoryId"
     },
     "services": {
       "type": "hasMany",
