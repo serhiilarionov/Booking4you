@@ -1,14 +1,46 @@
 @import "main";
+
+.content {
+  background: #f4f4f2;
+  @include flex-grow(2);
+  @include display(flex);
+  @include flex-direction(column);
+}
+
+.inner-wrapper {
+  min-height: 100%;
+  @include display(flex);
+  @include flex-direction(column);
+}
+
+.inner-wrapper {
+  @include position(relative, null null null 0);
+  @include transition(all .3s);
+
+  .sidebar-opened & {
+    left: -$sidebar-width;
+  }
+}
+
+
+
+/**
+ * RESET STYLES
+ */
+
+body {
+  height: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat';
   text-transform: uppercase;
 }
+
 p, div, a {
   font-family: $ff-main;
 }
-.content {
-  background: #f4f4f2;
-}
+
 input, select, .btn, .dropdown-menu, .form-control {
   @include border-top-radius(0);
   @include border-bottom-radius(0);
@@ -22,7 +54,28 @@ input, textarea, input.form-control, textarea.form-control {
   padding: 10px 9px 9px;
   @include box-shadow(inset 0px 1px 0.5px rgba(0, 0, 0, 0.15));
   border: none;
+
+  .bs-searchbox & {
+    border: 1px solid lighten($c-grey-main, 50%);
+  }
+
   &:focus {
     @include box-shadow(inset 0px 1px 0.5px rgba(0, 0, 0, 0.15));
+  }
+}
+
+.btn {
+  border: none;
+  font-weight: bold;
+}
+
+.btn-default {
+  div:not([class*="bootstrap-select"])>& {
+    background: $c-blue-main;
+    color: #fff;
+
+    &:hover {
+      background: $c-dark-blue;
+    }
   }
 }

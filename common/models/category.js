@@ -1,35 +1,86 @@
-module.exports = function(MyModel) {
+module.exports = function (Category) {
 
-    MyModel.disableRemoteMethod("create", false);
-    MyModel.disableRemoteMethod("upsert", false);
-    MyModel.disableRemoteMethod("updateAll", false);
-    MyModel.disableRemoteMethod("updateAttributes", false);
+  Category.disableRemoteMethod("create", false);
+  Category.disableRemoteMethod("upsert", false);
+  Category.disableRemoteMethod("updateAll", false);
+  Category.disableRemoteMethod("updateAttributes", false);
 
-    MyModel.disableRemoteMethod("find", false);
-    MyModel.disableRemoteMethod("findById", false);
-    MyModel.disableRemoteMethod("findOne", false);
+  Category.disableRemoteMethod("find", false);
+  Category.disableRemoteMethod("findById", false);
+  Category.disableRemoteMethod("findOne", false);
 
-    MyModel.disableRemoteMethod("deleteById", false);
+  Category.disableRemoteMethod("deleteById", false);
 
-    MyModel.disableRemoteMethod("confirm", true);
-    MyModel.disableRemoteMethod("count", false);
-    MyModel.disableRemoteMethod("exists", false);
-    MyModel.disableRemoteMethod("resetPassword", true);
+  Category.disableRemoteMethod("confirm", true);
+  Category.disableRemoteMethod("count", false);
+  Category.disableRemoteMethod("exists", false);
+  Category.disableRemoteMethod("resetPassword", true);
 
-    MyModel.disableRemoteMethod("createChangeStream", true);
+  Category.disableRemoteMethod("createChangeStream", true);
 
-    MyModel.disableRemoteMethod('__count__accessTokens', false);
-    MyModel.disableRemoteMethod('__create__accessTokens', false);
-    MyModel.disableRemoteMethod('__delete__accessTokens', false);
-    MyModel.disableRemoteMethod('__destroyById__accessTokens', false);
-    MyModel.disableRemoteMethod('__findById__accessTokens', false);
-    MyModel.disableRemoteMethod('__get__accessTokens', false);
-    MyModel.disableRemoteMethod('__updateById__accessTokens', false);
+  Category.disableRemoteMethod('__count__accessTokens', false);
+  Category.disableRemoteMethod('__create__accessTokens', false);
+  Category.disableRemoteMethod('__delete__accessTokens', false);
+  Category.disableRemoteMethod('__destroyById__accessTokens', false);
+  Category.disableRemoteMethod('__findById__accessTokens', false);
+  Category.disableRemoteMethod('__get__accessTokens', false);
+  Category.disableRemoteMethod('__updateById__accessTokens', false);
 
-    MyModel.on('dataSourceAttached', function(obj){
-        var find = MyModel.find;
-        MyModel.find = function(filter, cb) {
-            return find.apply(this, arguments);
-        };
+  Category.on('dataSourceAttached', function (obj) {
+    var find = Category.find;
+    Category.find = function (filter, cb) {
+      return find.apply(this, arguments);
+    };
+  });
+  Category.findWithCompany = function (filter, cb) {
+    filter || (filter = {});
+    var dataSource = Category.dataSource;
+
+    var sql = 'SELECT company.name AS "companyName", ' +
+      'company.title, ' +
+      'company.desc, ' +
+      'company.photo, ' +
+      'company.active AS "companyActive", ' +
+      'company.point, ' +
+      'company.buildingId AS "buildingId", ' +
+      'company.streetId AS "streetId", ' +
+      'company.districtId AS "districtId", ' +
+      'company.cityId AS "cityId", ' +
+      'company.room, ' +
+      'company.locationDetail AS "locationDetail", ' +
+      'category.name AS "categoryName", ' +
+      'category.slug, ' +
+      'category.parentId AS "parentId", ' +
+      'category.icon, ' +
+      'category.position, ' +
+      'category.active AS "categoryActive" FROM category ' +
+      'left join categoryCompany on category.id = categoryCompany.categoryId ' +
+      'left join company on categoryCompany.companyId = company.id ';
+    
+    if (filter.where) {
+      sql += 'where ';
+
+      for (var keys = Object.keys(filter.where), i = 0, end = keys.length; i < end; i++) {
+        var key = keys[i], value = filter.where[key];
+        sql += key + ' = \'' + value + '\'';
+        if (i + 1 < end) {
+          sql += ' and '
+        }
+      }
+    }
+
+    dataSource.connector.execute(sql, function (err, companies) {
+      cb(err, companies);
     });
+  };
+
+
+  Category.remoteMethod(
+    'findWithCompany',
+    {
+      http: {verb: 'get'},
+      accepts: {arg: 'argument', type: 'object'},
+      returns: {arg: 'data', type: ['Category'], root: true}
+    }
+  );
 };

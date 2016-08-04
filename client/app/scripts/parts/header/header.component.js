@@ -10,9 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var sidebar_service_1 = require('../sidebar/sidebar.service');
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(el, sidebar) {
+        this.el = el;
+        this.sidebar = sidebar;
+        this.el = el.nativeElement;
     }
+    HeaderComponent.prototype.onSidebarToggle = function () {
+        this.sidebar.toggle();
+    };
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'app-header',
@@ -20,7 +27,7 @@ var HeaderComponent = (function () {
             styleUrls: ['scripts/parts/header/header.component.css'],
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.ElementRef, sidebar_service_1.SidebarService])
     ], HeaderComponent);
     return HeaderComponent;
 }());

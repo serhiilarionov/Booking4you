@@ -17,7 +17,7 @@ var HeroComponent = (function () {
     };
     HeroComponent = __decorate([
         core_1.Component({
-            selector: 'section.hero-image.search-filter-middle.height-500',
+            selector: 'hero',
             templateUrl: './scripts/components/hero/hero.component.html',
             styleUrls: ['./scripts/components/hero/hero.component.css']
         }), 

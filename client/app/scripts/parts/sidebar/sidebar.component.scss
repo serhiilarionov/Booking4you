@@ -1,0 +1,13 @@
+@import "main";
+
+.sidebar {
+  @include position(fixed, 0 (-$sidebar-width) null null);
+  @include transition(all .3s);
+  width: $sidebar-width;
+  height: 100%;
+  background: $c-grey-main;
+
+  .active > & {
+    right: 0;
+  }
+}

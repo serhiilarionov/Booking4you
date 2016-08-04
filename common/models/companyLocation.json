@@ -6,8 +6,7 @@
     "validateUpsert": true
   },
   "hidden": [
-    "id",
-    "companyId"
+    "id"
   ],
   "properties": {
     "id": {

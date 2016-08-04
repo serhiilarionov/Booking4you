@@ -1,0 +1,12 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -200px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 200px;
+  height: 100%;
+  background: #474747; }
+  .active > .sidebar {
+    right: 0; }

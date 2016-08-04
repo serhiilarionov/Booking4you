@@ -80,3 +80,12 @@
 }
 
 .angular-google-map-container { height: 400px; }
+
+/* Adding company styles */
+.bootstrapWizard li {
+    width: 50%;
+}
+
+#c-table .tab-content {
+    margin-top: 30px;
+}

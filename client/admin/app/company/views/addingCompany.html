@@ -1,0 +1,341 @@
+<div id="content">
+  <div class="row">
+    <big-breadcrumbs items="['Каталог', 'Компании']" icon="home" class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    </big-breadcrumbs>
+  </div>
+
+
+  <section>
+    <div class="row">
+      <article class="col-sm-12 col-md-12 col-lg-12">
+        <!-- Widget ID (each widget will need unique ID)-->
+        <div jarvis-widget id="wid-id-0" data-widget-color="darken" data-widget-editbutton="false"
+             data-widget-deletebutton="false">
+          <!-- widget options:
+          usage: <div jarvis-widget id="wid-id-0" data-widget-editbutton="false">
+
+          data-widget-colorbutton="false"
+          data-widget-editbutton="false"
+          data-widget-togglebutton="false"
+          data-widget-deletebutton="false"
+          data-widget-fullscreenbutton="false"
+          data-widget-custombutton="false"
+          data-widget-collapsed="true"
+          data-widget-sortable="false"
+          -->
+          <header>
+            <span class="widget-icon"> <i class="fa fa-check"></i> </span>
+
+            <h2>Companies</h2>
+
+          </header>
+          <div id="c-table">
+            <div class="widget-body">
+              <div class="row">
+                <div class="col-sm-12" data-smart-wizard>
+                  <div class="form-bootstrapWizard clearfix">
+                    <ul class="bootstrapWizard">
+                      <li data-smart-wizard-tab="1">
+                        <a href="#"> <span class="step">1</span> <span class="title">Base information</span> </a>
+                      </li>
+                      <li data-smart-wizard-tab="2">
+                        <a href="#"> <span class="step">2</span> <span class="title">Existing companies</span> </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="tab-content">
+                    <div class="tab-pane" data-smart-wizard-pane="1">
+                      <br>
+                      <h3><strong>Step 1</strong> - Address</h3>
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <div class="form-group">
+                            <label>City</label>
+                            <select style="width:100%" data-smart-select2 class="select2"
+                                    data-required name="city" ng-model="addingCompany.companyFilter.cityId"
+                                    ng-change="addingCompany.getStreets()">
+                              <option ng-repeat="city in addingCompany.cities" value="{{city.id}}">{{city.name}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-5">
+                          <div class="form-group">
+                            <label>Street</label>
+                            <select style="width:100%" data-smart-select2 class="select2"
+                                    data-required name="street" ng-model="addingCompany.companyFilter.streetId"
+                                    name="street">
+                              <option ng-repeat="street in addingCompany.streets" value="{{street.id}}">
+                                {{street.name}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label>House number</label>
+                            <input class="form-control input-md" type="text"
+                                   name="buildingId" ng-model="addingCompany.companyFilter.buildingId"
+                                   data-smart-validate-input
+                                   data-required
+                                   data-message="Please specify house number">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" data-smart-wizard-pane="2">
+                      <div>
+                        <p class="control-buttons">
+                          <button type="button" class="btn btn-info" data-toggle="modal"
+                                  data-target="#companyNewRowModal">
+                            <i class="fa fa-plus"></i>&nbsp;Добавить
+                          </button>
+                      </div>
+
+                      <!-- Start adding table row modal -->
+                      <div class="c-modal modal fade" id="companyNewRowModal" tabindex="-1" role="dialog"
+                           aria-labelledby="companyNewModalLabel" aria-hidden="true"
+                           data-ng-init="bindHideModalFunction($hide)">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal"
+                                      aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" id="companyNewModalLabel">Добавление</h4>
+                            </div>
+                            <div class="modal-body">
+                              <section id="set-points-widget-grid" widget-grid data-widget-grid>
+                                <form id="company-adding-new-row-form" class="smart-form"
+                                      ng-submit="addingCompany.addNewRow()">
+                                  <fieldset>
+                                    <div>
+                                      <!-- Name -->
+                                      <section class="col form-input">
+                                        <label class="input">Название
+                                          <input type="text" id="companyNameAdd"
+                                                 ng-model="addingCompany.newCompany['name']">
+                                        </label>
+                                      </section>
+                                      <!-- End Name-->
+
+                                      <!-- Title -->
+                                      <section class="col form-input">
+                                        <label class="input">Заголовок
+                                          <input type="text" id="companyTitleAdd"
+                                                 ng-model="addingCompany.newCompany['title']">
+                                        </label>
+                                      </section>
+                                      <!-- End Title-->
+
+                                      <!-- City box-->
+                                      <section class="col form-input">
+                                        <label class="input">Город
+                                          <select class="form-control input-sm" id="companyCitySelectBoxAdd"
+                                                  ng-model="addingCompany.newCompany['cityId']">
+                                            <option
+                                                ng-repeat="row in addingCompany.cities track by row.id"
+                                                value="{{row.id}}"
+                                                ng-selected="addingCompany.newCompany['cityId'] == row.id">
+                                              #{{row.id}} ({{row.name}})
+                                            </option>
+                                          </select>
+                                        </label>
+                                      </section>
+                                      <!-- End City box-->
+
+                                      <!-- Category box-->
+                                      <section class="col form-input">
+                                        <label class="input">Категория
+                                          <select class="form-control input-sm" id="companyCategorySelectBoxAdd"
+                                                  ng-model="addingCompany.newCompany['categoryId']">
+                                            <option
+                                                ng-repeat="row in addingCompany.categories track by row.id"
+                                                value="{{row.id}}"
+                                                ng-selected="addingCompany.newCompany['categoryId'] == row.id">
+                                              #{{row.id}} ({{row.name}})
+                                            </option>
+                                          </select>
+                                        </label>
+                                      </section>
+                                      <!-- End Category box-->
+
+                                      <!-- Desc -->
+                                      <section class="col form-input">
+                                        <label class="input">Описание
+                                          <input type="text" id="companyDescAdd"
+                                                 ng-model="addingCompany.newCompany['desc']">
+                                        </label>
+                                      </section>
+                                      <!-- End Desc-->
+
+                                      <!-- Photo -->
+                                      <section class="col form-input">
+                                        <label class="label">File input</label>
+                                        <div class="input input-file">
+                                          <span class="button">
+                                            <input type="file" id="file" name="file"
+                                                   file-model="addingCompany.photo"
+                                                   onchange="this.parentNode.nextSibling.nextSibling.value = this.value">Browse
+                                          </span>
+                                          <input type="text" placeholder="Include some files" readonly="">
+                                        </div>
+                                      </section>
+                                      <!-- End Photo -->
+
+                                      <!-- Active -->
+                                      <section class="col form-input active-checkbox">
+                                        <label class="checkbox">
+                                          <input type="checkbox" id="companyActiveAdd"
+                                                 ng-model="addingCompany.newCompany['active']">
+                                          <i></i>Активно</label>
+                                      </section>
+                                      <!-- End Active -->
+
+                                    </div>
+                                  </fieldset>
+                                </form>
+                              </section>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                              <button type="submit" form="company-adding-new-row-form" class="btn btn-primary">
+                                Добавить
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End adding table row modal -->
+
+                      <!-- Start editing table row modal -->
+                      <div class="c-modal modal fade" id="companyEditRowModal" tabindex="-1" role="dialog"
+                           aria-labelledby="companyEditModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal"
+                                      aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" id="companyEditModalLabel">Редактирование</h4>
+                            </div>
+                            <div class="modal-body">
+                              <form id="company-editing-row-form" class="smart-form"
+                                    ng-submit="addingCompany.editRow()">
+                                <fieldset>
+                                  <div>
+                                    <!-- Name -->
+                                    <section class="col form-input">
+                                      <label class="input">Название
+                                        <input type="text" id="companyNameEdit"
+                                               ng-model="addingCompany.selectedCompany['name']">
+                                      </label>
+                                    </section>
+                                    <!-- End Name-->
+
+                                    <!-- Title -->
+                                    <section class="col form-input">
+                                      <label class="input">Заголовок
+                                        <input type="text" id="companyTitleEdit"
+                                               ng-model="addingCompany.selectedCompany['title']">
+                                      </label>
+                                    </section>
+                                    <!-- End Title-->
+
+                                    <!-- Select box-->
+                                    <section class="col form-input">
+                                      <label class="input">Категория
+                                        <select class="form-control input-sm" id="companyCategorySelectBoxEdit"
+                                                ng-model="addingCompany.selectedCompany['categoryId']">
+                                          <option
+                                              ng-repeat="row in addingCompany.categories track by row.id"
+                                              value="{{row.id}}"
+                                              ng-selected="addingCompany.selectedCompany['categoryId'] == row.id">
+                                            #{{row.id}} ({{row.name}})
+                                          </option>
+                                        </select>
+                                      </label>
+                                    </section>
+                                    <!-- End Select box-->
+
+                                    <!-- Desc -->
+                                    <section class="col form-input">
+                                      <label class="input">Описание
+                                        <input type="text" id="companyDescEdit"
+                                               ng-model="addingCompany.selectedCompany['desc']">
+                                      </label>
+                                    </section>
+                                    <!-- End Desc-->
+
+                                    <!-- Active -->
+                                    <section class="col form-input active-checkbox">
+                                      <label class="checkbox">
+                                        <input type="checkbox" id="companyActiveEdit"
+                                               ng-model="addingCompany.selectedCompany['active']">
+                                        <i></i>Активно</label>
+                                    </section>
+                                    <!-- End Active -->
+                                  </div>
+                                </fieldset>
+                              </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                              <button type="submit" form="company-editing-row-form" class="btn btn-primary">Сохранить
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End editing table row modal -->
+
+                      <table class="table table-hover grid">
+                        <thead>
+                        <tr>
+                          <th></th>
+                          <th ng-repeat="(key, value) in addingCompany.companies[0] track by $index"
+                              ng-if="key != 'id'">{{key}}
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="company in addingCompany.companies">
+                          <td>
+                            <button class="btn btn-warning" data-toggle="modal"
+                                    data-target="#companyEditRowModal"
+                                    ng-click="addingCompany.onStartEditing($index)">
+                              <i class="fa fa-edit"></i></button>
+                            &nbsp;
+                          </td>
+                          <td ng-repeat="(key, value) in company" ng-if="key != 'id'">
+                            {{(key == 'categoryId') ? addingCompany.find(value).name : value}}
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="form-actions">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <ul class="pager wizard no-margin">
+                            <li class="previous" data-smart-wizard-prev>
+                              <a href="#" class="btn btn-lg btn-default"> Previous </a>
+                            </li>
+                            <li class="next" data-smart-wizard-next>
+                              <a href="#" class="btn btn-lg txt-color-darken" ng-click="addingCompany.filter()">
+                                Next </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end widget -->
+      </article>
+    </div>
+  </section>
+</div>

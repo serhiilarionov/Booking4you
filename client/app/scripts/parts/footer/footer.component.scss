@@ -1,0 +1,8 @@
+@import "main";
+
+.bottom {
+  border-top: 1px solid lighten($c-grey-main, 50%);
+  height: $footer-height;
+  @include display(flex);
+  @include align-items(center);
+}

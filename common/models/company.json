@@ -25,10 +25,6 @@
       "type": "string",
       "required": true
     },
-    "categoryId": {
-      "type": "number",
-      "required": true
-    },
     "desc": {
       "type": "string"
     },
@@ -96,6 +92,12 @@
       "type": "hasMany",
       "model": "Booking",
       "foreignKey": "companyId"
+    },
+    "categories": {
+      "type": "hasMany",
+      "model": "Category",
+      "foreignKey": "companyId",
+      "through": "CategoryCompany"
     }
   },
   "acls": [

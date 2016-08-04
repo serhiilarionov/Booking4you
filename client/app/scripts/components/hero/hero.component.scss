@@ -30,11 +30,6 @@
     }
   }
 
-  .btn {
-    @include background($c-blue-main);
-    color: white;
-  }
-
   i {
     line-height: inherit;
   }

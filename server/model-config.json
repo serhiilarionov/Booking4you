@@ -84,6 +84,10 @@
     "dataSource": "pgsql",
     "public": true
   },
+  "CategoryCompany": {
+    "dataSource": "pgsql",
+    "public": true
+  },
   "Logs": {
     "dataSource": "pgsql",
     "public": true
