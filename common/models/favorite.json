@@ -1,0 +1,56 @@
+{
+  "name": "Favorite",
+  "plural": "favorites",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "deletedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true
+    },
+    "createdAt": {
+      "type": "date",
+      "default": "$now"
+    },
+    "updatedAt": {
+      "type": "date",
+      "default": "$now"
+    },
+    "deletedAt": {
+      "type": "date",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    },
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": "companyId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

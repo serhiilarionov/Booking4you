@@ -88,6 +88,10 @@
     "dataSource": "pgsql",
     "public": true
   },
+  "Favorite": {
+    "dataSource": "pgsql",
+    "public": true
+  },
   "Logs": {
     "dataSource": "pgsql",
     "public": true
