@@ -76,7 +76,13 @@ module.exports = {
           'position': 2,
           'active': true
         }
-      ], next);
+      ], function() {
+
+        var sql = "select setval('category_id_seq', (select max(id) + 1 from category));";
+        var params = [];
+        dataSource.connector.execute(sql, params, next);
+
+      });
     });
   },
   down: function (dataSource, next) {

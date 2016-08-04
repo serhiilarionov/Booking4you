@@ -86,7 +86,7 @@ gulp.task('vendor', function(){
 gulp.task('maps', function(){
     _.forIn(scripts.maps, function(path, name){
         if (!fs.existsSync(__dirname + '/' + path)) {
-            throw console.error('Required path doesn\'t exist: ' + __dirname + '/' + path, script)
+            throw console.error('Required path doesn\'t exist: ' + __dirname + '/' + path, name)
         }
         gulp.src(path)
           .pipe(gulp.dest(destinations.js))
