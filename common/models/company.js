@@ -68,24 +68,24 @@ module.exports = function (Company) {
     filter || (filter = {});
     var dataSource = Company.dataSource;
 
-    var sql = 'SELECT company.name AS companyName, ' +
+    var sql = 'SELECT company.name AS "companyName", ' +
       'company.title, ' +
       'company.desc, ' +
       'company.photo, ' +
-      'company.active AS companyActive, ' +
+      'company.active AS "companyActive", ' +
       'company.point, ' +
-      'company.buildingId, ' +
-      'company.streetId, ' +
-      'company.districtId, ' +
-      'company.cityId, ' +
+      'company.buildingId AS "buildingId", ' +
+      'company.streetId AS "streetId", ' +
+      'company.districtId AS "districtId", ' +
+      'company.cityId AS "cityId", ' +
       'company.room, ' +
-      'company.locationDetail, ' +
-      'category.name AS categoryName, ' +
+      'company.locationDetail AS "locationDetail", ' +
+      'category.name AS "categoryName", ' +
       'category.slug, ' +
-      'category.parentId, ' +
+      'category.parentId AS "parentId", ' +
       'category.icon, ' +
       'category.position, ' +
-      'category.active AS categoryActive FROM company ' +
+      'category.active AS "categoryActive" FROM company ' +
       'left join categoryCompany on company.id = categoryCompany.companyId ' +
       'left join category on categoryCompany.categoryId = category.id ';
 
