@@ -33,10 +33,10 @@
   },
   "validations": [],
   "relations": {
-    "user": {
+    "client": {
       "type": "belongsTo",
-      "model": "User",
-      "foreignKey": "userId"
+      "model": "Client",
+      "foreignKey": "clientId"
     },
     "company": {
       "type": "belongsTo",
