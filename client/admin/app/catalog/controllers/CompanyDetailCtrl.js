@@ -6,17 +6,23 @@ angular.module('app.company').controller('CompanyDetailsController', function ($
   var vm = this;
   vm.newCompany = {};
   vm.uploader = new FileUploader();
-  CompanyDetail.find({}, function (res) {
+  CompanyDetail.find({"filter": {"where": {"companyId": $stateParams.id}}}, function (res) {
     vm.details = res;
   });
-  
   vm.editRow = function () {
+    var fd = new FormData();
+
     Company.findOne({filter: {where: {id: $stateParams.id}}})
       .$promise
       .then(function (company) {
-        var fd = new FormData();
-        vm.uploader.queue.forEach(function(one) {
-          fd.append(one.file.name, one._file);
+        vm.uploader.queue.forEach(function (one) {
+          var exists = _.findIndex(vm.selectedDetail.imageList, function(image){
+            return (image === one._file.name);
+          });
+          if (exists === -1) {
+            vm.selectedDetail.imageList.push(one._file.name);
+            fd.append(one.file.name, one._file);
+          }
         });
 
         fd.append('cityId', parseInt(company.cityId));
@@ -29,8 +35,14 @@ angular.module('app.company').controller('CompanyDetailsController', function ($
           responseType: "arraybuffer"
         })
       })
+      .then(function() {
+        return CompanyDetail.upsert({companyId: vm.selectedDetail.companyId}, vm.selectedDetail)
+          .$promise
+      })
       .then(function () {
-        vm.filter();
+        CompanyDetail.find({"filter": {"where": {"companyId": $stateParams.id}}}, function (res) {
+          vm.details = res;
+        });
         angular.element('#companyEditRowModal').modal('hide');
         Notification.success();
       })
@@ -40,6 +52,6 @@ angular.module('app.company').controller('CompanyDetailsController', function ($
   };
   
   vm.onStartEditing = function (selectedIndex) {
-    vm.selectedCompany = angular.copy(vm.details[selectedIndex]);
+    vm.selectedDetail = angular.copy(vm.details[selectedIndex]);
   };
 });

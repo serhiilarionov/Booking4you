@@ -5,10 +5,7 @@
   "options": {
     "validateUpsert": true
   },
-  "hidden": [
-    "id",
-    "companyId"
-  ],
+  "hidden": [],
   "properties": {
     "id": {
       "type": "Number",
