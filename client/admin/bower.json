@@ -59,6 +59,7 @@
     "bower-jvectormap": "~1.2.2",
     "dropzone": "~4.2.0",
     "angular-google-maps": "~2.3.1",
-    "angular-datatables": "^0.5.3"
+    "angular-datatables": "^0.5.3",
+    "angular-file-upload": "^2.3.4"
   }
 }

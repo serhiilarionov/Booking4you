@@ -104,21 +104,21 @@ function destroyAddMeta(array, modelName, id, hash) {
 }
 
 function login() {
-  return db.User.create(testData.user)
+  return db.Client.create(testData.client)
     .then(function () {
       return new Promise(function(resolve, reject) {
         superagent
-          .post(testData.apiUrl + '/Users/login')
-          .send(testData.user)
+          .post(testData.apiUrl + '/clients/login')
+          .send(testData.client)
           .set('Accept', 'application/json')
           .set('Content-Type', 'application/json')
           .end(function (err, res) {
             if (err) {
               reject(err);
             }
-            testData.user.id = res.body.userId;
-            testData.user.accessToken = res.body.id;
-            resolve(testData.user);
+            testData.client.id = res.body.clientId;
+            testData.client.accessToken = res.body.id;
+            resolve(testData.client);
           })
       })
     })
@@ -127,7 +127,7 @@ function login() {
 function logout(accessToken) {
   return new Promise(function(resolve, reject) {
     superagent
-      .post(testData.apiUrl + '/Users/logout?access_token=' + accessToken)
+      .post(testData.apiUrl + '/clients/logout?access_token=' + accessToken)
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json')
       .end(function (err, res) {

@@ -1,0 +1,100 @@
+<div id="content">
+  <div class="row">
+    <big-breadcrumbs items="['Каталог', 'Детали компании']" icon="home" class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    </big-breadcrumbs>
+  </div>
+
+
+  <section>
+    <div class="row">
+      <article class="col-sm-12 col-md-12 col-lg-12">
+        <!-- Widget ID (each widget will need unique ID)-->
+        <div jarvis-widget id="wid-id-0" data-widget-color="darken" data-widget-editbutton="false"
+             data-widget-deletebutton="false">
+          <!-- widget options:
+          usage: <div jarvis-widget id="wid-id-0" data-widget-editbutton="false">
+
+          data-widget-colorbutton="false"
+          data-widget-editbutton="false"
+          data-widget-togglebutton="false"
+          data-widget-deletebutton="false"
+          data-widget-fullscreenbutton="false"
+          data-widget-custombutton="false"
+          data-widget-collapsed="true"
+          data-widget-sortable="false"
+          -->
+          <header>
+            <span class="widget-icon"> <i class="fa fa-check"></i> </span>
+
+            <h2>Details</h2>
+
+          </header>
+          <div id="c-table">
+            <div class="widget-body">
+              <div class="row">
+                <!-- Start editing table row modal -->
+                <div class="c-modal modal fade" id="companyEditRowModal" tabindex="-1" role="dialog"
+                     aria-labelledby="companyEditModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="companyEditModalLabel">Редактирование</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form id="company-editing-row-form" class="smart-form"
+                              ng-submit="companyDetails.editRow()">
+                          <fieldset>
+                            <div>
+                              <input type="file" nv-file-select uploader="companyDetails.uploader"/><br/>
+                              <ul>
+                                <li ng-repeat="item in companyDetails.uploader.queue">
+                                  Name: <span ng-bind="item.file.name"></span>
+                                </li>
+                              </ul>
+                            </div>
+                          </fieldset>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                        <button type="submit" form="company-editing-row-form" class="btn btn-primary">Сохранить
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End editing table row modal -->
+
+                <table class="table table-hover grid">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th ng-repeat="(key, value) in companyDetails.details[0] track by $index"
+                        ng-if="key != 'id'">{{key}}
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="company in companyDetails.details">
+                    <td>
+                      <button class="btn btn-warning" data-toggle="modal"
+                              data-target="#companyEditRowModal"
+                              ng-click="companyDetails.onStartEditing($index)">
+                        <i class="fa fa-edit"></i></button>
+                      &nbsp;
+                    </td>
+                    <td ng-repeat="(key, value) in company" ng-if="key != 'id'">{{value}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end widget -->
+      </article>
+    </div>
+  </section>
+</div>

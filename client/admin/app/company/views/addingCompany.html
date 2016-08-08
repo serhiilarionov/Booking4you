@@ -265,6 +265,20 @@
                                     </section>
                                     <!-- End Desc-->
 
+                                    <!-- Photo -->
+                                    <section class="col form-input">
+                                      <label class="label">File input</label>
+                                      <div class="input input-file">
+                                          <span class="button">
+                                            <input type="file" name="file"
+                                                   file-model="addingCompany.photo"
+                                                   onchange="this.parentNode.nextSibling.nextSibling.value = this.value">Browse
+                                          </span>
+                                        <input type="text" placeholder="Include some files" readonly="">
+                                      </div>
+                                    </section>
+                                    <!-- End Photo -->
+
                                     <!-- Active -->
                                     <section class="col form-input active-checkbox">
                                       <label class="checkbox">

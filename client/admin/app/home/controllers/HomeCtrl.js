@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('app.home').controller('HomeController', function (User) {
+angular.module('app.home').controller('HomeController', function (Client) {
   var vm = this;
-  vm.User = User;
-  vm.isAuthenticated = User.isAuthenticated();
+  vm.Client = Client;
+  vm.isAuthenticated = Client.isAuthenticated();
 });

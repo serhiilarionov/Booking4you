@@ -56,7 +56,7 @@ angular.module('app.catalog').controller('CompaniesController', function ($state
       ],
       onRowClick: function (nRow, aData) {
         delete $stateParams.filter;
-        $state.go('app.catalog.companyServices', {
+        $state.go('app.catalog.companyDetails', {
           id: aData.id,
           previousState: 'app.catalog.companies'
         })
