@@ -52,5 +52,15 @@
       "permission": "DENY"
     }
   ],
-  "methods": {}
+  "methods": {},
+  "indexes":
+  {
+    "uniqueFavorite":  {
+      "keys": {
+        "clientId": 1,
+        "companyId": 1
+      },
+      "kind": "unique"
+    }
+  }
 }
