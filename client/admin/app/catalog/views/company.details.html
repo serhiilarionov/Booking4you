@@ -32,19 +32,19 @@
           <div id="c-table">
             <div class="widget-body">
               <div class="row">
-                <!-- Start editing table row modal -->
-                <div class="c-modal modal fade" id="companyEditRowModal" tabindex="-1" role="dialog"
-                     aria-labelledby="companyEditModalLabel" aria-hidden="true">
+                <!-- Start adding image modal -->
+                <div class="c-modal modal fade" id="companyAddImagesModal" tabindex="-1" role="dialog"
+                     aria-labelledby="companyAddImagesModal" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"
                                 aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="companyEditModalLabel">Редактирование</h4>
+                        <h4 class="modal-title" id="companyAddImagesModalLabel">Add image</h4>
                       </div>
                       <div class="modal-body">
-                        <form id="company-editing-row-form" class="smart-form"
-                              ng-submit="companyDetails.editRow()">
+                        <form id="company-add-image-form" class="smart-form"
+                              ng-submit="companyDetails.addNewImage()">
                           <fieldset>
                             <div>
                               <input type="file" nv-file-select uploader="companyDetails.uploader"/><br/>
@@ -59,36 +59,184 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
-                        <button type="submit" form="company-editing-row-form" class="btn btn-primary">Сохранить
+                        <button type="submit" form="company-add-image-form" class="btn btn-primary">Сохранить
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- End editing table row modal -->
+                <!-- End adding image modal -->
 
-                <table class="table table-hover grid">
-                  <thead>
-                  <tr>
-                    <th></th>
-                    <th ng-repeat="(key, value) in companyDetails.details[0] track by $index"
-                        ng-if="key != 'id'">{{key}}
-                    </th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr ng-repeat="company in companyDetails.details">
-                    <td>
-                      <button class="btn btn-warning" data-toggle="modal"
-                              data-target="#companyEditRowModal"
-                              ng-click="companyDetails.onStartEditing($index)">
-                        <i class="fa fa-edit"></i></button>
-                      &nbsp;
-                    </td>
-                    <td ng-repeat="(key, value) in company" ng-if="key != 'id'">{{value}}</td>
-                  </tr>
-                  </tbody>
-                </table>
+                <!-- Start adding phone modal -->
+                <div class="c-modal modal fade" id="companyAddPhoneModal" tabindex="-1" role="dialog"
+                     aria-labelledby="companyAddPhoneModal" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="companyAddPhoneModalLabel">Add phone</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form id="company-add-phone-form" class="smart-form"
+                              ng-submit="companyDetails.AddDetail('phone')">
+                          <fieldset>
+                            <div>
+                              <section class="col form-input">
+                                <label class="input">Number
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" data-smart-masked-input="(999) 999-9999" data-mask-placeholder= "X">
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                  </div>
+                                </label>
+                              </section>
+                              <section class="col form-input">
+                                <label class="input">Note
+                                  <input type="text" id="newPhoneNote"
+                                         ng-model="companyDetails.newphone.note">
+                                </label>
+                              </section>
+                              <section class="col form-input">
+                                <label class="input">Priority
+                                  <input type="text" id="newPhonePriority"
+                                         ng-model="companyDetails.newphone.priority">
+                                </label>
+                              </section>
+                            </div>
+                          </fieldset>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                        <button type="submit" form="company-add-phone-form" class="btn btn-primary">Сохранить
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End adding phone modal -->
+
+                <div class="Table">
+                  <div class="Table-row Table-header">
+                    <div class="Table-row-button"></div>
+                    <div class="Table-row-item">Phone</div>
+                    <div class="Table-row-button"></div>
+                    <div class="Table-row-item">Email</div>
+                    <div class="Table-row-button"></div>
+                    <div class="Table-row-item">Website</div>
+                    <div class="Table-row-button"></div>
+                    <div class="Table-row-item">Work time</div>
+                    <div class="Table-row-button"></div>
+                    <div class="Table-row-item">Images</div>
+                  </div>
+                  <div class="Table-row" ng-repeat="details in companyDetails.details">
+                    <div class="Table-row-button">
+                      <div class="form-group">
+                        <div class="form-inline">
+                          <div class="control-label">
+                            <button class="btn btn-primary" data-toggle="modal"
+                                    data-target="#companyAddPhoneModal"> + </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-item">
+                      <div class="form-group Table">
+                        <div class="Table-row Table-header">
+                          <div class="Table-row-item">number</div>
+                          <div class="Table-row-item">note</div>
+                          <div class="Table-row-item">priority</div>
+                        </div>
+                        <div class="Table-row" ng-repeat="detail in details.phone">
+                          <div class="Table-row-item">{{detail.number}}</div>
+                          <div class="Table-row-item">{{detail.note}}</div>
+                          <div class="Table-row-item">{{detail.priority}}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-button">
+                      <div class="form-group">
+                        <div class="form-inline">
+                          <div class="control-label">
+                            <button class="btn btn-primary" ng-click="companyDetails.AddDetail('email')">
+                              <span> + </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-item">
+                      <div class="form-group">
+                        <form action="" id="checkout-form" class="smart-form" novalidate="novalidate">
+                          <label class="input">
+                            <input class="form-control" type="email" name="newEmail" ng-model="companyDetails.newemail">
+                          </label>
+                        </form>
+                      </div>
+                      <div class="form-group Table">
+                        <div class="Table-row" ng-repeat="email in details.email track by $index">
+                          <div class="Table-row-item">{{email}}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-button">
+                      <div class="form-group">
+                        <div class="form-inline">
+                          <div class="control-label">
+                            <button class="btn btn-primary" ng-click="companyDetails.AddDetail('website')">
+                              <span> + </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-item">
+                      <div class="form-group">
+                        <input type="url" class="form-control" ng-model="companyDetails.newwebsite" name="newWebsite">
+                      </div>
+                      <div class="form-group Table">
+                        <div class="Table-row" ng-repeat="website in details.website track by $index">
+                          <div class="Table-row-item">{{website}}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-button">
+                      <div class="form-group">
+                        <div class="form-inline">
+                          <div class="control-label">
+                            <button class="btn btn-primary">
+                              <span> + </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-item">
+                      <div class="form-group Table">
+                        <div class="Table-row" ng-repeat="worktime in details.worktime">
+                          <div class="Table-row-item">{{worktime}}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-button">
+                      <div class="form-group">
+                        <div class="form-inline">
+                          <div class="control-label">
+                            <button class="btn btn-primary" data-toggle="modal"
+                                    data-target="#companyAddImagesModal"> + </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Table-row-item">
+                      <div class="form-group Table">
+                        <div class="Table-row" ng-repeat="imageList in details.imageList">
+                          <div class="Table-row-item">{{imageList}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
