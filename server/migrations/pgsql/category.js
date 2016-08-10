@@ -6,7 +6,7 @@ module.exports = {
       dataSource.models.Category.create([
         {
           'id': 1,
-          'name': 'автомобиль',
+          'name': 'Автомобиль',
           'slug': 'car',
           'parentId': 0,
           'icon': 'local_shipping',
@@ -15,7 +15,7 @@ module.exports = {
         },
         {
           'id': 2,
-          'name': 'досуг',
+          'name': 'Досуг',
           'slug': 'leisure',
           'parentId': 0,
           'icon': 'tag_faces',
@@ -24,7 +24,7 @@ module.exports = {
         },
         {
           'id': 3,
-          'name': 'красота',
+          'name': 'Красота',
           'slug': 'beauty',
           'parentId': 0,
           'icon': 'palette',
@@ -33,7 +33,7 @@ module.exports = {
         },
         {
           'id': 4,
-          'name': 'здоровье',
+          'name': 'Здоровье',
           'slug': 'health',
           'parentId': 0,
           'icon': 'healing',
@@ -42,7 +42,7 @@ module.exports = {
         },
         {
           'id': 21,
-          'name': 'автомойка',
+          'name': 'Автомойка',
           'slug': 'car-wash',
           'parentId': 1,
           'icon': 'local_car_wash',
@@ -51,7 +51,7 @@ module.exports = {
         },
         {
           'id': 22,
-          'name': 'бильярд',
+          'name': 'Бильярд',
           'slug': 'billiards',
           'parentId': 2,
           'icon': 'hdr_weak',
@@ -60,7 +60,7 @@ module.exports = {
         },
         {
           'id': 23,
-          'name': 'боулинг',
+          'name': 'Боулинг',
           'slug': 'bowling',
           'parentId': 2,
           'icon': 'lens',
@@ -69,7 +69,7 @@ module.exports = {
         },
         {
           'id': 24,
-          'name': 'сервис-станции',
+          'name': 'Сервис-станции',
           'slug': 'service-stations',
           'parentId': 1,
           'icon': 'gears',
