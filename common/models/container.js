@@ -14,13 +14,13 @@ module.exports = function (Container) {
     var promises = [];
 
     Object.keys(files).forEach(function(key) {
-      var containerPath = '../client/storage/' + files[key][0].container;
-      var oldPath = './' + containerPath + '/' + files[key][0].name;
+      var containerPath = 'client/storage/' + files[key][0].container;
+      var oldPath = containerPath + '/' + files[key][0].name;
       var newPath = containerPath + '/' + fields['cityId'][0] + '/' +
         fields['categoryId'][0] + '/' + fields['companyId'][0];
       mkdirSync(newPath + '/thumb');
       var newThumbPath = newPath + '/thumb/' + files[key][0].name;
-      newPath = './' + newPath + '/' + files[key][0].name;
+      newPath = newPath + '/' + files[key][0].name;
 
       promises.push(
         fsp.readFile(oldPath)
