@@ -17,6 +17,7 @@ angular.module('app', [
   'ui.bootstrap',
   'datatables',
   'customElements',
+  'loopbackSockets',
   'lbServices',
   'uiGmapgoogle-maps',
   'angularFileUpload',
@@ -32,6 +33,7 @@ angular.module('app', [
   'app.company',
   'app.home',
   'app.locations',
+  'app.booking',
   'app.login'
 ])
   .config(function ($provide, $httpProvider, RestangularProvider, uiGmapGoogleMapApiProvider) {
