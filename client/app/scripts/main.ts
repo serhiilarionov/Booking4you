@@ -1,9 +1,15 @@
-import { bootstrap }    from '@angular/platform-browser-dynamic';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { AppComponent } from './app.component';
-import { appRouterProviders }   from './app.routes';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppComponent} from './app.component';
+import {routing} from './app.routing';
 
-bootstrap(AppComponent, [
-  appRouterProviders,
-  {provide: LocationStrategy, useClass: HashLocationStrategy}
-]);
+@NgModule({
+  imports: [BrowserModule, routing],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {};
+
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
