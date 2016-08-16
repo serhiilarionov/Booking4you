@@ -12,7 +12,14 @@
 
   ],
   "properties": {
-
+    "phone": {
+      "type": "string",
+      "required": false
+    },
+    "phoneVerified": {
+      "type": "date",
+      "required": false
+    }
   },
   "validations": [],
   "relations": {
