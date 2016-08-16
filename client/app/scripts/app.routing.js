@@ -12,7 +12,5 @@ var routes = [
         component: login_page_component_1.LoginPageComponent
     }
 ];
-exports.appRouterProviders = [
-    router_1.provideRouter(routes)
-];
-//# sourceMappingURL=app.routes.js.map
+exports.routing = router_1.RouterModule.forRoot(routes);
+//# sourceMappingURL=app.routing.js.map

@@ -98,6 +98,12 @@
       "model": "Category",
       "foreignKey": "companyId",
       "through": "CategoryCompany"
+    },
+    "clients": {
+      "type": "hasMany",
+      "model": "Client",
+      "foreignKey": "companyId",
+      "through": "Favorite"
     }
   },
   "acls": [

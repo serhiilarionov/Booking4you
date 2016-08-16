@@ -1,3 +1,6 @@
+var pubsub = require('../../server/pubsub.js');
+var loopback = require('loopback');
+
 module.exports = function(Booking) {
 
   Booking.disableRemoteMethod("create", false);
@@ -26,4 +29,37 @@ module.exports = function(Booking) {
   Booking.disableRemoteMethod('__get__accessTokens', false);
   Booking.disableRemoteMethod('__updateById__accessTokens', false);
 
+  Booking.observe('after save', function (ctx, next) {
+    var socket = Booking.app.io;
+    if(ctx.isNewInstance){
+      //Now publishing the data..
+      pubsub.publish(socket, {
+        collectionName : 'Booking',
+        data: ctx.instance,
+        method: 'POST'
+      });
+    }else{
+      //Now publishing the data..
+      pubsub.publish(socket, {
+        collectionName : 'Booking',
+        data: ctx.instance,
+        modelId: ctx.instance.id,
+        method: 'PUT'
+      });
+    }
+    //Calling the next middleware..
+    next();
+  });
+  Booking.observe("before delete", function(ctx, next){
+    var socket = Booking.app.io;
+    //Now publishing the data..
+    pubsub.publish(socket, {
+      collectionName : 'Booking',
+      data: ctx.where.id,
+      modelId: ctx.where.id,
+      method: 'DELETE'
+    });
+    //move to next middleware..
+    next();
+  });
 };

@@ -70,8 +70,24 @@ input, select, .btn, .dropdown-menu, .form-control {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0; }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
 a {
-  color: #474747; }
+  color: #474747;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s; }
+  a:hover, a:focus {
+    text-decoration: none; }
+
+button {
+  border: none;
+  background: transparent; }
+  button:focus, button:active {
+    outline: none; }
 
 input, textarea, input.form-control, textarea.form-control {
   padding: 10px 9px 9px;

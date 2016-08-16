@@ -3,6 +3,6 @@ module.exports = {
     dataSource.autoupdate('AccessToken', next)
   },
   down: function (dataSource, next) {
-    dataSource.models.User.destroyAll([], next);
+    dataSource.models.AccessToken.destroyAll([], next);
   }
 };

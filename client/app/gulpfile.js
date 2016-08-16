@@ -3,12 +3,14 @@ const sass = require('gulp-sass');
 const cache = require('gulp-cached');
 const remember = require('gulp-remember');
 const browserSync = require('browser-sync').create();
+const historyApiFallback = require('connect-history-api-fallback');
 
 gulp.task('serve', function() {
   browserSync.init({
     server: {
       baseDir: './'
     },
+    middleware: [historyApiFallback()],
     files: './stylesheets/**/*.css',
     port: 8000
   });

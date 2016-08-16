@@ -111,7 +111,7 @@ module.exports = function (Company) {
     'findWithCategory',
     {
       http: {verb: 'get'},
-      accepts: {arg: 'argument', type: 'object'},
+      accepts: {arg: 'filter', type: 'object'},
       returns: {arg: 'data', type: ['Company'], root: true}
     }
   );

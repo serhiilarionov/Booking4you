@@ -56,4 +56,19 @@ angular.module('app.catalog', ['ui.router'])
           }
         }
       })
+      .state('app.catalog.companyDetails', {
+        url: '/company/companies/:id/details?{filter}',
+        params : {
+          previousState: null
+        },
+        data: {
+          title: 'Company details'
+        },
+        views: {
+          "content@app": {
+            controller: 'CompanyDetailsController as companyDetails',
+            templateUrl: "app/catalog/views/company.details.html"
+          }
+        }
+      })
   });

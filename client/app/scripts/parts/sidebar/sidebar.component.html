@@ -1,9 +1,9 @@
 <div class="sidebar">
+  <header>Navigation</header>
   <ul>
-    <li><a href="">Lorem ipsum dolor.</a></li>
-    <li><a href="">Illo, iste rerum!</a></li>
-    <li><a href="">Iusto, nihil quas!</a></li>
-    <li><a href="">Aliquid maxime, similique.</a></li>
-    <li><a href="">Error, exercitationem, magni.</a></li>
+    <li class="menu-branch"
+        *ngFor="let branch of menuTree; let i = index"
+        [branch]="branch"
+        [hash]="i.toString()"></li>
   </ul>
 </div>

@@ -1,13 +1,13 @@
 module.exports = {
   up: function (dataSource, next) {
-    dataSource.autoupdate('User', function (err) {
+    dataSource.autoupdate('Client', function (err) {
       if (err) throw err;
       dataSource.autoupdate('AccessToken', function (err) {
         if (err) throw err;
         dataSource.autoupdate('ACL', function (err) {
           if (err) throw err;
 
-          dataSource.models.User.create([
+          dataSource.models.Client.create([
             {
               "email": "user@user.user",
               "password": "user"
@@ -22,6 +22,6 @@ module.exports = {
     })
   },
   down: function (dataSource, next) {
-    dataSource.models.User.destroyAll([], next);
+    dataSource.models.Client.destroyAll([], next);
   }
 };

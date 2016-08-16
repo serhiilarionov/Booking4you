@@ -49,4 +49,36 @@
       color: darken($c-blue-main, 10%);
     }
   }
+
+  button {
+    @include flex-basis(36px);
+    padding: 0 10px;
+    font-size: 18px;
+    position: relative;
+
+    .fa {
+      @include position(absolute, 50% null null 50%);
+      @include transform(translate(-50%, -50%));
+      @include transition(all .3s);
+    }
+
+    .fa-close {
+      opacity: 0;
+      @include transform(translate(-50%, -50%) scale(1.5));
+    }
+
+    .sidebar-opened &, &:hover {
+      color: $c-blue-main;
+
+      .fa-navicon {
+        opacity: 0;
+        @include transform(translate(-50%, -50%) scale(0.5));
+      }
+
+      .fa-close {
+        opacity: 1;
+        @include transform(translate(-50%, -50%) scale(1));
+      }
+    }
+  }
 }

@@ -17,8 +17,10 @@ angular.module('app', [
   'ui.bootstrap',
   'datatables',
   'customElements',
+  'loopbackSockets',
   'lbServices',
   'uiGmapgoogle-maps',
+  'angularFileUpload',
 
   // Smartadmin Angular Common Module
   'SmartAdmin',
@@ -31,6 +33,7 @@ angular.module('app', [
   'app.company',
   'app.home',
   'app.locations',
+  'app.booking',
   'app.login'
 ])
   .config(function ($provide, $httpProvider, RestangularProvider, uiGmapGoogleMapApiProvider) {
@@ -78,14 +81,14 @@ angular.module('app', [
   .constant('APP_CONFIG', window.appConfig)
   .constant('API_VERSION', 1)
 
-  .run(function ($rootScope, $state, $stateParams, User) {
+  .run(function ($rootScope, $state, $stateParams, Client) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 
     $rootScope.$on('$stateChangeSuccess',
       function (event, toState, toParams) {
         if (!toParams.noLogin) {
-          if (!User.isAuthenticated()) {
+          if (!Client.isAuthenticated()) {
             $state.go('app.login');
           }
         }

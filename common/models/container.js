@@ -3,41 +3,56 @@ module.exports = function (Container) {
   var fs = require('fs');
   var fsp = require('fs-promise');
   var mkdirSync = require('../../server/helpers/mkdirSync');
+  var Promise = require('bluebird');
 
   Container.afterRemote('upload', function (ctx, modelInstance, next) {
     var fields = ctx.result.result.fields;
     if (!fields['cityId'] || !fields['categoryId'] || !fields['companyId']) {
       throw new Error('You do not set enough parameters');
     }
-    var container = ctx.req.params.container;
-    var files = ctx.result.result.files[container];
+    var files = ctx.result.result.files;
+    var promises = [];
 
-    for (var i = 0; i < files.length; i++) {
-      var containerPath = 'storage/' + files[i].container;
-      var oldPath = './' + containerPath + '/' + files[i].name;
+    Object.keys(files).forEach(function(key) {
+      var containerPath = 'client/storage/' + files[key][0].container;
+      var oldPath = containerPath + '/' + files[key][0].name;
       var newPath = containerPath + '/' + fields['cityId'][0] + '/' +
         fields['categoryId'][0] + '/' + fields['companyId'][0];
       mkdirSync(newPath + '/thumb');
-      var newThumbPath = newPath + '/thumb/' + files[i].name;
-      newPath = './' + newPath + '/' + files[i].name;
+      var newThumbPath = newPath + '/thumb/' + files[key][0].name;
+      newPath = newPath + '/' + files[key][0].name;
 
-      fsp.readFile(oldPath)
-        .then(function (data) {
-          return fsp.writeFile(newPath, data);
-        })
-        .then(function () {
-          return fsp.unlink(oldPath);
-        })
-        .then(function () {
-          qt.convert({
-            src: newPath,
-            dst: newThumbPath,
-            width: 100
-          }, function (err, path) {
-            next(err);
-          });
-        })
-        .catch(next);
-    }
+      promises.push(
+        fsp.readFile(oldPath)
+          .then(function (data) {
+            return fsp.writeFile(newPath, data);
+          })
+          .then(function () {
+            return fsp.unlink(oldPath);
+          })
+          .then(function () {
+            new Promise(function (resolve, reject) {
+              qt.convert({
+                src: newPath,
+                dst: newThumbPath,
+                width: 100
+              }, function (err, path) {
+                if(err) {
+                  reject(err)
+                }
+                else {
+                  resolve()
+                }
+              });
+            })
+          })
+      );
+    });
+    
+    Promise.all(promises)
+      .then(function () {
+        next();
+      })
+      .catch(next)
   });
 };

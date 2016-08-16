@@ -38,7 +38,7 @@ describe('Company model', function () {
         should.exist(company);
         company.should.have.keys("active", "buildingId", "cityId", "createdAt", "deletedAt",
           "desc", "districtId", "id", "locationDetail", "name", "point", "room", "streetId",
-          "photo", "title", "updatedAt");
+          "photo", "title", "updatedAt", "categoryId");
         company.id.should.be.a('number');
         company.name.should.be.a('string');
         company.title.should.be.a('string');

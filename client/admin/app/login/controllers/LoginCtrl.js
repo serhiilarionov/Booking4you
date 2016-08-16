@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('app.login').controller('LoginController', function ($state, User) {
+angular.module('app.login').controller('LoginController', function ($state, Client) {
   var vm = this;
   vm.email = null;
   vm.password = null;
   vm.loginError = '';
 
   vm.singIn = function () {
-    User.login({
+    Client.login({
       email: vm.email,
       password: vm.password
     }).$promise

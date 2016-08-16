@@ -6,8 +6,59 @@
   width: $sidebar-width;
   height: 100%;
   background: $c-grey-main;
+  color: white;
 
   .active > & {
     right: 0;
+  }
+
+  header {
+    height: 70px;
+    line-height: 70px;
+    font-weight: bold;
+    padding-left: 20px;
+    border-bottom: 1px solid rgba(lighten($c-grey-main, 30%), .3);
+  }
+
+  a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    position: relative;
+    border-bottom: 1px solid rgba(lighten($c-grey-main, 30%), .3);
+
+    &:hover {
+      color: $c-blue-main;
+      background: rgba(0, 0, 0, .2);
+    }
+
+    &.has-children {
+      .fa {
+        @include position(absolute, 13px 20px null null);
+        color: $c-blue-main;
+        opacity: 1;
+        @include transition(all .3s);
+      }
+
+      &[aria-expanded=false] .fa-minus {
+        opacity: 0;
+        @include transform(rotateZ(-120deg));
+      }
+
+      &[aria-expanded=true] .fa-plus {
+        opacity: 0;
+        @include transform(rotateZ(120deg));
+      }
+    }
+  }
+
+  ul ul {
+    background: darken($c-grey-main, 5%);
+    ul {
+      background: darken($c-grey-main, 10%);
+      ul {
+        background: darken($c-grey-main, 15%);
+      }
+    }
   }
 }

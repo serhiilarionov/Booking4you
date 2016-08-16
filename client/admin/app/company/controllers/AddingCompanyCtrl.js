@@ -2,7 +2,7 @@
 
 angular.module('app.company').controller('AddingCompanyController', function ($scope, $state, $stateParams, $http,
                                                                               Company, Category, City, Street,
-                                                                              Notification, Container) {
+                                                                              Notification) {
   var vm = this;
   vm.companyFilter = {
     name: "",
@@ -68,12 +68,24 @@ angular.module('app.company').controller('AddingCompanyController', function ($s
   };
 
   vm.editRow = function () {
+    vm.selectedCompany.photo = vm.photo.name;
     Company.upsert({id: vm.selectedCompany.id}, vm.selectedCompany)
       .$promise
+      .then(function (company) {
+        var fd = new FormData();
+        fd.append('test', vm.photo);
+        fd.append('cityId', parseInt(company.cityId));
+        fd.append('categoryId', parseInt(company.categoryId));
+        fd.append('companyId', parseInt(company.id));
+
+        return $http.post('/api/containers/test/upload', fd, {
+          transformRequest: angular.identity,
+          headers: {'Content-Type': undefined},
+          responseType: "arraybuffer"
+        })
+      })
       .then(function () {
-        Company.sift(vm.filter, function (res) {
-          vm.companies = res.companies;
-        });
+        vm.filter();
         angular.element('#companyEditRowModal').modal('hide');
         Notification.success();
       })
@@ -81,6 +93,7 @@ angular.module('app.company').controller('AddingCompanyController', function ($s
         Notification.error("Error", err.data.error.message);
       });
   };
+  
   vm.onStartEditing = function (selectedIndex) {
     vm.selectedCompany = angular.copy(vm.companies[selectedIndex]);
   }
