@@ -46,8 +46,28 @@ input, select, .btn, .dropdown-menu, .form-control {
   @include border-bottom-radius(0);
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   color: $c-grey-main;
+  @include transition(all .3s);
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+button {
+  border: none;
+  background: transparent;
+
+  &:focus, &:active {
+    outline: none;
+  }
 }
 
 input, textarea, input.form-control, textarea.form-control {

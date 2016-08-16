@@ -25,7 +25,8 @@ var HeaderComponent = (function () {
             selector: 'app-header',
             templateUrl: 'scripts/parts/header/header.component.html',
             styleUrls: ['scripts/parts/header/header.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES],
+            encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [core_1.ElementRef, sidebar_service_1.SidebarService])
     ], HeaderComponent);

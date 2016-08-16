@@ -1,0 +1,15 @@
+<a data-toggle="collapse"
+   aria-expanded="false"
+   [ngClass]="{'has-children': branch.children}"
+   href="{{branch.children ? '#'+id+branch.link : branch.link}}">{{branch.name}}
+    <span *ngIf="branch.children">
+      <i class="fa fa-plus"></i>
+      <i class="fa fa-minus"></i>
+    </span>
+</a>
+<ul id="{{id+branch.link}}" class="collapse" *ngIf="branch.children">
+  <li class="menu-branch"
+      *ngFor="let branch of branch.children; let i = index"
+      [branch]="branch"
+      [hash]="id + i"></li>
+</ul>

@@ -10,11 +10,117 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var sidebar_service_1 = require('./sidebar.service');
+var menu_branch_component_1 = require('./menu-branch.component');
+var MENU_TREE = [
+    {
+        name: 'Home',
+        link: ''
+    },
+    {
+        name: 'About',
+        link: '',
+        children: [
+            {
+                name: 'Company',
+                link: ''
+            },
+            {
+                name: 'Partnership',
+                link: '',
+                children: [
+                    {
+                        name: 'Third level',
+                        link: '',
+                        children: [
+                            {
+                                name: 'Lorem',
+                                link: ''
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Home',
+        link: ''
+    },
+    {
+        name: 'About',
+        link: '',
+        children: [
+            {
+                name: 'Company',
+                link: ''
+            },
+            {
+                name: 'Partnership',
+                link: '',
+                children: [
+                    {
+                        name: 'Third level',
+                        link: ''
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Home',
+        link: ''
+    },
+    {
+        name: 'About',
+        link: '',
+        children: [
+            {
+                name: 'Company',
+                link: ''
+            },
+            {
+                name: 'Partnership',
+                link: '',
+                children: [
+                    {
+                        name: 'Third level',
+                        link: ''
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Home',
+        link: ''
+    },
+    {
+        name: 'About',
+        link: '',
+        children: [
+            {
+                name: 'Company',
+                link: ''
+            },
+            {
+                name: 'Partnership',
+                link: '',
+                children: [
+                    {
+                        name: 'Third level',
+                        link: ''
+                    }
+                ]
+            }
+        ]
+    }
+];
 var SidebarComponent = (function () {
     function SidebarComponent(sidebar, el) {
         var _this = this;
         this.sidebar = sidebar;
         this.el = el;
+        this.menuTree = MENU_TREE;
         this.$el = $(el.nativeElement);
         sidebar.toggled$.subscribe(function () { return _this.toggle(); });
     }
@@ -26,7 +132,8 @@ var SidebarComponent = (function () {
             selector: 'sidebar',
             styleUrls: ['scripts/parts/sidebar/sidebar.component.css'],
             templateUrl: 'scripts/parts/sidebar/sidebar.component.html',
-            encapsulation: core_1.ViewEncapsulation.None
+            encapsulation: core_1.ViewEncapsulation.None,
+            directives: [menu_branch_component_1.MenuBranch]
         }), 
         __metadata('design:paramtypes', [sidebar_service_1.SidebarService, core_1.ElementRef])
     ], SidebarComponent);
