@@ -1,0 +1,6 @@
+<code_scheme name="Project">
+  <TypeScriptCodeStyleSettings>
+    <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
+    <option name="SPACES_WITHIN_IMPORTS" value="true" />
+  </TypeScriptCodeStyleSettings>
+</code_scheme>
