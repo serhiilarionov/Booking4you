@@ -9,12 +9,18 @@ module.exports = {
 
           dataSource.models.Client.create([
             {
+              "phone": "+380(67)111-11-11",
+              "phoneVerified": "2016-05-21 11:21:12",
               "email": "user@user.user",
-              "password": "user"
+              "password": "user",
+              "status": "active"
             },
             {
+              "phone": "+380(67)000-00-00",
+              "phoneVerified": "2016-05-20 15:25:33",
               "email": "admin@admin.com",
-              "password": "admin"
+              "password": "admin",
+              "status": "active"
             }
           ], next);
         })

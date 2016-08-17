@@ -20,6 +20,6 @@ npm-debug.log
 npm-debug.log.*
 client/admin/bower_components
 client/admin/build
-client/app/vendor
 server/datasources.json
 **/storage/**/*
+robots.txt
