@@ -12,7 +12,8 @@ gulp.task('serve', function() {
     },
     middleware: [historyApiFallback()],
     files: './stylesheets/**/*.css',
-    port: 8000
+    port: 8000,
+    open: false
   });
 
   gulp.watch(['./scripts/**/*.+(js|html|css)', './index.html']).on('change', browserSync.reload);
