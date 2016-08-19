@@ -7,4 +7,5 @@ import { HeroComponent } from '../../components/hero/hero.component'
   directives: [HeroComponent]
 })
 
-export class HomePageComponent {}
+export class HomePageComponent {
+}

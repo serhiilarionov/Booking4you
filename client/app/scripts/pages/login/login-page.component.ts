@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginFormComponent } from '../../components/auth/login/login-form.conponent';
+import { LoginFormComponent } from '../../components/auth/login-form.conponent';
 
 @Component({
   selector: 'login-page',
@@ -7,4 +7,5 @@ import { LoginFormComponent } from '../../components/auth/login/login-form.conpo
   directives: [LoginFormComponent]
 })
 
-export class LoginPageComponent {}
+export class LoginPageComponent {
+}

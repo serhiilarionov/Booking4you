@@ -1,9 +1,9 @@
-import {Component, ElementRef, ViewEncapsulation} from '@angular/core';
-import {SidebarService} from './sidebar.service';
-import {MenuBranch, IMenuBranch} from './menu-branch.component';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { SidebarService } from './sidebar.service';
+import { MenuBranch, MenuBranchComponent } from './menu-branch.component';
 declare var $: any;
 
-const MENU_TREE: Array<IMenuBranch> = [
+const MENU_TREE: Array<MenuBranch> = [
   {
     name: 'Home',
     link: ''
@@ -113,7 +113,7 @@ const MENU_TREE: Array<IMenuBranch> = [
   styleUrls: ['scripts/parts/sidebar/sidebar.component.css'],
   templateUrl: 'scripts/parts/sidebar/sidebar.component.html',
   encapsulation: ViewEncapsulation.None,
-  directives: [MenuBranch]
+  directives: [MenuBranchComponent]
 })
 
 export class SidebarComponent {

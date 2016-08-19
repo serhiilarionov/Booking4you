@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var login_form_conponent_1 = require('../../components/auth/login-form.conponent');
-var LoginPageComponent = (function () {
-    function LoginPageComponent() {
+var registration_form_conponent_1 = require('../../components/auth/registration-form.conponent');
+var RegistrationPageComponent = (function () {
+    function RegistrationPageComponent() {
     }
-    LoginPageComponent = __decorate([
+    RegistrationPageComponent = __decorate([
         core_1.Component({
-            selector: 'login-page',
-            templateUrl: 'scripts/pages/login/login-page.component.html',
-            directives: [login_form_conponent_1.LoginFormComponent]
+            selector: 'registration-page',
+            templateUrl: 'scripts/pages/registration/registration-page.component.html',
+            directives: [registration_form_conponent_1.RegistrationFormComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], LoginPageComponent);
-    return LoginPageComponent;
+    ], RegistrationPageComponent);
+    return RegistrationPageComponent;
 }());
-exports.LoginPageComponent = LoginPageComponent;
-//# sourceMappingURL=login-page.component.js.map
+exports.RegistrationPageComponent = RegistrationPageComponent;
+//# sourceMappingURL=registration-page.component.js.map

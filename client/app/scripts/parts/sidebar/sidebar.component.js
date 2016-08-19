@@ -133,7 +133,7 @@ var SidebarComponent = (function () {
             styleUrls: ['scripts/parts/sidebar/sidebar.component.css'],
             templateUrl: 'scripts/parts/sidebar/sidebar.component.html',
             encapsulation: core_1.ViewEncapsulation.None,
-            directives: [menu_branch_component_1.MenuBranch]
+            directives: [menu_branch_component_1.MenuBranchComponent]
         }), 
         __metadata('design:paramtypes', [sidebar_service_1.SidebarService, core_1.ElementRef])
     ], SidebarComponent);

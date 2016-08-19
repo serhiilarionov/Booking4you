@@ -1,9 +1,9 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-export interface IMenuBranch {
+export interface MenuBranch {
   name: string;
   link: string;
-  children?: Array<IMenuBranch>;
+  children?: Array<MenuBranch>;
 }
 
 @Component({
@@ -11,7 +11,7 @@ export interface IMenuBranch {
   templateUrl: 'scripts/parts/sidebar/menu-branch.component.html'
 })
 
-export class MenuBranch {
-  @Input() branch: IMenuBranch;
+export class MenuBranchComponent {
+  @Input() branch: MenuBranch;
   @Input('hash') id: string;
 }

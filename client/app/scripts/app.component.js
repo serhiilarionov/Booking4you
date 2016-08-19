@@ -9,10 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var header_component_1 = require('./parts/header/header.component');
-var footer_component_1 = require('./parts/footer/footer.component');
-var sidebar_component_1 = require('./parts/sidebar/sidebar.component');
 var sidebar_service_1 = require('./parts/sidebar/sidebar.service');
 var AppComponent = (function () {
     function AppComponent(sidebar, el) {
@@ -29,9 +25,7 @@ var AppComponent = (function () {
             selector: 'app',
             templateUrl: 'scripts/app.component.html',
             styleUrls: ['scripts/app.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent, sidebar_component_1.SidebarComponent],
             encapsulation: core_1.ViewEncapsulation.None,
-            providers: [sidebar_service_1.SidebarService]
         }), 
         __metadata('design:paramtypes', [sidebar_service_1.SidebarService, core_1.ElementRef])
     ], AppComponent);

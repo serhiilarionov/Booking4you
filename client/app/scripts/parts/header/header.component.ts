@@ -1,6 +1,6 @@
-import {Component, ElementRef, ViewEncapsulation} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
-import {SidebarService} from '../sidebar/sidebar.service';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+import { SidebarService } from '../sidebar/sidebar.service';
 declare var $: any;
 
 @Component({

@@ -9,19 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var login_form_conponent_1 = require('../../components/auth/login-form.conponent');
-var LoginPageComponent = (function () {
-    function LoginPageComponent() {
+var Constants = (function () {
+    function Constants() {
+        this.EMAIL_REGEX = '^(([a-zA-Z]|[0-9])|([-]|[_]|[.]))+[@](([a-zA-Z0-9])|([-])){2,63}[.](([a-zA-Z0-9]){2,63})+$';
+        this.PASSWORD_MIN_LENGTH = 6;
     }
-    LoginPageComponent = __decorate([
-        core_1.Component({
-            selector: 'login-page',
-            templateUrl: 'scripts/pages/login/login-page.component.html',
-            directives: [login_form_conponent_1.LoginFormComponent]
-        }), 
+    Constants = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], LoginPageComponent);
-    return LoginPageComponent;
+    ], Constants);
+    return Constants;
 }());
-exports.LoginPageComponent = LoginPageComponent;
-//# sourceMappingURL=login-page.component.js.map
+exports.Constants = Constants;
+//# sourceMappingURL=constants.js.map

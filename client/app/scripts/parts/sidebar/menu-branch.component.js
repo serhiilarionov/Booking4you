@@ -9,25 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var MenuBranch = (function () {
-    function MenuBranch() {
+var MenuBranchComponent = (function () {
+    function MenuBranchComponent() {
     }
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
-    ], MenuBranch.prototype, "branch", void 0);
+    ], MenuBranchComponent.prototype, "branch", void 0);
     __decorate([
         core_1.Input('hash'), 
         __metadata('design:type', String)
-    ], MenuBranch.prototype, "id", void 0);
-    MenuBranch = __decorate([
+    ], MenuBranchComponent.prototype, "id", void 0);
+    MenuBranchComponent = __decorate([
         core_1.Component({
             selector: '.menu-branch',
             templateUrl: 'scripts/parts/sidebar/menu-branch.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], MenuBranch);
-    return MenuBranch;
+    ], MenuBranchComponent);
+    return MenuBranchComponent;
 }());
-exports.MenuBranch = MenuBranch;
+exports.MenuBranchComponent = MenuBranchComponent;
 //# sourceMappingURL=menu-branch.component.js.map

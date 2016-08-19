@@ -9,15 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var forms_1 = require('@angular/forms');
+var constants_1 = require('../../common/services/constants');
 var LoginFormComponent = (function () {
-    function LoginFormComponent() {
+    function LoginFormComponent(constants, formBuilder) {
+        this.constants = constants;
+        this.formBuilder = formBuilder;
+        this.submitted = false;
+        this.loginForm = this.formBuilder.group({
+            email: ['',
+                forms_1.Validators.compose([
+                    forms_1.Validators.required,
+                    forms_1.Validators.pattern(this.constants.EMAIL_REGEX)
+                ])
+            ],
+            password: ['',
+                forms_1.Validators.compose([
+                    forms_1.Validators.required,
+                    forms_1.Validators.minLength(this.constants.PASSWORD_MIN_LENGTH)
+                ])
+            ]
+        });
     }
+    LoginFormComponent.prototype.onSubmit = function () {
+        this.submitted = true;
+        if (this.loginForm.valid) {
+        }
+    };
     LoginFormComponent = __decorate([
         core_1.Component({
             selector: 'login-form',
-            templateUrl: 'scripts/components/auth/login/login-form.component.html'
+            templateUrl: 'scripts/components/auth/login-form.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [constants_1.Constants, forms_1.FormBuilder])
     ], LoginFormComponent);
     return LoginFormComponent;
 }());
