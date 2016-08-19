@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
 export class CustomValidators {
-  static areEqual(group: FormGroup): {[key: string]: boolean} {
+  static areEqual(group: FormGroup): {[key: string]: string} {
     let values: string[] = [];
 
     // push all values in one array
