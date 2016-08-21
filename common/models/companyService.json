@@ -5,8 +5,7 @@
   "options": {
     "validateUpsert": true
   },
-  "hidden": [
-  ],
+  "hidden": [],
   "properties": {
     "id": {
       "type": "Number",

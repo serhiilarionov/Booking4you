@@ -3,6 +3,14 @@
   "plural": "buildings",
   "base": "PersistedModel",
   "idInjection": true,
+  "indexes": {
+    "streetIdNumberIndex": {
+      "keys": {
+        "streetId": 1,
+        "number": 1
+      }
+    }
+  },
   "options": {
     "validateUpsert": true
   },
@@ -18,11 +26,6 @@
     },
     "point": {
       "type": "geopoint"
-    }
-  },
-  "indexes": {
-    "streetIdNumberIndex": {
-      "keys": {"streetId": 1, "number": 1}
     }
   },
   "validations": [],

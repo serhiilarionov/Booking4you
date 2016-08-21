@@ -3,6 +3,15 @@
   "plural": "favorites",
   "base": "PersistedModel",
   "idInjection": true,
+  "indexes": {
+    "uniqueFavorite": {
+      "keys": {
+        "clientId": 1,
+        "companyId": 1
+      },
+      "kind": "unique"
+    }
+  },
   "options": {
     "validateUpsert": true
   },
@@ -51,15 +60,5 @@
       "permission": "DENY"
     }
   ],
-  "methods": {},
-  "indexes":
-  {
-    "uniqueFavorite":  {
-      "keys": {
-        "clientId": 1,
-        "companyId": 1
-      },
-      "kind": "unique"
-    }
-  }
+  "methods": {}
 }

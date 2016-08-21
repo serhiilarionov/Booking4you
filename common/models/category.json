@@ -56,8 +56,6 @@
       "foreignKey": "categoryId"
     }
   },
-  "acls": [
-
-  ],
+  "acls": [],
   "methods": {}
 }

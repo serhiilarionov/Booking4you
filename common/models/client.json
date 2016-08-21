@@ -8,9 +8,7 @@
     "strict": true,
     "validateUpsert": true
   },
-  "hidden": [
-
-  ],
+  "hidden": [],
   "properties": {
     "phone": {
       "type": "string",
@@ -32,10 +30,10 @@
   },
   "acls": [
     {
+      "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$everyone",
-      "permission": "ALLOW",
-      "accessType": "READ"
+      "permission": "ALLOW"
     },
     {
       "principalType": "ROLE",
