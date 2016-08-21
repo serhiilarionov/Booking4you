@@ -104,5 +104,9 @@
   "Client": {
     "dataSource": "pgsql",
     "public": true
+  },
+  "Core": {
+    "dataSource": "corezoid",
+    "public": true
   }
 }
