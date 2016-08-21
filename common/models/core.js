@@ -1,4 +1,14 @@
+var loopback = require('loopback');
+
 module.exports = function (Core) {
+
+    /**
+     * Get token object
+     * @returns {*}
+     */
+    function getToken() {
+        return loopback.getCurrentContext().get('accessToken');
+    }
 
     /**
      * Phone Verification
@@ -7,10 +17,12 @@ module.exports = function (Core) {
      */
     Core.phoneVerification = function (phone, cb) {
 
+        var token = getToken();
+
         var body = {
             "phone": phone,
-            "token": 'GFKdORdRE40L82ZLHBpEQBlAuZzFaYdhZ8pmthm75fCBMrpOj3qSzq4OyCJBHV3T',
-            "userId": 2
+            "token": token.id,
+            "userId": token.userId
         };
 
         var path = "public/156034/2f96f65910c5e3af4b0dda1dcfa4322068e17d0a";
@@ -23,7 +35,7 @@ module.exports = function (Core) {
     Core.remoteMethod(
         'phoneVerification',
         {
-            accepts: {arg: 'phone', type: 'string'},
+            accepts: {arg: 'phone', type: 'string', required: true},
             returns: {arg: 'result', type: 'object'}
         }
     );
@@ -67,7 +79,7 @@ module.exports = function (Core) {
             ],
             returns: {arg: 'result', type: 'object'}
         }
-    )
+    );
 
     /**
      * Notify user
@@ -98,6 +110,5 @@ module.exports = function (Core) {
             returns: {arg: 'result', type: 'object'}
         }
     )
-
 
 };
