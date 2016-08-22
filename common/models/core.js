@@ -46,11 +46,12 @@ module.exports = function (Core) {
      * @param code
      * @param smsId
      */
-    Core.phoneVerificationConfirm = function (phone, code, smsId) {
+    Core.phoneVerificationConfirm = function (phone, code, smsId, cb) {
+
         var body = {
+            "taskId": smsId,
             "phone": phone,
-            "enteredCode": code,
-            "task_id": smsId
+            "enteredCode": code
         };
 
         var path = "callback/57baf85b60e3273034202f40/2f96f65910c5e3af4b0dda1dcfa4322068e17d0a";
