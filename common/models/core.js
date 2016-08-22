@@ -49,7 +49,7 @@ module.exports = function (Core) {
     Core.phoneVerificationConfirm = function (phone, code, smsId, cb) {
 
         var body = {
-            "taskId": smsId,
+            "task_id": smsId,
             "phone": phone,
             "enteredCode": code
         };
