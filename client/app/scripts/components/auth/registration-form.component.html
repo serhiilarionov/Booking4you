@@ -29,7 +29,7 @@
         <div *ngIf="(registrationForm.controls.passwords.invalid || registrationForm.controls.passwords.controls.confirmPassword.invalid) && (registrationForm.controls.passwords.controls.confirmPassword.touched || submitted)"
              class="help-block text-warning">
           <span *ngIf="registrationForm.controls.passwords.controls.confirmPassword.errors">This field is required.</span>
-          <span *ngIf="registrationForm.controls.passwords.errors && registrationForm.controls.passwords.errors.areEqual">Passwords must match.</span>
+          <span *ngIf="registrationForm.controls.passwords.errors?.areEqual">Passwords must match.</span>
         </div>
       </div>
     </fieldset>
