@@ -41,6 +41,38 @@ module.exports = function (Core) {
     );
 
     /**
+     * Phone verification confirm by entered code
+     * @param phone
+     * @param code
+     * @param smsId
+     */
+    Core.phoneVerificationConfirm = function (phone, code, smsId) {
+        var body = {
+            "phone": phone,
+            "enteredCode": code,
+            "task_id": smsId
+        };
+
+        var path = "callback/57baf85b60e3273034202f40/2f96f65910c5e3af4b0dda1dcfa4322068e17d0a";
+
+        Core.run(path, body, function (err, result) {
+            cb(null, result);
+        });
+    };
+
+    Core.remoteMethod(
+        'phoneVerificationConfirm',
+        {
+            accepts: [
+                {arg: 'phone', type: 'string', required: true},
+                {arg: 'code', type: 'string', required: true},
+                {arg: 'smsId', type: 'string', required: true}
+            ],
+            returns: {arg: 'result', type: 'object'}
+        }
+    );
+
+    /**
      * Sms Status from provider
      * @param id
      * @param phone
