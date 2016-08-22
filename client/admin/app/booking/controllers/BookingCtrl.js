@@ -59,6 +59,9 @@ angular.module('app.booking').controller('BookingController', function ($scope, 
     Booking.create(vm.newBooking)
       .$promise
       .then(function () {
+          return $http.post('/corezoid?access_token=' + localStorage.$LoopBack$accessTokenId)
+      })
+      .then(function () {
         angular.element('#bookingNewRowModal').modal('hide');
         Notification.success();
       })
