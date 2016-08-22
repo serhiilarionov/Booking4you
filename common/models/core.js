@@ -46,11 +46,10 @@ module.exports = function (Core) {
      * @param code
      * @param smsId
      */
-    Core.phoneVerificationConfirm = function (phone, code, smsId, cb) {
+    Core.phoneVerificationConfirm = function (code, smsId, cb) {
 
         var body = {
             "task_id": smsId,
-            "phone": phone,
             "enteredCode": code
         };
 
@@ -65,7 +64,6 @@ module.exports = function (Core) {
         'phoneVerificationConfirm',
         {
             accepts: [
-                {arg: 'phone', type: 'string', required: true},
                 {arg: 'code', type: 'string', required: true},
                 {arg: 'smsId', type: 'string', required: true}
             ],
