@@ -90,10 +90,15 @@ module.exports = function (Core) {
      * @param cb
      */
     Core.notify = function (name, type, process, data, cb) {
-        console.log(name);
-        console.log(type);
-        console.log(process);
-        console.log(data);
+        var socket = Core.app.io;
+        var token = getToken();
+        var params = {
+            "name": name,
+            "type": type,
+            "process": process,
+            "data": data
+        };
+        socket.emit('/notify/' + token.userId, params);
 
         cb(null, data);
     };

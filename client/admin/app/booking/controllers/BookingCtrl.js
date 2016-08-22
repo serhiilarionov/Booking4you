@@ -2,10 +2,14 @@
 
 angular.module('app.booking').controller('BookingController', function ($scope, $state, $stateParams, $http,
                                                                         Booking, Category, City, Street,
-                                                                        Notification, PubSub) {
+                                                                        Notification, PubSub, socket) {
   var vm = this;
   vm.newBooking = {};
-
+  
+  socket.on('/notify/' + localStorage.$LoopBack$currentUserId, function(params){
+    Notification[params.type](params.name, params.process);
+  });
+  
   Booking.find({}, function (res) {
     PubSub.subscribe({
       collectionName: 'Booking',
