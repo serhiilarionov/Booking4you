@@ -95,7 +95,7 @@
   },
   "Notify": {
     "dataSource": "pgsql",
-    "public": false
+    "public": true
   },
   "Logs": {
     "dataSource": "pgsql",

@@ -34,7 +34,8 @@ angular.module('app', [
   'app.home',
   'app.locations',
   'app.booking',
-  'app.login'
+  'app.login',
+  'app.log'
 ])
   .config(function ($provide, $httpProvider, RestangularProvider, uiGmapGoogleMapApiProvider) {
 

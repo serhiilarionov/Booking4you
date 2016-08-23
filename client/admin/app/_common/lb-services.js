@@ -2329,12 +2329,6 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use Favorite.company() instead.
-        "::get::Favorite::company": {
-          url: urlBase + "/favorites/:id/company",
-          method: "GET"
-        },
-
         // INTERNAL. Use Client.companies.findById() instead.
         "::findById::Client::companies": {
           params: {
@@ -13192,13 +13186,13 @@ module.factory(
 
 /**
  * @ngdoc object
- * @name lbServices.Favorite
- * @header lbServices.Favorite
+ * @name lbServices.Notify
+ * @header lbServices.Notify
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `Favorite` model.
+ * A $resource object for interacting with the `Notify` model.
  *
  * ## Example
  *
@@ -13208,29 +13202,23 @@ module.factory(
  *
  */
 module.factory(
-  "Favorite",
+  "Notify",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/favorites/:id",
+      urlBase + "/notifies/:id",
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Favorite.company() instead.
-        "prototype$__get__company": {
-          url: urlBase + "/favorites/:id/company",
-          method: "GET"
-        },
-
-        // INTERNAL. Use Favorite.client() instead.
+        // INTERNAL. Use Notify.client() instead.
         "prototype$__get__client": {
-          url: urlBase + "/favorites/:id/client",
+          url: urlBase + "/notifies/:id/client",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#create
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#create
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13257,18 +13245,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         "create": {
-          url: urlBase + "/favorites",
+          url: urlBase + "/notifies",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#createMany
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#createMany
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13295,19 +13283,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         "createMany": {
           isArray: true,
-          url: urlBase + "/favorites",
+          url: urlBase + "/notifies",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#upsert
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#upsert
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13334,18 +13322,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         "upsert": {
-          url: urlBase + "/favorites",
+          url: urlBase + "/notifies",
           method: "PUT"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#exists
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#exists
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13370,14 +13358,14 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/favorites/:id/exists",
+          url: urlBase + "/notifies/:id/exists",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#findById
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#findById
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13401,18 +13389,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         "findById": {
-          url: urlBase + "/favorites/:id",
+          url: urlBase + "/notifies/:id",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#find
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#find
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13434,19 +13422,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         "find": {
           isArray: true,
-          url: urlBase + "/favorites",
+          url: urlBase + "/notifies",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#findOne
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#findOne
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13468,18 +13456,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         "findOne": {
-          url: urlBase + "/favorites/findOne",
+          url: urlBase + "/notifies/findOne",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#updateAll
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#updateAll
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13506,14 +13494,14 @@ module.factory(
          * The number of instances updated
          */
         "updateAll": {
-          url: urlBase + "/favorites/update",
+          url: urlBase + "/notifies/update",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#deleteById
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#deleteById
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13535,18 +13523,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         "deleteById": {
-          url: urlBase + "/favorites/:id",
+          url: urlBase + "/notifies/:id",
           method: "DELETE"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#count
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#count
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13571,7 +13559,7 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/favorites/count",
+          url: urlBase + "/notifies/count",
           method: "GET"
         },
       }
@@ -13581,8 +13569,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#updateOrCreate
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#updateOrCreate
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13609,15 +13597,15 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         R["updateOrCreate"] = R["upsert"];
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#update
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#update
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13647,8 +13635,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#destroyById
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#destroyById
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13670,15 +13658,15 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         R["destroyById"] = R["deleteById"];
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#removeById
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#removeById
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13700,7 +13688,7 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Favorite` object.)
+         * This usually means the response is a `Notify` object.)
          * </em>
          */
         R["removeById"] = R["deleteById"];
@@ -13708,55 +13696,19 @@ module.factory(
 
     /**
     * @ngdoc property
-    * @name lbServices.Favorite#modelName
-    * @propertyOf lbServices.Favorite
+    * @name lbServices.Notify#modelName
+    * @propertyOf lbServices.Notify
     * @description
     * The name of the model represented by this $resource,
-    * i.e. `Favorite`.
+    * i.e. `Notify`.
     */
-    R.modelName = "Favorite";
+    R.modelName = "Notify";
 
 
         /**
          * @ngdoc method
-         * @name lbServices.Favorite#company
-         * @methodOf lbServices.Favorite
-         *
-         * @description
-         *
-         * Fetches belongsTo relation company.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `refresh` – `{boolean=}` - 
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Company` object.)
-         * </em>
-         */
-        R.company = function() {
-          var TargetResource = $injector.get("Company");
-          var action = TargetResource["::get::Favorite::company"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Favorite#client
-         * @methodOf lbServices.Favorite
+         * @name lbServices.Notify#client
+         * @methodOf lbServices.Notify
          *
          * @description
          *
@@ -13785,7 +13737,7 @@ module.factory(
          */
         R.client = function() {
           var TargetResource = $injector.get("Client");
-          var action = TargetResource["::get::Favorite::client"];
+          var action = TargetResource["::get::Notify::client"];
           return action.apply(R, arguments);
         };
 
@@ -14380,6 +14332,640 @@ module.factory(
     */
     R.modelName = "Logs";
 
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.SmsLogs
+ * @header lbServices.SmsLogs
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `SmsLogs` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "SmsLogs",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/smsLogs/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use SmsLogs.client() instead.
+        "prototype$__get__client": {
+          url: urlBase + "/smsLogs/:id/client",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#create
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/smsLogs",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#createMany
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/smsLogs",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#upsert
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/smsLogs",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#exists
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/smsLogs/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#findById
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/smsLogs/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#find
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/smsLogs",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#findOne
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/smsLogs/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#updateAll
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/smsLogs/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#deleteById
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/smsLogs/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#count
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/smsLogs/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#prototype$updateAttributes
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/smsLogs/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#createChangeStream
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/smsLogs/change-stream",
+          method: "POST"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#updateOrCreate
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#update
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#destroyById
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#removeById
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `SmsLogs` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name lbServices.SmsLogs#modelName
+    * @propertyOf lbServices.SmsLogs
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `SmsLogs`.
+    */
+    R.modelName = "SmsLogs";
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SmsLogs#client
+         * @methodOf lbServices.SmsLogs
+         *
+         * @description
+         *
+         * Fetches belongsTo relation client.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Client` object.)
+         * </em>
+         */
+        R.client = function() {
+          var TargetResource = $injector.get("Client");
+          var action = TargetResource["::get::SmsLogs::client"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -15404,9 +15990,15 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use Favorite.client() instead.
-        "::get::Favorite::client": {
-          url: urlBase + "/favorites/:id/client",
+        // INTERNAL. Use Notify.client() instead.
+        "::get::Notify::client": {
+          url: urlBase + "/notifies/:id/client",
+          method: "GET"
+        },
+
+        // INTERNAL. Use SmsLogs.client() instead.
+        "::get::SmsLogs::client": {
+          url: urlBase + "/smsLogs/:id/client",
           method: "GET"
         },
 
@@ -16041,6 +16633,300 @@ module.factory(
           var action = TargetResource["::updateById::Client::companies"];
           return action.apply(R, arguments);
         };
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Core
+ * @header lbServices.Core
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Core` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Core",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/core/:id",
+      { 'id': '@id' },
+      {
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Core#run
+         * @methodOf lbServices.Core
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `path` – `{string=}` - 
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Core` object.)
+         * </em>
+         */
+        "run": {
+          url: urlBase + "/core/run/:path",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Core#invoke
+         * @methodOf lbServices.Core
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        "invoke": {
+          url: urlBase + "/core/invoke",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Core#phoneVerification
+         * @methodOf lbServices.Core
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `phone` – `{string}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `result` – `{object=}` - 
+         */
+        "phoneVerification": {
+          url: urlBase + "/core/phoneVerification",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Core#phoneVerificationConfirm
+         * @methodOf lbServices.Core
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `code` – `{string}` - 
+         *
+         *  - `smsId` – `{string}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `result` – `{object=}` - 
+         */
+        "phoneVerificationConfirm": {
+          url: urlBase + "/core/phoneVerificationConfirm",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Core#smsStatus
+         * @methodOf lbServices.Core
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `id` – `{string}` - 
+         *
+         *  - `phone` – `{string}` - 
+         *
+         *  - `status` – `{string}` - 
+         *
+         *  - `time` – `{string=}` - 
+         *
+         *  - `ts` – `{string=}` - 
+         *
+         *  - `err` – `{string=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `result` – `{object=}` - 
+         */
+        "smsStatus": {
+          url: urlBase + "/core/smsStatus",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Core#notify
+         * @methodOf lbServices.Core
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `name` – `{string}` - 
+         *
+         *  - `type` – `{string}` - 
+         *
+         *  - `process` – `{string}` - 
+         *
+         *  - `data` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `result` – `{object=}` - 
+         */
+        "notify": {
+          url: urlBase + "/core/notify",
+          method: "POST"
+        },
+      }
+    );
+
+
+
+
+    /**
+    * @ngdoc property
+    * @name lbServices.Core#modelName
+    * @propertyOf lbServices.Core
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `Core`.
+    */
+    R.modelName = "Core";
+
 
     return R;
   }]);
