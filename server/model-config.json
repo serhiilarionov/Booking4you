@@ -101,6 +101,10 @@
     "dataSource": "pgsql",
     "public": true
   },
+  "SmsLogs": {
+    "dataSource": "pgsql",
+    "public": true
+  },
   "Container": {
     "dataSource": "storage",
     "public": true
