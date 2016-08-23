@@ -91,7 +91,11 @@
   },
   "Favorite": {
     "dataSource": "pgsql",
-    "public": true
+    "public": false
+  },
+  "Notify": {
+    "dataSource": "pgsql",
+    "public": false
   },
   "Logs": {
     "dataSource": "pgsql",

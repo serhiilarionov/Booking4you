@@ -122,6 +122,8 @@ module.exports = function (Core) {
      */
     Core.notify = function (name, type, process, data, cb) {
         var socket = Core.app.io;
+        var Notify = Core.app.models.Notify;
+        data = data || {};
         var token = getToken();
         var params = {
             "name": name,
@@ -130,8 +132,8 @@ module.exports = function (Core) {
             "data": data
         };
         socket.emit('/notify/' + token.userId, params);
-
-        cb(null, data);
+        params.clientId = token.userId;
+        Notify.create(params, cb(null, data));
     };
 
     Core.remoteMethod(
