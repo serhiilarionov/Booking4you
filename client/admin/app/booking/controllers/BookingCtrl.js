@@ -2,10 +2,14 @@
 
 angular.module('app.booking').controller('BookingController', function ($scope, $state, $stateParams, $http,
                                                                         Booking, Category, City, Street,
-                                                                        Notification, PubSub) {
+                                                                        Notification, PubSub, socket) {
   var vm = this;
   vm.newBooking = {};
-
+  
+  socket.on('/notify/' + localStorage.$LoopBack$currentUserId, function(params){
+    Notification[params.type](params.name, params.process);
+  });
+  
   Booking.find({}, function (res) {
     PubSub.subscribe({
       collectionName: 'Booking',
@@ -58,6 +62,9 @@ angular.module('app.booking').controller('BookingController', function ($scope, 
   vm.addNewRow = function () {
     Booking.create(vm.newBooking)
       .$promise
+      .then(function () {
+          return $http.post('/corezoid?access_token=' + localStorage.$LoopBack$accessTokenId)
+      })
       .then(function () {
         angular.element('#bookingNewRowModal').modal('hide');
         Notification.success();

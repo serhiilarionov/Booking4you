@@ -91,9 +91,17 @@
   },
   "Favorite": {
     "dataSource": "pgsql",
+    "public": false
+  },
+  "Notify": {
+    "dataSource": "pgsql",
     "public": true
   },
   "Logs": {
+    "dataSource": "pgsql",
+    "public": true
+  },
+  "SmsLogs": {
     "dataSource": "pgsql",
     "public": true
   },

@@ -1,0 +1,48 @@
+{
+  "name": "Notify",
+  "plural": "notifies",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true
+    },
+    "name": {
+      "type": "String",
+      "required": true
+    },
+    "type": {
+      "type": "String",
+      "required": true
+    },
+    "process": {
+      "type": "String",
+      "required": true
+    },
+    "data": {
+      "type": "Object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "clientId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

@@ -41,6 +41,37 @@ module.exports = function (Core) {
     );
 
     /**
+     * Phone verification confirm by entered code
+     * @param phone
+     * @param code
+     * @param smsId
+     */
+    Core.phoneVerificationConfirm = function (code, smsId, cb) {
+
+        var body = {
+            "task_id": smsId,
+            "enteredCode": code
+        };
+
+        var path = "callback/57baf85b60e3273034202f40/2f96f65910c5e3af4b0dda1dcfa4322068e17d0a";
+
+        Core.run(path, body, function (err, result) {
+            cb(null, result);
+        });
+    };
+
+    Core.remoteMethod(
+        'phoneVerificationConfirm',
+        {
+            accepts: [
+                {arg: 'code', type: 'string', required: true},
+                {arg: 'smsId', type: 'string', required: true}
+            ],
+            returns: {arg: 'result', type: 'object'}
+        }
+    );
+
+    /**
      * Sms Status from provider
      * @param id
      * @param phone
@@ -90,12 +121,19 @@ module.exports = function (Core) {
      * @param cb
      */
     Core.notify = function (name, type, process, data, cb) {
-        console.log(name);
-        console.log(type);
-        console.log(process);
-        console.log(data);
-
-        cb(null, data);
+        var socket = Core.app.io;
+        var Notify = Core.app.models.Notify;
+        data = data || {};
+        var token = getToken();
+        var params = {
+            "name": name,
+            "type": type,
+            "process": process,
+            "data": data
+        };
+        socket.emit('/notify/' + token.userId, params);
+        params.clientId = token.userId;
+        Notify.create(params, cb(null, data));
     };
 
     Core.remoteMethod(

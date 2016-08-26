@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(Model) {
 
   Model.beforeRemote('**', function (ctx, obj, next) {
