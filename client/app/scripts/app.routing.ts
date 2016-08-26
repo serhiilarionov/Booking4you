@@ -1,20 +1,22 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './pages/home/home-page.component';
-import { LoginPageComponent } from './pages/login/login-page.component';
-import { RegistrationPageComponent } from './pages/registration/registration-page.component';
+import * as Pages from './pages';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: Pages.HomePageComponent
   },
   {
     path: 'login',
-    component: LoginPageComponent
+    component: Pages.LoginPageComponent
   },
   {
     path: 'registration',
-    component: RegistrationPageComponent
+    component: Pages.RegistrationPageComponent
+  },
+  {
+    path: 'company-list',
+    component: Pages.CompanyListPageComponent
   }
 ];
 

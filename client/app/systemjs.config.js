@@ -13,6 +13,8 @@
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
+    'scripts/pages':              { main: 'index.js' },
+    'scripts/common/directives':  { main: 'index.js' }
   };
   var ngPackageNames = [
     'common',

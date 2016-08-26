@@ -5,9 +5,7 @@ export class CustomValidators {
 
     // push all values in one array
     for (let controlName in group.controls) {
-      if (group.controls.hasOwnProperty(controlName)) {
-        values.push(group.controls[controlName].value);
-      }
+      values.push(group.controls[controlName].value);
     }
 
     // compare these values

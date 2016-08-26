@@ -8,6 +8,18 @@ import { SidebarComponent } from './parts/sidebar/sidebar.component';
 import { routing } from './app.routing';
 import { SidebarService } from './parts/sidebar/sidebar.service';
 import { Constants } from './common/services/constants';
+import * as Pages from './pages';
+import * as Directives from './common/directives';
+
+let declarations = [AppComponent, HeaderComponent, FooterComponent, SidebarComponent];
+
+for (let key in Pages) {
+  declarations.push(Pages[key]);
+}
+
+for (let key in Directives) {
+  declarations.push(Directives[key]);
+}
 
 @NgModule({
   imports: [
@@ -15,12 +27,7 @@ import { Constants } from './common/services/constants';
     routing,
     ReactiveFormsModule
   ],
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent
-  ],
+  declarations,
   bootstrap: [AppComponent],
   providers: [
     SidebarService,

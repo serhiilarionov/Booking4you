@@ -18,6 +18,15 @@ var sidebar_component_1 = require('./parts/sidebar/sidebar.component');
 var app_routing_1 = require('./app.routing');
 var sidebar_service_1 = require('./parts/sidebar/sidebar.service');
 var constants_1 = require('./common/services/constants');
+var Pages = require('./pages');
+var Directives = require('./common/directives');
+var declarations = [app_component_1.AppComponent, header_component_1.HeaderComponent, footer_component_1.FooterComponent, sidebar_component_1.SidebarComponent];
+for (var key in Pages) {
+    declarations.push(Pages[key]);
+}
+for (var key in Directives) {
+    declarations.push(Directives[key]);
+}
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,12 +37,7 @@ var AppModule = (function () {
                 app_routing_1.routing,
                 forms_1.ReactiveFormsModule
             ],
-            declarations: [
-                app_component_1.AppComponent,
-                header_component_1.HeaderComponent,
-                footer_component_1.FooterComponent,
-                sidebar_component_1.SidebarComponent
-            ],
+            declarations: declarations,
             bootstrap: [app_component_1.AppComponent],
             providers: [
                 sidebar_service_1.SidebarService,
