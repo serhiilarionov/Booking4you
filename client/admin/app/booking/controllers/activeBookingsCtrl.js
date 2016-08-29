@@ -1,15 +1,21 @@
 'use strict';
 
-angular.module('app.booking').controller('BookingController', function ($scope, $state, $stateParams, $http,
-                                                                        Booking, Category, City, Street,
-                                                                        Notification, PubSub, socket) {
+angular.module('app.booking').controller('ActiveBookingsController', function ($scope, $state, $stateParams, $http,
+                                                                               Booking, Category, City, Street,
+                                                                               Notification, PubSub, socket) {
   var vm = this;
   vm.newBooking = {};
-  
-  socket.on('/notify/' + localStorage.$LoopBack$currentUserId, function(params){
+
+  socket.on('/notify/' + localStorage.$LoopBack$currentUserId, function (params) {
     Notification[params.type](params.name, params.process);
   });
-  
+
+  Booking.find({"filter": {"where": {"active": true}}})
+    .$promise
+    .then(function (bookings) {
+      vm.bookings = bookings;
+    });
+
   Booking.find({}, function (res) {
     PubSub.subscribe({
       collectionName: 'Booking',
@@ -29,8 +35,6 @@ angular.module('app.booking').controller('BookingController', function ($scope, 
         modelId: res[i].id
       }, onBookingDelete);
     }
-
-    vm.bookings = res;
   });
 
   var onBookingCreate = function (booking) {
@@ -45,7 +49,9 @@ angular.module('app.booking').controller('BookingController', function ($scope, 
       method: 'DELETE',
       modelId: booking.id
     }, onBookingDelete);
-    vm.bookings.push(booking);
+    if (booking.active) {
+      vm.bookings.push(booking);
+    }
   };
 
   var onBookingUpdate = function (booking) {
@@ -63,7 +69,7 @@ angular.module('app.booking').controller('BookingController', function ($scope, 
     Booking.create(vm.newBooking)
       .$promise
       .then(function () {
-          return $http.post('/corezoid?access_token=' + localStorage.$LoopBack$accessTokenId)
+        return $http.post('/corezoid?access_token=' + localStorage.$LoopBack$accessTokenId)
       })
       .then(function () {
         angular.element('#bookingNewRowModal').modal('hide');

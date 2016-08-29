@@ -42,14 +42,14 @@
                       <div class="modal-body">
                         <section id="set-points-widget-grid" widget-grid data-widget-grid>
                           <form id="booking-adding-new-row-form" class="smart-form"
-                                ng-submit="booking.addNewRow()">
+                                ng-submit="unprocessedBookings.addNewRow()">
                             <fieldset>
                               <div>
                                 <!-- Number -->
                                 <section class="col form-input">
                                   <label class="input">Номер
                                     <input type="text" id="bookingNameAdd"
-                                           ng-model="booking.newBooking['number']">
+                                           ng-model="unprocessedBookings.newBooking['number']">
                                   </label>
                                 </section>
                                 <!-- End Number-->
@@ -58,7 +58,7 @@
                                 <section class="col form-input">
                                   <label class="input">Описание
                                     <input type="text" id="bookingDescAdd"
-                                           ng-model="booking.newBooking['desc']">
+                                           ng-model="unprocessedBookings.newBooking['desc']">
                                   </label>
                                 </section>
                                 <!-- End Number-->
@@ -66,7 +66,7 @@
                                 <!-- Date -->
                                 <section class="col form-input">
                                   <label class="input"> <i class="icon-append fa fa-calendar"></i> Дата
-                                    <input type="date" id="bookingDateAdd" ng-model="booking.newBooking['date']">
+                                    <input type="date" id="bookingDateAdd" ng-model="unprocessedBookings.newBooking['date']">
                                   </label>
                                 </section>
                                 <!-- End Date-->
@@ -74,7 +74,7 @@
                                 <!-- Phone -->
                                 <section class="col form-input">
                                   <label class="input"> <i class="icon-append fa fa-phone"></i> Телефон
-                                    <input type="tel" id="bookingPhoneAdd" ng-model="booking.newBooking['phone']"
+                                    <input type="tel" id="bookingPhoneAdd" ng-model="unprocessedBookings.newBooking['phone']"
                                            data-smart-masked-input="(999) 999-9999">
                                   </label>
                                 </section>
@@ -84,7 +84,7 @@
                                 <section class="col form-input active-checkbox">
                                   <label class="checkbox">
                                     <input type="checkbox" id="bookingActiveAdd"
-                                           ng-model="booking.newBooking['active']">
+                                           ng-model="unprocessedBookings.newBooking['active']">
                                     <i></i>Активно</label>
                                 </section>
                                 <!-- End Active -->
@@ -117,14 +117,14 @@
                       </div>
                       <div class="modal-body">
                         <form id="booking-editing-row-form" class="smart-form"
-                              ng-submit="booking.editRow()">
+                              ng-submit="unprocessedBookings.editRow()">
                           <fieldset>
                             <div>
                               <!-- Number -->
                               <section class="col form-input">
                                 <label class="input">Номер
                                   <input type="text" id="bookingNameEdit"
-                                         ng-model="booking.selectedBooking['number']">
+                                         ng-model="unprocessedBookings.selectedBooking['number']">
                                 </label>
                               </section>
                               <!-- End Number-->
@@ -133,7 +133,7 @@
                               <section class="col form-input">
                                 <label class="input">Описание
                                   <input type="text" id="bookingDescEdit"
-                                         ng-model="booking.selectedBooking['desc']">
+                                         ng-model="unprocessedBookings.selectedBooking['desc']">
                                 </label>
                               </section>
                               <!-- End Number-->
@@ -141,7 +141,7 @@
                               <!-- Date -->
                               <section class="col form-input">
                                 <label class="input"> <i class="icon-append fa fa-calendar"></i> Дата
-                                  <input type="date" id="bookingDateEdit" ng-model="booking.selectedBooking['date']">
+                                  <input type="date" id="bookingDateEdit" ng-model="unprocessedBookings.selectedBooking['date']">
                                 </label>
                               </section>
                               <!-- End Date-->
@@ -149,7 +149,7 @@
                               <!-- Phone -->
                               <section class="col form-input">
                                 <label class="input"> <i class="icon-append fa fa-phone"></i> Телефон
-                                  <input type="tel" id="bookingPhoneEdit" ng-model="booking.selectedBooking['phone']"
+                                  <input type="tel" id="bookingPhoneEdit" ng-model="unprocessedBookings.selectedBooking['phone']"
                                          data-smart-masked-input="(999) 999-9999">
                                 </label>
                               </section>
@@ -159,7 +159,7 @@
                               <section class="col form-input active-checkbox">
                                 <label class="checkbox">
                                   <input type="checkbox" id="bookingActiveEdit"
-                                         ng-model="booking.selectedBooking['active']">
+                                         ng-model="unprocessedBookings.selectedBooking['active']">
                                   <i></i>Активно</label>
                               </section>
                               <!-- End Active -->
@@ -181,25 +181,25 @@
                   <thead>
                   <tr>
                     <th></th>
-                    <th ng-repeat="(key, value) in booking.bookings[0] track by $index"
+                    <th ng-repeat="(key, value) in unprocessedBookings.bookings[0] track by $index"
                         ng-if="key != 'id'">{{key}}
                     </th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr ng-repeat="oneBooking in booking.bookings">
+                  <tr ng-repeat="oneBooking in unprocessedBookings.bookings">
                     <td>
                       <button class="btn btn-warning" data-toggle="modal"
                               data-target="#bookingEditRowModal"
-                              ng-click="booking.onStartEditing($index)">
+                              ng-click="unprocessedBookings.onStartEditing($index)">
                         <i class="fa fa-edit"></i></button>
                       &nbsp;
                       <button class="btn btn-danger"
-                              ng-click="booking.bookingDelete($index)">
+                              ng-click="unprocessedBookings.bookingDelete($index)">
                         <i class="fa fa-trash-o"></i></button>
                     </td>
                     <td ng-repeat="(key, value) in oneBooking" ng-if="key != 'id'">
-                      {{(key == 'categoryId') ? booking.find(value).name : value}}
+                      {{(key == 'categoryId') ? unprocessedBookings.find(value).name : value}}
                     </td>
                   </tr>
                   </tbody>

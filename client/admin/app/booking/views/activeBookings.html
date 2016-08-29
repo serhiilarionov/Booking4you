@@ -1,0 +1,214 @@
+<div id="content">
+  <div class="row">
+    <big-breadcrumbs items="['Каталог', 'Компании']" icon="home" class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    </big-breadcrumbs>
+  </div>
+
+
+  <section>
+    <div class="row">
+      <article class="col-sm-12 col-md-12 col-lg-12">
+        <div jarvis-widget id="wid-id-0" data-widget-color="darken" data-widget-editbutton="false"
+             data-widget-deletebutton="false">
+          <header>
+            <span class="widget-icon"> <i class="fa fa-check"></i> </span>
+
+            <h2>Bookings</h2>
+
+          </header>
+          <div id="c-table">
+            <div class="widget-body">
+              <div class="row">
+
+                <div>
+                  <p class="control-buttons">
+                    <button type="button" class="btn btn-info" data-toggle="modal"
+                            data-target="#bookingNewRowModal">
+                      <i class="fa fa-plus"></i>&nbsp;Добавить
+                    </button>
+                </div>
+
+                <!-- Start adding table row modal -->
+                <div class="c-modal modal fade" id="bookingNewRowModal" tabindex="-1" role="dialog"
+                     aria-labelledby="bookingNewModalLabel" aria-hidden="true"
+                     data-ng-init="bindHideModalFunction($hide)">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="bookingNewModalLabel">Добавление</h4>
+                      </div>
+                      <div class="modal-body">
+                        <section id="set-points-widget-grid" widget-grid data-widget-grid>
+                          <form id="booking-adding-new-row-form" class="smart-form"
+                                ng-submit="activeBookings.addNewRow()">
+                            <fieldset>
+                              <div>
+                                <!-- Number -->
+                                <section class="col form-input">
+                                  <label class="input">Номер
+                                    <input type="text" id="bookingNameAdd"
+                                           ng-model="activeBookings.newBooking['number']">
+                                  </label>
+                                </section>
+                                <!-- End Number-->
+
+                                <!-- Desc -->
+                                <section class="col form-input">
+                                  <label class="input">Описание
+                                    <input type="text" id="bookingDescAdd"
+                                           ng-model="activeBookings.newBooking['desc']">
+                                  </label>
+                                </section>
+                                <!-- End Number-->
+
+                                <!-- Date -->
+                                <section class="col form-input">
+                                  <label class="input"> <i class="icon-append fa fa-calendar"></i> Дата
+                                    <input type="date" id="bookingDateAdd" ng-model="activeBookings.newBooking['date']">
+                                  </label>
+                                </section>
+                                <!-- End Date-->
+
+                                <!-- Phone -->
+                                <section class="col form-input">
+                                  <label class="input"> <i class="icon-append fa fa-phone"></i> Телефон
+                                    <input type="tel" id="bookingPhoneAdd" ng-model="activeBookings.newBooking['phone']"
+                                           data-smart-masked-input="(999) 999-9999">
+                                  </label>
+                                </section>
+                                <!-- End Phone-->
+
+                                <!-- Active -->
+                                <section class="col form-input active-checkbox">
+                                  <label class="checkbox">
+                                    <input type="checkbox" id="bookingActiveAdd"
+                                           ng-model="activeBookings.newBooking['active']">
+                                    <i></i>Активно</label>
+                                </section>
+                                <!-- End Active -->
+
+                              </div>
+                            </fieldset>
+                          </form>
+                        </section>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                        <button type="submit" form="booking-adding-new-row-form" class="btn btn-primary">
+                          Добавить
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End adding table row modal -->
+
+                <!-- Start editing table row modal -->
+                <div class="c-modal modal fade" id="bookingEditRowModal" tabindex="-1" role="dialog"
+                     aria-labelledby="bookingEditModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="bookingEditModalLabel">Редактирование</h4>
+                      </div>
+                      <div class="modal-body">
+                        <form id="booking-editing-row-form" class="smart-form"
+                              ng-submit="activeBookings.editRow()">
+                          <fieldset>
+                            <div>
+                              <!-- Number -->
+                              <section class="col form-input">
+                                <label class="input">Номер
+                                  <input type="text" id="bookingNameEdit"
+                                         ng-model="activeBookings.selectedBooking['number']">
+                                </label>
+                              </section>
+                              <!-- End Number-->
+
+                              <!-- Desc -->
+                              <section class="col form-input">
+                                <label class="input">Описание
+                                  <input type="text" id="bookingDescEdit"
+                                         ng-model="activeBookings.selectedBooking['desc']">
+                                </label>
+                              </section>
+                              <!-- End Number-->
+
+                              <!-- Date -->
+                              <section class="col form-input">
+                                <label class="input"> <i class="icon-append fa fa-calendar"></i> Дата
+                                  <input type="date" id="bookingDateEdit" ng-model="activeBookings.selectedBooking['date']">
+                                </label>
+                              </section>
+                              <!-- End Date-->
+
+                              <!-- Phone -->
+                              <section class="col form-input">
+                                <label class="input"> <i class="icon-append fa fa-phone"></i> Телефон
+                                  <input type="tel" id="bookingPhoneEdit" ng-model="activeBookings.selectedBooking['phone']"
+                                         data-smart-masked-input="(999) 999-9999">
+                                </label>
+                              </section>
+                              <!-- End Phone-->
+
+                              <!-- Active -->
+                              <section class="col form-input active-checkbox">
+                                <label class="checkbox">
+                                  <input type="checkbox" id="bookingActiveEdit"
+                                         ng-model="activeBookings.selectedBooking['active']">
+                                  <i></i>Активно</label>
+                              </section>
+                              <!-- End Active -->
+                            </div>
+                          </fieldset>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                        <button type="submit" form="booking-editing-row-form" class="btn btn-primary">Сохранить
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End editing table row modal -->
+
+                <table class="table table-hover grid">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th ng-repeat="(key, value) in activeBookings.bookings[0] track by $index"
+                        ng-if="key != 'id'">{{key}}
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="oneBooking in activeBookings.bookings">
+                    <td>
+                      <button class="btn btn-warning" data-toggle="modal"
+                              data-target="#bookingEditRowModal"
+                              ng-click="activeBookings.onStartEditing($index)">
+                        <i class="fa fa-edit"></i></button>
+                      &nbsp;
+                      <button class="btn btn-danger"
+                              ng-click="activeBookings.bookingDelete($index)">
+                        <i class="fa fa-trash-o"></i></button>
+                    </td>
+                    <td ng-repeat="(key, value) in oneBooking" ng-if="key != 'id'">
+                      {{(key == 'categoryId') ? activeBookings.find(value).name : value}}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>

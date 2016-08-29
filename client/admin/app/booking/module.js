@@ -10,18 +10,34 @@ angular.module('app.booking', ['ui.router'])
           title: 'Booking'
         }
       })
-      .state('app.booking.add', {
-        url: '/booking/bookings?{filter}',
+      .state('app.booking.active', {
+        url: '/booking/bookings/active/?{filter}',
         params : {
           previousState: null
         },
         data: {
-          title: 'Bookings'
+          title: 'ActiveBookings'
         },
         views: {
           "content@app": {
-            controller: 'BookingController as booking',
-            templateUrl: "app/booking/views/booking.html"
+            controller: 'ActiveBookingsController as activeBookings',
+            templateUrl: "app/booking/views/activeBookings.html"
+          }
+        },
+        onExit: unSubscribeAll
+      })
+      .state('app.booking.unprocessed', {
+        url: '/booking/bookings/unprocessed?{filter}',
+        params : {
+          previousState: null
+        },
+        data: {
+          title: 'UnprocessedBookings'
+        },
+        views: {
+          "content@app": {
+            controller: 'UnprocessedBookingsController as unprocessedBookings',
+            templateUrl: "app/booking/views/unprocessedBookings.html"
           }
         },
         onExit: unSubscribeAll
