@@ -10,27 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
-var constants_1 = require('../../common/services/constants');
-var custom_validators_1 = require('../../common/custom-validators');
+var index_1 = require('../../shared/index');
 var RegistrationFormComponent = (function () {
-    function RegistrationFormComponent(formBuilder, constants) {
+    function RegistrationFormComponent(formBuilder) {
         this.formBuilder = formBuilder;
-        this.constants = constants;
         this.submitted = false;
+        this.passwordMinLength = index_1.PASSWORD_MIN_LENGTH;
         this.registrationForm = this.formBuilder.group({
             email: ['', forms_1.Validators.compose([
                     forms_1.Validators.required,
-                    forms_1.Validators.pattern(this.constants.EMAIL_REGEX)
+                    forms_1.Validators.pattern(index_1.EMAIL_REGEX)
                 ])],
             passwords: this.formBuilder.group({
                 password: ['', forms_1.Validators.compose([
                         forms_1.Validators.required,
-                        forms_1.Validators.minLength(this.constants.PASSWORD_MIN_LENGTH)
+                        forms_1.Validators.minLength(index_1.PASSWORD_MIN_LENGTH)
                     ])],
                 confirmPassword: ['', forms_1.Validators.compose([
                         forms_1.Validators.required
                     ])]
-            }, { validator: custom_validators_1.CustomValidators.areEqual })
+            }, { validator: index_1.CustomValidators.areEqual })
         });
     }
     RegistrationFormComponent.prototype.onSubmit = function () {
@@ -43,7 +42,7 @@ var RegistrationFormComponent = (function () {
             selector: 'registration-form',
             templateUrl: 'scripts/components/auth/registration-form.component.html'
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, constants_1.Constants])
+        __metadata('design:paramtypes', [forms_1.FormBuilder])
     ], RegistrationFormComponent);
     return RegistrationFormComponent;
 }());

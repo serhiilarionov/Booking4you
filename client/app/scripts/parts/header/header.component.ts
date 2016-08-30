@@ -1,6 +1,6 @@
-import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, Inject } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { SidebarService } from '../sidebar/sidebar.service';
+import { Client, ClientApi, LoopBackAuth, SidebarService, Broadcaster, EventTypes } from '../../shared/index';
 declare var $: any;
 
 @Component({
@@ -11,12 +11,36 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None
 })
 
-export class HeaderComponent {
-  constructor(private el: ElementRef, private sidebar: SidebarService) {
-    this.el = el.nativeElement;
+export class HeaderComponent implements OnInit {
+  public currentUser: Client;
+
+  constructor(
+    private sidebar: SidebarService,
+    private auth: LoopBackAuth,
+    private clientApi: ClientApi,
+    @Inject(Broadcaster) private broadcaster: Broadcaster<any>
+  ) {
+    this.broadcaster.subscribe((eventType) => {
+      if (eventType === EventTypes.LOGGED_IN) {
+        this.currentUser = this.clientApi.getCachedCurrent();
+      }
+    });
   }
 
   onSidebarToggle() {
     this.sidebar.toggle();
+  }
+
+  ngOnInit() {
+    if (this.clientApi.isAuthenticated()) {
+      this.clientApi.getCurrent().subscribe((user: Client) => this.currentUser = user);
+    }
+  }
+
+  logout() {
+    this.clientApi.logout().subscribe(() => {
+      this.broadcaster.emit(EventTypes.LOGGED_OUT);
+      this.currentUser = null;
+    });
   }
 }

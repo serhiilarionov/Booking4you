@@ -39,10 +39,7 @@
   a {
     padding: 0 5px;
     font-size: 12px;
-
-    &.register {
-      font-weight: 700;
-    }
+    cursor: pointer;
 
     &:hover, &:focus {
       text-decoration: none;

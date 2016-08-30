@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var sidebar_service_1 = require('./sidebar.service');
+var index_1 = require('../../shared/index');
 var menu_branch_component_1 = require('./menu-branch.component');
 var MENU_TREE = [
     {
@@ -41,7 +41,7 @@ var SidebarComponent = (function () {
             encapsulation: core_1.ViewEncapsulation.None,
             directives: [menu_branch_component_1.MenuBranchComponent]
         }), 
-        __metadata('design:paramtypes', [sidebar_service_1.SidebarService, core_1.ElementRef])
+        __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef])
     ], SidebarComponent);
     return SidebarComponent;
 }());

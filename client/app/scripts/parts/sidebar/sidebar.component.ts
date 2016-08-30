@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { SidebarService } from './sidebar.service';
+import { SidebarService } from '../../shared/index';
 import { MenuBranch, MenuBranchComponent } from './menu-branch.component';
 declare var $: any;
 

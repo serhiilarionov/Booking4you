@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Constants } from '../../common/services/constants';
-import { CustomValidators } from '../../common/custom-validators';
+import { EMAIL_REGEX, PASSWORD_MIN_LENGTH, CustomValidators } from '../../shared/index';
 
 @Component({
   selector: 'registration-form',
@@ -11,18 +10,18 @@ import { CustomValidators } from '../../common/custom-validators';
 export class RegistrationFormComponent {
   registrationForm: FormGroup;
   submitted: boolean = false;
+  passwordMinLength = PASSWORD_MIN_LENGTH;
 
-  constructor(private formBuilder: FormBuilder,
-              private constants: Constants) {
+  constructor(private formBuilder: FormBuilder) {
     this.registrationForm = this.formBuilder.group({
       email: ['', Validators.compose([
         Validators.required,
-        Validators.pattern(this.constants.EMAIL_REGEX)
+        Validators.pattern(EMAIL_REGEX)
       ])],
       passwords: this.formBuilder.group({
         password: ['', Validators.compose([
           Validators.required,
-          Validators.minLength(this.constants.PASSWORD_MIN_LENGTH)
+          Validators.minLength(PASSWORD_MIN_LENGTH)
         ])],
         confirmPassword: ['', Validators.compose([
           Validators.required

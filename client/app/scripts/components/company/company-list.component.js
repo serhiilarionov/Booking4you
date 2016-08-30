@@ -15,7 +15,7 @@ var CompanyListComponent = (function () {
     CompanyListComponent = __decorate([
         core_1.Component({
             selector: 'company-list',
-            template: '<div>Company list here</div>'
+            template: '<h1>Company list here</h1>'
         }), 
         __metadata('design:paramtypes', [])
     ], CompanyListComponent);

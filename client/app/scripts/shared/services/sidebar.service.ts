@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class SidebarService {
+  public opened: boolean = false;
   // Observable source
   private toggledSource = new Subject();
 
@@ -11,6 +12,7 @@ export class SidebarService {
 
   // Service command
   toggle() {
-    this.toggledSource.next(null);
+    this.opened = !this.opened;
+    this.toggledSource.next(this.opened);
   }
 }

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var Subject_1 = require('rxjs/Subject');
 var SidebarService = (function () {
     function SidebarService() {
+        this.opened = false;
         // Observable source
         this.toggledSource = new Subject_1.Subject();
         // Observable stream
@@ -19,7 +20,8 @@ var SidebarService = (function () {
     }
     // Service command
     SidebarService.prototype.toggle = function () {
-        this.toggledSource.next(null);
+        this.opened = !this.opened;
+        this.toggledSource.next(this.opened);
     };
     SidebarService = __decorate([
         core_1.Injectable(), 

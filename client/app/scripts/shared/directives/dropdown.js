@@ -15,6 +15,9 @@ var Dropdown = (function () {
         this.$el = $(this.el.nativeElement);
     }
     Dropdown.prototype.ngOnInit = function () {
+        this.$el.selectpicker();
+    };
+    Dropdown.prototype.ngOnChanges = function (changes) {
         var _this = this;
         this.$el.ready(function () { return _this.$el.selectpicker('refresh'); });
     };
@@ -25,7 +28,7 @@ var Dropdown = (function () {
     Dropdown = __decorate([
         core_1.Component({
             selector: 'select.selectpicker',
-            templateUrl: 'scripts/common/directives/dropdown.html'
+            templateUrl: 'scripts/shared/directives/dropdown.html'
         }), 
         __metadata('design:paramtypes', [core_1.ElementRef])
     ], Dropdown);

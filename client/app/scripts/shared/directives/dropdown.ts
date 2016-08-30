@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, ElementRef } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ElementRef, SimpleChanges } from '@angular/core';
 declare var $: any;
 
 @Component({
   selector: 'select.selectpicker',
-  templateUrl: 'scripts/common/directives/dropdown.html'
+  templateUrl: 'scripts/shared/directives/dropdown.html'
 })
-export class Dropdown implements OnInit {
+export class Dropdown implements OnInit, OnChanges {
   @Input() items: any[];
   private $el: any;
 
@@ -14,6 +14,10 @@ export class Dropdown implements OnInit {
   }
 
   ngOnInit() {
+    this.$el.selectpicker();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
     this.$el.ready(() => this.$el.selectpicker('refresh'));
   }
 }

@@ -1,5 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { CompanyListComponent } from '../../components/company/company-list.component';
+import { Broadcaster, EventTypes } from '../../shared/index';
 
 @Component({
   selector: 'company-list-page[company-list-page]',
@@ -10,4 +12,14 @@ import { CompanyListComponent } from '../../components/company/company-list.comp
 })
 
 export class CompanyListPageComponent {
+  constructor(
+    private router: Router,
+    @Inject(Broadcaster) private broadcaster: Broadcaster<any>
+  ) {
+    this.broadcaster.subscribe((next) => {
+      if (next === EventTypes.LOGGED_OUT) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
 }

@@ -8,10 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var company_list_component_1 = require('../../components/company/company-list.component');
+var index_1 = require('../../shared/index');
 var CompanyListPageComponent = (function () {
-    function CompanyListPageComponent() {
+    function CompanyListPageComponent(router, broadcaster) {
+        var _this = this;
+        this.router = router;
+        this.broadcaster = broadcaster;
+        this.broadcaster.subscribe(function (next) {
+            if (next === index_1.EventTypes.LOGGED_OUT) {
+                _this.router.navigate(['/']);
+            }
+        });
     }
     CompanyListPageComponent = __decorate([
         core_1.Component({
@@ -20,8 +33,9 @@ var CompanyListPageComponent = (function () {
             styleUrls: ['scripts/pages/company-list/company-list-page.component.css'],
             directives: [company_list_component_1.CompanyListComponent],
             encapsulation: core_1.ViewEncapsulation.None
-        }), 
-        __metadata('design:paramtypes', [])
+        }),
+        __param(1, core_1.Inject(index_1.Broadcaster)), 
+        __metadata('design:paramtypes', [router_1.Router, index_1.Broadcaster])
     ], CompanyListPageComponent);
     return CompanyListPageComponent;
 }());
