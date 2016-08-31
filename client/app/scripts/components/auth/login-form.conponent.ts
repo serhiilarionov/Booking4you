@@ -50,7 +50,10 @@ export class LoginFormComponent {
 
   public onSubmit() {
     this.submitted = true;
-    this.login(this.loginForm.value);
+
+    if (this.loginForm.valid) {
+      this.login(this.loginForm.value);
+    }
   }
 
   private login(credentials): void {
