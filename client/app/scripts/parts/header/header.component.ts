@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     private sidebar: SidebarService,
     private auth: LoopBackAuth,
     private clientApi: ClientApi,
-    @Inject(Broadcaster) private broadcaster: Broadcaster<any>
+    @Inject(Broadcaster) private broadcaster: Broadcaster<string>
   ) {
     this.broadcaster.subscribe((eventType) => {
       if (eventType === EventTypes.LOGGED_IN) {

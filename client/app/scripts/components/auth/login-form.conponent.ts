@@ -1,4 +1,4 @@
-import { Component, Inject, EventEmitter } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Broadcaster } from '../../shared/index';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
@@ -28,7 +28,7 @@ export class LoginFormComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     @Inject(AuthRedirectService) private authRedirect: AuthRedirectService,
-    @Inject(Broadcaster) private broadcaster: Broadcaster<EventEmitter<any>>
+    @Inject(Broadcaster) private broadcaster: Broadcaster<string>
   ) {
     LoopBackConfig.setBaseURL(BASE_URL);
     LoopBackConfig.setApiVersion(API_VERSION);
