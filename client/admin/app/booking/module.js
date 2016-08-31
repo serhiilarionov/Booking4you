@@ -23,8 +23,7 @@ angular.module('app.booking', ['ui.router'])
             controller: 'ActiveBookingsController as activeBookings',
             templateUrl: "app/booking/views/activeBookings.html"
           }
-        },
-        onExit: unSubscribeAll
+        }
       })
       .state('app.booking.unprocessed', {
         url: '/booking/bookings/unprocessed?{filter}',
@@ -39,12 +38,6 @@ angular.module('app.booking', ['ui.router'])
             controller: 'UnprocessedBookingsController as unprocessedBookings',
             templateUrl: "app/booking/views/unprocessedBookings.html"
           }
-        },
-        onExit: unSubscribeAll
+        }
       })
   });
-
-var unSubscribeAll = function(PubSub){
-  //Unsubscribe all listeners..
-  PubSub.unSubscribeAll();
-};

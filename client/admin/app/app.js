@@ -40,7 +40,7 @@ angular.module('app', [
   .config(function ($provide, $httpProvider, RestangularProvider, uiGmapGoogleMapApiProvider) {
 
     uiGmapGoogleMapApiProvider.configure({
-      key: 'AIzaSyBRMg-e1qUCEoSeD8A-NLSQZ3_QKjFJjEU',
+      key: 'AIzaSyCrMSuk_VyW_1pjv2ObkESsP0Gil4OXXQ8',
       v: '3.20', //defaults to latest 3.X anyhow
       libraries: 'weather,geometry,visualization'
     });

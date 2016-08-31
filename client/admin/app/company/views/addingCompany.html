@@ -100,7 +100,7 @@
                                       <section class="col form-input">
                                         <label class="input">Название
                                           <input type="text" id="companyNameAdd"
-                                                 ng-model="addingCompany.newCompany['name']">
+                                                 ng-model="addingCompany.Company['Add']['name']">
                                         </label>
                                       </section>
                                       <!-- End Name-->
@@ -109,7 +109,7 @@
                                       <section class="col form-input">
                                         <label class="input">Заголовок
                                           <input type="text" id="companyTitleAdd"
-                                                 ng-model="addingCompany.newCompany['title']">
+                                                 ng-model="addingCompany.Company['Add']['title']">
                                         </label>
                                       </section>
                                       <!-- End Title-->
@@ -118,11 +118,11 @@
                                       <section class="col form-input">
                                         <label class="input">Город
                                           <select class="form-control input-sm" id="companyCitySelectBoxAdd"
-                                                  ng-model="addingCompany.newCompany['cityId']">
+                                                  ng-model="addingCompany.Company['Add']['cityId']">
                                             <option
                                                 ng-repeat="row in addingCompany.cities track by row.id"
                                                 value="{{row.id}}"
-                                                ng-selected="addingCompany.newCompany['cityId'] == row.id">
+                                                ng-selected="addingCompany.Company['Add']['cityId'] == row.id">
                                               #{{row.id}} ({{row.name}})
                                             </option>
                                           </select>
@@ -134,11 +134,11 @@
                                       <section class="col form-input">
                                         <label class="input">Категория
                                           <select class="form-control input-sm" id="companyCategorySelectBoxAdd"
-                                                  ng-model="addingCompany.newCompany['categoryId']">
+                                                  ng-model="addingCompany.Company['Add']['categoryId']">
                                             <option
                                                 ng-repeat="row in addingCompany.categories track by row.id"
                                                 value="{{row.id}}"
-                                                ng-selected="addingCompany.newCompany['categoryId'] == row.id">
+                                                ng-selected="addingCompany.Company['Add']['categoryId'] == row.id">
                                               #{{row.id}} ({{row.name}})
                                             </option>
                                           </select>
@@ -150,7 +150,7 @@
                                       <section class="col form-input">
                                         <label class="input">Описание
                                           <input type="text" id="companyDescAdd"
-                                                 ng-model="addingCompany.newCompany['desc']">
+                                                 ng-model="addingCompany.Company['Add']['desc']">
                                         </label>
                                       </section>
                                       <!-- End Desc-->
@@ -169,15 +169,58 @@
                                       </section>
                                       <!-- End Photo -->
 
+                                      <!-- Points -->
+                                      <section class="col form-input c-points">
+
+                                        <label class="input">
+                                          <i class="icon-append fa fa-map-marker"
+                                             ng-click="addingCompany.findAddress('Point', addingCompany.Company['Add']['point'], 'Add')"></i>
+                                          <input type="text" id="companyPointAdd"
+                                                 ng-model="addingCompany.Company['Add']['Point']"
+                                                 ng-enter="addingCompany.findAddress('Point', addingCompany.Company['Add']['point'], 'Add')">
+                                        </label>
+                                        <div></div>
+
+                                        <!-- Warning -->
+                                        <article class="col-sm-12" ng-if="addingCompany.inputMaps['Addpoint'].notFound">
+                                          <div class="alert alert-warning fade in">
+                                            <button class="close" data-dismiss="alert"
+                                                    ng-click="inputMaps['Addpoint'].notFound == false">×</button>
+                                            <i class="fa-fw fa fa-warning"></i>
+                                            <strong>Внимание!</strong> По запросу ничего не найдено </div>
+                                        </article>
+                                        <!-- Warning -->
+                                        <!-- MAP -->
+                                        <div class="map" ng-if="addingCompany.inputMaps['Addpoint'] && addingCompany.inputMaps['Addpoint'].display">
+                                          <ui-gmap-google-map center="addingCompany.inputMaps['Addpoint'].map.center"
+                                                              zoom="addingCompany.inputMaps['Addpoint'].map.zoom"
+                                                              events="addingCompany.inputMaps['Addpoint'].map.events">
+                                            <ui-gmap-marker coords="addingCompany.inputMaps['Addpoint'].marker.coords"
+                                                            ptions="addingCompany.inputMaps['Addpoint'].marker.options"
+                                                            events="addingCompany.inputMaps['Addpoint'].marker.events"
+                                                            idkey="addingCompany.inputMaps['Addpoint'].marker.id">
+                                            </ui-gmap-marker>
+                                          </ui-gmap-google-map>
+                                          <div class="map-hide" ng-click="addingCompany.inputMaps['Addpoint'].display = false;"></div>
+                                          (<span ng-bind="addingCompany.Company['Add']['point'].lat.toFixed(5)"></span>,
+                                          <span ng-bind="addingCompany.Company['Add']['point'].lng.toFixed(5)"></span>)
+                                        </div>
+                                        <div class="map-show"
+                                             ng-click="addingCompany.showMap('point', 'Add')"
+                                             ng-if="!addingCompany.inputMaps['Addpoint'].display"></div>
+                                        <!-- MAP -->
+
+                                      </section>
+                                      <!-- End points-->
+
                                       <!-- Active -->
                                       <section class="col form-input active-checkbox">
                                         <label class="checkbox">
                                           <input type="checkbox" id="companyActiveAdd"
-                                                 ng-model="addingCompany.newCompany['active']">
+                                                 ng-model="addingCompany.Company['Add']['active']">
                                           <i></i>Активно</label>
                                       </section>
                                       <!-- End Active -->
-
                                     </div>
                                   </fieldset>
                                 </form>
@@ -213,7 +256,7 @@
                                     <section class="col form-input">
                                       <label class="input">Название
                                         <input type="text" id="companyNameEdit"
-                                               ng-model="addingCompany.selectedCompany['name']">
+                                               ng-model="addingCompany.Company.Edit['name']">
                                       </label>
                                     </section>
                                     <!-- End Name-->
@@ -222,7 +265,7 @@
                                     <section class="col form-input">
                                       <label class="input">Заголовок
                                         <input type="text" id="companyTitleEdit"
-                                               ng-model="addingCompany.selectedCompany['title']">
+                                               ng-model="addingCompany.Company.Edit['title']">
                                       </label>
                                     </section>
                                     <!-- End Title-->
@@ -231,11 +274,11 @@
                                     <section class="col form-input">
                                       <label class="input">Категория
                                         <select class="form-control input-sm" id="companyCategorySelectBoxEdit"
-                                                ng-model="addingCompany.selectedCompany['categoryId']">
+                                                ng-model="addingCompany.Company.Edit['categoryId']">
                                           <option
                                               ng-repeat="row in addingCompany.categories track by row.id"
                                               value="{{row.id}}"
-                                              ng-selected="addingCompany.selectedCompany['categoryId'] == row.id">
+                                              ng-selected="addingCompany.Company.Edit['categoryId'] == row.id">
                                             #{{row.id}} ({{row.name}})
                                           </option>
                                         </select>
@@ -247,7 +290,7 @@
                                     <section class="col form-input">
                                       <label class="input">Описание
                                         <input type="text" id="companyDescEdit"
-                                               ng-model="addingCompany.selectedCompany['desc']">
+                                               ng-model="addingCompany.Company.Edit['desc']">
                                       </label>
                                     </section>
                                     <!-- End Desc-->
@@ -266,11 +309,55 @@
                                     </section>
                                     <!-- End Photo -->
 
+                                    <!-- Points -->
+                                    <section class="col form-input c-points">
+
+                                      <label class="input">
+                                        <i class="icon-append fa fa-map-marker"
+                                           ng-click="addingCompany.findAddress('Point', addingCompany.Company['Edit']['point'], 'Edit')"></i>
+                                        <input type="text" id="companyPointEdit"
+                                               ng-model="addingCompany.Company['Edit']['Point']"
+                                               ng-enter="addingCompany.findAddress('Point', addingCompany.Company['Edit']['point'], 'Edit')">
+                                      </label>
+                                      <div></div>
+
+                                      <!-- Warning -->
+                                      <article class="col-sm-12" ng-if="addingCompany.inputMaps['Editpoint'].notFound">
+                                        <div class="alert alert-warning fade in">
+                                          <button class="close" data-dismiss="alert"
+                                                  ng-click="addingCompany.inputMaps['Editpoint'].notFound == false">×</button>
+                                          <i class="fa-fw fa fa-warning"></i>
+                                          <strong>Внимание!</strong> По запросу ничего не найдено </div>
+                                      </article>
+                                      <!-- Warning -->
+                                      <!-- MAP -->
+                                      <div class="map" ng-if="addingCompany.inputMaps['Editpoint'] && addingCompany.inputMaps['Editpoint'].display">
+                                        <ui-gmap-google-map center="addingCompany.inputMaps['Editpoint'].map.center"
+                                                            zoom="addingCompany.inputMaps['Editpoint'].map.zoom"
+                                                            events="addingCompany.inputMaps['Editpoint'].map.events">
+                                          <ui-gmap-marker coords="addingCompany.inputMaps['Editpoint'].marker.coords"
+                                                          ptions="addingCompany.inputMaps['Editpoint'].marker.options"
+                                                          events="addingCompany.inputMaps['Editpoint'].marker.events"
+                                                          idkey="addingCompany.inputMaps['Editpoint'].marker.id">
+                                          </ui-gmap-marker>
+                                        </ui-gmap-google-map>
+                                        <div class="map-hide" ng-click="addingCompany.inputMaps['Editpoint'].display = false;"></div>
+                                        (<span ng-bind="addingCompany.Company['Edit']['point'].lat.toFixed(5)"></span>,
+                                        <span ng-bind="addingCompany.Company['Edit']['point'].lng.toFixed(5)"></span>)
+                                      </div>
+                                      <div class="map-show"
+                                           ng-click="addingCompany.showMap('point', 'Edit')"
+                                           ng-if="!addingCompany.inputMaps['Editpoint'].display"></div>
+                                      <!-- MAP -->
+
+                                    </section>
+                                    <!-- End points-->
+
                                     <!-- Active -->
                                     <section class="col form-input active-checkbox">
                                       <label class="checkbox">
                                         <input type="checkbox" id="companyActiveEdit"
-                                               ng-model="addingCompany.selectedCompany['active']">
+                                               ng-model="addingCompany.Company.Edit['active']">
                                         <i></i>Активно</label>
                                     </section>
                                     <!-- End Active -->
