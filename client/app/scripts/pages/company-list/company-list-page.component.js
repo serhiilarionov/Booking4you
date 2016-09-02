@@ -13,7 +13,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var company_list_component_1 = require('../../components/company/company-list.component');
 var index_1 = require('../../shared/index');
 var CompanyListPageComponent = (function () {
     function CompanyListPageComponent(router, broadcaster) {
@@ -31,7 +30,6 @@ var CompanyListPageComponent = (function () {
             selector: 'company-list-page[company-list-page]',
             templateUrl: 'scripts/pages/company-list/company-list-page.component.html',
             styleUrls: ['scripts/pages/company-list/company-list-page.component.css'],
-            directives: [company_list_component_1.CompanyListComponent],
             encapsulation: core_1.ViewEncapsulation.None
         }),
         __param(1, core_1.Inject(index_1.Broadcaster)), 

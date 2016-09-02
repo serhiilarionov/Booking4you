@@ -12,7 +12,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
 var index_1 = require('../../shared/index');
 var HeaderComponent = (function () {
     function HeaderComponent(sidebar, auth, clientApi, broadcaster) {
@@ -48,7 +47,6 @@ var HeaderComponent = (function () {
             selector: 'app-header',
             templateUrl: 'scripts/parts/header/header.component.html',
             styleUrls: ['scripts/parts/header/header.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES],
             encapsulation: core_1.ViewEncapsulation.None
         }),
         __param(3, core_1.Inject(index_1.Broadcaster)), 

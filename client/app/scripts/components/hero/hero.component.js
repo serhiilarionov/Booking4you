@@ -9,12 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var forms_1 = require('@angular/forms');
 var index_1 = require('../../shared/index');
 var HeroComponent = (function () {
-    function HeroComponent(auth, cityApi, clientApi) {
+    function HeroComponent(auth, cityApi, clientApi, formBuilder) {
         this.auth = auth;
         this.cityApi = cityApi;
         this.clientApi = clientApi;
+        this.formBuilder = formBuilder;
+        this.searchForm = this.formBuilder.group({
+            city: [''],
+            category: ['']
+        });
     }
     HeroComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28,7 +34,7 @@ var HeroComponent = (function () {
             templateUrl: './scripts/components/hero/hero.component.html',
             styleUrls: ['./scripts/components/hero/hero.component.css']
         }), 
-        __metadata('design:paramtypes', [index_1.LoopBackAuth, index_1.CityApi, index_1.ClientApi])
+        __metadata('design:paramtypes', [index_1.LoopBackAuth, index_1.CityApi, index_1.ClientApi, forms_1.FormBuilder])
     ], HeroComponent);
     return HeroComponent;
 }());

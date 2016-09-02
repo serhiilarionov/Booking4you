@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { SidebarService } from '../../shared/index';
-import { MenuBranch, MenuBranchComponent } from './menu-branch.component';
+import { MenuBranch } from './menu-branch.component';
 declare var $: any;
 
 const MENU_TREE: Array<MenuBranch> = [
@@ -18,8 +18,7 @@ const MENU_TREE: Array<MenuBranch> = [
   selector: 'sidebar',
   styleUrls: ['scripts/parts/sidebar/sidebar.component.css'],
   templateUrl: 'scripts/parts/sidebar/sidebar.component.html',
-  encapsulation: ViewEncapsulation.None,
-  directives: [MenuBranchComponent]
+  encapsulation: ViewEncapsulation.None
 })
 
 export class SidebarComponent {

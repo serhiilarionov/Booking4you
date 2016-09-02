@@ -50,7 +50,7 @@ var LoopBackConfig = (function () {
     LoopBackConfig.debuggable = function () {
         return LoopBackConfig.debug;
     };
-    LoopBackConfig.path = 'http://localhost:3000';
+    LoopBackConfig.path = '//0.0.0.0:3000';
     LoopBackConfig.version = 'api';
     LoopBackConfig.authPrefix = '';
     LoopBackConfig.debug = true;

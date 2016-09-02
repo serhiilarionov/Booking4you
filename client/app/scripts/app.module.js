@@ -16,7 +16,8 @@ var index_1 = require('./parts/index');
 var app_routing_1 = require('./app.routing');
 var sdk_module_1 = require('./shared/sdk/sdk.module');
 var index_2 = require('./pages/index');
-var index_3 = require('./shared/index');
+var index_3 = require('./components/index');
+var index_4 = require('./shared/index');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,9 +29,9 @@ var AppModule = (function () {
                 forms_1.ReactiveFormsModule,
                 sdk_module_1.SDKModule.forRoot()
             ],
-            declarations: [app_component_1.AppComponent].concat(index_1.Parts, index_2.Pages, index_3.Directives),
+            declarations: [app_component_1.AppComponent].concat(index_1.Parts, index_2.Pages, index_4.Directives, index_3.Components),
             bootstrap: [app_component_1.AppComponent],
-            providers: index_3.Services.slice()
+            providers: index_4.Services.slice()
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

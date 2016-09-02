@@ -23,10 +23,14 @@
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-var http_1 = require('@angular/http');
 var index_1 = require('./services/index');
+/**
+* IMPORTANT: API_PROVIDERS WILL BE DEPRECATED WHEN ANGULAR 2 IS STABLE
+* PLEASE MIGRATE YOUR PROJECT AS SOON AS POSSIBLE.
+* ONCE ANGULAR 2 IS STABLE I WON'T KEEP SUPPORTING API PROVIDERS.
+* USER NGMODULE INSTEAD LOCATED IN ./sdk.module.ts
+**/
 exports.API_PROVIDERS = [
-    http_1.HTTP_PROVIDERS,
     index_1.LoopBackAuth,
     index_1.ErrorHandler,
     index_1.LoggerService,

@@ -9,15 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_component_1 = require('../../components/hero/hero.component');
 var HomePageComponent = (function () {
     function HomePageComponent() {
     }
     HomePageComponent = __decorate([
         core_1.Component({
             selector: 'home-page',
-            templateUrl: 'scripts/pages/home/home-page.component.html',
-            directives: [hero_component_1.HeroComponent]
+            templateUrl: 'scripts/pages/home/home-page.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], HomePageComponent);

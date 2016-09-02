@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoopBackAuth, City, CityApi, ClientApi } from '../../shared/index';
 declare var $: any;
 
@@ -10,7 +11,17 @@ declare var $: any;
 
 export class HeroComponent implements OnInit {
   public cities: Array<City>;
-  constructor(private auth: LoopBackAuth, private cityApi: CityApi, private clientApi: ClientApi) {
+  public searchForm: FormGroup;
+  constructor(
+    private auth: LoopBackAuth,
+    private cityApi: CityApi,
+    private clientApi: ClientApi,
+    private formBuilder: FormBuilder
+  ) {
+    this.searchForm = this.formBuilder.group({
+      city: [''],
+      category: ['']
+    });
   }
 
   ngOnInit() {

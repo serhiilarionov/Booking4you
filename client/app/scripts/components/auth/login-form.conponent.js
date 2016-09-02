@@ -44,7 +44,9 @@ var LoginFormComponent = (function () {
     }
     LoginFormComponent.prototype.onSubmit = function () {
         this.submitted = true;
-        this.login(this.loginForm.value);
+        if (this.loginForm.valid) {
+            this.login(this.loginForm.value);
+        }
     };
     LoginFormComponent.prototype.login = function (credentials) {
         var _this = this;

@@ -9,15 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var registration_form_conponent_1 = require('../../components/auth/registration-form.conponent');
 var RegistrationPageComponent = (function () {
     function RegistrationPageComponent() {
     }
     RegistrationPageComponent = __decorate([
         core_1.Component({
             selector: 'registration-page',
-            templateUrl: 'scripts/pages/registration/registration-page.component.html',
-            directives: [registration_form_conponent_1.RegistrationFormComponent]
+            templateUrl: 'scripts/pages/registration/registration-page.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], RegistrationPageComponent);

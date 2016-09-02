@@ -1,13 +1,11 @@
 import { Component, ViewEncapsulation, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { CompanyListComponent } from '../../components/company/company-list.component';
 import { Broadcaster, EventTypes } from '../../shared/index';
 
 @Component({
   selector: 'company-list-page[company-list-page]',
   templateUrl: 'scripts/pages/company-list/company-list-page.component.html',
   styleUrls: ['scripts/pages/company-list/company-list-page.component.css'],
-  directives: [CompanyListComponent],
   encapsulation: ViewEncapsulation.None
 })
 

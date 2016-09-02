@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var index_1 = require('../../shared/index');
-var menu_branch_component_1 = require('./menu-branch.component');
 var MENU_TREE = [
     {
         name: 'Home',
@@ -38,8 +37,7 @@ var SidebarComponent = (function () {
             selector: 'sidebar',
             styleUrls: ['scripts/parts/sidebar/sidebar.component.css'],
             templateUrl: 'scripts/parts/sidebar/sidebar.component.html',
-            encapsulation: core_1.ViewEncapsulation.None,
-            directives: [menu_branch_component_1.MenuBranchComponent]
+            encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef])
     ], SidebarComponent);

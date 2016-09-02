@@ -6,6 +6,7 @@ import { Parts } from './parts/index';
 import { routing } from './app.routing';
 import { SDKModule } from './shared/sdk/sdk.module';
 import { Pages } from './pages/index';
+import { Components } from './components/index';
 import { Services, Directives } from './shared/index';
 
 @NgModule({
@@ -15,7 +16,7 @@ import { Services, Directives } from './shared/index';
     ReactiveFormsModule,
     SDKModule.forRoot()
   ],
-  declarations: [AppComponent, ...Parts, ...Pages, ...Directives],
+  declarations: [AppComponent, ...Parts, ...Pages, ...Directives, ...Components],
   bootstrap: [AppComponent],
   providers: [...Services]
 })

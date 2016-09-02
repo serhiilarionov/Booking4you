@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation, OnInit, Inject } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Client, ClientApi, LoopBackAuth, SidebarService, Broadcaster, EventTypes } from '../../shared/index';
 declare var $: any;
 
@@ -7,7 +6,6 @@ declare var $: any;
   selector: 'app-header',
   templateUrl: 'scripts/parts/header/header.component.html',
   styleUrls: ['scripts/parts/header/header.component.css'],
-  directives: [ROUTER_DIRECTIVES],
   encapsulation: ViewEncapsulation.None
 })
 
