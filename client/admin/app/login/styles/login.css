@@ -17,8 +17,6 @@ input {
     font-family: inherit;
     font-size: inherit;
     margin: 0;
-    outline: none;
-    -webkit-appearance: none;
 }
 
 input[type="submit"] { cursor: pointer; }

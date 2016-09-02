@@ -30,7 +30,8 @@
       "datatables-bootstrap",
       "datatables-tools",
       "datatables-colvis",
-      "datatables-responsive"
+      "datatables-responsive",
+      "jt.timepicker"
     ],
     "vendor.ui": [
       "select2",
@@ -105,6 +106,7 @@
     "jquery-maskedinput": "bower_components/jquery-maskedinput/dist/jquery.maskedinput.min.js",
     "jquery-validation": "bower_components/jquery-validation/dist/jquery.validate.min.js",
     "jquery-form": "bower_components/jquery-form/jquery.form",
+    "jt.timepicker": "bower_components/jt.timepicker/jquery.timepicker.js",
     "bootstrap-validator": "bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js",
     "bootstrap-timepicker": "bower_components/bootstrap3-fontawesome-timepicker/js/bootstrap-timepicker.min.js",
     "clockpicker": "bower_components/clockpicker/dist/bootstrap-clockpicker.min.js",

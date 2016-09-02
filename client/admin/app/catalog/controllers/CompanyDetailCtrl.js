@@ -70,5 +70,21 @@ angular.module('app.company').controller('CompanyDetailsController', ['$scope', 
             Notification.error("Error", err.data.error.message);
           });
       }
+    };
+
+    vm.AddWorkTime = function() {
+      vm.selectedDetail = _.first(vm.details);
+      CompanyDetail.upsert({companyId: vm.selectedDetail.companyId}, vm.selectedDetail)
+        .$promise
+        .then(function () {
+          CompanyDetail.find({"filter": {"where": {"companyId": $stateParams.id}}}, function (res) {
+            vm.details = res;
+          });
+          angular.element('#companyWorkTimeModal').modal('hide');
+          Notification.success();
+        })
+        .catch(function (err) {
+          Notification.error("Error", err.data.error.message);
+        });
     }
   }]);

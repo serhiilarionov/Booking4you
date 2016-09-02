@@ -117,6 +117,28 @@
                 </div>
                 <!-- End adding phone modal -->
 
+                <!-- Start adding phone modal -->
+                <div class="c-modal modal fade" id="companyWorkTimeModal" tabindex="-1" role="dialog"
+                     aria-labelledby="companyWorkTimeModal" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="companyWorkTimeLabel">Add phone</h4>
+                      </div>
+                      <div class="modal-body clearfix">
+                        <div work-times="companyDetails.details[0].workTime"></div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                        <button type="submit" class="btn btn-primary" ng-click="companyDetails.AddWorkTime()">Сохранить</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End adding phone modal -->
+
                 <div class="Table">
                   <div class="Table-row Table-header">
                     <div class="Table-row-button"></div>
@@ -205,9 +227,8 @@
                       <div class="form-group">
                         <div class="form-inline">
                           <div class="control-label">
-                            <button class="btn btn-primary">
-                              <span> + </span>
-                            </button>
+                            <button class="btn btn-primary" data-toggle="modal"
+                                    data-target="#companyWorkTimeModal"> + </button>
                           </div>
                         </div>
                       </div>
