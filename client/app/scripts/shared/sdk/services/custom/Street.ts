@@ -1,17 +1,17 @@
 /* tslint:disable */
-import { Injectable, Inject, Optional }  from '@angular/core';
-import { Http, Response }  from '@angular/http';
-import { BaseLoopBackApi }  from '../core/base.service';
-import { LoopBackConfig }  from '../../lb.config';
-import { LoopBackAuth }  from '../core/auth.service';
-import { LoopBackFilter }  from '../../models/BaseModels';
-import { JSONSearchParams }  from '../core/search.params';
-import { ErrorHandler }  from '../core/error.service';
-import { Subject }  from 'rxjs/Subject';
-import 'rxjs/add/operator/map' ;
-import { Street }  from '../../models/Street';
-import { StreetType }  from '../../models/StreetType';
-import { Building }  from '../../models/Building';
+import { Injectable, Inject, Optional } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { BaseLoopBackApi } from '../core/base.service';
+import { LoopBackConfig } from '../../lb.config';
+import { LoopBackAuth } from '../core/auth.service';
+import { LoopBackFilter } from '../../models/BaseModels';
+import { JSONSearchParams } from '../core/search.params';
+import { ErrorHandler } from '../core/error.service';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/map';
+import { Street } from '../../models/Street';
+import { StreetType } from '../../models/StreetType';
+import { Building } from '../../models/Building';
 
 // Making Sure EventSource Type is available to avoid compilation issues.
 declare var EventSource: any;
