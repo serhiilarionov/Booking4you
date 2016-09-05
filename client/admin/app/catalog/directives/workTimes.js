@@ -1,7 +1,8 @@
 angular.module('app.catalog').directive('workTimes', function ($timeout) {
   return {
     scope: {
-      workTimes: "="
+      workTimes: "=",
+      weekDays: '='
     },
     templateUrl: '/admin/app/catalog/templates/workTimes.tpl.html',
     controller: function ($scope) {
@@ -10,15 +11,7 @@ angular.module('app.catalog').directive('workTimes', function ($timeout) {
       $scope.lunch = $scope.workTimes[0][0].length > 1 || $scope.workTimes[1][1].length > 1 ||
         $scope.workTimes[2][2].length > 1 || $scope.workTimes[3][3].length > 1 || $scope.workTimes[4][4].length > 1 ||
         $scope.workTimes[5][5].length > 1 || $scope.workTimes[6][6].length > 1;
-      $scope.weekDays = {
-        0: "Sun",
-        1: "Mon",
-        2: "Tue",
-        3: "Wed",
-        4: "Thu",
-        5: "Fri",
-        6: "Sat"
-      };
+      
       var workHours = [
         {
           "0": []

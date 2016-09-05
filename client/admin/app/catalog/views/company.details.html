@@ -117,7 +117,7 @@
                 </div>
                 <!-- End adding phone modal -->
 
-                <!-- Start adding phone modal -->
+                <!-- Start adding work time modal -->
                 <div class="c-modal modal fade" id="companyWorkTimeModal" tabindex="-1" role="dialog"
                      aria-labelledby="companyWorkTimeModal" aria-hidden="true">
                   <div class="modal-dialog">
@@ -128,7 +128,7 @@
                         <h4 class="modal-title" id="companyWorkTimeLabel">Add phone</h4>
                       </div>
                       <div class="modal-body clearfix">
-                        <div work-times="companyDetails.details[0].workTime"></div>
+                        <div work-times="companyDetails.details[0].workTime" week-days="companyDetails.weekDays"></div>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
@@ -137,7 +137,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- End adding phone modal -->
+                <!-- End adding work time modal -->
 
                 <div class="Table">
                   <div class="Table-row Table-header">
@@ -148,7 +148,7 @@
                     <div class="Table-row-button"></div>
                     <div class="Table-row-item">Website</div>
                     <div class="Table-row-button"></div>
-                    <div class="Table-row-item">Work time</div>
+                    <div class="Table-row-item workTimeItem">Work time</div>
                     <div class="Table-row-button"></div>
                     <div class="Table-row-item">Images</div>
                   </div>
@@ -233,10 +233,35 @@
                         </div>
                       </div>
                     </div>
-                    <div class="Table-row-item">
-                      <div class="form-group Table">
-                        <div class="Table-row" ng-repeat="worktime in details.worktime">
-                          <div class="Table-row-item">{{worktime}}</div>
+                    <div class="Table-row-item workTimeItem">
+                      <div class="form-group Table workTimeTable">
+                        <div class="dayContainer" ng-repeat="workTime in details.workTime track by $index">
+                          <div class="weekday">{{companyDetails.weekDays[$index]}}</div>
+                          <div class="operationDayTimeContainer work" ng-show="workTime[$index].length > 0">
+                            <div class="operationTime input-group" style="display: table;">
+                              <span type="text" name="startTime" class="mini-time ui-timepicker-input operationTimeFrom"
+                                     ng-bind="workTime[$index][0].s" autocomplete="off"></span>
+                            </div>
+                            <div class="operationTime input-group" style="display: table;">
+                              <span type="text" name="endTime" ng-bind="workTime[$index][1].e"
+                                    class="mini-time ui-timepicker-input lunchActive operationTimeTill"
+                                    autocomplete="off" ng-if="workTime[$index].length > 1"></span>
+                              <span type="text" name="endTime" ng-bind="workTime[$index][0].e"
+                                    class="mini-time ui-timepicker-input operationTimeTill"
+                                    autocomplete="off" ng-if="workTime[$index].length <= 1"></span>
+                            </div>
+                          </div>
+
+                          <div class="operationDayTimeContainer lunch" ng-show="workTime[$index].length > 1">
+                            <div class="operationTime input-group" style="display: table;">
+                              <span type="text" name="startTime" class="mini-time ui-timepicker-input operationTimeFrom"
+                                     ng-bind="workTime[$index][0].e" autocomplete="off"></span>
+                            </div>
+                            <div class="operationTime input-group" style="display: table;">
+                              <span type="text" name="startTime" class="mini-time ui-timepicker-input operationTimeTill"
+                                     ng-bind="workTime[$index][1].s" autocomplete="off"></span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

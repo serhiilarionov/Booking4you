@@ -81,3 +81,15 @@
 .operationTime input.lunchActive {
     display: none;
 }
+
+.workTimeTable {
+    flex-direction: row;
+}
+
+.workTimeTable .dayContainer {
+    width: auto;
+}
+
+.workTimeItem {
+    flex-grow: 8;
+}

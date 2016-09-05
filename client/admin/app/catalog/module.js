@@ -64,6 +64,15 @@ angular.module('app.catalog', ['ui.router'])
         data: {
           title: 'Company details'
         },
+        resolve: {
+          details: function (CompanyDetail, $stateParams) {
+            return CompanyDetail.find({"filter": {"where": {"companyId": $stateParams.id}}})
+              .$promise
+              .then(function (res) {
+                return res;
+              });
+          }
+        },
         views: {
           "content@app": {
             controller: 'CompanyDetailsController as companyDetails',

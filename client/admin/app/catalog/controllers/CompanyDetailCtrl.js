@@ -1,15 +1,24 @@
 'use strict';
 
 angular.module('app.company').controller('CompanyDetailsController', ['$scope', '$state', '$stateParams',
-  '$http', 'Company', 'Category', 'City', 'Street', '$compile', 'Notification', 'CompanyDetail', 'FileUploader',
+  '$http', 'Company', 'Category', 'City', 'Street', '$compile', 'Notification', 'CompanyDetail', 'FileUploader', 'details',
   function ($scope, $state, $stateParams, $http, Company, Category, City, Street, $compile, Notification,
-            CompanyDetail, FileUploader) {
+            CompanyDetail, FileUploader, details) {
     var vm = this;
     vm.newPhone = {};
     vm.uploader = new FileUploader();
-    CompanyDetail.find({"filter": {"where": {"companyId": $stateParams.id}}}, function (res) {
-      vm.details = res;
-    });
+    vm.details = details;
+
+    vm.weekDays = {
+      0: "Sun",
+      1: "Mon",
+      2: "Tue",
+      3: "Wed",
+      4: "Thu",
+      5: "Fri",
+      6: "Sat"
+    };
+    
     vm.addNewImage = function () {
       var fd = new FormData();
       vm.selectedDetail = _.first(vm.details);
@@ -72,7 +81,7 @@ angular.module('app.company').controller('CompanyDetailsController', ['$scope', 
       }
     };
 
-    vm.AddWorkTime = function() {
+    vm.AddWorkTime = function () {
       vm.selectedDetail = _.first(vm.details);
       CompanyDetail.upsert({companyId: vm.selectedDetail.companyId}, vm.selectedDetail)
         .$promise
