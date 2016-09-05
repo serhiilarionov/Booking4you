@@ -19,3 +19,4 @@ export * from './SmsLogs';
 export * from './Container';
 export * from './Client';
 export * from './Core';
+export * from './logger.service';

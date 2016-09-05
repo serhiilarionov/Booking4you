@@ -14,9 +14,23 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 /* tslint:disable */
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var search_params_1 = require('./search.params');
+var error_service_1 = require('./error.service');
+var auth_service_1 = require('./auth.service');
+var lb_config_1 = require('../../lb.config');
 require('rxjs/add/operator/catch');
 require('rxjs/add/operator/map');
-var index_1 = require('../../index');
+/**
+* @module BaseLoopBackApi
+* @author Nikolay Matiushenkov <https://github.com/mnvx>
+* @contributor Jonathan Casarrubias <@johncasarrubias> <github:jonathan-casarrubias>
+* @license MTI
+* @description
+* Abstract class that will be implemented in every custom service automatically built
+* by the sdk builder.
+* It provides the core functionallity for every API call, either by HTTP Calls or by
+* WebSockets.
+**/
 var BaseLoopBackApi = (function () {
     function BaseLoopBackApi(http, auth, searchParams, errorHandler) {
         this.http = http;
@@ -40,7 +54,7 @@ var BaseLoopBackApi = (function () {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         if (this.auth.getAccessTokenId()) {
-            headers.append('Authorization', index_1.LoopBackConfig.getAuthPrefix() + this.auth.getAccessTokenId());
+            headers.append('Authorization', lb_config_1.LoopBackConfig.getAuthPrefix() + this.auth.getAccessTokenId());
         }
         var requestUrl = url;
         var key;
@@ -76,11 +90,11 @@ var BaseLoopBackApi = (function () {
     BaseLoopBackApi = __decorate([
         core_1.Injectable(),
         __param(0, core_1.Inject(http_1.Http)),
-        __param(1, core_1.Inject(index_1.LoopBackAuth)),
-        __param(2, core_1.Inject(index_1.JSONSearchParams)),
+        __param(1, core_1.Inject(auth_service_1.LoopBackAuth)),
+        __param(2, core_1.Inject(search_params_1.JSONSearchParams)),
         __param(3, core_1.Optional()),
-        __param(3, core_1.Inject(index_1.ErrorHandler)), 
-        __metadata('design:paramtypes', [http_1.Http, index_1.LoopBackAuth, index_1.JSONSearchParams, index_1.ErrorHandler])
+        __param(3, core_1.Inject(error_service_1.ErrorHandler)), 
+        __metadata('design:paramtypes', [http_1.Http, auth_service_1.LoopBackAuth, search_params_1.JSONSearchParams, error_service_1.ErrorHandler])
     ], BaseLoopBackApi);
     return BaseLoopBackApi;
 }());

@@ -32,39 +32,33 @@
 * export class AppModule { }
 *
 **/
-
-import { HttpModule }    from '@angular/http';
+import { JSONSearchParams }  from './services/core/search.params';
+import { ErrorHandler }  from './services/core/error.service';
+import { LoopBackAuth }  from './services/core/auth.service';
+import { LoggerService }  from './services/custom/logger.service';
+import { HttpModule }  from '@angular/http';
 import { CommonModule }  from '@angular/common';
-import {
-  NgModule,
-  ModuleWithProviders
-} from '@angular/core';
-import {
-  LoopBackAuth,
-  ErrorHandler,
-  LoggerService,
-  JSONSearchParams,
-  CategoryApi,
-  CompanyApi,
-  CompanyServiceApi,
-  CompanyDetailApi,
-  CompanyLocationApi,
-  CountryApi,
-  RegionApi,
-  CityApi,
-  DistrictApi,
-  StreetTypeApi,
-  StreetApi,
-  BuildingApi,
-  BookingApi,
-  CategoryCompanyApi,
-  NotifyApi,
-  LogsApi,
-  SmsLogsApi,
-  ContainerApi,
-  ClientApi,
-  CoreApi
-} from './services/index';
+import { NgModule, ModuleWithProviders }  from '@angular/core';
+import { CategoryApi }  from './services/custom/Category';
+import { CompanyApi }  from './services/custom/Company';
+import { CompanyServiceApi }  from './services/custom/CompanyService';
+import { CompanyDetailApi }  from './services/custom/CompanyDetail';
+import { CompanyLocationApi }  from './services/custom/CompanyLocation';
+import { CountryApi }  from './services/custom/Country';
+import { RegionApi }  from './services/custom/Region';
+import { CityApi }  from './services/custom/City';
+import { DistrictApi }  from './services/custom/District';
+import { StreetTypeApi }  from './services/custom/StreetType';
+import { StreetApi }  from './services/custom/Street';
+import { BuildingApi }  from './services/custom/Building';
+import { BookingApi }  from './services/custom/Booking';
+import { CategoryCompanyApi }  from './services/custom/CategoryCompany';
+import { NotifyApi }  from './services/custom/Notify';
+import { LogsApi }  from './services/custom/Logs';
+import { SmsLogsApi }  from './services/custom/SmsLogs';
+import { ContainerApi }  from './services/custom/Container';
+import { ClientApi }  from './services/custom/Client';
+import { CoreApi }  from './services/custom/Core';
 
 @NgModule({
   imports:      [ CommonModule, HttpModule ],
@@ -82,26 +76,26 @@ export class SDKModule {
       ErrorHandler,
       LoggerService,
       JSONSearchParams,
-        CategoryApi,
-        CompanyApi,
-        CompanyServiceApi,
-        CompanyDetailApi,
-        CompanyLocationApi,
-        CountryApi,
-        RegionApi,
-        CityApi,
-        DistrictApi,
-        StreetTypeApi,
-        StreetApi,
-        BuildingApi,
-        BookingApi,
-        CategoryCompanyApi,
-        NotifyApi,
-        LogsApi,
-        SmsLogsApi,
-        ContainerApi,
-        ClientApi,
-        CoreApi
+      CategoryApi,
+      CompanyApi,
+      CompanyServiceApi,
+      CompanyDetailApi,
+      CompanyLocationApi,
+      CountryApi,
+      RegionApi,
+      CityApi,
+      DistrictApi,
+      StreetTypeApi,
+      StreetApi,
+      BuildingApi,
+      BookingApi,
+      CategoryCompanyApi,
+      NotifyApi,
+      LogsApi,
+      SmsLogsApi,
+      ContainerApi,
+      ClientApi,
+      CoreApi
       ]
     };
   }

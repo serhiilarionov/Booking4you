@@ -23,4 +23,5 @@ __export(require('./SmsLogs'));
 __export(require('./Container'));
 __export(require('./Client'));
 __export(require('./Core'));
+__export(require('./logger.service'));
 //# sourceMappingURL=index.js.map

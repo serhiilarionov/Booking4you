@@ -24,11 +24,8 @@ var lb_config_1 = require('../../lb.config');
 var auth_service_1 = require('../core/auth.service');
 var search_params_1 = require('../core/search.params');
 var error_service_1 = require('../core/error.service');
-var Street_1 = require('../../models/Street');
-require('rxjs/add/observable/throw');
 require('rxjs/add/operator/map');
-require('rxjs/add/operator/catch');
-require('rxjs/add/operator/share');
+var Street_1 = require('../../models/Street');
 /**
  * Api services for the `Street` model.
  */

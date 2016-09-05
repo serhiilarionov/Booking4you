@@ -24,11 +24,8 @@ var lb_config_1 = require('../../lb.config');
 var auth_service_1 = require('../core/auth.service');
 var search_params_1 = require('../core/search.params');
 var error_service_1 = require('../core/error.service');
-var Client_1 = require('../../models/Client');
-require('rxjs/add/observable/throw');
 require('rxjs/add/operator/map');
-require('rxjs/add/operator/catch');
-require('rxjs/add/operator/share');
+var Client_1 = require('../../models/Client');
 /**
  * Api services for the `Client` model.
  */
@@ -692,12 +689,12 @@ var ClientApi = (function (_super) {
         if (include)
             urlParams.include = include;
         var result = this.request(method, url, routeParams, urlParams, postBody)
-            .share();
-        result.subscribe(function (response) {
+            .map(function (response) {
             _this.auth.setUser(response.id, response.userId, response.user);
             _this.auth.setRememberMe(true);
             _this.auth.save();
-        }, function () { return null; });
+            return response;
+        });
         return result;
     };
     /**

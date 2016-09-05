@@ -1,3 +1,13 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 /**
 * @module SDKModule
 * @author Jonathan Casarrubias <t:@johncasarrubias> <gh:jonathan-casarrubias>
@@ -32,20 +42,33 @@
 * export class AppModule { }
 *
 **/
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+var search_params_1 = require('./services/core/search.params');
+var error_service_1 = require('./services/core/error.service');
+var auth_service_1 = require('./services/core/auth.service');
+var logger_service_1 = require('./services/custom/logger.service');
 var http_1 = require('@angular/http');
 var common_1 = require('@angular/common');
 var core_1 = require('@angular/core');
-var index_1 = require('./services/index');
+var Category_1 = require('./services/custom/Category');
+var Company_1 = require('./services/custom/Company');
+var CompanyService_1 = require('./services/custom/CompanyService');
+var CompanyDetail_1 = require('./services/custom/CompanyDetail');
+var CompanyLocation_1 = require('./services/custom/CompanyLocation');
+var Country_1 = require('./services/custom/Country');
+var Region_1 = require('./services/custom/Region');
+var City_1 = require('./services/custom/City');
+var District_1 = require('./services/custom/District');
+var StreetType_1 = require('./services/custom/StreetType');
+var Street_1 = require('./services/custom/Street');
+var Building_1 = require('./services/custom/Building');
+var Booking_1 = require('./services/custom/Booking');
+var CategoryCompany_1 = require('./services/custom/CategoryCompany');
+var Notify_1 = require('./services/custom/Notify');
+var Logs_1 = require('./services/custom/Logs');
+var SmsLogs_1 = require('./services/custom/SmsLogs');
+var Container_1 = require('./services/custom/Container');
+var Client_1 = require('./services/custom/Client');
+var Core_1 = require('./services/custom/Core');
 var SDKModule = (function () {
     function SDKModule() {
     }
@@ -53,30 +76,30 @@ var SDKModule = (function () {
         return {
             ngModule: SDKModule,
             providers: [
-                index_1.LoopBackAuth,
-                index_1.ErrorHandler,
-                index_1.LoggerService,
-                index_1.JSONSearchParams,
-                index_1.CategoryApi,
-                index_1.CompanyApi,
-                index_1.CompanyServiceApi,
-                index_1.CompanyDetailApi,
-                index_1.CompanyLocationApi,
-                index_1.CountryApi,
-                index_1.RegionApi,
-                index_1.CityApi,
-                index_1.DistrictApi,
-                index_1.StreetTypeApi,
-                index_1.StreetApi,
-                index_1.BuildingApi,
-                index_1.BookingApi,
-                index_1.CategoryCompanyApi,
-                index_1.NotifyApi,
-                index_1.LogsApi,
-                index_1.SmsLogsApi,
-                index_1.ContainerApi,
-                index_1.ClientApi,
-                index_1.CoreApi
+                auth_service_1.LoopBackAuth,
+                error_service_1.ErrorHandler,
+                logger_service_1.LoggerService,
+                search_params_1.JSONSearchParams,
+                Category_1.CategoryApi,
+                Company_1.CompanyApi,
+                CompanyService_1.CompanyServiceApi,
+                CompanyDetail_1.CompanyDetailApi,
+                CompanyLocation_1.CompanyLocationApi,
+                Country_1.CountryApi,
+                Region_1.RegionApi,
+                City_1.CityApi,
+                District_1.DistrictApi,
+                StreetType_1.StreetTypeApi,
+                Street_1.StreetApi,
+                Building_1.BuildingApi,
+                Booking_1.BookingApi,
+                CategoryCompany_1.CategoryCompanyApi,
+                Notify_1.NotifyApi,
+                Logs_1.LogsApi,
+                SmsLogs_1.SmsLogsApi,
+                Container_1.ContainerApi,
+                Client_1.ClientApi,
+                Core_1.CoreApi
             ]
         };
     };

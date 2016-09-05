@@ -24,11 +24,8 @@ var lb_config_1 = require('../../lb.config');
 var auth_service_1 = require('../core/auth.service');
 var search_params_1 = require('../core/search.params');
 var error_service_1 = require('../core/error.service');
-var City_1 = require('../../models/City');
-require('rxjs/add/observable/throw');
 require('rxjs/add/operator/map');
-require('rxjs/add/operator/catch');
-require('rxjs/add/operator/share');
+var City_1 = require('../../models/City');
 /**
  * Api services for the `City` model.
  */

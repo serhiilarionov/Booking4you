@@ -1,25 +1,22 @@
 /* tslint:disable */
-import { Injectable, Inject, Optional } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { BaseLoopBackApi } from '../core/base.service';
-import { LoopBackConfig } from '../../lb.config';
-import { LoopBackAuth } from '../core/auth.service';
-import { JSONSearchParams } from '../core/search.params';
-import { ErrorHandler } from '../core/error.service';
-import { Company } from '../../models/Company';
-import { CompanyService } from '../../models/CompanyService';
-import { CompanyDetail } from '../../models/CompanyDetail';
-import { CompanyLocation } from '../../models/CompanyLocation';
-import { Booking } from '../../models/Booking';
-import { CategoryCompany } from '../../models/CategoryCompany';
-import { Category } from '../../models/Category';
-import { Client } from '../../models/Client';
-import { LoopBackFilter } from '../../models/BaseModels'
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/share';
+import { Injectable, Inject, Optional }  from '@angular/core';
+import { Http, Response }  from '@angular/http';
+import { BaseLoopBackApi }  from '../core/base.service';
+import { LoopBackConfig }  from '../../lb.config';
+import { LoopBackAuth }  from '../core/auth.service';
+import { LoopBackFilter }  from '../../models/BaseModels';
+import { JSONSearchParams }  from '../core/search.params';
+import { ErrorHandler }  from '../core/error.service';
+import { Subject }  from 'rxjs/Subject';
+import 'rxjs/add/operator/map' ;
+import { Company }  from '../../models/Company';
+import { CompanyService }  from '../../models/CompanyService';
+import { CompanyDetail }  from '../../models/CompanyDetail';
+import { CompanyLocation }  from '../../models/CompanyLocation';
+import { Booking }  from '../../models/Booking';
+import { CategoryCompany }  from '../../models/CategoryCompany';
+import { Category }  from '../../models/Category';
+import { Client }  from '../../models/Client';
 
 // Making Sure EventSource Type is available to avoid compilation issues.
 declare var EventSource: any;
