@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { LoginFormComponent } from '../../components/auth/login-form.conponent';
 
 @Component({
   selector: 'login-page',
-  templateUrl: 'scripts/pages/login/login-page.component.html',
-  directives: [LoginFormComponent]
+  templateUrl: 'scripts/pages/login/login-page.component.html'
 })
 
 export class LoginPageComponent {

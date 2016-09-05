@@ -1,20 +1,26 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './pages/home/home-page.component';
-import { LoginPageComponent } from './pages/login/login-page.component';
-import { RegistrationPageComponent } from './pages/registration/registration-page.component';
+import * as Pages from './pages/index';
+import { AuthGuardService } from './shared/index';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: Pages.HomePageComponent
   },
   {
     path: 'login',
-    component: LoginPageComponent
+    component: Pages.LoginPageComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'registration',
-    component: RegistrationPageComponent
+    component: Pages.RegistrationPageComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'company-list',
+    component: Pages.CompanyListPageComponent,
+    canActivate: [AuthGuardService]
   }
 ];
 

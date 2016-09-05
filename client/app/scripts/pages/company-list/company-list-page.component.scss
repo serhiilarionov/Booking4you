@@ -1,0 +1,10 @@
+@import "main";
+
+[company-list-page] {
+  @include display(flex);
+  @include flex-direction(row);
+}
+
+[company-list] {
+  @include flex-basis(35%);
+}

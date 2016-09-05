@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { SidebarService } from './sidebar.service';
-import { MenuBranch, MenuBranchComponent } from './menu-branch.component';
+import { SidebarService } from '../../shared/index';
+import { MenuBranch } from './menu-branch.component';
 declare var $: any;
 
 const MENU_TREE: Array<MenuBranch> = [
@@ -9,102 +9,8 @@ const MENU_TREE: Array<MenuBranch> = [
     link: ''
   },
   {
-    name: 'About',
-    link: '',
-    children: [
-      {
-        name: 'Company',
-        link: ''
-      },
-      {
-        name: 'Partnership',
-        link: '',
-        children: [
-          {
-            name: 'Third level',
-            link: '',
-            children: [
-              {
-                name: 'Lorem',
-                link: ''
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name: 'Home',
-    link: ''
-  },
-  {
-    name: 'About',
-    link: '',
-    children: [
-      {
-        name: 'Company',
-        link: ''
-      },
-      {
-        name: 'Partnership',
-        link: '',
-        children: [
-          {
-            name: 'Third level',
-            link: ''
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name: 'Home',
-    link: ''
-  },
-  {
-    name: 'About',
-    link: '',
-    children: [
-      {
-        name: 'Company',
-        link: ''
-      },
-      {
-        name: 'Partnership',
-        link: '',
-        children: [
-          {
-            name: 'Third level',
-            link: ''
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name: 'Home',
-    link: ''
-  },
-  {
-    name: 'About',
-    link: '',
-    children: [
-      {
-        name: 'Company',
-        link: ''
-      },
-      {
-        name: 'Partnership',
-        link: '',
-        children: [
-          {
-            name: 'Third level',
-            link: ''
-          }
-        ]
-      }
-    ]
+    name: 'Company list',
+    link: 'company-list'
   }
 ];
 
@@ -112,8 +18,7 @@ const MENU_TREE: Array<MenuBranch> = [
   selector: 'sidebar',
   styleUrls: ['scripts/parts/sidebar/sidebar.component.css'],
   templateUrl: 'scripts/parts/sidebar/sidebar.component.html',
-  encapsulation: ViewEncapsulation.None,
-  directives: [MenuBranchComponent]
+  encapsulation: ViewEncapsulation.None
 })
 
 export class SidebarComponent {
