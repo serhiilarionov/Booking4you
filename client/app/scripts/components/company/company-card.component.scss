@@ -1,5 +1,7 @@
 @import "main";
 
+//TODO: refactor font-family
+
 .company-card {
   width: 230px;
   font-family: $ff-secondary;
@@ -45,17 +47,22 @@
     &-opt {
       padding: 0 7px;
     }
+  }
 
-    &-icon {
-      margin-right: 7px;
-      color: #9D9E9D;
-      vertical-align: baseline;
+  &__icon {
+    margin-right: 7px;
+    color: #9D9E9D;
+    vertical-align: baseline;
 
+    &_type {
+      font-size: 12px;
     }
+
   }
 
   &__info {
     padding: 20px 20px 10px;
+    //font-family: $ff-secondary;
     font-size: 12px;
     color: #94989A;
     text-align: center;
@@ -77,8 +84,9 @@
   &__price {
     text-align: center;
     display: inline-block;
-    padding: 6px;
+    padding: 4px 8px;
     margin-top: 5px;
+    //font-family: $ff-secondary;
     font-size: 12px;
     font-weight: bold;
     color: #fff;
@@ -87,9 +95,8 @@
 
   &__type {
     margin-top: 5px;
-    &-icon {
-      margin-right: 7px;
-    }
+    font-size: 9px;
+    text-transform: uppercase;
   }
   &__rating {
     margin-top: 5px;

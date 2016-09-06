@@ -30,15 +30,12 @@
 
 body {
   height: 100%;
+  font-family: $ff-main;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat';
   text-transform: uppercase;
-}
-
-p, div, a {
-  font-family: $ff-main;
 }
 
 input, select, .btn, .dropdown-menu, .form-control {
