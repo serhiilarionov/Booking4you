@@ -12,7 +12,6 @@ import 'rxjs/add/operator/map';
 import { Company } from '../../models/Company';
 import { CompanyService } from '../../models/CompanyService';
 import { CompanyDetail } from '../../models/CompanyDetail';
-import { CompanyLocation } from '../../models/CompanyLocation';
 import { Booking } from '../../models/Booking';
 import { CategoryCompany } from '../../models/CategoryCompany';
 import { Category } from '../../models/Category';
@@ -264,7 +263,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createLocation(id: any, data: CompanyLocation = undefined) {
+  public createLocation(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/location";
@@ -297,7 +296,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public updateLocation(id: any, data: CompanyLocation = undefined) {
+  public updateLocation(id: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/location";
@@ -1655,7 +1654,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createManyLocation(id: any, data: CompanyLocation = undefined) {
+  public createManyLocation(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/location";

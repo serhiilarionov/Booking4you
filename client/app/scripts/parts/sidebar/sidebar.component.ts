@@ -11,6 +11,16 @@ const MENU_TREE: Array<MenuBranch> = [
   {
     name: 'Company list',
     link: 'company-list'
+  },
+  {
+    name: 'alo',
+    link: '',
+    children: [
+      {
+        name: 'alo2',
+        link: ''
+      }
+    ]
   }
 ];
 

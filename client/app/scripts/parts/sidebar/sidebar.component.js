@@ -18,6 +18,16 @@ var MENU_TREE = [
     {
         name: 'Company list',
         link: 'company-list'
+    },
+    {
+        name: 'alo',
+        link: '',
+        children: [
+            {
+                name: 'alo2',
+                link: ''
+            }
+        ]
     }
 ];
 var SidebarComponent = (function () {
