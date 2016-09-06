@@ -1,16 +1,16 @@
 /* tslint:disable */
-import { Injectable, Inject, Optional } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { BaseLoopBackApi } from '../core/base.service';
-import { LoopBackConfig } from '../../lb.config';
-import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter } from '../../models/BaseModels';
-import { JSONSearchParams } from '../core/search.params';
-import { ErrorHandler } from '../core/error.service';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
-import { SmsLogs } from '../../models/SmsLogs';
-import { Client } from '../../models/Client';
+import { Injectable, Inject, Optional }  from '@angular/core';
+import { Http, Response }  from '@angular/http';
+import { BaseLoopBackApi }  from '../core/base.service';
+import { LoopBackConfig }  from '../../lb.config';
+import { LoopBackAuth }  from '../core/auth.service';
+import { LoopBackFilter }  from '../../models/BaseModels';
+import { JSONSearchParams }  from '../core/search.params';
+import { ErrorHandler }  from '../core/error.service';
+import { Subject }  from 'rxjs/Subject';
+import 'rxjs/add/operator/map' ;
+import { SmsLogs }  from '../../models/SmsLogs';
+import { Client }  from '../../models/Client';
 
 // Making Sure EventSource Type is available to avoid compilation issues.
 declare var EventSource: any;
@@ -106,7 +106,7 @@ export class SmsLogsApi extends BaseLoopBackApi {
    * </em>
    */
   public upsert(data: any = undefined) {
-    let method: string = "PATCH";
+    let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/smsLogs";
     let routeParams: any = {};
@@ -390,7 +390,7 @@ export class SmsLogsApi extends BaseLoopBackApi {
    * </em>
    */
   public updateAttributes(id: any, data: any = undefined) {
-    let method: string = "PATCH";
+    let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/smsLogs/:id";
     let routeParams: any = {

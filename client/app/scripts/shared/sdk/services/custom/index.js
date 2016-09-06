@@ -7,6 +7,7 @@ __export(require('./Category'));
 __export(require('./Company'));
 __export(require('./CompanyService'));
 __export(require('./CompanyDetail'));
+__export(require('./CompanyLocation'));
 __export(require('./Country'));
 __export(require('./Region'));
 __export(require('./City'));
@@ -22,4 +23,5 @@ __export(require('./SmsLogs'));
 __export(require('./Container'));
 __export(require('./Client'));
 __export(require('./Core'));
+__export(require('./logger.service'));
 //# sourceMappingURL=index.js.map

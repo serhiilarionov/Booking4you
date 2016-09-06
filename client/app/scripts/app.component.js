@@ -21,7 +21,9 @@ var AppComponent = (function () {
         this.$el = $(el.nativeElement);
         index_2.LoopBackConfig.setBaseURL(index_2.BASE_URL);
         index_2.LoopBackConfig.setApiVersion(index_2.API_VERSION);
-        this.sidebar.toggled$.subscribe(function () { return _this.$el.toggleClass('sidebar-opened'); });
+        this.sidebar.toggled$.subscribe(function () {
+            _this.$el.toggleClass('sidebar-opened');
+        });
         this.router.events.subscribe(function (event) {
             if (event instanceof router_1.NavigationEnd && _this.sidebar.opened) {
                 _this.sidebar.toggle();

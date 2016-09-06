@@ -19,32 +19,30 @@
 *
 * READ: https://angular.io/docs/ts/latest/cookbook/rc4-to-rc5.html#!#5-cleanup
 **/
-
-import {
-  LoopBackAuth,
-  ErrorHandler,
-  LoggerService,
-  JSONSearchParams,
-  CategoryApi,
-  CompanyApi,
-  CompanyServiceApi,
-  CompanyDetailApi,
-  CountryApi,
-  RegionApi,
-  CityApi,
-  DistrictApi,
-  StreetTypeApi,
-  StreetApi,
-  BuildingApi,
-  BookingApi,
-  CategoryCompanyApi,
-  NotifyApi,
-  LogsApi,
-  SmsLogsApi,
-  ContainerApi,
-  ClientApi,
-  CoreApi
-} from './services/index';
+import { JSONSearchParams }  from './services/core/search.params';
+import { ErrorHandler }  from './services/core/error.service';
+import { LoopBackAuth }  from './services/core/auth.service';
+import { LoggerService }  from './services/custom/logger.service';
+import { CategoryApi }  from './services/custom/Category';
+import { CompanyApi }  from './services/custom/Company';
+import { CompanyServiceApi }  from './services/custom/CompanyService';
+import { CompanyDetailApi }  from './services/custom/CompanyDetail';
+import { CompanyLocationApi }  from './services/custom/CompanyLocation';
+import { CountryApi }  from './services/custom/Country';
+import { RegionApi }  from './services/custom/Region';
+import { CityApi }  from './services/custom/City';
+import { DistrictApi }  from './services/custom/District';
+import { StreetTypeApi }  from './services/custom/StreetType';
+import { StreetApi }  from './services/custom/Street';
+import { BuildingApi }  from './services/custom/Building';
+import { BookingApi }  from './services/custom/Booking';
+import { CategoryCompanyApi }  from './services/custom/CategoryCompany';
+import { NotifyApi }  from './services/custom/Notify';
+import { LogsApi }  from './services/custom/Logs';
+import { SmsLogsApi }  from './services/custom/SmsLogs';
+import { ContainerApi }  from './services/custom/Container';
+import { ClientApi }  from './services/custom/Client';
+import { CoreApi }  from './services/custom/Core';
 /**
 * IMPORTANT: API_PROVIDERS WILL BE DEPRECATED WHEN ANGULAR 2 IS STABLE
 * PLEASE MIGRATE YOUR PROJECT AS SOON AS POSSIBLE.
@@ -60,6 +58,7 @@ export const API_PROVIDERS: any[] = [
   CompanyApi,
   CompanyServiceApi,
   CompanyDetailApi,
+  CompanyLocationApi,
   CountryApi,
   RegionApi,
   CityApi,
@@ -79,3 +78,4 @@ export const API_PROVIDERS: any[] = [
 export * from './models/index';
 export * from './services/index';
 export * from './lb.config';
+export * from './sdk.module';

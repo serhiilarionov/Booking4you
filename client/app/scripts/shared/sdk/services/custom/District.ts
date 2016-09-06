@@ -1,16 +1,16 @@
 /* tslint:disable */
-import { Injectable, Inject, Optional } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { BaseLoopBackApi } from '../core/base.service';
-import { LoopBackConfig } from '../../lb.config';
-import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter } from '../../models/BaseModels';
-import { JSONSearchParams } from '../core/search.params';
-import { ErrorHandler } from '../core/error.service';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
-import { District } from '../../models/District';
-import { Street } from '../../models/Street';
+import { Injectable, Inject, Optional }  from '@angular/core';
+import { Http, Response }  from '@angular/http';
+import { BaseLoopBackApi }  from '../core/base.service';
+import { LoopBackConfig }  from '../../lb.config';
+import { LoopBackAuth }  from '../core/auth.service';
+import { LoopBackFilter }  from '../../models/BaseModels';
+import { JSONSearchParams }  from '../core/search.params';
+import { ErrorHandler }  from '../core/error.service';
+import { Subject }  from 'rxjs/Subject';
+import 'rxjs/add/operator/map' ;
+import { District }  from '../../models/District';
+import { Street }  from '../../models/Street';
 
 // Making Sure EventSource Type is available to avoid compilation issues.
 declare var EventSource: any;
@@ -285,7 +285,7 @@ export class DistrictApi extends BaseLoopBackApi {
    * </em>
    */
   public upsert(data: any = undefined) {
-    let method: string = "PATCH";
+    let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/districts";
     let routeParams: any = {};
