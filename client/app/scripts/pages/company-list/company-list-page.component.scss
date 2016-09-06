@@ -12,4 +12,6 @@
 
 [company-list] {
   @include flex-basis(35%);
+  @include display(flex);
+  @include flex-direction(row);
 }

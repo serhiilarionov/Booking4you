@@ -23,7 +23,9 @@ export class AppComponent {
     LoopBackConfig.setBaseURL(BASE_URL);
     LoopBackConfig.setApiVersion(API_VERSION);
 
-    this.sidebar.toggled$.subscribe(() => this.$el.toggleClass('sidebar-opened'));
+    this.sidebar.toggled$.subscribe(() => {
+      this.$el.toggleClass('sidebar-opened')
+    });
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd && this.sidebar.opened) {

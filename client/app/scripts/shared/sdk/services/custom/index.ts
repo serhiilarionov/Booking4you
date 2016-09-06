@@ -3,7 +3,6 @@ export * from './Category';
 export * from './Company';
 export * from './CompanyService';
 export * from './CompanyDetail';
-export * from './CompanyLocation';
 export * from './Country';
 export * from './Region';
 export * from './City';

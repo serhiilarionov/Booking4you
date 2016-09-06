@@ -2,7 +2,6 @@
 import {
   CompanyService,
   CompanyDetail,
-  CompanyLocation,
   Booking,
   Category,
   Client
@@ -28,7 +27,7 @@ export interface CompanyInterface {
   categoryId?: number;
   service?: Array<CompanyService>;
   details?: CompanyDetail;
-  location?: CompanyLocation;
+  location?: any;
   bookings?: Array<Booking>;
   categories?: Array<Category>;
   clients?: Array<Client>;
@@ -54,7 +53,7 @@ export class Company implements CompanyInterface {
   categoryId: number;
   service: Array<CompanyService>;
   details: CompanyDetail;
-  location: CompanyLocation;
+  location: any;
   bookings: Array<Booking>;
   categories: Array<Category>;
   clients: Array<Client>;

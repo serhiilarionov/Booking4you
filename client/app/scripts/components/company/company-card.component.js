@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import { CompanyItemComponent } from './company-item/company-item.component'
-var CompanyListComponent = (function () {
-    function CompanyListComponent() {
+var CompanyCardComponent = (function () {
+    function CompanyCardComponent() {
     }
-    CompanyListComponent = __decorate([
+    CompanyCardComponent = __decorate([
         core_1.Component({
-            selector: 'company-list',
-            template: '<div company-card></div>'
+            selector: '[company-card]',
+            templateUrl: 'scripts/components/company/company-card.component.html',
+            styleUrls: ['scripts/components/company/company-card.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], CompanyListComponent);
-    return CompanyListComponent;
+    ], CompanyCardComponent);
+    return CompanyCardComponent;
 }());
-exports.CompanyListComponent = CompanyListComponent;
-//# sourceMappingURL=company-list.component.js.map
+exports.CompanyCardComponent = CompanyCardComponent;
+//# sourceMappingURL=company-card.component.js.map

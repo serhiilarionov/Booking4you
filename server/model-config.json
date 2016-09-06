@@ -51,7 +51,7 @@
   },
   "CompanyLocation": {
     "dataSource": "pgsql",
-    "public": false
+    "public": true
   },
   "Country": {
     "dataSource": "pgsql",
