@@ -1,6 +1,8 @@
 .company-card {
-  width: 230px;
-  font-family: "Montserrat"; }
+  font-family: "Montserrat";
+  -webkit-box-shadow: 0 0 2px #c7c7c7;
+  -moz-box-shadow: 0 0 2px #c7c7c7;
+  box-shadow: 0 0 2px #c7c7c7; }
   .company-card__photo {
     position: relative;
     display: block;
@@ -34,10 +36,12 @@
     text-align: center; }
     .company-card__specific-opt {
       padding: 0 7px; }
-    .company-card__specific-icon {
-      margin-right: 7px;
-      color: #9D9E9D;
-      vertical-align: baseline; }
+  .company-card__icon {
+    margin-right: 7px;
+    color: #9D9E9D;
+    vertical-align: baseline; }
+    .company-card__icon_type {
+      font-size: 12px; }
   .company-card__info {
     padding: 20px 20px 10px;
     font-size: 12px;
@@ -54,16 +58,16 @@
   .company-card__price {
     text-align: center;
     display: inline-block;
-    padding: 6px;
+    padding: 4px 8px;
     margin-top: 5px;
     font-size: 12px;
     font-weight: bold;
     color: #fff;
     background: #0DCDBD; }
   .company-card__type {
-    margin-top: 5px; }
-    .company-card__type-icon {
-      margin-right: 7px; }
+    margin-top: 5px;
+    font-size: 9px;
+    text-transform: uppercase; }
   .company-card__rating {
     margin-top: 5px; }
   .company-card .fa-star_active {

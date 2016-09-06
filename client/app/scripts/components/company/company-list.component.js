@@ -9,16 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import { CompanyItemComponent } from './company-item/company-item.component'
+var index_1 = require('../../shared/index');
 var CompanyListComponent = (function () {
-    function CompanyListComponent() {
+    function CompanyListComponent(companyApi) {
+        this.companyApi = companyApi;
+        this.companyListLoaded = new core_1.EventEmitter();
     }
+    CompanyListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.companyApi.find().subscribe(function (companyList) {
+            _this.companyList = companyList;
+            _this.companyListLoaded.next(_this.companyList);
+        });
+    };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], CompanyListComponent.prototype, "companyListLoaded", void 0);
     CompanyListComponent = __decorate([
         core_1.Component({
             selector: 'company-list',
-            template: '<div company-card></div>'
+            templateUrl: 'scripts/components/company/company-list.component.html',
+            styleUrls: ['scripts/components/company/company-list.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.CompanyApi])
     ], CompanyListComponent);
     return CompanyListComponent;
 }());

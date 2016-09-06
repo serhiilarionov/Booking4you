@@ -1,7 +1,7 @@
 <div class="company-card">
 
   <a href="" class="company-card__photo">
-    <img src="/scripts/components/company/assets/img/img-1.jpg" alt="" class="company-card__img">
+    <img src="{{company.photo || '/scripts/components/company/assets/img/img-1.jpg'}}" alt="" class="company-card__img">
 
     <div class="company-card__specific">
       <span class="company-card__specific-opt"> <i class="fa fa-bed company-card__icon"></i> 2</span>
@@ -11,8 +11,8 @@
     </div>
   </a>
   <div class="company-card__info">
-    <a href="" class="company-card__title">3295 Valley Street</a>
-    <div class="company-card__location">Collingswood</div>
+    <a href="" class="company-card__title">{{company.title}}</a>
+    <div class="company-card__location">{{company.locationDetail}}</div>
     <div class="company-card__price">$42.000</div>
     <div class="company-card__type"><i class="fa fa-building-o company-card__icon company-card__icon_type"></i>Apartment</div>
     <div class="company-card__rating">

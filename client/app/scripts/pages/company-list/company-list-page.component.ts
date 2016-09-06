@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Broadcaster, EventTypes } from '../../shared/index';
+import { Broadcaster, EventTypes, Company } from '../../shared/index';
 declare var $: any;
 
 @Component({
@@ -11,6 +11,7 @@ declare var $: any;
 })
 
 export class CompanyListPageComponent implements OnInit {
+  public companyList: Array<Company>;
   constructor(
     private router: Router,
     @Inject(Broadcaster) private broadcaster: Broadcaster<any>
@@ -25,6 +26,10 @@ export class CompanyListPageComponent implements OnInit {
   ngOnInit() {
     this.resizeMapListWrapper();
     $(window).on('resize', () => this.resizeMapListWrapper());
+  }
+
+  onCompanyListLoaded(companyList) {
+    this.companyList = companyList;
   }
 
   resizeMapListWrapper() {

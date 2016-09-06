@@ -1,4 +1,4 @@
 <div id="map-list-wrapper">
-    <company-list company-list></company-list>
-    <gmap></gmap>
+    <company-list (companyListLoaded)="onCompanyListLoaded($event)" company-list perfect-scrollbar></company-list>
+    <gmap [companyList]="companyList"></gmap>
 </div>

@@ -14,4 +14,13 @@
   @include flex-basis(35%);
   @include display(flex);
   @include flex-direction(row);
+  @include flex-wrap(wrap);
+  @include justify-content(space-around);
+  position: relative;
+  padding: 0 15px;
+}
+
+[company-card] {
+  @include flex(0 0 48%);
+  margin: 10px auto;
 }

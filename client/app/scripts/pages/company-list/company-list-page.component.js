@@ -30,6 +30,9 @@ var CompanyListPageComponent = (function () {
         this.resizeMapListWrapper();
         $(window).on('resize', function () { return _this.resizeMapListWrapper(); });
     };
+    CompanyListPageComponent.prototype.onCompanyListLoaded = function (companyList) {
+        this.companyList = companyList;
+    };
     CompanyListPageComponent.prototype.resizeMapListWrapper = function () {
         var windowHeight = $(window).height();
         var headerHeight = $('app-header').height();

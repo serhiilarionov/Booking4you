@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Company } from '../../shared/index';
 
 @Component({
   selector: '[company-card]',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 
 })
 export class CompanyCardComponent {
+  @Input() company: Company;
 }

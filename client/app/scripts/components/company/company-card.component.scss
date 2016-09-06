@@ -3,8 +3,8 @@
 //TODO: refactor font-family
 
 .company-card {
-  width: 230px;
   font-family: $ff-secondary;
+  @include box-shadow(0 0 2px lighten($c-grey-main, 50%));
 
   &__photo {
     position: relative;
