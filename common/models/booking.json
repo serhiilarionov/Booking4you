@@ -37,7 +37,7 @@
       "type": "boolean"
     },
     "status": {
-      "type": "number"
+      "type": "string"
     },
     "createdAt": {
       "type": "date"

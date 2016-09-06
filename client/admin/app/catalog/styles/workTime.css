@@ -84,6 +84,7 @@
 
 .workTimeTable {
     flex-direction: row;
+    border: none;
 }
 
 .workTimeTable .dayContainer {
