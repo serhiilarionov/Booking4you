@@ -18,6 +18,7 @@ var sdk_module_1 = require('./shared/sdk/sdk.module');
 var index_2 = require('./pages/index');
 var index_3 = require('./components/index');
 var index_4 = require('./shared/index');
+var core_2 = require('angular2-google-maps/core');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +28,10 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 app_routing_1.routing,
                 forms_1.ReactiveFormsModule,
-                sdk_module_1.SDKModule.forRoot()
+                sdk_module_1.SDKModule.forRoot(),
+                core_2.AgmCoreModule.forRoot({
+                    apiKey: 'AIzaSyAp4wClu7rjAWLAavgCRv5FhM0G9CZeUNI'
+                })
             ],
             declarations: [app_component_1.AppComponent].concat(index_1.Parts, index_2.Pages, index_4.Directives, index_3.Components),
             bootstrap: [app_component_1.AppComponent],

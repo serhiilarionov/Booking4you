@@ -2,7 +2,12 @@
 
 [company-list-page] {
   @include display(flex);
-  @include flex-direction(row);
+  @include flex-direction(column);
+  @include flex-grow(1);
+}
+
+#map-list-wrapper {
+  @include display(flex);
 }
 
 [company-list] {

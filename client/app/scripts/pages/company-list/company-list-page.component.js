@@ -25,6 +25,16 @@ var CompanyListPageComponent = (function () {
             }
         });
     }
+    CompanyListPageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.resizeMapListWrapper();
+        $(window).on('resize', function () { return _this.resizeMapListWrapper(); });
+    };
+    CompanyListPageComponent.prototype.resizeMapListWrapper = function () {
+        var windowHeight = $(window).height();
+        var headerHeight = $('app-header').height();
+        $('#map-list-wrapper').height(windowHeight - headerHeight);
+    };
     CompanyListPageComponent = __decorate([
         core_1.Component({
             selector: 'company-list-page[company-list-page]',

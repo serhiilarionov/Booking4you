@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation, Inject } from '@angular/core';
+import { Component, ViewEncapsulation, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Broadcaster, EventTypes } from '../../shared/index';
+declare var $: any;
 
 @Component({
   selector: 'company-list-page[company-list-page]',
@@ -9,7 +10,7 @@ import { Broadcaster, EventTypes } from '../../shared/index';
   encapsulation: ViewEncapsulation.None
 })
 
-export class CompanyListPageComponent {
+export class CompanyListPageComponent implements OnInit {
   constructor(
     private router: Router,
     @Inject(Broadcaster) private broadcaster: Broadcaster<any>
@@ -19,5 +20,16 @@ export class CompanyListPageComponent {
         this.router.navigate(['/']);
       }
     });
+  }
+
+  ngOnInit() {
+    this.resizeMapListWrapper();
+    $(window).on('resize', () => this.resizeMapListWrapper());
+  }
+
+  resizeMapListWrapper() {
+    let windowHeight = $(window).height();
+    let headerHeight = $('app-header').height();
+    $('#map-list-wrapper').height(windowHeight - headerHeight);
   }
 }
