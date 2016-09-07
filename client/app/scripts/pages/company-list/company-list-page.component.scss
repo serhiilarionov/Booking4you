@@ -13,14 +13,7 @@
 [company-list] {
   @include flex-basis(35%);
   @include display(flex);
-  @include flex-flow(row wrap);
-  @include justify-content(space-between);
-  @include align-items(center);
+  @include flex-direction(column);
   position: relative;
   padding: 0 15px;
-}
-
-[company-card] {
-  @include flex(0 0 48%);
-  margin: 8px auto;
 }

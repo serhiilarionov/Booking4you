@@ -1,0 +1,17 @@
+@import "main";
+
+.filter-container, .list-container {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+}
+
+.filter-container {
+  @include flex-wrap(nowrap);
+}
+
+[company-card],
+.filter-container .bootstrap-select {
+  @include flex(0 0 48%);
+  margin-bottom: 8px;
+}

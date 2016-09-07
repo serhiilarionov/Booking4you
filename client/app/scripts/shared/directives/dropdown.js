@@ -12,19 +12,27 @@ var core_1 = require('@angular/core');
 var Dropdown = (function () {
     function Dropdown(el) {
         this.el = el;
+        this.onSelected = new core_1.EventEmitter();
         this.$el = $(this.el.nativeElement);
     }
-    Dropdown.prototype.ngOnInit = function () {
-        this.$el.selectpicker();
-    };
-    Dropdown.prototype.ngOnChanges = function (changes) {
+    Dropdown.prototype.ngAfterViewInit = function () {
         var _this = this;
-        this.$el.ready(function () { return _this.$el.selectpicker('refresh'); });
+        this.$el.selectpicker();
+        this.$el.on('changed.bs.select', function () {
+            _this.onSelected.next(_this.$el.selectpicker('val'));
+        });
+    };
+    Dropdown.prototype.ngAfterViewChecked = function () {
+        this.$el.selectpicker('refresh');
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
     ], Dropdown.prototype, "items", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], Dropdown.prototype, "onSelected", void 0);
     Dropdown = __decorate([
         core_1.Component({
             selector: 'select.selectpicker',
