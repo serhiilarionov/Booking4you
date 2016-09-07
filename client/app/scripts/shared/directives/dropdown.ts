@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, ElementRef, AfterViewInit, AfterViewChecked, EventEmitter } from '@angular/core';
+import { Component, Input, Output, ElementRef, AfterViewInit, AfterViewChecked, EventEmitter } from '@angular/core';
 declare var $: any;
 
 @Component({

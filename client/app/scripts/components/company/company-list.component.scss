@@ -4,6 +4,7 @@
   @include display(flex);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
+  @include flex-shrink(0);
 }
 
 .filter-container {

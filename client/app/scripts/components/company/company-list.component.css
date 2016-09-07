@@ -21,7 +21,11 @@
   -ms-justify-content: space-between;
   -o-justify-content: space-between;
   justify-content: space-between;
-  -ms-flex-pack: justify; }
+  -ms-flex-pack: justify;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0; }
 
 .filter-container {
   -webkit-box-lines: single;

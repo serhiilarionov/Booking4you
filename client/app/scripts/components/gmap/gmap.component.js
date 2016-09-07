@@ -11,10 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var GmapComponent = (function () {
     function GmapComponent() {
-        this.lat = 50;
-        this.lng = 30;
-        this.zoom = 6;
+        this.bounds = { east: 38, north: 50, south: 46, west: 24 };
     }
+    GmapComponent.prototype.ngOnChanges = function (changes) {
+        if (changes['companyList'] && this.companyList && this.companyList.length) {
+            this.calculateBounds();
+        }
+    };
+    GmapComponent.prototype.calculateBounds = function () {
+        var lats = this.companyList.map(function (company) { return company.point.lat; });
+        var lngs = this.companyList.map(function (company) { return company.point.lng; });
+        var east = Math.max.apply(null, lats);
+        var north = Math.max.apply(null, lngs);
+        var south = Math.min.apply(null, lngs);
+        var west = Math.min.apply(null, lats);
+        this.bounds = { east: east, north: north, south: south, west: west };
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)
