@@ -15,8 +15,13 @@ var PerfectScrollbarDirective = (function () {
     }
     PerfectScrollbarDirective.prototype.ngOnInit = function () {
         Ps.initialize(this.elementRef.nativeElement, {
-            wheelPropagation: true
+            wheelPropagation: true,
+            theme: 'booking',
+            suppressScrollX: true
         });
+    };
+    PerfectScrollbarDirective.prototype.ngAfterViewChecked = function () {
+        Ps.update(this.elementRef.nativeElement);
     };
     PerfectScrollbarDirective = __decorate([
         core_1.Directive({

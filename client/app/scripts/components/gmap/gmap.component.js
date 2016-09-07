@@ -14,10 +14,6 @@ var GmapComponent = (function () {
         this.lat = 30;
         this.lng = 40;
     }
-    GmapComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () { console.log('GMAOP', _this.companyList); }, 6000);
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Array)

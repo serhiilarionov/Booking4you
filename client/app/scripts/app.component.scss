@@ -34,7 +34,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat';
+  font-family: $ff-secondary;
   text-transform: uppercase;
 }
 
@@ -95,4 +95,30 @@ input, textarea, input.form-control, textarea.form-control {
       background: $c-dark-blue;
     }
   }
+}
+
+// Booking theme for perfect scrollbar
+@import "../vendor/perfect-scrollbar/src/css/main";
+
+.ps-theme-booking {
+  @include ps-container(map-merge($ps-theme-default, (
+          border-radius: 3px,
+          rail-default-opacity: 0.2,
+          rail-container-hover-opacity: 0.2,
+          rail-hover-opacity: 0.5,
+          bar-bg: transparent,
+          bar-container-hover-bg: $c-grey-main,
+          bar-hover-bg: $c-grey-main,
+          rail-hover-bg: tranparent,
+          scrollbar-x-rail-bottom: 0,
+          scrollbar-x-rail-height: 15px,
+          scrollbar-x-bottom: 4px,
+          scrollbar-x-height: 7px,
+          scrollbar-x-hover-height: 7px,
+          scrollbar-y-rail-right: 0,
+          scrollbar-y-rail-width: 15px,
+          scrollbar-y-right: 4px,
+          scrollbar-y-width: 7px,
+          scrollbar-y-hover-width: 7px,
+  )));
 }

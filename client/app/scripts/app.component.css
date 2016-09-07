@@ -59,7 +59,7 @@ body {
   font-family: Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat';
+  font-family: "Ubuntu", sans-serif;
   text-transform: uppercase; }
 
 input, select, .btn, .dropdown-menu, .form-control {
@@ -109,3 +109,189 @@ div:not([class*="bootstrap-select"]) > .btn-default {
   color: #fff; }
   div:not([class*="bootstrap-select"]) > .btn-default:hover {
     background: #0094e9; }
+
+.ps-container {
+  -ms-touch-action: none;
+  touch-action: none;
+  overflow: hidden !important;
+  -ms-overflow-style: none; }
+  @supports (-ms-overflow-style: none) {
+    .ps-container {
+      overflow: auto !important; } }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .ps-container {
+      overflow: auto !important; } }
+  .ps-container.ps-active-x > .ps-scrollbar-x-rail,
+  .ps-container.ps-active-y > .ps-scrollbar-y-rail {
+    display: block;
+    background-color: transparent; }
+  .ps-container.ps-in-scrolling {
+    pointer-events: none; }
+    .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+      background-color: #eee;
+      opacity: 0.9; }
+      .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+        background-color: #999; }
+    .ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+      background-color: #eee;
+      opacity: 0.9; }
+      .ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+        background-color: #999; }
+  .ps-container > .ps-scrollbar-x-rail {
+    display: none;
+    position: absolute;
+    /* please don't change 'position' */
+    opacity: 0;
+    transition: background-color .2s linear, opacity .2s linear;
+    bottom: 0px;
+    /* there must be 'bottom' for ps-scrollbar-x-rail */
+    height: 15px; }
+    .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+      position: absolute;
+      /* please don't change 'position' */
+      background-color: #aaa;
+      border-radius: 6px;
+      transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+      bottom: 2px;
+      /* there must be 'bottom' for ps-scrollbar-x */
+      height: 6px; }
+    .ps-container > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x, .ps-container > .ps-scrollbar-x-rail:active > .ps-scrollbar-x {
+      height: 11px; }
+  .ps-container > .ps-scrollbar-y-rail {
+    display: none;
+    position: absolute;
+    /* please don't change 'position' */
+    opacity: 0;
+    transition: background-color .2s linear, opacity .2s linear;
+    right: 0;
+    /* there must be 'right' for ps-scrollbar-y-rail */
+    width: 15px; }
+    .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+      position: absolute;
+      /* please don't change 'position' */
+      background-color: #aaa;
+      border-radius: 6px;
+      transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+      right: 2px;
+      /* there must be 'right' for ps-scrollbar-y */
+      width: 6px; }
+    .ps-container > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y, .ps-container > .ps-scrollbar-y-rail:active > .ps-scrollbar-y {
+      width: 11px; }
+  .ps-container:hover.ps-in-scrolling {
+    pointer-events: none; }
+    .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+      background-color: #eee;
+      opacity: 0.9; }
+      .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+        background-color: #999; }
+    .ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+      background-color: #eee;
+      opacity: 0.9; }
+      .ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+        background-color: #999; }
+  .ps-container:hover > .ps-scrollbar-x-rail,
+  .ps-container:hover > .ps-scrollbar-y-rail {
+    opacity: 0.6; }
+  .ps-container:hover > .ps-scrollbar-x-rail:hover {
+    background-color: #eee;
+    opacity: 0.9; }
+    .ps-container:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x {
+      background-color: #999; }
+  .ps-container:hover > .ps-scrollbar-y-rail:hover {
+    background-color: #eee;
+    opacity: 0.9; }
+    .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
+      background-color: #999; }
+
+.ps-theme-booking {
+  -ms-touch-action: none;
+  touch-action: none;
+  overflow: hidden !important;
+  -ms-overflow-style: none; }
+  @supports (-ms-overflow-style: none) {
+    .ps-theme-booking {
+      overflow: auto !important; } }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .ps-theme-booking {
+      overflow: auto !important; } }
+  .ps-theme-booking.ps-active-x > .ps-scrollbar-x-rail,
+  .ps-theme-booking.ps-active-y > .ps-scrollbar-y-rail {
+    display: block;
+    background-color: transparent; }
+  .ps-theme-booking.ps-in-scrolling {
+    pointer-events: none; }
+    .ps-theme-booking.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+      background-color: tranparent;
+      opacity: 0.5; }
+      .ps-theme-booking.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+        background-color: #474747; }
+    .ps-theme-booking.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+      background-color: tranparent;
+      opacity: 0.5; }
+      .ps-theme-booking.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+        background-color: #474747; }
+  .ps-theme-booking > .ps-scrollbar-x-rail {
+    display: none;
+    position: absolute;
+    /* please don't change 'position' */
+    opacity: 0.2;
+    transition: background-color .2s linear, opacity .2s linear;
+    bottom: 0;
+    /* there must be 'bottom' for ps-scrollbar-x-rail */
+    height: 15px; }
+    .ps-theme-booking > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+      position: absolute;
+      /* please don't change 'position' */
+      background-color: #474747;
+      border-radius: 3px;
+      transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+      bottom: 4px;
+      /* there must be 'bottom' for ps-scrollbar-x */
+      height: 7px; }
+    .ps-theme-booking > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x, .ps-theme-booking > .ps-scrollbar-x-rail:active > .ps-scrollbar-x {
+      height: 7px; }
+  .ps-theme-booking > .ps-scrollbar-y-rail {
+    display: none;
+    position: absolute;
+    /* please don't change 'position' */
+    opacity: 0.2;
+    transition: background-color .2s linear, opacity .2s linear;
+    right: 0;
+    /* there must be 'right' for ps-scrollbar-y-rail */
+    width: 15px; }
+    .ps-theme-booking > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+      position: absolute;
+      /* please don't change 'position' */
+      background-color: #474747;
+      border-radius: 3px;
+      transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+      right: 4px;
+      /* there must be 'right' for ps-scrollbar-y */
+      width: 7px; }
+    .ps-theme-booking > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y, .ps-theme-booking > .ps-scrollbar-y-rail:active > .ps-scrollbar-y {
+      width: 7px; }
+  .ps-theme-booking:hover.ps-in-scrolling {
+    pointer-events: none; }
+    .ps-theme-booking:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+      background-color: tranparent;
+      opacity: 0.5; }
+      .ps-theme-booking:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+        background-color: #474747; }
+    .ps-theme-booking:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+      background-color: tranparent;
+      opacity: 0.5; }
+      .ps-theme-booking:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+        background-color: #474747; }
+  .ps-theme-booking:hover > .ps-scrollbar-x-rail,
+  .ps-theme-booking:hover > .ps-scrollbar-y-rail {
+    opacity: 0.2; }
+  .ps-theme-booking:hover > .ps-scrollbar-x-rail:hover {
+    background-color: tranparent;
+    opacity: 0.5; }
+    .ps-theme-booking:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x {
+      background-color: #474747; }
+  .ps-theme-booking:hover > .ps-scrollbar-y-rail:hover {
+    background-color: tranparent;
+    opacity: 0.5; }
+    .ps-theme-booking:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
+      background-color: #474747; }

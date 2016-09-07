@@ -29,8 +29,7 @@ var CompanyListComponent = (function () {
     CompanyListComponent = __decorate([
         core_1.Component({
             selector: 'company-list',
-            templateUrl: 'scripts/components/company/company-list.component.html',
-            styleUrls: ['scripts/components/company/company-list.component.css']
+            templateUrl: 'scripts/components/company/company-list.component.html'
         }), 
         __metadata('design:paramtypes', [index_1.CompanyApi])
     ], CompanyListComponent);

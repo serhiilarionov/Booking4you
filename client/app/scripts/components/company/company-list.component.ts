@@ -3,8 +3,7 @@ import { Company, CompanyApi } from '../../shared/index';
 
 @Component({
   selector: 'company-list',
-  templateUrl: 'scripts/components/company/company-list.component.html',
-  styleUrls: ['scripts/components/company/company-list.component.css']
+  templateUrl: 'scripts/components/company/company-list.component.html'
 })
 export class CompanyListComponent implements OnInit {
   public companyList: any;
