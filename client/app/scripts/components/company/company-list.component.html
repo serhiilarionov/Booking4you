@@ -3,7 +3,14 @@
     <select (onSelected)="onCitySelected($event)" [items]="cityList" name="city" title="City" class="selectpicker" data-live-search="true"></select>
     <select (onSelected)="onCategorySelected($event)" [items]="categoryList" name="category" title="Category" class="selectpicker" data-live-search="true"></select>
 </div>
-<h4>Result</h4>
+<h4>Result
+    <small *ngIf="companyList?.length" class="text-muted">
+        ({{companyList.length}}
+        <span *ngIf="companyList.length > 1">companies</span>
+        <span *ngIf="companyList.length === 1">company</span>
+        found)
+    </small>
+</h4>
 <div *ngIf="!filter.where.cityId || !filter.where.categoryId" class="text-muted text-center">
     <i class="fa fa-search"></i>
     Nothing to show. Please choose both filters
