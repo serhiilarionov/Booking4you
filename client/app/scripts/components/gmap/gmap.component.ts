@@ -9,7 +9,8 @@ import { Company } from '../../shared/index';
 })
 
 export class GmapComponent {
-  lat: number = 30;
-  lng: number = 40;
+  public lat: number = 50;
+  public lng: number = 30;
+  public zoom: number = 6;
   @Input() companyList: Array<Company>;
 }

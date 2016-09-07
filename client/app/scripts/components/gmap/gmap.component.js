@@ -11,8 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var GmapComponent = (function () {
     function GmapComponent() {
-        this.lat = 30;
-        this.lng = 40;
+        this.lat = 50;
+        this.lng = 30;
+        this.zoom = 6;
     }
     __decorate([
         core_1.Input(), 
