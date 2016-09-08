@@ -9,15 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var login_form_conponent_1 = require('../../components/auth/login-form.conponent');
 var LoginPageComponent = (function () {
     function LoginPageComponent() {
     }
     LoginPageComponent = __decorate([
         core_1.Component({
             selector: 'login-page',
-            templateUrl: 'scripts/pages/login/login-page.component.html',
-            directives: [login_form_conponent_1.LoginFormComponent]
+            templateUrl: 'scripts/pages/login/login-page.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], LoginPageComponent);

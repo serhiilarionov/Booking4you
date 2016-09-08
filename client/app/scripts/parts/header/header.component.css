@@ -55,9 +55,8 @@
       color: #0094e9; }
   .header a {
     padding: 0 5px;
-    font-size: 12px; }
-    .header a.register {
-      font-weight: 700; }
+    font-size: 12px;
+    cursor: pointer; }
     .header a:hover, .header a:focus {
       text-decoration: none;
       color: #03a3ff; }

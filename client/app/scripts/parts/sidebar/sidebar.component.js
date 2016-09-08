@@ -9,110 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var sidebar_service_1 = require('./sidebar.service');
-var menu_branch_component_1 = require('./menu-branch.component');
+var index_1 = require('../../shared/index');
 var MENU_TREE = [
     {
         name: 'Home',
         link: ''
     },
     {
-        name: 'About',
-        link: '',
-        children: [
-            {
-                name: 'Company',
-                link: ''
-            },
-            {
-                name: 'Partnership',
-                link: '',
-                children: [
-                    {
-                        name: 'Third level',
-                        link: '',
-                        children: [
-                            {
-                                name: 'Lorem',
-                                link: ''
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        name: 'Home',
-        link: ''
-    },
-    {
-        name: 'About',
-        link: '',
-        children: [
-            {
-                name: 'Company',
-                link: ''
-            },
-            {
-                name: 'Partnership',
-                link: '',
-                children: [
-                    {
-                        name: 'Third level',
-                        link: ''
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        name: 'Home',
-        link: ''
-    },
-    {
-        name: 'About',
-        link: '',
-        children: [
-            {
-                name: 'Company',
-                link: ''
-            },
-            {
-                name: 'Partnership',
-                link: '',
-                children: [
-                    {
-                        name: 'Third level',
-                        link: ''
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        name: 'Home',
-        link: ''
-    },
-    {
-        name: 'About',
-        link: '',
-        children: [
-            {
-                name: 'Company',
-                link: ''
-            },
-            {
-                name: 'Partnership',
-                link: '',
-                children: [
-                    {
-                        name: 'Third level',
-                        link: ''
-                    }
-                ]
-            }
-        ]
+        name: 'Company list',
+        link: 'company-list'
     }
 ];
 var SidebarComponent = (function () {
@@ -132,10 +37,9 @@ var SidebarComponent = (function () {
             selector: 'sidebar',
             styleUrls: ['scripts/parts/sidebar/sidebar.component.css'],
             templateUrl: 'scripts/parts/sidebar/sidebar.component.html',
-            encapsulation: core_1.ViewEncapsulation.None,
-            directives: [menu_branch_component_1.MenuBranchComponent]
+            encapsulation: core_1.ViewEncapsulation.None
         }), 
-        __metadata('design:paramtypes', [sidebar_service_1.SidebarService, core_1.ElementRef])
+        __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef])
     ], SidebarComponent);
     return SidebarComponent;
 }());

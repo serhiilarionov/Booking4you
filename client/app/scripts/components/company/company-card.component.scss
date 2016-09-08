@@ -1,0 +1,110 @@
+@import "main";
+
+$specific-height: 45px;
+
+.company-card {
+  font-family: $ff-secondary;
+  @include box-shadow(0 0 2px lighten($c-grey-main, 50%));
+
+  &__photo {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    min-height: $specific-height;
+
+    &:after {
+      width: 100%;
+      height: $specific-height;
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+      -moz-transition: 1s;
+      -webkit-transition: 1s;
+      transition: 1s;
+      @include background(linear-gradient(top, transparent, rgba(0, 0, 0, 0.8)));
+    }
+
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__specific {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    padding: 7px 0;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+
+    &-opt {
+      padding: 0 7px;
+    }
+  }
+
+  &__icon {
+    margin-right: 7px;
+    color: #9D9E9D;
+    vertical-align: baseline;
+
+    &_type {
+      font-size: 12px;
+    }
+
+  }
+
+  &__info {
+    padding: 20px 20px 10px;
+    font-size: 12px;
+    color: #94989A;
+    text-align: center;
+    background: #fff;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+    color: #474747;
+    font-size: 16px;
+    font-weight: bold;
+
+    &:hover {
+      color: #0dcdbd;
+    }
+
+  }
+
+  &__price {
+    text-align: center;
+    display: inline-block;
+    padding: 4px 8px;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background: #0DCDBD;
+  }
+
+  &__type {
+    margin-top: 5px;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+  &__rating {
+    margin-top: 5px;
+  }
+
+  .fa-star {
+    &_active {
+      color: #0dcdbd;
+    }
+  }
+
+}

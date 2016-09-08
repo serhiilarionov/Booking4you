@@ -9,17 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var sidebar_service_1 = require('./parts/sidebar/sidebar.service');
+var router_1 = require('@angular/router');
+var index_1 = require('./shared/index');
+var index_2 = require('./shared/index');
 var AppComponent = (function () {
-    function AppComponent(sidebar, el) {
+    function AppComponent(sidebar, el, router) {
+        var _this = this;
         this.sidebar = sidebar;
         this.el = el;
+        this.router = router;
         this.$el = $(el.nativeElement);
+        index_2.LoopBackConfig.setBaseURL(index_2.BASE_URL);
+        index_2.LoopBackConfig.setApiVersion(index_2.API_VERSION);
+        this.sidebar.toggled$.subscribe(function () {
+            _this.$el.toggleClass('sidebar-opened');
+        });
+        this.router.events.subscribe(function (event) {
+            if (event instanceof router_1.NavigationEnd && _this.sidebar.opened) {
+                _this.sidebar.toggle();
+            }
+        });
     }
-    AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.sidebar.toggled$.subscribe(function () { return _this.$el.toggleClass('sidebar-opened'); });
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app',
@@ -27,7 +37,7 @@ var AppComponent = (function () {
             styleUrls: ['scripts/app.component.css'],
             encapsulation: core_1.ViewEncapsulation.None,
         }), 
-        __metadata('design:paramtypes', [sidebar_service_1.SidebarService, core_1.ElementRef])
+        __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef, router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());

@@ -1,0 +1,14 @@
+@import "main";
+gmap {
+  @include display(flex);
+  @include flex(1 0 auto);
+}
+
+.sebm-google-map-container {
+  @include display(flex);
+  @include flex(1 0 auto);
+
+  &-inner {
+    @include flex(1 0 auto);
+  }
+}

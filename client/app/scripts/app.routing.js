@@ -1,20 +1,26 @@
 "use strict";
 var router_1 = require('@angular/router');
-var home_page_component_1 = require('./pages/home/home-page.component');
-var login_page_component_1 = require('./pages/login/login-page.component');
-var registration_page_component_1 = require('./pages/registration/registration-page.component');
+var Pages = require('./pages/index');
+var index_1 = require('./shared/index');
 var routes = [
     {
         path: '',
-        component: home_page_component_1.HomePageComponent
+        component: Pages.HomePageComponent
     },
     {
         path: 'login',
-        component: login_page_component_1.LoginPageComponent
+        component: Pages.LoginPageComponent,
+        canActivate: [index_1.AuthGuardService]
     },
     {
         path: 'registration',
-        component: registration_page_component_1.RegistrationPageComponent
+        component: Pages.RegistrationPageComponent,
+        canActivate: [index_1.AuthGuardService]
+    },
+    {
+        path: 'company-list',
+        component: Pages.CompanyListPageComponent,
+        canActivate: [index_1.AuthGuardService]
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(routes);

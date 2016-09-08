@@ -17,6 +17,7 @@
   "dependencies": {
     "bootstrap-select": "^1.10.0",
     "font-awesome": "^4.6.3",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "perfect-scrollbar": "^0.6.12"
   }
 }

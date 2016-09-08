@@ -12,12 +12,13 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
-var header_component_1 = require('./parts/header/header.component');
-var footer_component_1 = require('./parts/footer/footer.component');
-var sidebar_component_1 = require('./parts/sidebar/sidebar.component');
+var index_1 = require('./parts/index');
 var app_routing_1 = require('./app.routing');
-var sidebar_service_1 = require('./parts/sidebar/sidebar.service');
-var constants_1 = require('./common/services/constants');
+var sdk_module_1 = require('./shared/sdk/sdk.module');
+var index_2 = require('./pages/index');
+var index_3 = require('./components/index');
+var index_4 = require('./shared/index');
+var core_2 = require('angular2-google-maps/core');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,19 +27,15 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 app_routing_1.routing,
-                forms_1.ReactiveFormsModule
+                forms_1.ReactiveFormsModule,
+                sdk_module_1.SDKModule.forRoot(),
+                core_2.AgmCoreModule.forRoot({
+                    apiKey: 'AIzaSyAp4wClu7rjAWLAavgCRv5FhM0G9CZeUNI'
+                })
             ],
-            declarations: [
-                app_component_1.AppComponent,
-                header_component_1.HeaderComponent,
-                footer_component_1.FooterComponent,
-                sidebar_component_1.SidebarComponent
-            ],
+            declarations: [app_component_1.AppComponent].concat(index_1.Parts, index_2.Pages, index_4.Directives, index_3.Components),
             bootstrap: [app_component_1.AppComponent],
-            providers: [
-                sidebar_service_1.SidebarService,
-                constants_1.Constants
-            ]
+            providers: index_4.Services.slice()
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
