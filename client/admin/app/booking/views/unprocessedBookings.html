@@ -184,6 +184,7 @@
                     <th ng-repeat="(key, value) in unprocessedBookings.bookings[0] track by $index"
                         ng-if="key != 'id'">{{key}}
                     </th>
+                    <th>actions</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -200,6 +201,12 @@
                     </td>
                     <td ng-repeat="(key, value) in oneBooking" ng-if="key != 'id'">
                       {{(key == 'categoryId') ? unprocessedBookings.find(value).name : value}}
+                    </td>
+                    <td>
+                      <button class="btn btn-success" ng-click="unprocessedBookings.changeStatus($index, 'confirmed')">
+                        Confirm</button>
+                      <button class="btn btn-danger" ng-click="unprocessedBookings.changeStatus($index, 'rejection')">
+                        Reject</button>
                     </td>
                   </tr>
                   </tbody>

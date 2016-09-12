@@ -106,5 +106,22 @@ angular.module('app.booking').controller('UnprocessedBookingsController', functi
       .catch(function (err) {
         Notification.error("Error", err.data.error.message);
       });
+  };
+  
+  vm.changeStatus = function(selectedIndex, status) {
+    vm.selectedBooking = angular.copy(vm.bookings[selectedIndex]);
+    vm.selectedBooking.status = status;
+    Booking.upsert({id: vm.selectedBooking.id}, vm.selectedBooking)
+      .$promise
+      .then(function (booking) {
+        return Core.bookingStatusUpdate(booking.taskId, booking.status)
+          .$promise
+      })
+      .then(function(){
+        Notification.success();
+      })
+      .catch(function (err) {
+        Notification.error("Error", err.data.error.message);
+      });
   }
 });

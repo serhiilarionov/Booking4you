@@ -187,7 +187,7 @@ module.exports = function (Core) {
      * @param cb
      */
     Core.createBooking = function (companyId, date, serviceList, cb) {
-        // var token = getToken();
+        var token = getToken();
 
         var body = {
             "companyId": companyId,
