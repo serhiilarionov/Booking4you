@@ -19,7 +19,6 @@ export const Components: Array<any> = [
   RegistrationFormComponent,
   CompanyListComponent,
   HeroComponent,
-  GmapComponent,
-  GmapInfobox,
+  GmapComponent, GmapInfobox,
   CompanyCardComponent
 ];

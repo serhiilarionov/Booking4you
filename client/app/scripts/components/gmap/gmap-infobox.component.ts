@@ -17,8 +17,7 @@ export class GmapInfobox implements OnInit {
     private elementRef: ElementRef,
     public wrapper: GoogleMapsAPIWrapper,
     public marker: SebmGoogleMapMarker,
-    public markerMgr: MarkerManager) {
-  }
+    public markerMgr: MarkerManager) {}
 
   ngOnInit() {
      System.import('../../vendor/infobox/infobox.js')
