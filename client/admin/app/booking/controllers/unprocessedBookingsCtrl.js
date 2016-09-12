@@ -13,29 +13,29 @@ angular.module('app.booking').controller('UnprocessedBookingsController', functi
   Booking.find({"filter": {"where": {"status": null}}})
     .$promise
     .then(function (bookings) {
+      bookings.forEach(function (booking) {
+        booking.date = booking.date ? new Date(booking.date) : null;
+      });
       vm.bookings = bookings;
+      PubSub.subscribe({
+        collectionName: 'Booking',
+        method: 'POST'
+      }, onBookingCreate);
+
+      for (var i = 0; i < bookings.length; i++) {
+        PubSub.subscribe({
+          collectionName: 'Booking',
+          method: 'PUT',
+          modelId: bookings[i].id
+        }, onBookingUpdate);
+
+        PubSub.subscribe({
+          collectionName: 'Booking',
+          method: 'DELETE',
+          modelId: bookings[i].id
+        }, onBookingDelete);
+      }
     });
-
-  Booking.find({}, function (res) {
-    PubSub.subscribe({
-      collectionName: 'Booking',
-      method: 'POST'
-    }, onBookingCreate);
-
-    for (var i = 0; i < res.length; i++) {
-      PubSub.subscribe({
-        collectionName: 'Booking',
-        method: 'PUT',
-        modelId: res[i].id
-      }, onBookingUpdate);
-
-      PubSub.subscribe({
-        collectionName: 'Booking',
-        method: 'DELETE',
-        modelId: res[i].id
-      }, onBookingDelete);
-    }
-  });
 
   var onBookingCreate = function (booking) {
     PubSub.subscribe({
@@ -55,6 +55,7 @@ angular.module('app.booking').controller('UnprocessedBookingsController', functi
   };
 
   var onBookingUpdate = function (booking) {
+    booking.date = booking.date ? new Date(booking.date) : null;
     vm.bookings.splice(vm.selectedIndex, 1, booking);
   };
 
@@ -107,17 +108,22 @@ angular.module('app.booking').controller('UnprocessedBookingsController', functi
         Notification.error("Error", err.data.error.message);
       });
   };
-  
-  vm.changeStatus = function(selectedIndex, status) {
+
+  vm.changeStatus = function (selectedIndex, status) {
     vm.selectedBooking = angular.copy(vm.bookings[selectedIndex]);
     vm.selectedBooking.status = status;
+    vm.selectedIndex = selectedIndex;
+
     Booking.upsert({id: vm.selectedBooking.id}, vm.selectedBooking)
       .$promise
       .then(function (booking) {
-        return Core.bookingStatusUpdate(booking.taskId, booking.status)
+        return Core.bookingStatusUpdate({
+          taskId: booking.taskId,
+          status: status
+        })
           .$promise
       })
-      .then(function(){
+      .then(function () {
         Notification.success();
       })
       .catch(function (err) {
