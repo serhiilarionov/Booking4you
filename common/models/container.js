@@ -35,7 +35,8 @@ module.exports = function (Container) {
               qt.convert({
                 src: newPath,
                 dst: newThumbPath,
-                width: 100
+                width: 250,
+                height: 250
               }, function (err, path) {
                 if(err) {
                   reject(err)

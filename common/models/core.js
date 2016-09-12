@@ -147,6 +147,73 @@ module.exports = function (Core) {
             ],
             returns: {arg: 'result', type: 'object'}
         }
+    );
+
+    /**
+     * Updating status of booking
+     * @param taskId
+     * @param status
+     * @param cb
+     */
+    Core.bookingStatusUpdate = function (taskId, status, cb) {
+        var body = {
+            "taskId": taskId,
+            "bookingStatus": status
+        };
+
+        var path = "callback/57d11e0160e3270a413d7f87/c5e1502ed01ebf183397013b9d7bb2b68e9c14b0";
+
+        Core.run(path, body, function (err, result) {
+            cb(null, result);
+        });
+    };
+
+    Core.remoteMethod(
+        'bookingStatusUpdate',
+        {
+            accepts: [
+                {arg: 'taskId', type: 'string', required: true},
+                {arg: 'status', type: 'string', required: true}
+            ],
+            returns: {arg: 'result', type: 'object'}
+        }
+    );
+
+    /**
+     * Create new booking
+     * @param companyId
+     * @param date
+     * @param serviceList
+     * @param cb
+     */
+    Core.createBooking = function (companyId, date, serviceList, cb) {
+        // var token = getToken();
+
+        var body = {
+            "companyId": companyId,
+            "date": date,
+            "serviceList": serviceList,
+            "token": token.id,
+            "userId": token.userId
+        };
+
+        var path = "public/157805/c5e1502ed01ebf183397013b9d7bb2b68e9c14b0";
+
+        Core.run(path, body, function (err, result) {
+            cb(null, result);
+        });
+    };
+
+    Core.remoteMethod(
+        'createBooking',
+        {
+            accepts: [
+                {arg: 'companyId', type: 'number', required: true},
+                {arg: 'date', type: 'string', required: true},
+                {arg: 'serviceList', type: 'array', required: true}
+            ],
+            returns: {arg: 'result', type: 'object'}
+        }
     )
 
 };

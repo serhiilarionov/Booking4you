@@ -184,10 +184,11 @@
                     <th ng-repeat="(key, value) in activeBookings.bookings[0] track by $index"
                         ng-if="key != 'id'">{{key}}
                     </th>
+                    <th>actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr ng-repeat="oneBooking in activeBookings.bookings">
+                  <tr ng-repeat="oneBooking in activeBookings.bookings track by $index">
                     <td>
                       <button class="btn btn-warning" data-toggle="modal"
                               data-target="#bookingEditRowModal"
@@ -200,6 +201,12 @@
                     </td>
                     <td ng-repeat="(key, value) in oneBooking" ng-if="key != 'id'">
                       {{(key == 'categoryId') ? activeBookings.find(value).name : value}}
+                    </td>
+                    <td>
+                      <button class="btn btn-success" ng-click="activeBookings.changeStatus($index, 'confirm')">
+                        Confirm</button>
+                      <button class="btn btn-danger" ng-click="activeBookings.changeStatus($index, 'reject')">
+                        Reject</button>
                     </td>
                   </tr>
                   </tbody>
