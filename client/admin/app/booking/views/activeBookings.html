@@ -203,9 +203,9 @@
                       {{(key == 'categoryId') ? activeBookings.find(value).name : value}}
                     </td>
                     <td>
-                      <button class="btn btn-success" ng-click="activeBookings.changeStatus($index, 'confirm')">
+                      <button class="btn btn-success" ng-click="activeBookings.changeStatus($index, 'confirmed')">
                         Confirm</button>
-                      <button class="btn btn-danger" ng-click="activeBookings.changeStatus($index, 'reject')">
+                      <button class="btn btn-danger" ng-click="activeBookings.changeStatus($index, 'rejection')">
                         Reject</button>
                     </td>
                   </tr>

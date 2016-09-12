@@ -2,7 +2,7 @@
 
 angular.module('app.booking').controller('UnprocessedBookingsController', function ($scope, $state, $stateParams, $http,
                                                                                     Booking, Category, City, Street,
-                                                                                    Notification, PubSub, socket) {
+                                                                                    Core, Notification, PubSub, socket) {
   var vm = this;
   vm.newBooking = {};
 
