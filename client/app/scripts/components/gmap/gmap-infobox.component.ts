@@ -20,7 +20,7 @@ export class GmapInfobox implements OnInit {
     public markerMgr: MarkerManager) {}
 
   ngOnInit() {
-     System.import('../../vendor/infobox/infobox.js')
+     System.import('//rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js')
        .then((infobox) => { this.InfoBox = infobox; this.wrapper.getNativeMap()
          .then((map) => { this.nativeMap = map; this.markerMgr.getNativeMarker(this.marker)
            .then((marker) => {
