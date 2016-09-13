@@ -6,7 +6,7 @@ declare var InfoBox: any;
 
 @Component({
   selector: 'gmap-infobox',
-  template: `<div>Here is the infobox</div>`
+  template: `<div >Here is the infobox</div>`
 })
 export class GmapInfobox implements OnInit {
   public nativeMap: any;
