@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { GoogleMapsAPIWrapper, SebmGoogleMapMarker, MarkerManager } from 'angular2-google-maps/core';
 import { InfoboxLoader } from '../../shared/services/index';
-import { InfoboxLoader } from '../../shared/services/infobox-loader.service';
 
 @Component({
   selector: 'gmap-infobox',
