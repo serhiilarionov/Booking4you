@@ -5,7 +5,8 @@ import { CompanyCardComponent } from './company/company-card.component';
 import { CompanyModalComponent } from './company/company-modal.component';
 import { HeroComponent } from './hero/hero.component';
 import { GmapComponent } from './gmap/gmap.component';
-import { GmapInfobox } from './gmap/gmap-infobox.component';
+import { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
+import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 
 export { LoginFormComponent } from './auth/login-form.conponent';
 export { RegistrationFormComponent } from './auth/registration-form.conponent';
@@ -14,7 +15,8 @@ export { CompanyCardComponent } from './company/company-card.component';
 export { CompanyModalComponent } from './company/company-modal.component';
 export { HeroComponent } from './hero/hero.component';
 export { GmapComponent } from './gmap/gmap.component';
-export { GmapInfobox } from './gmap/gmap-infobox.component';
+export { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
+export { CommingSoonComponent } from './comming-soon/comming-soon.component';
 
 export const Components: Array<any> = [
   LoginFormComponent,
@@ -24,5 +26,6 @@ export const Components: Array<any> = [
   CompanyModalComponent,
   HeroComponent,
   GmapComponent,
-  GmapInfobox
+  GmapInfoboxComponent,
+  CommingSoonComponent
 ];

@@ -1,0 +1,44 @@
+.comming-soon {
+  position: relative;
+  height: 100%;
+  background: url("scripts/components/comming-soon/assets/comming-soon-sm.jpg") center no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover; }
+  .comming-soon__mask {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); }
+  .comming-soon__logo {
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+    font-family: 'Pacifico';
+    font-size: 4em;
+    color: #fff; }
+    .comming-soon__logo span {
+      font-size: 1.5em; }
+    .comming-soon__logo:hover, .comming-soon__logo:focus {
+      color: #f1f6fc; }
+  .comming-soon__box {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    min-width: 460px;
+    max-width: 1000px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+  .comming-soon__title {
+    color: #fff;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 5rem;
+    text-shadow: 2px 2px 3px #000; }

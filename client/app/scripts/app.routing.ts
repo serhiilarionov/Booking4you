@@ -21,6 +21,14 @@ const routes: Routes = [
     path: 'company-list',
     component: Pages.CompanyListPageComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'comming-soon',
+    component: Pages.CommingSoonPageComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'comming-soon'
   }
 ];
 

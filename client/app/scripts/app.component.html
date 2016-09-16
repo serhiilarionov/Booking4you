@@ -1,8 +1,9 @@
 <div class="inner-wrapper">
-  <app-header></app-header>
+  <app-header [hidden]="this.router.url ==='/comming-soon'"></app-header>
+  <div></div>
   <div class="content">
     <router-outlet></router-outlet>
   </div>
-  <app-footer></app-footer>
+  <app-footer [hidden]="this.router.url ==='/comming-soon'"></app-footer>
 </div>
 <sidebar></sidebar>
