@@ -55,7 +55,7 @@
     "user": {
       "type": "belongsTo",
       "model": "Client",
-      "foreignKey": "userId"
+      "foreignKey": "clientId"
     },
     "company": {
       "type": "belongsTo",

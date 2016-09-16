@@ -26,6 +26,11 @@
       "model": "Company",
       "foreignKey": "clientId",
       "through": "Favorite"
+    },
+    "bookings": {
+      "type": "hasMany",
+      "model": "Booking",
+      "foreignKey": "clientId"
     }
   },
   "acls": [
