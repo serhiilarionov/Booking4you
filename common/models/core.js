@@ -200,7 +200,7 @@ module.exports = function (Core) {
         var path = "public/157805/c5e1502ed01ebf183397013b9d7bb2b68e9c14b0";
 
         Core.run(path, body, function (err, result) {
-            cb(null, result);
+            cb(null, result[0].ops.obj_id);
         });
     };
 

@@ -42,7 +42,7 @@ module.exports = function(Booking) {
       pubsub.publish(socket, {
         collectionName : 'Booking',
         data: ctx.instance,
-        modelId: ctx.instance.id,
+        modelId: ctx.instance.taskId,
         method: 'PUT'
       });
     }
@@ -54,8 +54,8 @@ module.exports = function(Booking) {
     //Now publishing the data..
     pubsub.publish(socket, {
       collectionName : 'Booking',
-      data: ctx.where.id,
-      modelId: ctx.where.id,
+      data: ctx.where.taskId,
+      modelId: ctx.where.taskId,
       method: 'DELETE'
     });
     //move to next middleware..
