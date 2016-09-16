@@ -38,12 +38,12 @@
   },
   "validations": [],
   "relations": {
-    "client": {
+    "booking": {
       "type": "belongsTo",
       "model": "Booking",
       "foreignKey": "bookingId"
     },
-    "company": {
+    "companyService": {
       "type": "belongsTo",
       "model": "CompanyService",
       "foreignKey": "serviceId"
