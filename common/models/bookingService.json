@@ -1,13 +1,21 @@
 {
-  "name": "Booking",
-  "plural": "bookings",
+  "name": "BookingService",
+  "plural": "bookingServices",
   "base": "PersistedModel",
   "idInjection": true,
+  "indexes": {
+    "uniqueBookingService": {
+      "keys": {
+        "bookingId": 1,
+        "serviceId": 1
+      },
+      "kind": "unique"
+    }
+  },
   "options": {
     "validateUpsert": true
   },
   "hidden": [
-    "companyServiceId",
     "createdAt",
     "updatedAt",
     "deletedAt"
@@ -17,28 +25,6 @@
       "type": "Number",
       "id": true,
       "generated": true
-    },
-    "number": {
-      "type": "string",
-      "required": true
-    },
-    "taskId": {
-      "type": "string"
-    },
-    "desc": {
-      "type": "string"
-    },
-    "date": {
-      "type": "date"
-    },
-    "phone": {
-      "type": "string"
-    },
-    "active": {
-      "type": "boolean"
-    },
-    "status": {
-      "type": "string"
     },
     "createdAt": {
       "type": "date"
@@ -52,21 +38,15 @@
   },
   "validations": [],
   "relations": {
-    "user": {
+    "client": {
       "type": "belongsTo",
-      "model": "Client",
-      "foreignKey": "userId"
+      "model": "Booking",
+      "foreignKey": "bookingId"
     },
     "company": {
       "type": "belongsTo",
-      "model": "Company",
-      "foreignKey": "companyId"
-    },
-    "services": {
-      "type": "hasMany",
       "model": "CompanyService",
-      "foreignKey": "companyServiceId",
-      "through": "BookingService"
+      "foreignKey": "serviceId"
     }
   },
   "acls": [

@@ -58,7 +58,8 @@
     "bookings": {
       "type": "hasMany",
       "model": "Booking",
-      "foreignKey": "companyServiceId"
+      "foreignKey": "companyServiceId",
+      "through": "BookingService"
     }
   },
   "acls": [

@@ -93,6 +93,10 @@
     "dataSource": "pgsql",
     "public": false
   },
+  "BookingService": {
+    "dataSource": "pgsql",
+    "public": false
+  },
   "Notify": {
     "dataSource": "pgsql",
     "public": true
