@@ -16,5 +16,6 @@
     Nothing to show. Please choose both filters
 </div>
 <div class="list-container">
-    <div *ngFor="let company of companyList" company-card [company]="company"></div>
+    <div *ngFor="let company of companyList" company-card [company]="company" (click)="selectedCompany = company"></div>
 </div>
+<company-modal [company]="selectedCompany"></company-modal>

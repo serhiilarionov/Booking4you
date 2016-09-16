@@ -1,5 +1,5 @@
 <div class="company-card">
-  <a href="" class="company-card__photo">
+  <a href="#company-modal" class="company-card__photo" data-toggle="modal">
     <img src="{{company.photo || 'http://placehold.it/200?text=no+photo'}}" alt="" class="company-card__img">
 
     <div class="company-card__specific">
@@ -10,7 +10,7 @@
     </div>
   </a>
   <div class="company-card__info">
-    <a href="" class="company-card__title">{{company.title}}</a>
+    <a href="#company-modal" class="company-card__title" data-toggle="modal">{{company.title}}</a>
     <div class="company-card__location">{{company.locationDetail}}</div>
     <div class="company-card__price">$42.000</div>
     <div class="company-card__type"><i class="fa fa-building-o company-card__icon company-card__icon_type"></i>Apartment</div>

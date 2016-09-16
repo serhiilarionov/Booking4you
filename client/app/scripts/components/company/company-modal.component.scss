@@ -1,0 +1,139 @@
+@import "main";
+
+$modal-width: 820px;
+
+.modal {
+  &__wrapper {
+    width: $modal-width;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+
+    @include display(flex);
+    @include flex-direction(column);
+  }
+
+  &__header {
+    color: #fff;
+
+    h2 {
+      font-weight: bold;
+      margin: 5px;
+    }
+  }
+
+  &__location-detail {
+    color: darken(#fff, 40%);
+    margin: 3px 0;
+  }
+
+  &__close {
+    background: darken($c-grey-main, 10%);
+    width: 30px;
+    height: 30px;
+    @include position(absolute, 0 0 null null);
+  }
+
+  &__body {
+    @include display(flex);
+    @include flex-flow(row nowrap);
+    margin-top: 30px;
+    position: relative;
+  }
+
+  &__price {
+    background: $c-blue-main;
+    @include position(absolute, -4px null null 10px);
+    z-index: 2;
+    font-size: 18px;
+    color: #fff;
+    font-family: $ff-secondary;
+    font-weight: bold;
+    padding: 3px 8px;
+  }
+
+  &__left {
+    background: darken($c-grey-main, 5%);
+    @include flex(0 1 350px);
+    color: #fff;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  &__right {
+    background: #fff;
+    @include flex(1 0);
+
+    header {
+      border-bottom: 1px solid lighten($c-grey-main, 65%);
+    }
+
+    &-description {
+      font-size: 12px;
+      color: lighten($c-grey-main, 25%);
+      margin-bottom: 20px;
+    }
+  }
+
+  &__props {
+    font-weight: bold;
+    font-size: 12px;
+    font-family: $ff-secondary;
+    margin-bottom: 20px;
+
+    li {
+      @include display(flex);
+      @include justify-content(space-between);
+      margin: 3px auto;
+    }
+
+    span {
+      font-weight: normal;
+    }
+  }
+
+  &__features, &__right {
+    padding: 30px;
+
+    header {
+      font-weight: bold;
+      font-family: $ff-secondary;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__features {
+    header {
+      border-bottom: 1px solid lighten($c-grey-main, 10%);
+    }
+
+    .fa {
+      color: $c-blue-main;
+      font-size: 4px;
+      padding: 0 10px 0 0;
+      vertical-align: middle;
+    }
+
+    ul {
+      @include display(flex);
+      @include flex-flow(row wrap);
+    }
+
+    li {
+      @include flex(0 0 50%);
+      font-size: 12px;
+      padding: 3px 0;
+    }
+  }
+
+  &__show-detail {
+    background: $c-blue-main;
+    padding: 15px 20px;
+    font-family: $ff-secondary;
+    font-weight: bold;
+    color: #fff;
+  }
+}

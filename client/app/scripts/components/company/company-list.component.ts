@@ -8,6 +8,7 @@ import { Company, CompanyApi, City, CityApi, Category, CategoryApi } from '../..
   encapsulation: ViewEncapsulation.None
 })
 export class CompanyListComponent implements OnInit {
+  public selectedCompany: Company;
   public companyList: Array<Company>;
   public cityList: Array<City>;
   public categoryList: Array<Category>;

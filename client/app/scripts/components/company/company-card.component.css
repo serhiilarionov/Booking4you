@@ -55,7 +55,7 @@
     font-size: 16px;
     font-weight: bold; }
     .company-card__title:hover {
-      color: #0dcdbd; }
+      color: #36b6ff; }
   .company-card__price {
     text-align: center;
     display: inline-block;
@@ -64,12 +64,10 @@
     font-size: 12px;
     font-weight: bold;
     color: #fff;
-    background: #0DCDBD; }
+    background: #36b6ff; }
   .company-card__type {
     margin-top: 5px;
     font-size: 9px;
     text-transform: uppercase; }
   .company-card__rating {
     margin-top: 5px; }
-  .company-card .fa-star_active {
-    color: #0dcdbd; }
