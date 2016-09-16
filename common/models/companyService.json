@@ -58,7 +58,7 @@
     "bookings": {
       "type": "hasMany",
       "model": "Booking",
-      "foreignKey": "companyServiceId",
+      "foreignKey": "serviceId",
       "through": "BookingService"
     }
   },

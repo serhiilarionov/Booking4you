@@ -65,7 +65,7 @@
     "services": {
       "type": "hasMany",
       "model": "CompanyService",
-      "foreignKey": "companyServiceId",
+      "foreignKey": "bookingId",
       "through": "BookingService"
     }
   },
