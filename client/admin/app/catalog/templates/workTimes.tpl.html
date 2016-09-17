@@ -1,48 +1,46 @@
-<div>
-  <div class="controlButtons">
-    <div class="checkbox">
-      <label><input type="checkbox" ng-model="copyActive" ng-change="copyActiveChanger()">Copy</label>
+<div class="controlButtons">
+  <div class="checkbox">
+    <label><input type="checkbox" ng-model="copyActive" ng-change="copyActiveChanger()">Copy</label>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" ng-model="lunch" ng-change="lunchChanger()">Lunch</label>
+  </div>
+</div>
+
+<div class="dayContainer" ng-repeat="workTime in workTimes track by $index">
+  <div data-original-title="" class="colorBox" ng-class="{'WorkingDayState': workTime[$index].length > 0,
+   'RestDayState': workTime[$index].length == 0 }" ng-click="dayStateChanger($index)">
+    <input type="checkbox" class="invisible operationState"></div>
+  <div class="weekday">{{weekDays[$index]}}</div>
+  <div class="operationDayTimeContainer work" ng-show="workTime[$index].length > 0">
+    <div class="operationTime input-group" style="display: table;">
+      <span class="input-group-addon"><i class="fa fa-sun-o"></i></span>
+      <input type="text" name="startTime" class="mini-time form-control operationTimeFrom ui-timepicker-input"
+             ng-model="workTime[$index][0].s" autocomplete="off">
     </div>
-    <div class="checkbox">
-      <label><input type="checkbox" ng-model="lunch" ng-change="lunchChanger()">Lunch</label>
+    <div class="operationTime input-group" ng-class="{'lunchActive': workTime[$index].length > 1}"
+         style="display: table;">
+      <span class="input-group-addon"><i class="fa fa-moon-o"></i></span>
+      <input type="text" name="endTime"
+             class="mini-time form-control operationTimeTill ui-timepicker-input lunchActive"
+             ng-model="workTime[$index][1].e" autocomplete="off">
+      <input type="text" name="endTime" class="mini-time form-control operationTimeTill ui-timepicker-input"
+             ng-model="workTime[$index][0].e" autocomplete="off">
     </div>
   </div>
 
-  <div class="dayContainer" ng-repeat="workTime in workTimes track by $index">
-    <div data-original-title="" class="colorBox" ng-class="{'WorkingDayState': workTime[$index].length > 0,
-     'RestDayState': workTime[$index].length == 0 }" ng-click="dayStateChanger($index)">
-      <input type="checkbox" class="invisible operationState"></div>
-    <div class="weekday">{{weekDays[$index]}}</div>
-    <div class="operationDayTimeContainer work" ng-show="workTime[$index].length > 0">
-      <div class="operationTime input-group" style="display: table;">
-        <span class="input-group-addon"><i class="fa fa-sun-o"></i></span>
-        <input type="text" name="startTime" class="mini-time form-control operationTimeFrom ui-timepicker-input"
-               ng-model="workTime[$index][0].s" autocomplete="off">
-      </div>
-      <div class="operationTime input-group" ng-class="{'lunchActive': workTime[$index].length > 1}"
-           style="display: table;">
-        <span class="input-group-addon"><i class="fa fa-moon-o"></i></span>
-        <input type="text" name="endTime"
-               class="mini-time form-control operationTimeTill ui-timepicker-input lunchActive"
-               ng-model="workTime[$index][1].e" autocomplete="off">
-        <input type="text" name="endTime" class="mini-time form-control operationTimeTill ui-timepicker-input"
-               ng-model="workTime[$index][0].e" autocomplete="off">
-      </div>
+  <div class="operationDayTimeContainer lunch" ng-show="workTime[$index].length > 1">
+    <div class="operationTime input-group" style="display: table;">
+      <span class="input-group-addon"><i class="fa fa-coffee"></i></span>
+
+      <input type="text" name="startTime" class="mini-time form-control operationTimeFrom ui-timepicker-input"
+             ng-model="workTime[$index][0].e" autocomplete="off">
     </div>
+    <div class="operationTime input-group" style="display: table;">
+      <span class="input-group-addon"><i class="fa fa-coffee"></i></span>
 
-    <div class="operationDayTimeContainer lunch" ng-show="workTime[$index].length > 1">
-      <div class="operationTime input-group" style="display: table;">
-        <span class="input-group-addon"><i class="fa fa-coffee"></i></span>
-
-        <input type="text" name="startTime" class="mini-time form-control operationTimeFrom ui-timepicker-input"
-               ng-model="workTime[$index][0].e" autocomplete="off">
-      </div>
-      <div class="operationTime input-group" style="display: table;">
-        <span class="input-group-addon"><i class="fa fa-coffee"></i></span>
-
-        <input type="text" name="startTime" class="mini-time form-control operationTimeTill ui-timepicker-input"
-               ng-model="workTime[$index][1].s" autocomplete="off">
-      </div>
+      <input type="text" name="startTime" class="mini-time form-control operationTimeTill ui-timepicker-input"
+             ng-model="workTime[$index][1].s" autocomplete="off">
     </div>
   </div>
 </div>

@@ -54,8 +54,8 @@ module.exports = function(Booking) {
     //Now publishing the data..
     pubsub.publish(socket, {
       collectionName : 'Booking',
-      data: ctx.where.taskId,
-      modelId: ctx.where.taskId,
+      data: ctx.where.id,
+      modelId: ctx.where.id,
       method: 'DELETE'
     });
     //move to next middleware..

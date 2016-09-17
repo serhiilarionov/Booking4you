@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('app.catalog').controller('CompaniesController', function ($state, $stateParams, Company, Category) {
+angular.module('app.catalog').controller('CompaniesController', function ($state, $stateParams, Company,
+                                                                          Category, City, District, Street) {
   var vm = this;
 
   //UI settings
@@ -46,6 +47,49 @@ angular.module('app.catalog').controller('CompaniesController', function ($state
         {
           dataField: 'desc',
           title: 'Описание'
+        },
+        {
+          dataField: 'cityId',
+          title: 'ID города',
+          dataType: 'number',
+          editorType: 'selectBox',
+          editorOptions: {
+            dataSource: City.find(),
+            value: 'id',
+            caption: 'name'
+          }
+        },
+        {
+          dataField: 'districtId',
+          title: 'ID района',
+          dataType: 'number',
+          editorType: 'selectBox',
+          editorOptions: {
+            dataSource: District.find(),
+            value: 'id',
+            caption: 'name'
+          }
+        },
+        {
+          dataField: 'streetId',
+          title: 'ID улицы',
+          dataType: 'number',
+          editorType: 'selectBox',
+          editorOptions: {
+            dataSource: Street.find(),
+            value: 'id',
+            caption: 'name'
+          }
+        },
+        {
+          dataField: 'buildingId',
+          title: 'Номер дома',
+          dataType: 'number'
+        },
+        {
+          dataField: 'roomId',
+          title: 'Номер квартиры',
+          dataType: 'number'
         },
         {
           dataField: 'active',

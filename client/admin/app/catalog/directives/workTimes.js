@@ -8,10 +8,6 @@ angular.module('app.catalog').directive('workTimes', function ($timeout) {
     controller: function ($scope) {
       $scope.copyActive = false;
 
-      $scope.lunch = $scope.workTimes[0][0].length > 1 || $scope.workTimes[1][1].length > 1 ||
-        $scope.workTimes[2][2].length > 1 || $scope.workTimes[3][3].length > 1 || $scope.workTimes[4][4].length > 1 ||
-        $scope.workTimes[5][5].length > 1 || $scope.workTimes[6][6].length > 1;
-      
       var workHours = [
         {
           "0": []
@@ -52,6 +48,10 @@ angular.module('app.catalog').directive('workTimes', function ($timeout) {
       ];
       $scope.workTimes = $scope.workTimes ? $scope.workTimes : workHours;
 
+      $scope.lunch = $scope.workTimes[0][0].length > 1 || $scope.workTimes[1][1].length > 1 ||
+        $scope.workTimes[2][2].length > 1 || $scope.workTimes[3][3].length > 1 || $scope.workTimes[4][4].length > 1 ||
+        $scope.workTimes[5][5].length > 1 || $scope.workTimes[6][6].length > 1;
+
       $scope.dayStateChanger = function (dayNumber) {
         if ($scope.workTimes[dayNumber][dayNumber].length) {
           $scope.workTimes[dayNumber][dayNumber] = [];
@@ -85,15 +85,6 @@ angular.module('app.catalog').directive('workTimes', function ($timeout) {
                 }
               })
             };
-
-            workTills[i].onchange = function (timepicker) {
-              $scope.workTimes.forEach(function (elem, index, arr) {
-                if (arr[index][index].length) {
-                  arr[index][index][1].e = timepicker.currentTarget.value;
-                }
-              })
-            };
-
             lunchFroms[i].onchange = function (timepicker) {
               $scope.workTimes.forEach(function (elem, index, arr) {
                 if (arr[index][index].length) {
@@ -101,11 +92,20 @@ angular.module('app.catalog').directive('workTimes', function ($timeout) {
                 }
               })
             };
-
             lunchTills[i].onchange = function (timepicker) {
               $scope.workTimes.forEach(function (elem, index, arr) {
                 if (arr[index][index].length) {
                   arr[index][index][1].s = timepicker.currentTarget.value;
+                }
+              })
+            };
+          }
+          for (var i = 0; i < workTills.length; i++) {
+            workTills[i].onchange = function (timepicker) {
+              $scope.workTimes.forEach(function (elem, index, arr) {
+                var lunch = $scope.lunch ? 1 : 0;
+                if (arr[index][index].length) {
+                  arr[index][index][lunch].e = timepicker.currentTarget.value;
                 }
               })
             };
@@ -130,7 +130,7 @@ angular.module('app.catalog').directive('workTimes', function ($timeout) {
 
       $scope.lunchChanger = function () {
         if ($scope.lunch) {
-          for (var i = 0; i < 6; i++) {
+          for (var i = 0; i < $scope.workTimes.length; i++) {
             if ($scope.workTimes[i][i].length) {
               $scope.workTimes[i][i][1] = {"s": "14:00", "e": $scope.workTimes[i][i][0].e};
               $scope.workTimes[i][i][0].e = "13:00";
@@ -138,7 +138,7 @@ angular.module('app.catalog').directive('workTimes', function ($timeout) {
           }
         }
         else {
-          for (var i = 0; i < 6; i++) {
+          for (var i = 0; i < $scope.workTimes.length; i++) {
             if ($scope.workTimes[i][i].length) {
               $scope.workTimes[i][i][0].e = $scope.workTimes[i][i][1].e;
               $scope.workTimes[i][i].splice(1, 1);

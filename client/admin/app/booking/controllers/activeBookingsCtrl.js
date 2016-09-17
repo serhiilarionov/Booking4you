@@ -26,13 +26,13 @@ angular.module('app.booking').controller('ActiveBookingsController', function ($
         PubSub.subscribe({
           collectionName: 'Booking',
           method: 'PUT',
-          modelId: bookings[i].id
+          modelId: bookings[i].taskId
         }, onBookingUpdate);
 
         PubSub.subscribe({
           collectionName: 'Booking',
           method: 'DELETE',
-          modelId: bookings[i].id
+          modelId: bookings[i].taskId
         }, onBookingDelete);
       }
     });
@@ -41,13 +41,13 @@ angular.module('app.booking').controller('ActiveBookingsController', function ($
     PubSub.subscribe({
       collectionName: 'Booking',
       method: 'PUT',
-      modelId: booking.id
+      modelId: booking.taskId
     }, onBookingUpdate);
 
     PubSub.subscribe({
       collectionName: 'Booking',
       method: 'DELETE',
-      modelId: booking.id
+      modelId: booking.taskId
     }, onBookingDelete);
     if (booking.active) {
       vm.bookings.push(booking);
@@ -61,7 +61,7 @@ angular.module('app.booking').controller('ActiveBookingsController', function ($
 
   var onBookingDelete = function (deletedId) {
     var index = vm.bookings.findIndex(function (booking) {
-      return deletedId == booking.id
+      return deletedId == booking.taskId
     });
     vm.bookings.splice(index, 1);
   };
