@@ -19,7 +19,7 @@ var CompanyListComponent = (function () {
         this.route = route;
         this.router = router;
         this.companyListLoaded = new core_1.EventEmitter();
-        this.filter = { where: { cityId: null, categoryId: null } };
+        this.filter = { where: { cityId: null, categoryId: null }, limit: 100 };
         this.navigationExtras = { queryParams: {} };
         this.filter.where = {
             cityId: this.route.snapshot.queryParams['city'],
