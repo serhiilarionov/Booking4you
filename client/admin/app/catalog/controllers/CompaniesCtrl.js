@@ -82,14 +82,9 @@ angular.module('app.catalog').controller('CompaniesController', function ($state
           }
         },
         {
-          dataField: 'buildingId',
-          title: 'Номер дома',
-          dataType: 'number'
-        },
-        {
-          dataField: 'roomId',
-          title: 'Номер квартиры',
-          dataType: 'number'
+          dataField: 'point',
+          title: 'Point',
+          editorType: 'points'
         },
         {
           dataField: 'active',
