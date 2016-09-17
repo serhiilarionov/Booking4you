@@ -76,7 +76,7 @@ $specific-height: 45px;
     font-weight: bold;
 
     &:hover {
-      color: #0dcdbd;
+      color: $c-blue-main;
     }
 
   }
@@ -89,7 +89,7 @@ $specific-height: 45px;
     font-size: 12px;
     font-weight: bold;
     color: #fff;
-    background: #0DCDBD;
+    background: $c-blue-main;
   }
 
   &__type {
@@ -99,12 +99,6 @@ $specific-height: 45px;
   }
   &__rating {
     margin-top: 5px;
-  }
-
-  .fa-star {
-    &_active {
-      color: #0dcdbd;
-    }
   }
 
 }

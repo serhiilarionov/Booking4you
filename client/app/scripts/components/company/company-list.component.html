@@ -1,7 +1,7 @@
 <h4>Filters</h4>
 <div class="filter-container">
-    <select (onSelected)="onCitySelected($event)" [items]="cityList" name="city" title="City" class="selectpicker" data-live-search="true"></select>
-    <select (onSelected)="onCategorySelected($event)" [items]="categoryList" name="category" title="Category" class="selectpicker" data-live-search="true"></select>
+    <select (onSelected)="onCitySelected($event)" [selected]="filter.where.cityId" [items]="cityList" name="city" title="City" class="selectpicker" data-live-search="true"></select>
+    <select (onSelected)="onCategorySelected($event)" [selected]="filter.where.categoryId" [items]="categoryList" name="category" title="Category" class="selectpicker" data-live-search="true"></select>
 </div>
 <h4>Result
     <small *ngIf="companyList?.length" class="text-muted">
@@ -16,5 +16,6 @@
     Nothing to show. Please choose both filters
 </div>
 <div class="list-container">
-    <div *ngFor="let company of companyList" company-card [company]="company"></div>
+    <div *ngFor="let company of companyList" company-card [company]="company" (click)="selectedCompany = company"></div>
 </div>
+<company-modal [company]="selectedCompany"></company-modal>

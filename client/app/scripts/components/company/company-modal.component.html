@@ -1,0 +1,68 @@
+<div class="modal fade" id="company-modal" *ngIf="company" perfect-scrollbar>
+    <div class="modal__wrapper">
+        <div class="modal__header">
+            <h2 class="modal__header">{{company.name}}</h2>
+            <div class="modal__location-detail">{{company.locationDetail}}</div>
+            <small class="modal__rating">
+                <i class="fa fa-star fa-star_active" data-score="1"></i>
+                <i class="fa fa-star fa-star_active" data-score="2"></i>
+                <i class="fa fa-star fa-star_active" data-score="3"></i>
+                <i class="fa fa-star" data-score="4"></i>
+                <i class="fa fa-star" data-score="5"></i>
+            </small>
+            <button class="modal__close" data-dismiss="modal">
+                <i class="fa fa-close"></i>
+            </button>
+        </div>
+        <div class="modal__body">
+            <div class="modal__price">$2500</div>
+            <div class="modal__left">
+                <div class="modal__gallery">
+                    <img src="http://placehold.it/350x250?text=image+1" alt="">
+                </div>
+                <div class="modal__features">
+                    <header>Features</header>
+                    <ul>
+                        <li><i class="fa fa-circle"></i>Lorem ipsum.</li>
+                        <li><i class="fa fa-circle"></i>Aut, consequuntur.</li>
+                        <li><i class="fa fa-circle"></i>Aliquid, rerum.</li>
+                        <li><i class="fa fa-circle"></i>Exercitationem, magni.</li>
+                        <li><i class="fa fa-circle"></i>Distinctio, repellat!</li>
+                        <li><i class="fa fa-circle"></i>Rerum, veniam.</li>
+                        <li><i class="fa fa-circle"></i>Aut, ducimus.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal__right">
+                <header>
+                    Description
+                </header>
+                <div class="modal__right-description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis cum debitis dicta dignissimos dolorum eum facere fugiat id illum maiores maxime molestias mollitia natus, neque nihil odio officia perferendis, placeat possimus quae quibusdam quo, quos suscipit ullam vel velit vero voluptas voluptate voluptatem. Aliquid debitis molestias nam odio sit.
+                </div>
+                <header>
+                    Overview
+                </header>
+                <ul class="modal__props">
+                    <li>Bedrooms <span>2</span></li>
+                    <li>Area <span>240</span></li>
+                    <li>Garages <span>1</span></li>
+                </ul>
+                <header>
+                    Last Review
+                </header>
+                <div class="modal__right-description">
+                    <small class="modal__rating">
+                        <i class="fa fa-star fa-star_active" data-score="1"></i>
+                        <i class="fa fa-star fa-star_active" data-score="2"></i>
+                        <i class="fa fa-star fa-star_active" data-score="3"></i>
+                        <i class="fa fa-star" data-score="4"></i>
+                        <i class="fa fa-star" data-score="5"></i>
+                    </small>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet aperiam blanditiis dolore ipsum libero sapiente sint tempore ullam velit.</p>
+                </div>
+                <button class="modal__show-detail">Show Detail</button>
+            </div>
+        </div>
+    </div>
+</div>

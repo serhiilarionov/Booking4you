@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { NavigationExtras, ActivatedRoute, Router } from '@angular/router';
+import 'rxjs/add/operator/map';
 import { Company, CompanyApi, City, CityApi, Category, CategoryApi } from '../../shared/index';
 
 @Component({
@@ -8,17 +10,26 @@ import { Company, CompanyApi, City, CityApi, Category, CategoryApi } from '../..
   encapsulation: ViewEncapsulation.None
 })
 export class CompanyListComponent implements OnInit {
+  public selectedCompany: Company;
   public companyList: Array<Company>;
   public cityList: Array<City>;
   public categoryList: Array<Category>;
   @Output() public companyListLoaded = new EventEmitter<Array<Company>>();
-  private filter: any = {where: {cityId: null, categoryId: null}};
+  public filter: any = {where: {cityId: null, categoryId: null}};
+  public navigationExtras: NavigationExtras = {queryParams: {}};
 
   constructor(
     private companyApi: CompanyApi,
     private cityApi: CityApi,
-    private categoryApi: CategoryApi
-  ) {}
+    private categoryApi: CategoryApi,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.filter.where = {
+      cityId: this.route.queryParams.value.city,
+      categoryId: this.route.queryParams.value.category
+    };
+  }
 
   // OnInit we should get cities and categories for filters
   ngOnInit() {
@@ -28,15 +39,27 @@ export class CompanyListComponent implements OnInit {
     this.categoryApi.find().subscribe((categoryList: Array<Category>) => {
       this.categoryList = categoryList;
     });
+
+    this.getCompanyList();
   }
 
   onCitySelected(cityId) {
     this.filter.where.cityId = cityId;
-    this.getCompanyList();
+    this.navigateAfterSelected();
   }
 
   onCategorySelected(categoryId) {
     this.filter.where.categoryId = categoryId;
+    this.navigateAfterSelected();
+  }
+
+  navigateAfterSelected () {
+    this.navigationExtras.queryParams = {
+      category: this.filter.where.categoryId,
+      city: this.filter.where.cityId
+    };
+
+    this.router.navigate(['/company-list'], this.navigationExtras);
     this.getCompanyList();
   }
 
