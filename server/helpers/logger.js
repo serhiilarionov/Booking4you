@@ -16,7 +16,6 @@ module.exports = function(Model) {
         log.after = ctx.args.data;
         log.loggableId = ctx.args.data.id;
         Logs.create(log);
-        next();
       }
       else if (ctx.method.name == "upsert") {
         Model.findById(ctx.args.data.id)
@@ -26,7 +25,6 @@ module.exports = function(Model) {
             log.loggableId = ctx.args.data.id;
 
             Logs.create(log);
-            next();
           })
           .catch(next);
       }
@@ -38,13 +36,10 @@ module.exports = function(Model) {
             log.loggableId = ctx.args.id;
 
             Logs.create(log);
-            next();
           })
           .catch(next);
       }
-      else {
-        next();
-      }
     }
+    next();
   });
 };
