@@ -7,6 +7,7 @@ declare var $: any;
 })
 export class Dropdown implements AfterViewChecked, AfterViewInit {
   @Input() public items: any[];
+  @Input() public selected: any;
   @Output() public onSelected = new EventEmitter();
   private $el: any;
 

@@ -21,6 +21,14 @@ var routes = [
         path: 'company-list',
         component: Pages.CompanyListPageComponent,
         canActivate: [index_1.AuthGuardService]
+    },
+    {
+        path: 'comming-soon',
+        component: Pages.CommingSoonPageComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'comming-soon'
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(routes);

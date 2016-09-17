@@ -1,1 +1,1 @@
-<option *ngFor="let item of items" value="{{item.id}}">{{item.name}}</option>
+<option *ngFor="let item of items" [selected]="item.id == selected" value="{{item.id}}">{{item.name}}</option>

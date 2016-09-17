@@ -1,6 +1,6 @@
 <div class="hero">
   <h1 class="text-uppercase">We appreciate your time</h1>
-  <form [formGroup]="searchForm">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="city">City</label>
       <select formControlName="city" [items]="cities" name="model" id="city" title="City" class="selectpicker" data-live-search="true"></select>

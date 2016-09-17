@@ -6,7 +6,7 @@ import { InfoboxLoader } from '../../shared/services/index';
   selector: 'gmap-infobox',
   template: `<div>Here is the infobox</div>`
 })
-export class GmapInfobox implements OnInit {
+export class GmapInfoboxComponent implements OnInit {
   public nativeMap: any;
   public nativeMarker: any;
   public box: any;
