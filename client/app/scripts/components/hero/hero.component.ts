@@ -29,10 +29,8 @@ export class HeroComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.clientApi.isAuthenticated()) {
-      this.cityApi.find().subscribe((cities: Array<City>) => this.cities = cities);
-      this.categoryApi.find().subscribe((categories: Array<Category>) => this.categories = categories);
-    }
+    this.cityApi.find().subscribe((cities: Array<City>) => this.cities = cities);
+    this.categoryApi.find().subscribe((categories: Array<Category>) => this.categories = categories);
   }
 
   onSubmit() {

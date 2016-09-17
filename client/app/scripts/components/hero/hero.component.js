@@ -27,10 +27,8 @@ var HeroComponent = (function () {
     }
     HeroComponent.prototype.ngOnInit = function () {
         var _this = this;
-        if (this.clientApi.isAuthenticated()) {
-            this.cityApi.find().subscribe(function (cities) { return _this.cities = cities; });
-            this.categoryApi.find().subscribe(function (categories) { return _this.categories = categories; });
-        }
+        this.cityApi.find().subscribe(function (cities) { return _this.cities = cities; });
+        this.categoryApi.find().subscribe(function (categories) { return _this.categories = categories; });
     };
     HeroComponent.prototype.onSubmit = function () {
         if (this.searchForm.valid) {
