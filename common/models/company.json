@@ -57,6 +57,9 @@
     "locationDetail": {
       "type": "string"
     },
+    "fullAddress": {
+      "type": "string"
+    },
     "createdAt": {
       "type": "date",
       "default": "$now"
