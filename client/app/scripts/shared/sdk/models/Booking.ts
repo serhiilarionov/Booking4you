@@ -8,38 +8,38 @@ import {
 export interface BookingInterface {
   id?: number;
   number: string;
+  taskId?: string;
   desc?: string;
   date?: any;
   phone?: string;
   active?: boolean;
-  status?: number;
+  status?: string;
   createdAt?: any;
   updatedAt?: any;
   deletedAt?: any;
   companyId?: number;
-  companyServiceId?: number;
-  userId?: number;
+  clientId?: number;
   company?: Company;
-  service?: CompanyService;
+  services?: Array<CompanyService>;
   user?: Client;
 }
 
 export class Booking implements BookingInterface {
   id: number;
   number: string;
+  taskId: string;
   desc: string;
   date: any;
   phone: string;
   active: boolean;
-  status: number;
+  status: string;
   createdAt: any;
   updatedAt: any;
   deletedAt: any;
   companyId: number;
-  companyServiceId: number;
-  userId: number;
+  clientId: number;
   company: Company;
-  service: CompanyService;
+  services: Array<CompanyService>;
   user: Client;
   constructor(instance?: Booking) {
     Object.assign(this, instance);

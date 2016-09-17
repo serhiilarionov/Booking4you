@@ -219,6 +219,97 @@ var ClientApi = (function (_super) {
         return result;
     };
     /**
+     * Find a related item by id for bookings.
+     *
+     * @param any id User id
+     *
+     * @param any fk Foreign key for bookings
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Client` object.)
+     * </em>
+     */
+    ClientApi.prototype.findByIdBookings = function (id, fk) {
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/:id/bookings/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result.map(function (instance) { return new Client_1.Client(instance); });
+    };
+    /**
+     * Delete a related item by id for bookings.
+     *
+     * @param any id User id
+     *
+     * @param any fk Foreign key for bookings
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    ClientApi.prototype.destroyByIdBookings = function (id, fk) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/:id/bookings/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Update a related item by id for bookings.
+     *
+     * @param any id User id
+     *
+     * @param any fk Foreign key for bookings
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Client` object.)
+     * </em>
+     */
+    ClientApi.prototype.updateByIdBookings = function (id, fk, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "PUT";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/:id/bookings/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * Queries companies of Client.
      *
      * @param any id User id
@@ -325,6 +416,123 @@ var ClientApi = (function (_super) {
         var method = "GET";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
             "/clients/:id/companies/count";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (where)
+            urlParams.where = where;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Queries bookings of Client.
+     *
+     * @param any id User id
+     *
+     * @param object filter
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Client` object.)
+     * </em>
+     */
+    ClientApi.prototype.getBookings = function (id, filter) {
+        if (filter === void 0) { filter = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/:id/bookings";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (filter)
+            urlParams.filter = filter;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in bookings of this model.
+     *
+     * @param any id User id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Client` object.)
+     * </em>
+     */
+    ClientApi.prototype.createBookings = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/:id/bookings";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Deletes all bookings of this model.
+     *
+     * @param any id User id
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    ClientApi.prototype.deleteBookings = function (id) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/:id/bookings";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Counts bookings of Client.
+     *
+     * @param any id User id
+     *
+     * @param object where Criteria to match model instances
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * Data properties:
+     *
+     *  - `count` – `{number}` -
+     */
+    ClientApi.prototype.countBookings = function (id, where) {
+        if (where === void 0) { where = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/:id/bookings/count";
         var routeParams = {
             id: id
         };
@@ -746,6 +954,39 @@ var ClientApi = (function (_super) {
         var method = "POST";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
             "/clients/:id/companies";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in bookings of this model.
+     *
+     * @param any id User id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Client` object.)
+     * </em>
+     */
+    ClientApi.prototype.createManyBookings = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/:id/bookings";
         var routeParams = {
             id: id
         };

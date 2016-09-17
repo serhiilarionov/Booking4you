@@ -254,6 +254,80 @@ export class CoreApi extends BaseLoopBackApi {
     return result;
   }
 
+  /**
+   * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+   *
+   * @param object data Request data.
+   *
+   *  - `taskId` – `{string}` - 
+   *
+   *  - `status` – `{string}` - 
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `result` – `{object}` - 
+   */
+  public bookingStatusUpdate(taskId: any, status: any) {
+    let method: string = "POST";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/core/bookingStatusUpdate";
+    let routeParams: any = {};
+    let postBody: any = {
+      taskId: taskId,
+      status: status
+    };
+    let urlParams: any = {};
+    if (taskId) urlParams.taskId = taskId;
+    if (status) urlParams.status = status;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result;
+  }
+
+  /**
+   * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+   *
+   * @param object data Request data.
+   *
+   *  - `companyId` – `{number}` - 
+   *
+   *  - `date` – `{string}` - 
+   *
+   *  - `serviceList` – `{any}` - 
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `result` – `{object}` - 
+   */
+  public createBooking(companyId: any, date: any, serviceList: any) {
+    let method: string = "POST";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/core/createBooking";
+    let routeParams: any = {};
+    let postBody: any = {
+      companyId: companyId,
+      date: date,
+      serviceList: serviceList
+    };
+    let urlParams: any = {};
+    if (companyId) urlParams.companyId = companyId;
+    if (date) urlParams.date = date;
+    if (serviceList) urlParams.serviceList = serviceList;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result;
+  }
+
 
   /**
    * The name of the model represented by this $resource,

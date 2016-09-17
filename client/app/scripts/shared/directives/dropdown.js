@@ -30,6 +30,10 @@ var Dropdown = (function () {
         __metadata('design:type', Array)
     ], Dropdown.prototype, "items", void 0);
     __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], Dropdown.prototype, "selected", void 0);
+    __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
     ], Dropdown.prototype, "onSelected", void 0);

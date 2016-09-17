@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { NavigationExtras, ActivatedRoute, Router } from '@angular/router';
-import 'rxjs/add/operator/map';
 import { Company, CompanyApi, City, CityApi, Category, CategoryApi } from '../../shared/index';
 
 @Component({
@@ -26,8 +25,8 @@ export class CompanyListComponent implements OnInit {
     private router: Router
   ) {
     this.filter.where = {
-      cityId: this.route.queryParams.value.city,
-      categoryId: this.route.queryParams.value.category
+      cityId: this.route.snapshot.queryParams['city'],
+      categoryId: this.route.snapshot.queryParams['category']
     };
   }
 

@@ -22,6 +22,7 @@ export interface CompanyInterface {
   cityId?: number;
   room?: string;
   locationDetail?: string;
+  fullAddress?: string;
   createdAt?: any;
   updatedAt?: any;
   deletedAt?: any;
@@ -48,6 +49,7 @@ export class Company implements CompanyInterface {
   cityId: number;
   room: string;
   locationDetail: string;
+  fullAddress: string;
   createdAt: any;
   updatedAt: any;
   deletedAt: any;

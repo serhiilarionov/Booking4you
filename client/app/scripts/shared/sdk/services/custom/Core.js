@@ -275,6 +275,83 @@ var CoreApi = (function (_super) {
         return result;
     };
     /**
+     * <em>
+           * (The remote method definition does not provide any description.)
+           * </em>
+     *
+     * @param object data Request data.
+     *
+     *  - `taskId` – `{string}` -
+     *
+     *  - `status` – `{string}` -
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * Data properties:
+     *
+     *  - `result` – `{object}` -
+     */
+    CoreApi.prototype.bookingStatusUpdate = function (taskId, status) {
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/core/bookingStatusUpdate";
+        var routeParams = {};
+        var postBody = {
+            taskId: taskId,
+            status: status
+        };
+        var urlParams = {};
+        if (taskId)
+            urlParams.taskId = taskId;
+        if (status)
+            urlParams.status = status;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * <em>
+           * (The remote method definition does not provide any description.)
+           * </em>
+     *
+     * @param object data Request data.
+     *
+     *  - `companyId` – `{number}` -
+     *
+     *  - `date` – `{string}` -
+     *
+     *  - `serviceList` – `{any}` -
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * Data properties:
+     *
+     *  - `result` – `{object}` -
+     */
+    CoreApi.prototype.createBooking = function (companyId, date, serviceList) {
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/core/createBooking";
+        var routeParams = {};
+        var postBody = {
+            companyId: companyId,
+            date: date,
+            serviceList: serviceList
+        };
+        var urlParams = {};
+        if (companyId)
+            urlParams.companyId = companyId;
+        if (date)
+            urlParams.date = date;
+        if (serviceList)
+            urlParams.serviceList = serviceList;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * The name of the model represented by this $resource,
      * i.e. `Core`.
      */

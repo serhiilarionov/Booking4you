@@ -159,6 +159,97 @@ var CompanyServiceApi = (function (_super) {
         return result;
     };
     /**
+     * Add a related item by id for bookings.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for bookings
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `CompanyService` object.)
+     * </em>
+     */
+    CompanyServiceApi.prototype.linkBookings = function (id, fk, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "PUT";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/CompanyServices/:id/bookings/rel/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Remove the bookings relation to an item by id.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for bookings
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    CompanyServiceApi.prototype.unlinkBookings = function (id, fk) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/CompanyServices/:id/bookings/rel/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Check the existence of bookings relation to an item by id.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for bookings
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `CompanyService` object.)
+     * </em>
+     */
+    CompanyServiceApi.prototype.existsBookings = function (id, fk) {
+        var method = "HEAD";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/CompanyServices/:id/bookings/rel/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * Queries bookings of CompanyService.
      *
      * @param any id PersistedModel id

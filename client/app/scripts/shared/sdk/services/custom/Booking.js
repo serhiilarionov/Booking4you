@@ -68,11 +68,11 @@ var BookingApi = (function (_super) {
         return result;
     };
     /**
-     * Fetches belongsTo relation service.
+     * Find a related item by id for services.
      *
      * @param any id PersistedModel id
      *
-     * @param boolean refresh
+     * @param any fk Foreign key for services
      *
      * @returns object An empty reference that will be
      *   populated with the actual data once the response is returned
@@ -83,18 +83,169 @@ var BookingApi = (function (_super) {
      * This usually means the response is a `Booking` object.)
      * </em>
      */
-    BookingApi.prototype.getService = function (id, refresh) {
-        if (refresh === void 0) { refresh = undefined; }
+    BookingApi.prototype.findByIdServices = function (id, fk) {
         var method = "GET";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/bookings/:id/service";
+            "/bookings/:id/services/:fk";
         var routeParams = {
-            id: id
+            id: id,
+            fk: fk
         };
         var postBody = {};
         var urlParams = {};
-        if (refresh)
-            urlParams.refresh = refresh;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result.map(function (instance) { return new Booking_1.Booking(instance); });
+    };
+    /**
+     * Delete a related item by id for services.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for services
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    BookingApi.prototype.destroyByIdServices = function (id, fk) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Update a related item by id for services.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for services
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.updateByIdServices = function (id, fk, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "PUT";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Add a related item by id for services.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for services
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.linkServices = function (id, fk, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "PUT";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services/rel/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Remove the services relation to an item by id.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for services
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    BookingApi.prototype.unlinkServices = function (id, fk) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services/rel/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Check the existence of services relation to an item by id.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for services
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.existsServices = function (id, fk) {
+        var method = "HEAD";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services/rel/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
         var result = this.request(method, url, routeParams, urlParams, postBody);
         return result;
     };
@@ -126,6 +277,123 @@ var BookingApi = (function (_super) {
         var urlParams = {};
         if (refresh)
             urlParams.refresh = refresh;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Queries services of Booking.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object filter
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.getServices = function (id, filter) {
+        if (filter === void 0) { filter = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (filter)
+            urlParams.filter = filter;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in services of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.createServices = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Deletes all services of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    BookingApi.prototype.deleteServices = function (id) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Counts services of Booking.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object where Criteria to match model instances
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * Data properties:
+     *
+     *  - `count` – `{number}` -
+     */
+    BookingApi.prototype.countServices = function (id, where) {
+        if (where === void 0) { where = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services/count";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (where)
+            urlParams.where = where;
         var result = this.request(method, url, routeParams, urlParams, postBody);
         return result;
     };
@@ -441,6 +709,39 @@ var BookingApi = (function (_super) {
         var urlParams = {};
         if (where)
             urlParams.where = where;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in services of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.createManyServices = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/services";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
         var result = this.request(method, url, routeParams, urlParams, postBody);
         return result;
     };
