@@ -23,10 +23,10 @@ export class GmapComponent implements OnChanges {
     let lats = this.companyList.map((company) => company.point.lat);
     let lngs = this.companyList.map((company) => company.point.lng);
 
-    let east: number = Math.max.apply(null, lats);
-    let north: number = Math.max.apply(null, lngs);
-    let south: number = Math.min.apply(null, lngs);
-    let west: number = Math.min.apply(null, lats);
+    let east: number = Math.max.apply(null, lngs);
+    let north: number = Math.max.apply(null, lats);
+    let south: number = Math.min.apply(null, lats);
+    let west: number = Math.min.apply(null, lngs);
     this.bounds = {east, north, south, west};
   }
 }

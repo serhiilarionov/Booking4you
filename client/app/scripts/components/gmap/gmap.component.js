@@ -21,10 +21,10 @@ var GmapComponent = (function () {
     GmapComponent.prototype.calculateBounds = function () {
         var lats = this.companyList.map(function (company) { return company.point.lat; });
         var lngs = this.companyList.map(function (company) { return company.point.lng; });
-        var east = Math.max.apply(null, lats);
-        var north = Math.max.apply(null, lngs);
-        var south = Math.min.apply(null, lngs);
-        var west = Math.min.apply(null, lats);
+        var east = Math.max.apply(null, lngs);
+        var north = Math.max.apply(null, lats);
+        var south = Math.min.apply(null, lats);
+        var west = Math.min.apply(null, lngs);
         this.bounds = { east: east, north: north, south: south, west: west };
     };
     __decorate([
