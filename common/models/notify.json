@@ -36,13 +36,6 @@
       "foreignKey": "clientId"
     }
   },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$unauthenticated",
-      "permission": "DENY"
-    }
-  ],
+  "acls": [],
   "methods": {}
 }
