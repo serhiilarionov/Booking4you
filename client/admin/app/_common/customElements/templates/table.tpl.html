@@ -107,8 +107,7 @@
                     <i class="icon-append fa fa-map-marker"
                        ng-click="findAddress(col.dataField, table.newData._search[col.dataField], 'newData')"></i>
                     <input type="text" id="{{settings.name}}{{col.dataField}}Points"
-                           placeholder="{{col.placeholder}}"
-                           ng-model="table.newData._search[col.dataField]"
+                           ng-model="table.newData.fullAddress"
                            ng-required="col.required"
                            ng-pattern="col.pattern"
                            ng-enter="findAddress(col.dataField, table.newData._search[col.dataField], 'newData')">
@@ -234,8 +233,7 @@
                     <i class="icon-append fa fa-map-marker"
                        ng-click="findAddress(col.dataField, editRowData._search[col.dataField], 'editRowData')"></i>
                     <input type="text" id="{{settings.name}}{{col.dataField}}Points"
-                           placeholder="{{table.editRowData[col.dataField]}}"
-                           ng-model="editRowData._search[col.dataField]"
+                           ng-model="table.editRowData.fullAddress"
                            ng-pattern="col.pattern"
                            ng-enter="findAddress(col.dataField, editRowData._search[col.dataField], 'editRowData')">
                   </label>
@@ -262,8 +260,8 @@
                       </ui-gmap-marker>
                     </ui-gmap-google-map>
                     <div class="map-hide" ng-click="inputMaps['editRowData' + col.dataField].display = false;"></div>
-                    (<span ng-bind="editRowData[col.dataField].lat.toFixed(5)"></span>,
-                    <span ng-bind="editRowData[col.dataField].lng.toFixed(5)"></span>)
+                    (<span ng-bind="table.editRowData[col.dataField].lat.toFixed(5)"></span>,
+                    <span ng-bind="table.editRowData[col.dataField].lng.toFixed(5)"></span>)
                   </div>
                   <div class="map-show"
                        ng-click="showMap(col.dataField, 'editRowData')"
