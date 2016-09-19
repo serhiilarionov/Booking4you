@@ -5,11 +5,11 @@ declare var $: any;
 
 const MENU_TREE: Array<MenuBranch> = [
   {
-    name: 'Home',
+    name: 'Главная',
     link: ''
   },
   {
-    name: 'Company list',
+    name: 'Список компаний',
     link: 'company-list'
   }
 ];
