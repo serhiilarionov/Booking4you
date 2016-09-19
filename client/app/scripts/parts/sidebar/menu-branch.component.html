@@ -1,8 +1,5 @@
-<a *ngIf="!branch.children && branch.name !== 'Home'"
+<a *ngIf="!branch.children"
    routerLink="{{branch.link}}">{{branch.name}}
-</a>
-<a *ngIf="branch.name === 'Home'"
-   href="http://b4u.com.ua">{{branch.name}}
 </a>
 <a *ngIf="branch.children"
    data-toggle="collapse"
