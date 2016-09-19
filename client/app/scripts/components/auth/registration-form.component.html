@@ -1,6 +1,6 @@
 <div class="login-form">
   <header>
-    <h2 class="page-title">Registration</h2>
+    <h2 class="page-title">Регистрация</h2>
   </header>
   <hr>
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
@@ -9,32 +9,32 @@
       <input type="email" class="form-control" id="email" formControlName="email" >
       <div *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.touched || submitted)"
            class="help-block text-warning">
-        <span *ngIf="registrationForm.controls.email.errors.required">This field is required.</span>
-        <span *ngIf="registrationForm.controls.email.errors.pattern">Enter a valid email.</span>
+        <span *ngIf="registrationForm.controls.email.errors.required">Это поле обязательно.</span>
+        <span *ngIf="registrationForm.controls.email.errors.pattern">Введите корректный email.</span>
       </div>
     </div>
     <fieldset formGroupName="passwords">
       <div class="form-group" [ngClass]="{'has-warning': registrationForm.controls.passwords.controls.password.invalid && (registrationForm.controls.passwords.controls.password.touched || submitted)}">
-        <label for="password">Password:</label>
+        <label for="password">Пароль:</label>
         <input type="password" class="form-control" id="password" formControlName="password">
         <div *ngIf="registrationForm.controls.passwords.controls.password.invalid && (registrationForm.controls.passwords.controls.password.touched || submitted)"
              class="help-block text-warning">
-          <span *ngIf="registrationForm.controls.passwords.controls.password.errors.required">This field is required.</span>
-          <span *ngIf="registrationForm.controls.passwords.controls.password.errors.minlength">Password must be of minimum {{passwordMinLength}} characters length.</span>
+          <span *ngIf="registrationForm.controls.passwords.controls.password.errors.required">Это поле обязательно.</span>
+          <span *ngIf="registrationForm.controls.passwords.controls.password.errors.minlength">Пароль должен быть минимум {{passwordMinLength}} символов.</span>
         </div>
       </div>
       <div class="form-group" [ngClass]="{'has-warning': (registrationForm.controls.passwords.invalid || registrationForm.controls.passwords.controls.confirmPassword.invalid) && (registrationForm.controls.passwords.controls.confirmPassword.touched || submitted)}">
-        <label for="confirm-password">Confirm password:</label>
+        <label for="confirm-password">Повторите пароль:</label>
         <input type="password" class="form-control" id="confirm-password" formControlName="confirmPassword">
         <div *ngIf="(registrationForm.controls.passwords.invalid || registrationForm.controls.passwords.controls.confirmPassword.invalid) && (registrationForm.controls.passwords.controls.confirmPassword.touched || submitted)"
              class="help-block text-warning">
-          <span *ngIf="registrationForm.controls.passwords.controls.confirmPassword.errors">This field is required.</span>
-          <span *ngIf="registrationForm.controls.passwords.errors?.areEqual">Passwords must match.</span>
+          <span *ngIf="registrationForm.controls.passwords.controls.confirmPassword.errors">Это поле обязательно.</span>
+          <span *ngIf="registrationForm.controls.passwords.errors?.areEqual">Пароли должны совпадать.</span>
         </div>
       </div>
     </fieldset>
     <div class="form-group clearfix">
-      <button type="submit" class="btn pull-right btn-default" id="account-submit">Sign Up</button>
+      <button type="submit" class="btn pull-right btn-default" id="account-submit">Зарегистрироваться</button>
     </div>
   </form>
 </div>
