@@ -1,4 +1,4 @@
-<div class="company-detail__gmap text-center">
+<div class="company-detail-gmap text-center">
   <img width="100%" src="scripts/pages/company-details/assets/detail-map.png" alt="">
 </div>
 
@@ -30,24 +30,24 @@
         <div class="row">
 
           <!--company info-->
-          <aside class="aside-box aside-box_white company-detail__contacts">
+          <aside class="aside-box aside-box_white company-detail-contacts">
             <div class="aside-box__caption">Contact</div>
             <div class="aside-box__wrapper">
 
-              <div class="company-detail__contacts-address">
+              <div class="company-detail-contacts__address">
                 Max Five Lounge <br>
                 63 Birch Street<br>
                 Granada Hills, CA 91344
               </div>
 
-              <div class="company-detail__contacts-info"><i class="fa fa-mobile company-detail__contacts-icon"></i>
+              <div class="company-detail-contacts__info"><i class="fa fa-mobile company-detail-contacts__icon"></i>
                 818-832-5258
               </div>
-              <div class="company-detail__contacts-info"><i class="fa fa-phone company-detail__contacts-icon"></i> +1
+              <div class="company-detail-contacts__info"><i class="fa fa-phone company-detail-contacts__icon"></i> +1
                 123 456 789
               </div>
-              <div class="company-detail__contacts-info"><i class="fa fa-globe company-detail__contacts-icon"></i> <a
-                href="" class="company-detail__contacts-weblink">www.b4u.com.ua</a></div>
+              <div class="company-detail-contacts__info"><i class="fa fa-globe company-detail-contacts__icon"></i> <a
+                href="" class="company-detail-contacts__weblink">www.b4u.com.ua</a></div>
 
             </div>
           </aside>
@@ -60,11 +60,11 @@
               Rating
             </div>
 
-            <div class="company-detail__rating pull-right">
-              <i class="fa fa-star company-detail__rating_active fa-lg" data-score="1"></i>
-              <i class="fa fa-star company-detail__rating_active fa-lg" data-score="2"></i>
-              <i class="fa fa-star company-detail__rating_active fa-lg" data-score="3"></i>
-              <i class="fa fa-star company-detail__rating_active fa-lg" data-score="4"></i>
+            <div class="company-detail-rating pull-right">
+              <i class="fa fa-star company-detail-rating_active fa-lg" data-score="1"></i>
+              <i class="fa fa-star company-detail-rating_active fa-lg" data-score="2"></i>
+              <i class="fa fa-star company-detail-rating_active fa-lg" data-score="3"></i>
+              <i class="fa fa-star company-detail-rating_active fa-lg" data-score="4"></i>
               <i class="fa fa-star fa-lg" data-score="5"></i>
             </div>
 
@@ -93,25 +93,25 @@
 
                 <div class="form-group">
                   <label for="company-detail-form__name">Name</label>
-                  <input type="email" class="form-control" id="company-detail-form__name" name="company-detail-form__name"
+                  <input type="email" class="form-control company-detail-form__input" id="company-detail-form__name" name="company-detail-form__name"
                          required>
                 </div>
 
                 <div class="form-group">
                   <label for="company-detail-form__email">Email</label>
-                  <input type="email" class="form-control" id="company-detail-form__email" name="company-detail-form__email"
+                  <input type="email" class="form-control company-detail-form__input" id="company-detail-form__email" name="company-detail-form__email"
                          required>
                 </div>
 
 
                 <div class="form-group">
                   <label for="company-detail-form__message">Message</label>
-                  <textarea class="form-control" id="company-detail-form__message" name="company-detail-form__message" rows="3"
+                  <textarea class="form-control company-detail-form__input" id="company-detail-form__message" name="company-detail-form__message" rows="3"
                             required></textarea>
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn framed icon">Send<i class="fa fa-angle-right"></i></button>
+                  <button type="submit" class="btn company-detail-form_button">Send<i class="fa fa-angle-right fa-fw"></i></button>
                 </div>
 
               </div>
@@ -126,11 +126,93 @@
       </div>
 
       <div class="col-md-8 col-sm-8">
+          <div class="company-detail-gallery">
+            <img src="scripts/pages/company-details/assets/company-detail-slider.png" alt="">
+          </div>
+
+        <div class="main-box">
+          <h2 class="main-box__title">DESCRIPTION</h2>
+          <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa, viverra interdum eros ut, imperdiet pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis. Curabitur suscipit, justo eu dignissim lacinia, ante sapien pharetra duin consectetur eros augue sed ex. Donec a odio rutrum, hendrerit sapien vitae, euismod arcu. Suspendisse potenti. Integer ut diam venenatis, pellentesque felis eget, elementum enim. Suspendisse sit amet massa commodo nulla iaculis fermentum. Integer eget tincidunt est, in imperdiet risus. Morbi sit amet urna purus.</p>
+        </div>
+
 
       </div>
     </div>
 
     <!--right-->
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+
+      <aside class="main-box">
+        <div class="main-box__title">NEW PLACES</div>
+
+        <a href="" class="company-detail-nearby">
+            <span class="company-detail-nearby__name _block">Cash Cow Restaurante</span>
+            <span class="company-detail-nearby__street _block">63 Birch Street</span>
+
+          <span class="company-detail-nearby__wrapper  _block clearfix">
+            <span class="company-detail-nearby__img  _block pull-left">
+            <img src="scripts/pages/company-details/assets/detail-photo.jpg" alt="" class="img-responsive">
+          </span>
+          <span class="company-detail-nearby__info  _block pull-right">
+            <span class="company-detail-nearby__type _block"><i class="fa fa-cutlery"></i> <span class="company-detail-nearby__type_title">RESTAURANT</span></span>
+            <span class="company-detail-nearby__rating _block">
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="1"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="2"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="3"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="4"></i>
+              <i class="fa fa-star" data-score="5"></i>
+            </span>
+          </span>
+          </span>
+        </a>
+
+        <a href="" class="company-detail-nearby">
+          <span class="company-detail-nearby__name _block">Cash Cow Restaurante</span>
+          <span class="company-detail-nearby__street _block">63 Birch Street</span>
+
+          <span class="company-detail-nearby__wrapper  _block clearfix">
+            <span class="company-detail-nearby__img  _block pull-left">
+            <img src="scripts/pages/company-details/assets/detail-photo.jpg" alt="" class="img-responsive">
+          </span>
+          <span class="company-detail-nearby__info  _block pull-right">
+            <span class="company-detail-nearby__type _block"><i class="fa fa-cutlery"></i> <span class="company-detail-nearby__type_title">RESTAURANT</span></span>
+            <span class="company-detail-nearby__rating _block">
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="1"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="2"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="3"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="4"></i>
+              <i class="fa fa-star" data-score="5"></i>
+            </span>
+          </span>
+          </span>
+        </a>
+
+        <a href="" class="company-detail-nearby">
+          <span class="company-detail-nearby__name _block">Cash Cow Restaurante</span>
+          <span class="company-detail-nearby__street _block">63 Birch Street</span>
+
+          <span class="company-detail-nearby__wrapper  _block clearfix">
+            <span class="company-detail-nearby__img  _block pull-left">
+            <img src="scripts/pages/company-details/assets/detail-photo.jpg" alt="" class="img-responsive">
+          </span>
+          <span class="company-detail-nearby__info  _block pull-right">
+            <span class="company-detail-nearby__type _block"><i class="fa fa-cutlery"></i> <span class="company-detail-nearby__type_title">RESTAURANT</span></span>
+            <span class="company-detail-nearby__rating _block">
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="1"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="2"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="3"></i>
+              <i class="fa fa-star company-detail-nearby__rating_active" data-score="4"></i>
+              <i class="fa fa-star" data-score="5"></i>
+            </span>
+          </span>
+          </span>
+        </a>
+
+
+      </aside>
+
+
+
+    </div>
   </div>
 </div>

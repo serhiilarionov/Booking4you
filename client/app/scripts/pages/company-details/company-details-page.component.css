@@ -14,6 +14,13 @@
   .aside-box_white {
     background-color: #fff; }
 
+.main-box {
+  padding: 40px 0; }
+  .main-box__title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 5px 0 30px 0; }
+
 .company-detail_pad {
   padding-top: 40px;
   padding-bottom: 20px; }
@@ -39,23 +46,73 @@
   font-weight: bold;
   text-transform: none; }
 
-.company-detail__contacts-icon {
+.company-detail-contacts__icon {
   width: 20px;
   opacity: .6; }
 
-.company-detail__contacts-address {
+.company-detail-contacts__address {
   margin-bottom: 15px; }
 
-.company-detail__contacts-info {
+.company-detail-contacts__info {
   line-height: 25px; }
 
-.company-detail__contacts-weblink {
+.company-detail-contacts__weblink {
   color: #ff513f; }
 
-.company-detail__rating {
+.company-detail-rating {
   color: #DDDDDD; }
-  .company-detail__rating_active {
+  .company-detail-rating_active {
     color: #ff513f; }
+
+.company-detail-form_button {
+  font-weight: bold;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e8e8e4; }
+
+.company-detail-nearby {
+  display: block;
+  margin-bottom: 20px;
+  padding: 15px 15px 0 15px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.05); }
+  .company-detail-nearby ._block {
+    display: block; }
+  .company-detail-nearby__wrapper {
+    padding-top: 10px; }
+  .company-detail-nearby__name {
+    font-size: 14px;
+    font-weight: bold; }
+  .company-detail-nearby__street {
+    font-size: 12px; }
+  .company-detail-nearby__img {
+    width: 35%; }
+  .company-detail-nearby__info {
+    width: 65%;
+    padding-left: 15px; }
+  .company-detail-nearby__type {
+    opacity: .6;
+    font-size: 10px; }
+    .company-detail-nearby__type_title {
+      display: inline-block;
+      padding: 5px;
+      font-size: 9px;
+      font-weight: bold; }
+  .company-detail-nearby__rating {
+    font-size: 11px;
+    color: #DDDDDD; }
+    .company-detail-nearby__rating_active {
+      color: #8D8D8D; }
+  .company-detail-nearby:hover {
+    color: inherit; }
+    .company-detail-nearby:hover .company-detail-nearby__name {
+      -webkit-transition: all 400ms ease-in-out;
+      -moz-transition: all 400ms ease-in-out;
+      transition: all 400ms ease-in-out;
+      color: #FF513F; }
 
 .add-to-favorite {
   display: block;
