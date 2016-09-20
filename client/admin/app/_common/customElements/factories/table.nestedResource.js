@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('customElements')
-  .factory('TableNestedResource', function (Table, DTOptionsBuilder, ErrorHandler, Notification) {
+  .factory('TableNestedResource', function (Table, DTOptionsBuilder, ErrorHandler, Notification, SERVER_URL) {
     return function ($scope, $stateParams) {
       var _TableNestedResource = new Table($scope, $stateParams);
-
+      $scope.SERVER_URL = SERVER_URL;
       /**
        * Fucntion for create table settings
        */

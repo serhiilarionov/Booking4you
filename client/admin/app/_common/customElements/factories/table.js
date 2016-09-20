@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('customElements')
-  .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder, ErrorHandler, Notification) {
+  .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder, ErrorHandler, Notification,
+                              SERVER_URL) {
     return function ($scope, $stateParams) {
       var _Table = this;
       var crud = null;
-      
+      $scope.SERVER_URL = SERVER_URL;
+
       /**
        * Fucntion for create table settings
        */

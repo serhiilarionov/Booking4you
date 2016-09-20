@@ -10,7 +10,8 @@
         <div class="widget-body no-padding">
           <p class="control-buttons">
             <!-- Table control buttons -->
-            <button type="button" class="btn btn-info" ng-click="goToBack()" ng-class="{'disabled': !stateParams.previousState}">
+            <button type="button" class="btn btn-info" ng-click="goToBack()"
+                    ng-class="{'disabled': !stateParams.previousState}">
               <i class="fa fa-chevron-left"></i>
             </button>
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{settings.name}}NewRowModal"
@@ -45,111 +46,135 @@
         </div>
         <div class="modal-body">
           <section id="set-points-widget-grid" widget-grid data-widget-grid>
-          <form id="{{settings.name}}-adding-new-row-form" class="smart-form" ng-submit="addNewRow()">
-            <fieldset>
-              <div ng-repeat="col in settings.columns track by $index" ng-if="!col.readOnly">
-                <!-- Text -->
-                <section class="col form-input" ng-if="!col.editorType || col.editorType=='text'">
-                  <label class="input">{{col.title}}
-                    <input type="text" id="{{settings.name}}{{col.dataField}}Text" placeholder="{{col.title}}"
-                           ng-model="table.newData[col.dataField]"
-                           ng-required="col.required"
-                           ng-pattern="col.pattern">
-                  </label>
-                </section>
-                <!-- End Txt-->
+            <form id="{{settings.name}}-adding-new-row-form" class="smart-form" ng-submit="addNewRow()">
+              <fieldset>
+                <div ng-repeat="col in settings.columns track by $index" ng-if="!col.readOnly">
+                  <!-- Text -->
+                  <section class="col form-input" ng-if="!col.editorType || col.editorType=='text'">
+                    <label class="input">{{col.title}}
+                      <input type="text" id="{{settings.name}}{{col.dataField}}Text" placeholder="{{col.title}}"
+                             ng-model="table.newData[col.dataField]"
+                             ng-required="col.required"
+                             ng-pattern="col.pattern">
+                    </label>
+                  </section>
+                  <!-- End Txt-->
 
-                <!-- Check box -->
-                <section class="col form-input active-checkbox" ng-if="col.editorType=='checkbox'">
-                  <label class="checkbox">
-                    <input type="checkbox" id="{{settings.name}}{{col.dataField}}Checkbox"
-                           ng-model="table.newData[col.dataField]"
-                           ng-required="col.required"
-                           ng-pattern="col.pattern">
-                    <i></i>{{col.title}}</label>
-                </section>
-                <!-- End Check box -->
+                  <!-- Check box -->
+                  <section class="col form-input active-checkbox" ng-if="col.editorType=='checkbox'">
+                    <label class="checkbox">
+                      <input type="checkbox" id="{{settings.name}}{{col.dataField}}Checkbox"
+                             ng-model="table.newData[col.dataField]"
+                             ng-required="col.required"
+                             ng-pattern="col.pattern">
+                      <i></i>{{col.title}}</label>
+                  </section>
+                  <!-- End Check box -->
 
-                <!-- Select box-->
-                <section class="col form-input" ng-if="col.editorType=='selectBox'">
-                  <label class="input">{{col.title}}
-                    <select class="form-control input-sm" id="{{settings.name}}{{col.dataField}}SelectBox"
-                            ng-model="table.newData[col.dataField]"
-                            ng-required="col.required">
-                      <option
-                          ng-repeat="row in col.editorOptions.dataSource || table[col.editorOptions.dataSourceString] track by row.id"
-                          value="{{row[col.editorOptions.value]}}"
-                          ng-selected="table.newData[col.dataField]">
-                        #{{row[col.editorOptions.value]}} ({{row[col.editorOptions.caption]}})
-                      </option>
-                    </select>
-                  </label>
-                </section>
-                <!-- End Select box-->
+                  <!-- Select box-->
+                  <section class="col form-input" ng-if="col.editorType=='selectBox'">
+                    <label class="input">{{col.title}}
+                      <select class="form-control input-sm" id="{{settings.name}}{{col.dataField}}SelectBox"
+                              ng-model="table.newData[col.dataField]"
+                              ng-required="col.required">
+                        <option
+                            ng-repeat="row in col.editorOptions.dataSource || table[col.editorOptions.dataSourceString] track by row.id"
+                            value="{{row[col.editorOptions.value]}}"
+                            ng-selected="table.newData[col.dataField]">
+                          #{{row[col.editorOptions.value]}} ({{row[col.editorOptions.caption]}})
+                        </option>
+                      </select>
+                    </label>
+                  </section>
+                  <!-- End Select box-->
 
-                <!-- Number -->
-                <section class="col form-input" ng-if="col.editorType=='number'">
-                  <label class="input">{{col.title}}
-                    <input type="number" id="{{settings.name}}{{col.dataField}}Number"
-                           placeholder="{{col.placeholder}}"
-                           ng-model="table.newData[col.dataField]"
-                           ng-required="col.required"
-                           ng-pattern="col.pattern">
-                  </label>
-                </section>
-                <!-- End number-->
+                  <!-- Number -->
+                  <section class="col form-input" ng-if="col.editorType=='number'">
+                    <label class="input">{{col.title}}
+                      <input type="number" id="{{settings.name}}{{col.dataField}}Number"
+                             placeholder="{{col.placeholder}}"
+                             ng-model="table.newData[col.dataField]"
+                             ng-required="col.required"
+                             ng-pattern="col.pattern">
+                    </label>
+                  </section>
+                  <!-- End number-->
 
-                <!-- Points -->
-                <section class="col form-input c-points" ng-if="col.editorType=='points'">
+                  <!-- Points -->
+                  <section class="col form-input c-points" ng-if="col.editorType=='points'">
 
-                  <label class="input">
-                    <span ng-bind="col.title"></span>
-                    <i class="icon-append fa fa-map-marker"
-                       ng-click="findAddress(col.dataField, table.newData._search[col.dataField], 'newData')"></i>
-                    <input type="text" id="{{settings.name}}{{col.dataField}}Points"
-                           ng-model="table.newData.fullAddress"
-                           ng-required="col.required"
-                           ng-pattern="col.pattern"
-                           ng-enter="findAddress(col.dataField, table.newData._search[col.dataField], 'newData')">
-                  </label>
-                  <div></div>
+                    <label class="input">
+                      <span ng-bind="col.title"></span>
+                      <i class="icon-append fa fa-map-marker"
+                         ng-click="findAddress(col.dataField, table.newData._search[col.dataField], 'newData')"></i>
+                      <input type="text" id="{{settings.name}}{{col.dataField}}Points"
+                             ng-model="table.newData.fullAddress"
+                             ng-required="col.required"
+                             ng-pattern="col.pattern"
+                             ng-enter="findAddress(col.dataField, table.newData._search[col.dataField], 'newData')">
+                    </label>
+                    <div></div>
 
-                  <!-- Warning -->
-                  <article class="col-sm-12" ng-if="inputMaps['newData' + col.dataField].notFound">
-                    <div class="alert alert-warning fade in">
-                      <button class="close" data-dismiss="alert"
-                              ng-click="inputMaps['newData' + col.dataField].notFound == false">×</button>
-                      <i class="fa-fw fa fa-warning"></i>
-                      <strong>Внимание!</strong> По запросу ничего не найдено </div>
-                  </article>
-                  <!-- Warning -->
-                  <!-- MAP -->
-                  <div class="map" ng-if="inputMaps['newData' + col.dataField] && inputMaps['newData' + col.dataField].display">
-                    <ui-gmap-google-map center="inputMaps['newData' + col.dataField].map.center"
-                                        zoom="inputMaps['newData' + col.dataField].map.zoom"
-                                        events="inputMaps['newData' + col.dataField].map.events">
-                      <ui-gmap-marker coords="inputMaps['newData' + col.dataField].marker.coords"
-                                      ptions="inputMaps['newData' + col.dataField].marker.options"
-                                      events="inputMaps['newData' + col.dataField].marker.events"
-                                      idkey="inputMaps['newData' + col.dataField].marker.id">
-                      </ui-gmap-marker>
-                    </ui-gmap-google-map>
-                    <div class="map-hide" ng-click="inputMaps['newData' + col.dataField].display = false;"></div>
-                    (<span ng-bind="table.newData[col.dataField].lat.toFixed(5)"></span>,
-                    <span ng-bind="table.newData[col.dataField].lng.toFixed(5)"></span>)
-                  </div>
-                  <div class="map-show"
-                       ng-click="showMap(col.dataField, 'newData')"
-                       ng-if="!inputMaps['newData' + col.dataField].display"></div>
-                  <!-- MAP -->
+                    <!-- Warning -->
+                    <article class="col-sm-12" ng-if="inputMaps['newData' + col.dataField].notFound">
+                      <div class="alert alert-warning fade in">
+                        <button class="close" data-dismiss="alert"
+                                ng-click="inputMaps['newData' + col.dataField].notFound == false">×
+                        </button>
+                        <i class="fa-fw fa fa-warning"></i>
+                        <strong>Внимание!</strong> По запросу ничего не найдено
+                      </div>
+                    </article>
+                    <!-- Warning -->
+                    <!-- MAP -->
+                    <div class="map"
+                         ng-if="inputMaps['newData' + col.dataField] && inputMaps['newData' + col.dataField].display">
+                      <ui-gmap-google-map center="inputMaps['newData' + col.dataField].map.center"
+                                          zoom="inputMaps['newData' + col.dataField].map.zoom"
+                                          events="inputMaps['newData' + col.dataField].map.events">
+                        <ui-gmap-marker coords="inputMaps['newData' + col.dataField].marker.coords"
+                                        ptions="inputMaps['newData' + col.dataField].marker.options"
+                                        events="inputMaps['newData' + col.dataField].marker.events"
+                                        idkey="inputMaps['newData' + col.dataField].marker.id">
+                        </ui-gmap-marker>
+                      </ui-gmap-google-map>
+                      <div class="map-hide" ng-click="inputMaps['newData' + col.dataField].display = false;"></div>
+                      (<span ng-bind="table.newData[col.dataField].lat.toFixed(5)"></span>,
+                      <span ng-bind="table.newData[col.dataField].lng.toFixed(5)"></span>)
+                    </div>
+                    <div class="map-show"
+                         ng-click="showMap(col.dataField, 'newData')"
+                         ng-if="!inputMaps['newData' + col.dataField].display"></div>
+                    <!-- MAP -->
 
-                </section>
-                <!-- End points-->
+                  </section>
+                  <!-- End points-->
 
-              </div>
-            </fieldset>
-          </form>
-            </section>
+                  <!-- Photo -->
+                  <section class="col form-input c-points" ng-if="col.editorType=='photo'">
+                    <label class="label">Фото</label>
+                    <div class="input input-file">
+                      <span class="button">
+                        <input type="file" id="{{settings.name}}{{col.dataField}}File"
+                               placeholder="{{col.placeholder}}"
+                               file-model="table.newData[col.dataField]"
+                               ng-required="col.required"
+                               ng-pattern="col.pattern">Найти
+                      </span>
+                      <input type="text" placeholder="Include some files" readonly=""
+                             ng-model="table.newData[col.dataField]">
+                    </div>
+                    <div ng-if="imageSrc">
+                      <img class="col-md-12" ng-src="{{imageSrc}}">
+                    </div>
+                  </section>
+                  <!-- End Photo -->
+
+
+                </div>
+              </fieldset>
+            </form>
+          </section>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
@@ -243,13 +268,16 @@
                   <article class="col-sm-12" ng-if="inputMaps['editRowData' + col.dataField].notFound">
                     <div class="alert alert-warning fade in">
                       <button class="close" data-dismiss="alert"
-                              ng-click="inputMaps['editRowData' + col.dataField].notFound == false">×</button>
+                              ng-click="inputMaps['editRowData' + col.dataField].notFound == false">×
+                      </button>
                       <i class="fa-fw fa fa-warning"></i>
-                      <strong>Внимание!</strong> По запросу ничего не найдено </div>
+                      <strong>Внимание!</strong> По запросу ничего не найдено
+                    </div>
                   </article>
                   <!-- Warning -->
                   <!-- MAP -->
-                  <div class="map" ng-if="inputMaps['editRowData' + col.dataField] && inputMaps['editRowData' + col.dataField].display">
+                  <div class="map"
+                       ng-if="inputMaps['editRowData' + col.dataField] && inputMaps['editRowData' + col.dataField].display">
                     <ui-gmap-google-map center="inputMaps['editRowData' + col.dataField].map.center"
                                         zoom="inputMaps['editRowData' + col.dataField].map.zoom"
                                         events="inputMaps['editRowData' + col.dataField].map.events">
@@ -270,6 +298,30 @@
 
                 </section>
                 <!-- End points-->
+
+                <!-- Photo -->
+                <section class="col form-input c-points" ng-if="col.editorType=='photo'">
+                  <label class="label">Фото</label>
+                  <div class="input input-file">
+                      <span class="button">
+                        <input type="file" id="{{settings.name}}{{col.dataField}}File"
+                               placeholder="{{col.placeholder}}"
+                               file-model="table.editRowData[col.dataField]"
+                               ng-required="col.required"
+                               ng-pattern="col.pattern">Найти
+                      </span>
+                    <input type="text" placeholder="Include some files" readonly=""
+                           ng-model="table.editRowData[col.dataField]">
+                  </div>
+                  <div ng-if="imageSrc">
+                    <img class="col-md-12" ng-src="{{imageSrc}}">
+                  </div>
+                  <div ng-if="!imageSrc && table.editRowData.photo">
+                    <img class="col-md-12"
+                         ng-src="{{SERVER_URL}}/storage/test/{{table.editRowData.cityId}}/{{table.editRowData.categoryId}}/{{table.editRowData.id}}/{{table.editRowData.photo}}">
+                  </div>
+                </section>
+                <!-- End Photo -->
 
               </div>
             </fieldset>

@@ -80,6 +80,7 @@ angular.module('app', [
 
   })
   .constant('APP_CONFIG', window.appConfig)
+  .constant('SERVER_URL', 'http://localhost:3000')
   .constant('API_VERSION', 1)
 
   .run(function ($rootScope, $state, $stateParams, Client) {
