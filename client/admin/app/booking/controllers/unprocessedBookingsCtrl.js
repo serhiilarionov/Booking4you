@@ -26,7 +26,7 @@ angular.module('app.booking').controller('UnprocessedBookingsController', functi
         PubSub.subscribe({
           collectionName: 'Booking',
           method: 'PUT',
-          modelId: bookings[i].id
+          modelId: bookings[i].taskId
         }, onBookingUpdate);
 
         PubSub.subscribe({
@@ -41,7 +41,7 @@ angular.module('app.booking').controller('UnprocessedBookingsController', functi
     PubSub.subscribe({
       collectionName: 'Booking',
       method: 'PUT',
-      modelId: booking.id
+      modelId: booking.taskId
     }, onBookingUpdate);
 
     PubSub.subscribe({

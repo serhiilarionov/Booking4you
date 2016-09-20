@@ -157,7 +157,8 @@
                       <span class="button">
                         <input type="file" id="{{settings.name}}{{col.dataField}}File"
                                placeholder="{{col.placeholder}}"
-                               file-model="table.newData[col.dataField]"
+                               file-model="table.newData.file"
+                               file-name-model="table.newData[col.dataField]"
                                ng-required="col.required"
                                ng-pattern="col.pattern">Найти
                       </span>
@@ -306,7 +307,8 @@
                       <span class="button">
                         <input type="file" id="{{settings.name}}{{col.dataField}}File"
                                placeholder="{{col.placeholder}}"
-                               file-model="table.editRowData[col.dataField]"
+                               file-model="table.editRowData.file"
+                               file-name-model="table.editRowData[col.dataField]"
                                ng-required="col.required"
                                ng-pattern="col.pattern">Найти
                       </span>
