@@ -3,11 +3,7 @@
 //COMMON
 .aside-box {
   position: relative;
-  padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
 
   &__wrapper {
     margin-top: 15px;
@@ -17,10 +13,21 @@
     font-family: $ff-secondary;
     font-size: 15px;
     font-weight: bold;
+
+    &_lg {
+      font-size: 16px;
+      margin: 5px 0 30px 0;
+    }
   }
+
+
 
   &_white {
     background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   }
 }
 
