@@ -1,8 +1,8 @@
 import { Dropdown } from './dropdown';
-import { PerfectScrollbarDirective } from './perfect-scrollbar';
+import { CustomScrollbarDirective } from './custom-scrollbar';
 
 export { Dropdown } from './dropdown';
-export { PerfectScrollbarDirective } from './perfect-scrollbar';
+export { CustomScrollbarDirective } from './custom-scrollbar';
 export const Directives: Array<any> = [
-  Dropdown, PerfectScrollbarDirective
+  Dropdown, CustomScrollbarDirective
 ];

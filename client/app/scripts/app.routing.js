@@ -19,6 +19,10 @@ var routes = [
         component: Pages.CompanyListPageComponent
     },
     {
+        path: 'company-details',
+        component: Pages.CompanyDetailsPageComponent
+    },
+    {
         path: 'comming-soon',
         component: Pages.CommingSoonPageComponent
     },

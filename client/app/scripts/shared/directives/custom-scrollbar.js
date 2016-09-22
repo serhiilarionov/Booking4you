@@ -9,27 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var PerfectScrollbarDirective = (function () {
-    function PerfectScrollbarDirective(elementRef) {
+var CustomScrollbarDirective = (function () {
+    function CustomScrollbarDirective(elementRef) {
         this.elementRef = elementRef;
+        this.defaultTheme = 'minimal-dark';
     }
-    PerfectScrollbarDirective.prototype.ngOnInit = function () {
-        Ps.initialize(this.elementRef.nativeElement, {
-            wheelPropagation: true,
-            theme: 'booking',
-            suppressScrollX: true
+    CustomScrollbarDirective.prototype.ngOnInit = function () {
+        $(this.elementRef.nativeElement).mCustomScrollbar({
+            theme: this.theme || this.defaultTheme,
+            scrollInertia: 600,
+            mouseWheel: { scrollAmount: 350 }
         });
     };
-    PerfectScrollbarDirective.prototype.ngAfterViewChecked = function () {
-        Ps.update(this.elementRef.nativeElement);
-    };
-    PerfectScrollbarDirective = __decorate([
+    __decorate([
+        core_1.Input('custom-scrollbar-theme'), 
+        __metadata('design:type', String)
+    ], CustomScrollbarDirective.prototype, "theme", void 0);
+    CustomScrollbarDirective = __decorate([
         core_1.Directive({
-            selector: '[perfect-scrollbar]'
+            selector: '[custom-scrollbar]',
         }), 
         __metadata('design:paramtypes', [core_1.ElementRef])
-    ], PerfectScrollbarDirective);
-    return PerfectScrollbarDirective;
+    ], CustomScrollbarDirective);
+    return CustomScrollbarDirective;
 }());
-exports.PerfectScrollbarDirective = PerfectScrollbarDirective;
-//# sourceMappingURL=perfect-scrollbar.js.map
+exports.CustomScrollbarDirective = CustomScrollbarDirective;
+//# sourceMappingURL=custom-scrollbar.js.map
