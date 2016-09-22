@@ -22,7 +22,10 @@
   }
 }
 
-
+// helpers for font color
+.fc-grey {
+  color: $c-grey-bright;
+}
 
 /**
  * RESET STYLES
@@ -31,6 +34,7 @@
 body {
   height: 100%;
   font-family: $ff-main;
+  color: $c-grey-main;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -56,10 +60,6 @@ a {
   &:hover, &:focus {
     text-decoration: none;
   }
-}
-
-p {
-  opacity: .6;
 }
 
 button {

@@ -33,6 +33,7 @@
 .aside-box__caption._lg {
   font-size: 16px;
   margin: 5px 0 30px 0;
+  text-transform: uppercase;
 }
 
 .main-box {
@@ -42,8 +43,66 @@
     font-weight: bold;
     font-size: 16px;
     margin: 5px 0 30px 0;
+    text-transform: uppercase;
+
+    &_lg {
+      font-size: 24px;
+      margin: 5px 0 30px 0;
+    }
+
+    &_review-form {
+      margin-bottom: 0;
+    }
   }
 }
+
+
+
+//btn show more
+.btn-show-more {
+  position: relative;
+  font-weight: bold;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:before,
+  &:after {
+    -moz-transition: 0.8s;
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
+    text-shadow: none;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'fontawesome';
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    color: #ff513f;
+    display: block;
+    font-size: 10px;
+    position: absolute;
+    right: -15px;
+    top: 4px;
+  }
+
+  &:before {
+    opacity: 1;
+    content: "\f067";
+  }
+
+  &:after {
+    opacity: 0;
+    content: "\f068";
+  }
+}
+
+
+
+
+
 
 //only for company detail page
 
@@ -116,14 +175,6 @@
 
   }
 
-  //rating
-  &-rating {
-    color: #DDDDDD;
-    &_active {
-      color: #ff513f;
-    }
-  }
-
   //form
   &-form {
     &_button {
@@ -162,9 +213,10 @@
       padding: 0;
 
       &-icon {
-        color: #474747;
-        margin-right: 10px;
+        color: #777777;
+        margin-right: 5px;
         font-size: 16px;
+        vertical-align: text-top;
       }
     }
     &__item {
@@ -237,6 +289,7 @@
       font-weight: bold;
     }
   }
+
   &__rating {
     font-size: 11px;
     color: #DDDDDD;
@@ -281,6 +334,33 @@
 
 }
 
+
+//star rating
+
+//rating
+.star-rating {
+  color: #DDDDDD;
+  &__star{
+    &:hover {}
+
+    &_active {
+      color: #ff513f
+    }
+
+    &_active_nearby {
+      color: #8D8D8D;
+    }
+  }
+
+  &_nearby{
+    font-size: 11px;
+    color: #DDDDDD;
+  }
+}
+
+
+
+//bullet list
 .red-bullet-list {
   list-style: disc;
   color: #ff513f;
@@ -294,4 +374,96 @@
 }
 .red-bullet-list._disable-pad {
   padding: 0;
+}
+
+
+//reviews
+.reviews-wrapper {
+  &__title {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  &__over-rating {
+    margin-bottom: 40px;
+  }
+}
+
+
+//btn write review
+.btn-wrrite-review {
+  padding: 10px;
+  text-transform: none;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+
+  &__icon {
+    margin-left: 10px;
+    color: #ff513f;
+  }
+}
+
+.review-box {
+  margin-bottom: 60px;
+  background: #fff;
+  padding: 20px;
+
+  &__avatar {
+    margin: -20px 15px 10px -20px;
+    border: 1px solid #fff;
+  }
+
+  &__date {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  &__username {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  &__rating {
+    margin: 15px 0;
+  }
+  &__txt {
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+  &__evaluation {
+    margin-bottom: 10px;
+  }
+
+}
+
+.review-form {
+
+  .form-control {
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    box-shadow: none;
+  }
+
+  &__btn {
+    color: #fff;
+    background: #ff4330;
+    border: none;
+  }
+
+  &__evaluate {
+    margin-bottom: 20px;
+  }
+
+  &-box {
+    margin-top: 40px;
+    padding: 20px;
+    background: #fff;
+
+    &__form {
+    }
+
+
+  }
+
 }
