@@ -9,16 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../shared/index');
 var CompanyDetailsPageComponent = (function () {
-    function CompanyDetailsPageComponent() {
+    function CompanyDetailsPageComponent(companyApi, route) {
+        this.companyApi = companyApi;
+        this.route = route;
     }
+    CompanyDetailsPageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.companyId = this.route.params.subscribe(function (params) {
+            _this.id = +params['id'];
+        });
+        this.companyApi.findById(this.id).subscribe(function (company) {
+            _this.companyDetails = company;
+        });
+    };
+    CompanyDetailsPageComponent.prototype.ngOnDestroy = function () {
+        this.companyId.unsubscribe();
+    };
     CompanyDetailsPageComponent = __decorate([
         core_1.Component({
             selector: 'company-details-page',
             templateUrl: 'scripts/pages/company-details/company-details-page.component.html',
             styleUrls: ['scripts/pages/company-details/company-details-page.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.CompanyApi, router_1.ActivatedRoute])
     ], CompanyDetailsPageComponent);
     return CompanyDetailsPageComponent;
 }());
