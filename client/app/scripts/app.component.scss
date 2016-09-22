@@ -111,40 +111,6 @@ input, textarea, input.form-control, textarea.form-control {
   opacity: .7;
 }
 
-// Booking theme for perfect scrollbar
-@import "../vendor/perfect-scrollbar/src/css/main";
-
-$ps-theme-booking: map-merge($ps-theme-default, (
-        border-radius: 3px,
-        rail-default-opacity: 0.2,
-        rail-container-hover-opacity: 0.2,
-        rail-hover-opacity: 0.5,
-        bar-bg: transparent,
-        bar-container-hover-bg: $c-grey-main,
-        bar-hover-bg: $c-grey-main,
-        rail-hover-bg: tranparent,
-        scrollbar-x-rail-bottom: 0,
-        scrollbar-x-rail-height: 15px,
-        scrollbar-x-bottom: 4px,
-        scrollbar-x-height: 7px,
-        scrollbar-x-hover-height: 7px,
-        scrollbar-y-rail-right: 0,
-        scrollbar-y-rail-width: 15px,
-        scrollbar-y-right: 4px,
-        scrollbar-y-width: 7px,
-        scrollbar-y-hover-width: 7px,
-));
-
-.ps-theme-booking {
-  @include ps-container($ps-theme-booking);
-
-  .modal &, &.modal {
-    @include ps-container(map-merge($ps-theme-booking, (
-            rail-default-opacity: 0.4,
-            rail-container-hover-opacity: 0.4,
-            rail-hover-opacity: 0.7,
-            bar-container-hover-bg: #fff,
-            bar-hover-bg: #fff,
-    )));
-  }
+.mCSB_container {
+  min-height: 100%;
 }

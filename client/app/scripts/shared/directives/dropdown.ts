@@ -1,11 +1,12 @@
-import { Component, Input, Output, ElementRef, AfterViewInit, AfterViewChecked, EventEmitter } from '@angular/core';
+import { Component, Input, Output, ElementRef,
+  AfterViewInit, OnChanges, EventEmitter, SimpleChanges } from '@angular/core';
 declare var $: any;
 
 @Component({
   selector: 'select.selectpicker',
   templateUrl: 'scripts/shared/directives/dropdown.html'
 })
-export class Dropdown implements AfterViewChecked, AfterViewInit {
+export class Dropdown implements OnChanges, AfterViewInit {
   @Input() public items: any[];
   @Input() public selected: any;
   @Output() public onSelected = new EventEmitter();
@@ -22,7 +23,12 @@ export class Dropdown implements AfterViewChecked, AfterViewInit {
     });
   }
 
-  ngAfterViewChecked() {
-    this.$el.selectpicker('refresh');
+  ngOnChanges(changes: SimpleChanges) {
+    if (!changes['items'] || !changes['items'].currentValue) { return; }
+
+    // TODO: Remove setTimeout with normal lifecycle hook such as AfterViewChecked. Now setTimeout here because scrollbar makes ngAfterViewChecked infinite.
+    setTimeout(() => {
+      this.$el.selectpicker('refresh');
+    }, 1000);
   }
 }

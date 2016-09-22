@@ -22,8 +22,15 @@ var Dropdown = (function () {
             _this.onSelected.next(_this.$el.selectpicker('val'));
         });
     };
-    Dropdown.prototype.ngAfterViewChecked = function () {
-        this.$el.selectpicker('refresh');
+    Dropdown.prototype.ngOnChanges = function (changes) {
+        var _this = this;
+        if (!changes['items'] || !changes['items'].currentValue) {
+            return;
+        }
+        // TODO: Remove setTimeout with normal lifecycle hook such as AfterViewChecked. Now setTimeout here because scrollbar makes ngAfterViewChecked infinite.
+        setTimeout(function () {
+            _this.$el.selectpicker('refresh');
+        }, 1000);
     };
     __decorate([
         core_1.Input(), 
