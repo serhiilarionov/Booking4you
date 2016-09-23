@@ -18,7 +18,6 @@
     font-size: 15px;
     font-weight: bold;
 
-
   }
 
   &_white {
@@ -55,8 +54,6 @@
     }
   }
 }
-
-
 
 //btn show more
 .btn-show-more {
@@ -99,11 +96,6 @@
   }
 }
 
-
-
-
-
-
 //only for company detail page
 
 .company-detail {
@@ -116,7 +108,7 @@
   //company detail page caption
   &-caption {
 
-      padding-bottom: 20px;
+    padding-bottom: 20px;
 
     &__title {
       margin: 0 0 5px 0;
@@ -148,10 +140,6 @@
 
   &-gmap {
   }
-
-
-
-
 
   //contacts
   &-contacts {
@@ -202,7 +190,6 @@
 
   }
 
-
   &-schedule {
     &__day {
       color: #ff513f;
@@ -240,7 +227,6 @@
     }
   }
 
-
 }
 
 //company detail nearby
@@ -253,7 +239,6 @@
   -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   border: 2px solid rgba(0, 0, 0, 0.05);
-
 
   ._block {
     display: block;
@@ -301,7 +286,6 @@
   &:hover {
     color: inherit;
 
-
     .company-detail-nearby {
       &__name {
         @include transition(all 400ms ease-in-out);
@@ -312,7 +296,6 @@
   }
 
 }
-
 
 //company detail events
 .company-detail-events {
@@ -325,23 +308,33 @@
   }
 }
 
-
 //add to favorite
 .add-to-favorite {
+  display: inline-block;
+  min-height: 22px;
+  font-size: 16px;
 
-  color: #ff513f;
-  margin: 5px 0;
+  &__btn {
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    &:hover {
+      color: #ff513f;
+      @include transition(all 400ms ease-in-out);
+    }
+  }
 
 }
-
 
 //star rating
 
 //rating
 .star-rating {
   color: #DDDDDD;
-  &__star{
-    &:hover {}
+  &__star {
+    &:hover {
+    }
 
     &_active {
       color: #ff513f
@@ -352,13 +345,11 @@
     }
   }
 
-  &_nearby{
+  &_nearby {
     font-size: 11px;
     color: #DDDDDD;
   }
 }
-
-
 
 //bullet list
 .red-bullet-list {
@@ -372,10 +363,10 @@
     }
   }
 }
+
 .red-bullet-list._disable-pad {
   padding: 0;
 }
-
 
 //reviews
 .reviews-wrapper {
@@ -388,7 +379,6 @@
     margin-bottom: 40px;
   }
 }
-
 
 //btn write review
 .btn-wrrite-review {
@@ -462,7 +452,6 @@
 
     &__form {
     }
-
 
   }
 

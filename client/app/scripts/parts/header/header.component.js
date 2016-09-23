@@ -29,12 +29,6 @@ var HeaderComponent = (function () {
     HeaderComponent.prototype.onSidebarToggle = function () {
         this.sidebar.toggle();
     };
-    HeaderComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        if (this.clientApi.isAuthenticated()) {
-            this.clientApi.getCurrent().subscribe(function (user) { return _this.currentUser = user; });
-        }
-    };
     HeaderComponent.prototype.logout = function () {
         var _this = this;
         this.clientApi.logout().subscribe(function () {
