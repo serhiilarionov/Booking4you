@@ -82,14 +82,6 @@
 
 .angular-google-map-container { height: 400px; }
 
-/* Adding company styles */
-.bootstrapWizard li {
-    width: 50%;
-}
-
-#c-table .tab-content {
-    margin-top: 30px;
-}
 
 /* Table flex */
 
@@ -117,6 +109,7 @@
     font-size: 1rem;
     margin: 0.5rem;
     line-height: 1.5;
+    width: 100%;
 }
 .Table-header {
     display: none;
@@ -224,4 +217,8 @@
     .Table-row-item:before {
         content: none;
     }
+}
+
+.select2-hidden-accessible {
+    display: none !important;
 }

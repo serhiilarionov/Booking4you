@@ -3,416 +3,214 @@
     <big-breadcrumbs items="['Каталог', 'Компании']" icon="home" class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
     </big-breadcrumbs>
   </div>
-
-
-  <section>
+  <div>
     <div class="row">
-      <article class="col-sm-12 col-md-12 col-lg-12">
-        <div jarvis-widget id="wid-id-0" data-widget-color="darken" data-widget-editbutton="false"
-             data-widget-deletebutton="false">
-          <header>
-            <span class="widget-icon"> <i class="fa fa-check"></i> </span>
+      <form novalidate="novalidate" data-smart-validate-form name="addingCompany.smartForm">
+        <div class="col-sm-12" data-smart-wizard
+             data-current-step="addingCompany.currentStep">
+          <div class="form-bootstrapWizard clearfix">
+            <ul class="bootstrapWizard">
+              <li data-smart-wizard-tab="1">
+                <a href="#"> <span class="step">1</span> <span class="title">Base information</span> </a>
+              </li>
+              <li data-smart-wizard-tab="2">
+                <a href="#"> <span class="step">2</span> <span class="title">Details</span> </a>
+              </li>
+              <li data-smart-wizard-tab="3">
+                <a href="#"> <span class="step">3</span> <span class="title">Location</span> </a>
+              </li>
+              <li data-smart-wizard-tab="4">
+                <a href="#"> <span class="step">4</span> <span class="title">Photos</span> </a>
+              </li>
+              <li data-smart-wizard-tab="5">
+                <a href="#"> <span class="step">5</span> <span class="title">Services</span> </a>
+              </li>
+              <li data-smart-wizard-tab="6">
+                <a href="#"> <span class="step">6</span> <span class="title">Sub categories</span> </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane" data-smart-wizard-pane="1">
+              <br>
 
-            <h2>Companies</h2>
+              <h3><strong>Step 1 </strong> - Basic Information</h3>
 
-          </header>
-          <div id="c-table">
-            <div class="widget-body">
               <div class="row">
-                <div class="col-sm-12" data-smart-wizard>
-                  <div class="form-bootstrapWizard clearfix">
-                    <ul class="bootstrapWizard">
-                      <li data-smart-wizard-tab="1">
-                        <a href="#"> <span class="step">1</span> <span class="title">Base information</span> </a>
-                      </li>
-                      <li data-smart-wizard-tab="2">
-                        <a href="#"> <span class="step">2</span> <span class="title">Existing companies</span> </a>
-                      </li>
-                    </ul>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-briefcase fa-lg fa-fw"></i></span>
+                      <input class="form-control input-lg" type="text" name="name"
+                             placeholder="Название"
+                             data-smart-validate-input
+                             data-required
+                             data-message="Please specify your name"
+                             ng-model="addingCompany.newCompany.name">
+
+                    </div>
                   </div>
-                  <div class="tab-content">
-                    <div class="tab-pane" data-smart-wizard-pane="1">
-                      <br>
-                      <h3><strong>Step 1</strong> - Address</h3>
-                      <div class="row">
-                        <div class="col-sm-5">
-                          <div class="form-group">
-                            <label>City</label>
-                            <select style="width:100%" data-smart-select2 class="select2"
-                                    data-required name="city" ng-model="addingCompany.companyFilter.cityId"
-                                    ng-change="addingCompany.getStreets()">
-                              <option ng-repeat="city in addingCompany.cities" value="{{city.id}}">{{city.name}}
-                              </option>
-                            </select>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-briefcase fa-lg fa-fw"></i></span>
+                      <input class="form-control input-lg" type="text" name="title"
+                             placeholder="Титул"
+                             data-smart-validate-input
+                             data-required
+                             data-message="Please specify your title"
+                             ng-model="addingCompany.newCompany.title">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-info fa-lg fa-fw"></i></span>
+                      <textarea rows="2" class="form-control input-lg" type="text" name="desc"
+                                placeholder="Описание"
+                                data-smart-validate-input
+                                data-message="Please specify your description"
+                                ng-model="addingCompany.newCompany.desc"></textarea>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
+                      <select data-smart-select2 class="select2 addressSelect"
+                              data-smart-validate-input data-required
+                              name="category" ng-model="addingCompany.newCompany.categoryId"
+                              ng-change="addingCompany.getCities()">
+                        <option ng-repeat="category in addingCompany.categories" value="{{category.id}}">
+                          {{category.name}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="tab-pane" data-smart-wizard-pane="2">
+              <br>
+              <h3><strong>Step 2</strong> - Details</h3>
+              <div class="Table">
+                <div class="Table-row Table-header">
+                  <div class="Table-row-item">Phone</div>
+                  <div class="Table-row-item">Work time</div>
+                </div>
+                <div class="Table-row">
+                  <div class="Table-row-item Table">
+                    <div class="Table-row">
+                      <div class="Table-row-item">
+                        <fieldset>
+                          <section class="col-md-6 form-input">
+                            <label class="input">Number
+                              <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="addingCompany.newphone.number"
+                                       data-smart-masked-input="+999999999999" data-mask-placeholder="X">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                              </div>
+                            </label>
+                          </section>
+                          <section class="col-md-6 form-input">
+                            <label class="input">Note
+                              <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="addingCompany.newphone.note">
+                              </div>
+                            </label>
+                          </section>
+                          <section class="col-md-6 form-input">
+                            <label class="input">Priority
+                              <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="addingCompany.newphone.priority">
+                              </div>
+                            </label>
+                          </section>
+                          <section class="col-md-6 form-input detailButton">
+                            <button class="btn btn-primary" ng-click="addingCompany.AddDetail('phone')">Сохранить
+                            </button>
+                          </section>
+                        </fieldset>
+                      </div>
+                      <div class="Table-row-item">
+                        <div class="form-group Table">
+                          <div class="Table-row Table-header">
+                            <div class="Table-row-item">number</div>
+                            <div class="Table-row-item">note</div>
+                            <div class="Table-row-item">priority</div>
                           </div>
-                        </div>
-                        <div class="col-sm-5">
-                          <div class="form-group">
-                            <label>Street</label>
-                            <select style="width:100%" data-smart-select2 class="select2"
-                                    data-required name="street" ng-model="addingCompany.companyFilter.streetId"
-                                    name="street">
-                              <option ng-repeat="street in addingCompany.streets" value="{{street.id}}">
-                                {{street.name}}
-                              </option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="form-group">
-                            <label>House number</label>
-                            <input class="form-control input-md" type="text"
-                                   name="buildingId" ng-model="addingCompany.companyFilter.buildingId"
-                                   data-smart-validate-input
-                                   data-required
-                                   data-message="Please specify house number">
+                          <div class="Table-row" ng-repeat="phone in addingCompany.detail.phone track by $index">
+                            <div class="Table-row-item">{{phone.number}}</div>
+                            <div class="Table-row-item">{{phone.note}}</div>
+                            <div class="Table-row-item">{{phone.priority}}</div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="tab-pane" data-smart-wizard-pane="2">
-                      <div>
-                        <p class="control-buttons">
-                          <button type="button" class="btn btn-info" data-toggle="modal"
-                                  data-target="#companyNewRowModal">
-                            <i class="fa fa-plus"></i>&nbsp;Добавить
-                          </button>
-                      </div>
-
-                      <!-- Start adding table row modal -->
-                      <div class="c-modal modal fade" id="companyNewRowModal" tabindex="-1" role="dialog"
-                           aria-labelledby="companyNewModalLabel" aria-hidden="true"
-                           data-ng-init="bindHideModalFunction($hide)">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal"
-                                      aria-hidden="true">&times;</button>
-                              <h4 class="modal-title" id="companyNewModalLabel">Добавление</h4>
-                            </div>
-                            <div class="modal-body">
-                              <section id="set-points-widget-grid" widget-grid data-widget-grid>
-                                <form id="company-adding-new-row-form" class="smart-form"
-                                      ng-submit="addingCompany.addNewRow()">
-                                  <fieldset>
-                                    <div>
-                                      <!-- Name -->
-                                      <section class="col form-input">
-                                        <label class="input">Название
-                                          <input type="text" id="companyNameAdd"
-                                                 ng-model="addingCompany.Company['Add']['name']">
-                                        </label>
-                                      </section>
-                                      <!-- End Name-->
-
-                                      <!-- Title -->
-                                      <section class="col form-input">
-                                        <label class="input">Заголовок
-                                          <input type="text" id="companyTitleAdd"
-                                                 ng-model="addingCompany.Company['Add']['title']">
-                                        </label>
-                                      </section>
-                                      <!-- End Title-->
-
-                                      <!-- City box-->
-                                      <section class="col form-input">
-                                        <label class="input">Город
-                                          <select class="form-control input-sm" id="companyCitySelectBoxAdd"
-                                                  ng-model="addingCompany.Company['Add']['cityId']">
-                                            <option
-                                                ng-repeat="row in addingCompany.cities track by row.id"
-                                                value="{{row.id}}"
-                                                ng-selected="addingCompany.Company['Add']['cityId'] == row.id">
-                                              #{{row.id}} ({{row.name}})
-                                            </option>
-                                          </select>
-                                        </label>
-                                      </section>
-                                      <!-- End City box-->
-
-                                      <!-- Category box-->
-                                      <section class="col form-input">
-                                        <label class="input">Категория
-                                          <select class="form-control input-sm" id="companyCategorySelectBoxAdd"
-                                                  ng-model="addingCompany.Company['Add']['categoryId']">
-                                            <option
-                                                ng-repeat="row in addingCompany.categories track by row.id"
-                                                value="{{row.id}}"
-                                                ng-selected="addingCompany.Company['Add']['categoryId'] == row.id">
-                                              #{{row.id}} ({{row.name}})
-                                            </option>
-                                          </select>
-                                        </label>
-                                      </section>
-                                      <!-- End Category box-->
-
-                                      <!-- Desc -->
-                                      <section class="col form-input">
-                                        <label class="input">Описание
-                                          <input type="text" id="companyDescAdd"
-                                                 ng-model="addingCompany.Company['Add']['desc']">
-                                        </label>
-                                      </section>
-                                      <!-- End Desc-->
-
-                                      <!-- Photo -->
-                                      <section class="col form-input">
-                                        <label class="label">File input</label>
-                                        <div class="input input-file">
-                                          <span class="button">
-                                            <input type="file" id="file" name="file"
-                                                   file-model="addingCompany.photo"
-                                                   onchange="this.parentNode.nextSibling.nextSibling.value = this.value">Browse
-                                          </span>
-                                          <input type="text" placeholder="Include some files" readonly="">
-                                        </div>
-                                      </section>
-                                      <!-- End Photo -->
-
-                                      <!-- Points -->
-                                      <section class="col form-input c-points">
-
-                                        <label class="input">
-                                          <i class="icon-append fa fa-map-marker"
-                                             ng-click="addingCompany.findAddress('Point', addingCompany.Company['Add']['point'], 'Add')"></i>
-                                          <input type="text" id="companyPointAdd"
-                                                 ng-model="addingCompany.Company['Add']['Point']"
-                                                 ng-enter="addingCompany.findAddress('Point', addingCompany.Company['Add']['point'], 'Add')">
-                                        </label>
-                                        <div></div>
-
-                                        <!-- Warning -->
-                                        <article class="col-sm-12" ng-if="addingCompany.inputMaps['Addpoint'].notFound">
-                                          <div class="alert alert-warning fade in">
-                                            <button class="close" data-dismiss="alert"
-                                                    ng-click="inputMaps['Addpoint'].notFound == false">×</button>
-                                            <i class="fa-fw fa fa-warning"></i>
-                                            <strong>Внимание!</strong> По запросу ничего не найдено </div>
-                                        </article>
-                                        <!-- Warning -->
-                                        <!-- MAP -->
-                                        <div class="map" ng-if="addingCompany.inputMaps['Addpoint'] && addingCompany.inputMaps['Addpoint'].display">
-                                          <ui-gmap-google-map center="addingCompany.inputMaps['Addpoint'].map.center"
-                                                              zoom="addingCompany.inputMaps['Addpoint'].map.zoom"
-                                                              events="addingCompany.inputMaps['Addpoint'].map.events">
-                                            <ui-gmap-marker coords="addingCompany.inputMaps['Addpoint'].marker.coords"
-                                                            ptions="addingCompany.inputMaps['Addpoint'].marker.options"
-                                                            events="addingCompany.inputMaps['Addpoint'].marker.events"
-                                                            idkey="addingCompany.inputMaps['Addpoint'].marker.id">
-                                            </ui-gmap-marker>
-                                          </ui-gmap-google-map>
-                                          <div class="map-hide" ng-click="addingCompany.inputMaps['Addpoint'].display = false;"></div>
-                                          (<span ng-bind="addingCompany.Company['Add']['point'].lat.toFixed(5)"></span>,
-                                          <span ng-bind="addingCompany.Company['Add']['point'].lng.toFixed(5)"></span>)
-                                        </div>
-                                        <div class="map-show"
-                                             ng-click="addingCompany.showMap('point', 'Add')"
-                                             ng-if="!addingCompany.inputMaps['Addpoint'].display"></div>
-                                        <!-- MAP -->
-
-                                      </section>
-                                      <!-- End points-->
-
-                                      <!-- Active -->
-                                      <section class="col form-input active-checkbox">
-                                        <label class="checkbox">
-                                          <input type="checkbox" id="companyActiveAdd"
-                                                 ng-model="addingCompany.Company['Add']['active']">
-                                          <i></i>Активно</label>
-                                      </section>
-                                      <!-- End Active -->
-                                    </div>
-                                  </fieldset>
-                                </form>
-                              </section>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
-                              <button type="submit" form="company-adding-new-row-form" class="btn btn-primary">
-                                Добавить
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- End adding table row modal -->
-
-                      <!-- Start editing table row modal -->
-                      <div class="c-modal modal fade" id="companyEditRowModal" tabindex="-1" role="dialog"
-                           aria-labelledby="companyEditModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal"
-                                      aria-hidden="true">&times;</button>
-                              <h4 class="modal-title" id="companyEditModalLabel">Редактирование</h4>
-                            </div>
-                            <div class="modal-body">
-                              <form id="company-editing-row-form" class="smart-form"
-                                    ng-submit="addingCompany.editRow()">
-                                <fieldset>
-                                  <div>
-                                    <!-- Name -->
-                                    <section class="col form-input">
-                                      <label class="input">Название
-                                        <input type="text" id="companyNameEdit"
-                                               ng-model="addingCompany.Company.Edit['name']">
-                                      </label>
-                                    </section>
-                                    <!-- End Name-->
-
-                                    <!-- Title -->
-                                    <section class="col form-input">
-                                      <label class="input">Заголовок
-                                        <input type="text" id="companyTitleEdit"
-                                               ng-model="addingCompany.Company.Edit['title']">
-                                      </label>
-                                    </section>
-                                    <!-- End Title-->
-
-                                    <!-- Select box-->
-                                    <section class="col form-input">
-                                      <label class="input">Категория
-                                        <select class="form-control input-sm" id="companyCategorySelectBoxEdit"
-                                                ng-model="addingCompany.Company.Edit['categoryId']">
-                                          <option
-                                              ng-repeat="row in addingCompany.categories track by row.id"
-                                              value="{{row.id}}"
-                                              ng-selected="addingCompany.Company.Edit['categoryId'] == row.id">
-                                            #{{row.id}} ({{row.name}})
-                                          </option>
-                                        </select>
-                                      </label>
-                                    </section>
-                                    <!-- End Select box-->
-
-                                    <!-- Desc -->
-                                    <section class="col form-input">
-                                      <label class="input">Описание
-                                        <input type="text" id="companyDescEdit"
-                                               ng-model="addingCompany.Company.Edit['desc']">
-                                      </label>
-                                    </section>
-                                    <!-- End Desc-->
-
-                                    <!-- Photo -->
-                                    <section class="col form-input">
-                                      <label class="label">File input</label>
-                                      <div class="input input-file">
-                                          <span class="button">
-                                            <input type="file" name="file"
-                                                   file-model="addingCompany.photo"
-                                                   onchange="this.parentNode.nextSibling.nextSibling.value = this.value">Browse
-                                          </span>
-                                        <input type="text" placeholder="Include some files" readonly="">
-                                      </div>
-                                    </section>
-                                    <!-- End Photo -->
-
-                                    <!-- Points -->
-                                    <section class="col form-input c-points">
-
-                                      <label class="input">
-                                        <i class="icon-append fa fa-map-marker"
-                                           ng-click="addingCompany.findAddress('Point', addingCompany.Company['Edit']['point'], 'Edit')"></i>
-                                        <input type="text" id="companyPointEdit"
-                                               ng-model="addingCompany.Company['Edit']['Point']"
-                                               ng-enter="addingCompany.findAddress('Point', addingCompany.Company['Edit']['point'], 'Edit')">
-                                      </label>
-                                      <div></div>
-
-                                      <!-- Warning -->
-                                      <article class="col-sm-12" ng-if="addingCompany.inputMaps['Editpoint'].notFound">
-                                        <div class="alert alert-warning fade in">
-                                          <button class="close" data-dismiss="alert"
-                                                  ng-click="addingCompany.inputMaps['Editpoint'].notFound == false">×</button>
-                                          <i class="fa-fw fa fa-warning"></i>
-                                          <strong>Внимание!</strong> По запросу ничего не найдено </div>
-                                      </article>
-                                      <!-- Warning -->
-                                      <!-- MAP -->
-                                      <div class="map" ng-if="addingCompany.inputMaps['Editpoint'] && addingCompany.inputMaps['Editpoint'].display">
-                                        <ui-gmap-google-map center="addingCompany.inputMaps['Editpoint'].map.center"
-                                                            zoom="addingCompany.inputMaps['Editpoint'].map.zoom"
-                                                            events="addingCompany.inputMaps['Editpoint'].map.events">
-                                          <ui-gmap-marker coords="addingCompany.inputMaps['Editpoint'].marker.coords"
-                                                          ptions="addingCompany.inputMaps['Editpoint'].marker.options"
-                                                          events="addingCompany.inputMaps['Editpoint'].marker.events"
-                                                          idkey="addingCompany.inputMaps['Editpoint'].marker.id">
-                                          </ui-gmap-marker>
-                                        </ui-gmap-google-map>
-                                        <div class="map-hide" ng-click="addingCompany.inputMaps['Editpoint'].display = false;"></div>
-                                        (<span ng-bind="addingCompany.Company['Edit']['point'].lat.toFixed(5)"></span>,
-                                        <span ng-bind="addingCompany.Company['Edit']['point'].lng.toFixed(5)"></span>)
-                                      </div>
-                                      <div class="map-show"
-                                           ng-click="addingCompany.showMap('point', 'Edit')"
-                                           ng-if="!addingCompany.inputMaps['Editpoint'].display"></div>
-                                      <!-- MAP -->
-
-                                    </section>
-                                    <!-- End points-->
-
-                                    <!-- Active -->
-                                    <section class="col form-input active-checkbox">
-                                      <label class="checkbox">
-                                        <input type="checkbox" id="companyActiveEdit"
-                                               ng-model="addingCompany.Company.Edit['active']">
-                                        <i></i>Активно</label>
-                                    </section>
-                                    <!-- End Active -->
-                                  </div>
-                                </fieldset>
-                              </form>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
-                              <button type="submit" form="company-editing-row-form" class="btn btn-primary">Сохранить
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- End editing table row modal -->
-
-                      <table class="table table-hover grid">
-                        <thead>
-                        <tr>
-                          <th></th>
-                          <th ng-repeat="(key, value) in addingCompany.companies[0] track by $index"
-                              ng-if="key != 'id'">{{key}}
-                          </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="company in addingCompany.companies">
-                          <td>
-                            <button class="btn btn-warning" data-toggle="modal"
-                                    data-target="#companyEditRowModal"
-                                    ng-click="addingCompany.onStartEditing($index)">
-                              <i class="fa fa-edit"></i></button>
-                            &nbsp;
-                          </td>
-                          <td ng-repeat="(key, value) in company" ng-if="key != 'id'">
-                            {{(key == 'categoryId') ? addingCompany.find(value).name : value}}
-                          </td>
-                        </tr>
-                        </tbody>
-                      </table>
+                  </div>
+                  <div class="Table-row-item">
+                    <div class="form-group">
+                      <div work-times="addingCompany.detail.workTime"
+                           week-days="addingCompany.weekDays"></div>
                     </div>
-
-                    <div class="form-actions">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <ul class="pager wizard no-margin">
-                            <li class="previous" data-smart-wizard-prev>
-                              <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                            </li>
-                            <li class="next" data-smart-wizard-next>
-                              <a href="#" class="btn btn-lg txt-color-darken" ng-click="addingCompany.filter()">
-                                Next </a>
-                            </li>
-                          </ul>
+                  </div>
+                </div>
+                <div class="Table-row Table-header">
+                  <div class="Table-row-item">Email</div>
+                  <div class="Table-row-item">Website</div>
+                </div>
+                <div class="Table-row">
+                  <div class="Table-row-item">
+                    <div class="form-group Table">
+                      <div class="Table-row">
+                        <div class="Table-row-item">
+                          <label class="input">
+                            <input class="form-control" name="email"
+                                   ng-model="addingCompany.newemail">
+                          </label>
+                          <button class="btn btn-primary" ng-click="addingCompany.AddDetail('email')"> +</button>
+                        </div>
+                        <div class="Table-row-item">
+                          <div class="form-group Table">
+                            <div class="Table-row"
+                                 ng-repeat="email in addingCompany.detail.email track by $index">
+                              <div class="Table-row-item">{{email}}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="Table-row-item">
+                    <div class="form-group Table">
+                      <div class="Table-row">
+                        <div class="Table-row-item">
+                          <label class="input">
+                            <input class="form-control" name="website"
+                                   ng-model="addingCompany.newwebsite">
+                          </label>
+                          <button class="btn btn-primary" ng-click="addingCompany.AddDetail('website')"> +</button>
+                        </div>
+                        <div class="Table-row-item">
+                          <div class="form-group Table">
+                            <div class="Table-row"
+                                 ng-repeat="website in addingCompany.detail.website track by $index">
+                              <div class="Table-row-item">{{website}}</div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -420,9 +218,301 @@
                 </div>
               </div>
             </div>
+
+            <div class="tab-pane" data-smart-wizard-pane="3">
+              <br>
+              <h3><strong>Step 3</strong> - Location</h3>
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
+                      <select data-smart-select2 class="select2 addressSelect"
+                              data-smart-validate-input data-required
+                              name="region" ng-model="addingCompany.location.regionId"
+                              ng-change="addingCompany.getCities()">
+                        <option ng-repeat="region in addingCompany.regions" value="{{region.id}}">
+                          {{region.name}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
+                      <select data-smart-select2 class="select2 addressSelect"
+                              data-smart-validate-input data-required
+                              name="city" ng-model="addingCompany.location.cityId"
+                              ng-change="addingCompany.getStreets()">
+                        <option ng-repeat="city in addingCompany.cities" value="{{city.id}}">
+                          {{city.name}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
+                      <select data-smart-select2 class="select2 addressSelect"
+                              data-smart-validate-input data-required
+                              name="street" ng-model="addingCompany.location.streetId">
+                        <option ng-repeat="street in addingCompany.streets" value="{{street.id}}">
+                          {{street.name}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                      <input class="form-control input-lg" placeholder="Номер дома"
+                             type="text" name="building" ng-model="addingCompany.location.buildingId"
+                             data-smart-validate-input data-required data-minlength="1">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-building  fa-lg fa-fw"></i></span>
+                      <input class="form-control input-lg" placeholder="Номер квартиры"
+                             type="text" name="room" ng-model="addingCompany.location.room"
+                             data-smart-validate-input data-required data-minlength="1">
+                    </div>
+                  </div>
+                </div>
+                <!-- Point -->
+                <div class="col-sm-4 c-points">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control input-lg" type="text" id="companyPointAdd"
+                             ng-model="addingCompany.location.fullAddress"
+                             ng-enter="addingCompany.findAddress('point', addingCompany.location.fullAddress, 'new')">
+                      <span class="ng-binding input-group-addon">
+                          <i class="icon-append fa fa-map-marker"
+                             ng-click="addingCompany.findAddress('point', addingCompany.location.fullAddress, 'new')">
+                          </i></span>
+                    </div>
+                    <!-- Warning -->
+                    <article class="col-sm-12" ng-if="addingCompany.inputMaps['newpoint'].notFound">
+                      <div class="alert alert-warning fade in">
+                        <button class="close" data-dismiss="alert"
+                                ng-click="inputMaps['newpoint'].notFound == false">×
+                        </button>
+                        <i class="fa-fw fa fa-warning"></i>
+                        <strong>Внимание!</strong> По запросу ничего не найдено
+                      </div>
+                    </article>
+                    <!-- Warning -->
+                    <!-- MAP -->
+                    <div class="map"
+                         ng-if="addingCompany.inputMaps['newpoint'] && addingCompany.inputMaps['newpoint'].display">
+                      <ui-gmap-google-map center="addingCompany.inputMaps['newpoint'].map.center"
+                                          zoom="addingCompany.inputMaps['newpoint'].map.zoom"
+                                          events="addingCompany.inputMaps['newpoint'].map.events">
+                        <ui-gmap-marker coords="addingCompany.inputMaps['newpoint'].marker.coords"
+                                        ptions="addingCompany.inputMaps['newpoint'].marker.options"
+                                        events="addingCompany.inputMaps['newpoint'].marker.events"
+                                        idkey="addingCompany.inputMaps['newpoint'].marker.id">
+                        </ui-gmap-marker>
+                      </ui-gmap-google-map>
+                      <div class="map-hide"
+                           ng-click="addingCompany.inputMaps['newpoint'].display = false;"></div>
+                      (<span ng-bind="addingCompany.location.point.lat.toFixed(5)"></span>,
+                      <span ng-bind="addingCompany.location.point.lng.toFixed(5)"></span>)
+                    </div>
+                    <div class="map-show"
+                         ng-click="addingCompany.showMap('point', 'new')"
+                         ng-if="!addingCompany.inputMaps['newpoint'].display"></div>
+                    <!-- MAP -->
+                    <!-- End Point -->
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="tab-pane" data-smart-wizard-pane="4">
+              <br>
+
+              <h3><strong>Step 4</strong> - Photos</h3>
+              <br>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-file-image-o fa-lg fa-fw"></i></span>
+                      <div class="input input-file">
+                        <span class="button">
+                          <input type="file" file-model="addingCompany.newCompany.file"
+                                 file-name-model="addingCompany.newCompany.photo">Найти
+                        </span>
+                        <input type="text" placeholder="Include some files" readonly=""
+                               ng-model="addingCompany.newCompany.photo" class="form-control input-lg">
+                      </div>
+                    </div>
+
+                    <div ng-if="imageSrc">
+                      <img class="col-md-12" ng-src="{{imageSrc}}">
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-file-image-o fa-lg fa-fw"></i></span>
+                      <div class="input input-file">
+                        <span class="button">
+                          <input type="file" nv-file-select uploader="addingCompany.uploader">Найти
+                        </span>
+                        <input type="text" placeholder="Include some files" readonly="" class="form-control input-lg">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div ng-repeat="item in addingCompany.uploader.queue"
+                           class="ng-scope col-sm-10 col-md-8 col-lg-4">
+                        <div class="ng-scope">
+                          <!-- Image preview -->
+                          <div ng-thumb="{ file: item._file, height: 150 }" class="col-md-12"></div>
+                          <!--fixed width and height -->
+                          <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+                        </div>
+                        <div ng-bind="item.file.name" class="col-md-8"></div>
+                        <button ng-click="item.remove()" class="col-md-4">Remove</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" data-smart-wizard-pane="5">
+              <br>
+
+              <h3><strong>Step 5</strong> - Services</h3>
+              <br>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <div class="input-group">
+                    </div>
+                  </div>
+                  <div class=" Table">
+                    <div class="Table-row">
+                      <div class="Table-row-item">
+                          <div class="col-md-2 form-input">
+                            <label class="input">Name
+                              <input type="text" class="form-control"
+                                     ng-model="addingCompany.newService.name">
+                            </label>
+                          </div>
+                          <div class="col-md-4 form-input">
+                            <label class="input">Description
+                              <textarea rows="1" class="form-control input-lg" type="text" name="desc"
+                                        ng-model="addingCompany.newService.desc"></textarea>
+                            </label>
+                          </div>
+                          <div class="col-md-1 form-input">
+                            <label class="input">Price
+                              <input type="text" class="form-control"
+                                     ng-model="addingCompany.newService.price">
+                            </label>
+                          </div>
+                          <div class="col-md-1 form-input">
+                            <label class="input">Sale price
+                              <input type="text" class="form-control"
+                                     ng-model="addingCompany.newService.salePrice">
+                            </label>
+                          </div>
+                          <div class="col-md-2 form-input">
+                            <label class="input">Currency
+                              <input type="text" class="form-control"
+                                     ng-model="addingCompany.newService.currency">
+                            </label>
+                          </div>
+                          <div class="col-md-1 form-input">
+                            <label class="input">Position
+                              <input type="text" class="form-control"
+                                     ng-model="addingCompany.newService.position">
+                            </label>
+                          </div>
+                          <div class="col-md-1 form-input detailButton">
+                            <button class="btn btn-primary" ng-click="addingCompany.AddService()">Сохранить
+                            </button>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="Table-row">
+                      <div class="Table-row-item">
+                        <div class="form-group Table">
+                          <div class="Table-row Table-header">
+                            <div class="Table-row-item">Name</div>
+                            <div class="Table-row-item">Description</div>
+                            <div class="Table-row-item">Price</div>
+                            <div class="Table-row-item">Sale price</div>
+                            <div class="Table-row-item">Currency</div>
+                            <div class="Table-row-item">Position</div>
+                          </div>
+                          <div class="Table-row" ng-repeat="phone in addingCompany.services track by $index">
+                            <div class="Table-row-item">{{phone.name}}</div>
+                            <div class="Table-row-item">{{phone.desc}}</div>
+                            <div class="Table-row-item">{{phone.price}}</div>
+                            <div class="Table-row-item">{{phone.salePrice}}</div>
+                            <div class="Table-row-item">{{phone.currency}}</div>
+                            <div class="Table-row-item">{{phone.position}}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" data-smart-wizard-pane="6">
+              <br>
+              <h3><strong>Step 6</strong> - Sub categories</h3>
+              <br>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="widget-body">
+                    <div class="tree smart-form">
+                      <ul data-smart-treeview data-items="addingCompany.subCategories" role="tree"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div class="row">
+                <div class="col-sm-12">
+                  <ul class="pager wizard no-margin">
+                    <li class="previous" data-smart-wizard-prev>
+                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
+                    </li>
+                    <li class="next" data-smart-wizard-next>
+                      <a href="#" class="btn btn-lg txt-color-darken" ng-click="addingCompany.formSubmit()"> Next </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </article>
+      </form>
     </div>
-  </section>
+  </div>
 </div>

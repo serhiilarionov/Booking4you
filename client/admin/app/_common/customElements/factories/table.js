@@ -196,8 +196,8 @@ angular.module('customElements')
       function _onRowClick(nRow, aData) {
         var settings = $scope.settings;
         if (settings.onRowClick) {
-          $('td', nRow).unbind('click');
-          $('td', nRow).bind('click', function () {
+          $('td:not(.action-buttons)', nRow).unbind('click');
+          $('td:not(.action-buttons)', nRow).bind('click', function () {
             settings.onRowClick(nRow, aData);
           });
         }

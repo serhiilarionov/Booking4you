@@ -40,7 +40,8 @@
     },
     "active": {
       "type": "boolean",
-      "required": true
+      "required": true,
+      "default": false
     },
     "deletedAt": {
       "type": "date",

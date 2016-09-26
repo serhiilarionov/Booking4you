@@ -1,0 +1,13 @@
+<li ng-class="{parent_li: item.children.length}" ng-repeat="item in items" role="treeitem">
+  <span ng-if="!item.firstLevel">
+    <label class="checkbox inline-block">
+      <input type="checkbox" ng-model="item.checked"><i></i>{{item.name}}
+    </label>
+  </span>
+  <span ng-if="item.firstLevel">
+    <i class="fa fa-lg"></i> {{item.name}}
+  </span>
+
+  <ul ng-if="item.children.length" smart-treeview ng-show="item.expanded" items="item.children" role="group"
+      class="smart-treeview-group"></ul>
+</li>

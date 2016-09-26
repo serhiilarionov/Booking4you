@@ -102,6 +102,11 @@
       "foreignKey": "companyId",
       "through": "CategoryCompany"
     },
+    "category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "categoryId"
+    },
     "clients": {
       "type": "hasMany",
       "model": "Client",
