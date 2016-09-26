@@ -7,6 +7,8 @@ import { HeroComponent } from './hero/hero.component';
 import { GmapComponent } from './gmap/gmap.component';
 // import { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
+import { OnImageActivatedDirective } from './image-gallery/on-image-activated.directive';
 
 export { LoginFormComponent } from './auth/login-form.conponent';
 export { RegistrationFormComponent } from './auth/registration-form.conponent';
@@ -17,6 +19,8 @@ export { HeroComponent } from './hero/hero.component';
 export { GmapComponent } from './gmap/gmap.component';
 // export { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
 export { CommingSoonComponent } from './comming-soon/comming-soon.component';
+export { ImageGalleryComponent } from './image-gallery/image-gallery.component';
+export { OnImageActivatedDirective } from './image-gallery/on-image-activated.directive';
 
 export const Components: Array<any> = [
   LoginFormComponent,
@@ -27,5 +31,7 @@ export const Components: Array<any> = [
   HeroComponent,
   GmapComponent,
   // GmapInfoboxComponent,
-  CommingSoonComponent
+  CommingSoonComponent,
+  ImageGalleryComponent,
+  OnImageActivatedDirective
 ];

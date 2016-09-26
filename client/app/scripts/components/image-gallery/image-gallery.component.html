@@ -1,0 +1,6 @@
+<div class="gallery-container" [style.height]="containerHeight">
+    <img *ngFor="let image of activeImages" [@imageState]="image?.state" [src]="image?.src" alt=""
+         (onImageActivated)="containerHeight = $event" [state]="image?.state" />
+    <button class="prev" (click)="toggleActiveImage('PREV_IMAGE')"><i class="fa fa-angle-left"></i></button>
+    <button class="next" (click)="toggleActiveImage('NEXT_IMAGE')"><i class="fa fa-angle-right"></i></button>
+</div>
