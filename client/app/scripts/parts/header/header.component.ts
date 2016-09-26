@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, Inject } from '@angular/core';
+import { Component, ViewEncapsulation, Inject } from '@angular/core';
 import { Client, ClientApi, LoopBackAuth, SidebarService, Broadcaster, EventTypes } from '../../shared/index';
 declare var $: any;
 
@@ -9,7 +9,7 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public currentUser: Client;
 
   constructor(
@@ -27,12 +27,6 @@ export class HeaderComponent implements OnInit {
 
   onSidebarToggle() {
     this.sidebar.toggle();
-  }
-
-  ngOnInit() {
-    if (this.clientApi.isAuthenticated()) {
-      this.clientApi.getCurrent().subscribe((user: Client) => this.currentUser = user);
-    }
   }
 
   logout() {

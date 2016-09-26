@@ -1,363 +1,522 @@
 <div class="company-detail-gmap text-center">
-    <img width="100%" src="scripts/pages/company-details/assets/detail-map.png" alt="">
+  <img width="100%" src="scripts/pages/company-details/assets/detail-map.png" alt="">
 </div>
 
 <div class="container company-detail_pad">
-    <div class="row">
+  <div class="row">
 
-        <!--left-->
-        <div class="col-md-9">
+    <!--left-->
+    <div class="col-md-9">
 
-            <!--company title-->
-            <div class="company-detail-caption clearfix">
-                <div class="col-md-8">
-                    <h1 class="page-title company-detail-caption__title">Max Five Lounge </h1>
-                    <p class="company-detail__street">63 Birch Street</p>
-                </div>
+      <!--company title-->
+      <div class="company-detail-caption clearfix">
+        <div class="col-md-8">
+          <h1 class="page-title company-detail-caption__title">
+            {{companyDetails?.title}}
+          </h1>
+          <p class="company-detail__street">63 Birch Street</p>
+        </div>
 
-                <div class="col-md-4 company-detail-caption__type">
+        <div class="col-md-4 company-detail-caption__type">
                     <span class="company-detail-caption__type-name">
                         <i class="fa fa-cutlery company-detail-caption__type-icon"></i> Restaurant
                     </span>
 
-                    <a href="" class="add-to-favorite"><i class="fa fa-star fa-lg fa-fw"></i>Add to favorite</a>
-
-                </div>
-            </div>
-
-
-            <div class="col-md-4 col-sm-4">
-
-
-                <!--company info-->
-                <aside class="aside-box aside-box_white company-detail-contacts">
-                    <div class="aside-box__caption">Contact</div>
-                    <div class="aside-box__wrapper">
-
-                        <div class="company-detail-contacts__address">
-                            Max Five Lounge <br>
-                            63 Birch Street<br>
-                            Granada Hills, CA 91344
-                        </div>
-
-                        <div class="company-detail-contacts__info"><i
-                                class="fa fa-mobile company-detail-contacts__icon"></i>
-                            818-832-5258
-                        </div>
-                        <div class="company-detail-contacts__info"><i
-                                class="fa fa-phone company-detail-contacts__icon"></i> +1
-                            123 456 789
-                        </div>
-                        <div class="company-detail-contacts__info"><i
-                                class="fa fa-globe company-detail-contacts__icon"></i> <a
-                                href="" class="company-detail-contacts__weblink">www.b4u.com.ua</a></div>
-
-                    </div>
-                </aside>
-
-
-                <!--company rating-->
-
-                <aside class="aside-box aside-box_white clearfix">
-                    <div class="aside-box__caption pull-left">
-                        Rating
-                    </div>
-
-                    <div class="company-detail-rating pull-right">
-                        <i class="fa fa-star company-detail-rating_active fa-lg" data-score="1"></i>
-                        <i class="fa fa-star company-detail-rating_active fa-lg" data-score="2"></i>
-                        <i class="fa fa-star company-detail-rating_active fa-lg" data-score="3"></i>
-                        <i class="fa fa-star company-detail-rating_active fa-lg" data-score="4"></i>
-                        <i class="fa fa-star fa-lg" data-score="5"></i>
-                    </div>
-
-                </aside>
-
-
-                <!--events-->
-                <aside class="aside-box aside-box_white">
-                    <div class="aside-box__caption">
-                        Events
-                    </div>
-                    <div class="aside-box__wrapper">
-                        <p>Maecenas purus sapien, pellentesque non consectetur eu, rhoncus in mauris. Duis et nisl
-                            metus. Sed ut
-                            pulvinar mauris, bibendum ullamcorper ex. Aliquam vitae ante diam.
-                            Nam eu blandit odio. Cras erat lorem, iaculis eu nulla eu, sodales aliquam eros.</p>
-                    </div>
-                </aside>
-
-
-                <!--contact form-->
-                <aside class="aside-box aside-box_white">
-                    <div class="aside-box__caption">Contact Form</div>
-                    <div class="aside-box__wrapper">
-
-                        <div class="company-detail-form">
-
-                            <div class="form-group">
-                                <label for="company-detail-form__name">Name</label>
-                                <input type="email" class="form-control company-detail-form__input"
-                                       id="company-detail-form__name" name="company-detail-form__name"
-                                       required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company-detail-form__email">Email</label>
-                                <input type="email" class="form-control company-detail-form__input"
-                                       id="company-detail-form__email" name="company-detail-form__email"
-                                       required>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="company-detail-form__message">Message</label>
-                                <textarea class="form-control company-detail-form__input"
-                                          id="company-detail-form__message" name="company-detail-form__message" rows="3"
-                                          required></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <button type="submit" class="btn company-detail-form_button">Send<i
-                                        class="fa fa-angle-right fa-fw"></i></button>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </aside>
-            </div>
-
-
-            <!--center-->
-
-            <div class="col-md-8 col-sm-8">
-                <div class="company-detail-gallery">
-                    <img src="scripts/pages/company-details/assets/company-detail-slider.png" alt="">
-                </div>
-
-                <div class="main-box">
-                    <h2 class="main-box__title">DESCRIPTION</h2>
-                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa, viverra
-                        interdum eros ut, imperdiet pellentesque mauris. Proin sit amet scelerisque risus. Donec semper
-                        semper erat ut mollis. Curabitur suscipit, justo eu dignissim lacinia, ante sapien pharetra duin
-                        consectetur eros augue sed ex. Donec a odio rutrum, hendrerit sapien vitae, euismod arcu.
-                        Suspendisse potenti. Integer ut diam venenatis, pellentesque felis eget, elementum enim.
-                        Suspendisse sit amet massa commodo nulla iaculis fermentum. Integer eget tincidunt est, in
-                        imperdiet risus. Morbi sit amet urna purus.</p>
-                </div>
-
-
-                <div class="main-box">
-                    <div class="main-box__title">DAILY MENU</div>
-
-                    <div class="company-detail-schedule">
-                        <div class="company-detail-schedule__day"><i class="fa fa-calendar company-detail-schedule__day-icon"></i> Monday</div>
-
-
-
-                        <div class="company-detail-schedule__item">
-                            <div class="company-detail-schedule__info">
-                                <div class="company-detail-schedule__title">Chicken wings</div>
-                                Curabitur odio nibh, luctus non pulvinar
-                            </div>
-                            <div class="company-detail-schedule__price">
-                                15$
-                            </div>
-                        </div>
-
-                        <div class="company-detail-schedule__item">
-                            <div class="company-detail-schedule__info">
-                                <div class="company-detail-schedule__title">Mushroom ragout</div>
-                                Donec a odio rutrum, hendrerit sapien
-                            </div>
-                            <div class="company-detail-schedule__price">
-                                3.6$
-                            </div>
-                        </div>
-
-                        <div class="company-detail-schedule__item">
-                            <div class="company-detail-schedule__info">
-                                <div class="company-detail-schedule__title">Nice salad with tuna, beans and hard-boiled egg</div>
-                                Urabitur suscipit, justo eu dignissim lacinia
-                            </div>
-                            <div class="company-detail-schedule__price">
-                                1.2$
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                </div>
-
-
-                <div class="main-box clearfix">
-                    <div class="main-box__title">FEATURES</div>
-                    <div class="col-md-6">
-
-                        <ul class="red-bullet-list _disable-pad">
-                            <li><a href="" class="red-bullet-list__item">Restaurant</a></li>
-                            <li><a href="" class="red-bullet-list__item">Steak House & Grill</a></li>
-                            <li><a href="" class="red-bullet-list__item"> Fast Food</a></li>
-                            <li><a href="" class="red-bullet-list__item">Breakfast</a></li>
-                            <li><a href="" class="red-bullet-list__item">Winery</a></li>
-                            <li><a href="" class="red-bullet-list__item">Bar & Lounge</a></li>
-                            <li><a href="" class="red-bullet-list__item">Pub</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-6">
-                        <ul class="red-bullet-list _disable-pad">
-                            <li><a href="" class="red-bullet-list__item">Restaurant</a></li>
-                            <li><a href="" class="red-bullet-list__item">Steak House & Grill</a></li>
-                            <li><a href="" class="red-bullet-list__item"> Fast Food</a></li>
-                            <li><a href="" class="red-bullet-list__item">Breakfast</a></li>
-                            <li><a href="" class="red-bullet-list__item">Winery</a></li>
-                            <li><a href="" class="red-bullet-list__item">Bar & Lounge</a></li>
-                            <li><a href="" class="red-bullet-list__item">Pub</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <div class="main-box">
-                    <div class="main-box__title">OPENING HOURS</div>
-                    <div class="company-detail-worktime">
-                        <div class="company-detail-worktime__day clearfix">
-                            Monday <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
-                        </div>
-                        <div class="company-detail-worktime__day clearfix">
-                            Tuesday <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
-                        </div>
-                        <div class="company-detail-worktime__day clearfix">
-                            Wednesday <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
-                        </div>
-                        <div class="company-detail-worktime__day clearfix">
-                            Thursday <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
-                        </div>
-                        <div class="company-detail-worktime__day clearfix">
-                            Friday <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
-                        </div>
-                        <div class="company-detail-worktime__day clearfix">
-                            Saturday <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-        <!--right-->
-        <div class="col-md-3">
-
-            <aside class="aside-box aside-box_margin-bottom">
-                <div class="aside-box__caption _lg ">NEW PLACES</div>
-
-                <a href="" class="company-detail-nearby">
-                    <span class="company-detail-nearby__name _block">Cash Cow Restaurante</span>
-                    <span class="company-detail-nearby__street _block">63 Birch Street</span>
-
-                    <span class="company-detail-nearby__wrapper  _block clearfix">
-            <span class="company-detail-nearby__img  _block pull-left">
-            <img src="scripts/pages/company-details/assets/detail-photo.jpg" alt="" class="img-responsive">
-          </span>
-          <span class="company-detail-nearby__info  _block pull-right">
-            <span class="company-detail-nearby__type _block"><i class="fa fa-cutlery"></i> <span
-                    class="company-detail-nearby__type_title">RESTAURANT</span></span>
-            <span class="company-detail-nearby__rating _block">
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="1"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="2"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="3"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="4"></i>
-              <i class="fa fa-star" data-score="5"></i>
-            </span>
-          </span>
-          </span>
-                </a>
-
-                <a href="" class="company-detail-nearby">
-                    <span class="company-detail-nearby__name _block">Cash Cow Restaurante</span>
-                    <span class="company-detail-nearby__street _block">63 Birch Street</span>
-
-                    <span class="company-detail-nearby__wrapper  _block clearfix">
-            <span class="company-detail-nearby__img  _block pull-left">
-            <img src="scripts/pages/company-details/assets/detail-photo.jpg" alt="" class="img-responsive">
-          </span>
-          <span class="company-detail-nearby__info  _block pull-right">
-            <span class="company-detail-nearby__type _block"><i class="fa fa-cutlery"></i> <span
-                    class="company-detail-nearby__type_title">RESTAURANT</span></span>
-            <span class="company-detail-nearby__rating _block">
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="1"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="2"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="3"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="4"></i>
-              <i class="fa fa-star" data-score="5"></i>
-            </span>
-          </span>
-          </span>
-                </a>
-
-                <a href="" class="company-detail-nearby">
-                    <span class="company-detail-nearby__name _block">Cash Cow Restaurante</span>
-                    <span class="company-detail-nearby__street _block">63 Birch Street</span>
-
-                    <span class="company-detail-nearby__wrapper  _block clearfix">
-            <span class="company-detail-nearby__img  _block pull-left">
-            <img src="scripts/pages/company-details/assets/detail-photo.jpg" alt="" class="img-responsive">
-          </span>
-          <span class="company-detail-nearby__info  _block pull-right">
-            <span class="company-detail-nearby__type _block"><i class="fa fa-cutlery"></i> <span
-                    class="company-detail-nearby__type_title">RESTAURANT</span></span>
-            <span class="company-detail-nearby__rating _block">
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="1"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="2"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="3"></i>
-              <i class="fa fa-star company-detail-nearby__rating_active" data-score="4"></i>
-              <i class="fa fa-star" data-score="5"></i>
-            </span>
-          </span>
-          </span>
-                </a>
-
-
-            </aside>
-
-
-            <aside class="aside-box aside-box_margin-bottom company-detail-categories">
-                <div class="aside-box__caption _lg">
-                    CATEGORIES
-                </div>
-                <ul class="red-bullet-list">
-                    <li><a href="" class="red-bullet-list__item">Restaurant</a></li>
-                    <li><a href="" class="red-bullet-list__item">Steak House & Grill</a></li>
-                    <li><a href="" class="red-bullet-list__item"> Fast Food</a></li>
-                    <li><a href="" class="red-bullet-list__item">Breakfast</a></li>
-                    <li><a href="" class="red-bullet-list__item">Winery</a></li>
-                    <li><a href="" class="red-bullet-list__item">Bar & Lounge</a></li>
-                    <li><a href="" class="red-bullet-list__item">Pub</a></li>
-                </ul>
-            </aside>
-
-            <!--events select-->
-            <aside class="company-detail-events aside-box">
-                <div class="aside-box__caption _lg">EVENTS</div>
-                <div class="form-group">
-                    <select name="events" style="display: none;" class="company-details-events__select">
-                        <option value="">Select Your City</option>
-                        <option value="1">London</option>
-                        <option value="2">New York</option>
-                        <option value="3">Barcelona</option>
-                        <option value="4">Moscow</option>
-                        <option value="5">Tokyo</option>
-                    </select>
-                </div>
-
-            </aside>
-
+          <button (click)="addToFavorite()" *ngIf="!addState && currentUser" class="add-to-favorite add-to-favorite__btn"><i class="fa fa-star fa-lg fa-fw"></i></button>
+          <span class="add-to-favorite" *ngIf="addState && currentUser"><i class="fa fa-star fa-lg fa-fw star-rating__star_active"></i></span>
 
         </div>
+      </div>
+
+
+      <div class="col-md-4 col-sm-4">
+
+
+        <!--company info-->
+        <aside class="aside-box aside-box_white company-detail-contacts">
+          <div class="aside-box__caption">Contact</div>
+          <div class="aside-box__wrapper">
+
+            <div class="company-detail-contacts__address">
+              Max Five Lounge <br>
+              63 Birch Street<br>
+              Granada Hills, CA 91344
+            </div>
+
+            <div class="company-detail-contacts__info"><i
+              class="fa fa-mobile company-detail-contacts__icon"></i>
+              818-832-5258
+            </div>
+            <div class="company-detail-contacts__info"><i
+              class="fa fa-phone company-detail-contacts__icon"></i> +1
+              123 456 789
+            </div>
+            <div class="company-detail-contacts__info"><i
+              class="fa fa-globe company-detail-contacts__icon"></i> <a
+              href="" class="company-detail-contacts__weblink">www.b4u.com.ua</a></div>
+
+          </div>
+        </aside>
+
+
+        <!--company rating-->
+
+        <aside class="aside-box aside-box_white clearfix">
+          <div class="aside-box__caption pull-left">
+            Rating
+          </div>
+
+          <div class="company-detail-rating star-rating pull-right">
+            <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="1"></i>
+            <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="2"></i>
+            <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="3"></i>
+            <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="4"></i>
+            <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
+          </div>
+
+        </aside>
+
+
+        <!--events-->
+        <aside class="aside-box aside-box_white">
+          <div class="aside-box__caption">
+            Events
+          </div>
+          <div class="aside-box__wrapper">
+            <p class="fc-grey">Maecenas purus sapien, pellentesque non consectetur eu, rhoncus in mauris. Duis et nisl
+              metus. Sed ut
+              pulvinar mauris, bibendum ullamcorper ex. Aliquam vitae ante diam.
+              Nam eu blandit odio. Cras erat lorem, iaculis eu nulla eu, sodales aliquam eros.</p>
+
+            <a href="#" class="btn-show-more expand-content" data-expand="#detail-sidebar-event">Show More</a>
+          </div>
+        </aside>
+
+
+        <!--contact form-->
+        <aside class="aside-box aside-box_white">
+          <div class="aside-box__caption">Contact Form</div>
+          <div class="aside-box__wrapper">
+
+            <div class="company-detail-form">
+
+              <div class="form-group">
+                <label for="company-detail-form__name">Name</label>
+                <input type="email" class="form-control company-detail-form__input"
+                       id="company-detail-form__name" name="company-detail-form__name"
+                       required>
+              </div>
+
+              <div class="form-group">
+                <label for="company-detail-form__email">Email</label>
+                <input type="email" class="form-control company-detail-form__input"
+                       id="company-detail-form__email" name="company-detail-form__email"
+                       required>
+              </div>
+
+
+              <div class="form-group">
+                <label for="company-detail-form__message">Message</label>
+                <textarea class="form-control company-detail-form__input"
+                          id="company-detail-form__message" name="company-detail-form__message" rows="3"
+                          required></textarea>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn company-detail-form_button">Send<i
+                  class="fa fa-angle-right fa-fw"></i></button>
+              </div>
+
+            </div>
+
+          </div>
+        </aside>
+      </div>
+
+
+      <!--center-->
+
+      <div class="col-md-8 col-sm-8">
+        <div class="company-detail-gallery">
+          <img src="scripts/pages/company-details/assets/company-detail-slider.png" alt="">
+        </div>
+
+        <div class="main-box">
+          <h2 class="main-box__title">Description</h2>
+          <p class="fc-grey">Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa, viverra
+            interdum eros ut, imperdiet pellentesque mauris. Proin sit amet scelerisque risus. Donec semper
+            semper erat ut mollis. Curabitur suscipit, justo eu dignissim lacinia, ante sapien pharetra duin
+            consectetur eros augue sed ex. Donec a odio rutrum, hendrerit sapien vitae, euismod arcu.
+            Suspendisse potenti. Integer ut diam venenatis, pellentesque felis eget, elementum enim.
+            Suspendisse sit amet massa commodo nulla iaculis fermentum. Integer eget tincidunt est, in
+            imperdiet risus. Morbi sit amet urna purus.</p>
+        </div>
+
+
+        <div class="main-box">
+          <div class="main-box__title">Daily menu</div>
+
+          <div class="company-detail-schedule">
+            <div class="company-detail-schedule__day"><i class="fa fa-calendar company-detail-schedule__day-icon"></i>
+              Monday
+            </div>
+
+
+            <div class="company-detail-schedule__item">
+              <div class="company-detail-schedule__info">
+                <div class="company-detail-schedule__title">Chicken wings</div>
+                Curabitur odio nibh, luctus non pulvinar
+              </div>
+              <div class="company-detail-schedule__price">
+                15$
+              </div>
+            </div>
+
+            <div class="company-detail-schedule__item">
+              <div class="company-detail-schedule__info">
+                <div class="company-detail-schedule__title">Mushroom ragout</div>
+                Donec a odio rutrum, hendrerit sapien
+              </div>
+              <div class="company-detail-schedule__price">
+                3.6$
+              </div>
+            </div>
+
+            <div class="company-detail-schedule__item">
+              <div class="company-detail-schedule__info">
+                <div class="company-detail-schedule__title">Nice salad with tuna, beans and hard-boiled egg</div>
+                Urabitur suscipit, justo eu dignissim lacinia
+              </div>
+              <div class="company-detail-schedule__price">
+                1.2$
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <div class="main-box clearfix">
+          <div class="main-box__title">Features</div>
+          <div class="col-md-6">
+
+            <ul class="red-bullet-list _disable-pad">
+              <li><a href="" class="red-bullet-list__item">Restaurant</a></li>
+              <li><a href="" class="red-bullet-list__item">Steak House & Grill</a></li>
+              <li><a href="" class="red-bullet-list__item"> Fast Food</a></li>
+              <li><a href="" class="red-bullet-list__item">Breakfast</a></li>
+              <li><a href="" class="red-bullet-list__item">Winery</a></li>
+              <li><a href="" class="red-bullet-list__item">Bar & Lounge</a></li>
+              <li><a href="" class="red-bullet-list__item">Pub</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <ul class="red-bullet-list _disable-pad">
+              <li><a href="" class="red-bullet-list__item">Restaurant</a></li>
+              <li><a href="" class="red-bullet-list__item">Steak House & Grill</a></li>
+              <li><a href="" class="red-bullet-list__item"> Fast Food</a></li>
+              <li><a href="" class="red-bullet-list__item">Breakfast</a></li>
+              <li><a href="" class="red-bullet-list__item">Winery</a></li>
+              <li><a href="" class="red-bullet-list__item">Bar & Lounge</a></li>
+              <li><a href="" class="red-bullet-list__item">Pub</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="main-box">
+          <div class="main-box__title">Opening hours</div>
+          <div class="company-detail-worktime">
+            <div class="company-detail-worktime__day clearfix">
+              Monday
+              <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
+            </div>
+            <div class="company-detail-worktime__day clearfix">
+              Tuesday
+              <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
+            </div>
+            <div class="company-detail-worktime__day clearfix">
+              Wednesday
+              <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
+            </div>
+            <div class="company-detail-worktime__day clearfix">
+              Thursday
+              <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
+            </div>
+            <div class="company-detail-worktime__day clearfix">
+              Friday
+              <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
+            </div>
+            <div class="company-detail-worktime__day clearfix">
+              Saturday
+              <div class="company-detail-worktime__day-time pull-right">8:00 am - 11:00 pm</div>
+            </div>
+          </div>
+        </div>
+
+        <!--Reviews-->
+        <div class="main-box reviews-wrapper">
+          <div class="main-box__title reviews-wrapper__title clearfix">
+            Reviews
+
+
+            <a href="/company-details#write-review" class="btn pull-right btn-wrrite-review">Write a review <i
+              class="fa fa-pencil btn-wrrite-review__icon"></i></a>
+
+          </div>
+
+          <div class="reviews-wrapper__over-rating clearfix">
+            <strong class="pull-left">Over rating</strong>
+            <div class="company-detail-rating star-rating pull-right">
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="1"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="2"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="3"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="4"></i>
+              <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
+            </div>
+          </div>
+
+
+          <div class="review-box">
+            <div class="review-box__avatar pull-left">
+              <img src="scripts/pages/company-details/assets/default-avatar.png" alt="">
+              <div class="review-box__date">12.12.2016</div>
+            </div>
+
+            <div class="review-box__username">Charlie Brown</div>
+            <div class="review-box__rating star-rating">
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="1"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="2"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="3"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="4"></i>
+              <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
+            </div>
+
+            <div class="review-box__txt">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Nulla vestibulum, sem ut sollicitudin consectetur, augue diam ornare massa,
+              ac vehicula leo turpis eget purus. Nunc pellentesque vestibulum mauris,
+              eget suscipit mauris imperdiet vel. Nulla et massa metus.
+            </div>
+
+            <div class="review-box__evaluation clearfix">
+              <span class="pull-left">Value</span>
+              <span class="pull-right star-rating">
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="1"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="2"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="3"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="4"></i>
+                <i class="fa fa-star star-rating__star" data-score="5"></i>
+              </span>
+            </div>
+
+            <div class="review-box__evaluation clearfix">
+              <span class="pull-left">Service</span>
+              <span class="pull-right star-rating">
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="1"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="2"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="3"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="4"></i>
+                <i class="fa fa-star star-rating__star" data-score="5"></i>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="review-box">
+            <div class="review-box__avatar pull-left">
+              <img src="scripts/pages/company-details/assets/default-avatar.png" alt="">
+              <div class="review-box__date">12.12.2016</div>
+            </div>
+
+            <div class="review-box__username">Charlie Brown</div>
+            <div class="review-box__rating star-rating">
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="1"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="2"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="3"></i>
+              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="4"></i>
+              <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
+            </div>
+
+            <div class="review-box__txt">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Nulla vestibulum, sem ut sollicitudin consectetur, augue diam ornare massa,
+              ac vehicula leo turpis eget purus. Nunc pellentesque vestibulum mauris,
+              eget suscipit mauris imperdiet vel. Nulla et massa metus.
+            </div>
+
+            <div class="review-box__evaluation clearfix">
+              <span class="pull-left">Value</span>
+              <span class="pull-right star-rating">
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="1"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="2"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="3"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="4"></i>
+                <i class="fa fa-star star-rating__star" data-score="5"></i>
+              </span>
+            </div>
+
+            <div class="review-box__evaluation clearfix">
+              <span class="pull-left">Service</span>
+              <span class="pull-right star-rating">
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="1"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="2"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="3"></i>
+                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="4"></i>
+                <i class="fa fa-star star-rating__star" data-score="5"></i>
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="main-box main-box_review-form" id="write-review">
+            <div class="main-box__title main-box__title_lg">Write a review</div>
+
+
+            <div class="review-form-box clearfix">
+              <div class="row">
+                <div class="col-md-8">
+
+                  <div class="review-form">
+
+                    <div class="form-group">
+                      <label for="review-form-name">Name</label>
+                      <input type="text" class="form-control review-form__name" id="review-form-name"
+                             name="review-form-name" required="">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="review-form-email">Email</label>
+                      <input type="email" class="form-control review-form__email" id="review-form-email"
+                             name="review-form-email" required="">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="review-form-message">Message</label>
+                      <textarea class="form-control review-form__message" id="review-form-message"
+                                name="review-form-message" rows="3" required=""></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <button type="submit" class="btn review-form__btn">Submit Review</button>
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+                <div class=" col-md-4">
+
+
+                  <div class="review-form__evaluate">
+                    Value
+                    <div class="star-rating">
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="1"></i>
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="2"></i>
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="3"></i>
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="4"></i>
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
+                    </div>
+                  </div>
+
+
+                  <div class="review-form__evaluate">
+                    Service
+                    <div class="star-rating">
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="1"></i>
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="2"></i>
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="3"></i>
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="4"></i>
+                      <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
     </div>
+
+    <!--right-->
+    <div class="col-md-3">
+
+      <aside class="aside-box aside-box_margin-bottom">
+        <div class="aside-box__caption _lg ">New places</div>
+
+
+        <a href="" class="company-detail-nearby">
+          <span class="company-detail-nearby__name _block">Cash Cow Restaurante</span>
+          <span class="company-detail-nearby__street _block">63 Birch Street</span>
+
+          <span class="company-detail-nearby__wrapper  _block clearfix">
+            <span class="company-detail-nearby__img  _block pull-left">
+            <img src="scripts/pages/company-details/assets/detail-photo.jpg" alt="" class="img-responsive">
+          </span>
+          <span class="company-detail-nearby__info  _block pull-right">
+            <span class="company-detail-nearby__type _block"><i class="fa fa-cutlery"></i> <span
+              class="company-detail-nearby__type_title">RESTAURANT</span></span>
+            <span class="company-detail-nearby__rating _block star-rating star-rating_nearby">
+              <i class="fa fa-star star-rating__star_active_nearby" data-score="1"></i>
+              <i class="fa fa-star star-rating__star_active_nearby" data-score="2"></i>
+              <i class="fa fa-star star-rating__star_active_nearby" data-score="3"></i>
+              <i class="fa fa-star star-rating__star_active_nearby" data-score="4"></i>
+              <i class="fa fa-star" data-score="5"></i>
+            </span>
+          </span>
+          </span>
+        </a>
+
+
+      </aside>
+
+
+      <aside class="aside-box aside-box_margin-bottom company-detail-categories">
+        <div class="aside-box__caption _lg">
+          Categories
+        </div>
+        <ul class="red-bullet-list">
+          <li><a href="" class="red-bullet-list__item">Restaurant</a></li>
+          <li><a href="" class="red-bullet-list__item">Steak House & Grill</a></li>
+          <li><a href="" class="red-bullet-list__item"> Fast Food</a></li>
+          <li><a href="" class="red-bullet-list__item">Breakfast</a></li>
+          <li><a href="" class="red-bullet-list__item">Winery</a></li>
+          <li><a href="" class="red-bullet-list__item">Bar & Lounge</a></li>
+          <li><a href="" class="red-bullet-list__item">Pub</a></li>
+        </ul>
+      </aside>
+
+      <!--events select-->
+      <aside class="company-detail-events aside-box">
+        <div class="aside-box__caption _lg">Events</div>
+        <div class="form-group">
+          <select name="events" style="display: none;" class="company-details-events__select">
+            <option value="">Select Your City</option>
+            <option value="1">London</option>
+            <option value="2">New York</option>
+            <option value="3">Barcelona</option>
+            <option value="4">Moscow</option>
+            <option value="5">Tokyo</option>
+          </select>
+        </div>
+
+      </aside>
+
+
+    </div>
+  </div>
 </div>
