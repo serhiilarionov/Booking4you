@@ -41,7 +41,7 @@ angular.module('helpers')
      * @param treeItem
      */
     function flatten (newList, treeItem) {
-      if(treeItem.children.length) {
+      if(treeItem.children && treeItem.children.length) {
         treeItem.children.forEach(function(child) {
           if(child.children) {
             flatten(newList, child);

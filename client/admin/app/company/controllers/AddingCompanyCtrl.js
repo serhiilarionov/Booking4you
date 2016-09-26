@@ -248,31 +248,35 @@ angular.module('app.company').controller('AddingCompanyController',
             break;
           case 4:
           {
-            Company.upsert({id: vm.newCompany.id}, vm.newCompany)
-              .$promise
+            var fd = new FormData();
+            fd.append(vm.newCompany.photo, vm.newCompany.file);
+
+            vm.uploader.queue.forEach(function (one) {
+              var exists = _.findIndex(vm.detail.imageList, function (image) {
+                return (image === one._file.name);
+              });
+              if (exists === -1) {
+                vm.detail.imageList.push(one._file.name);
+                fd.append(one.file.name, one._file);
+              }
+            });
+
+            fd.append('cityId', parseInt(vm.newCompany.cityId));
+            fd.append('categoryId', parseInt(vm.newCompany.categoryId));
+            fd.append('companyId', parseInt(vm.newCompany.id));
+
+            $http.post('/api/containers/test/upload', fd, {
+              transformRequest: angular.identity,
+              headers: {'Content-Type': undefined},
+              responseType: "arraybuffer"
+            })
               .then(function () {
-                var fd = new FormData();
-                fd.append(vm.newCompany.photo, vm.newCompany.file);
-
-                vm.uploader.queue.forEach(function (one) {
-                  var exists = _.findIndex(vm.detail.imageList, function (image) {
-                    return (image === one._file.name);
-                  });
-                  if (exists === -1) {
-                    vm.detail.imageList.push(one._file.name);
-                    fd.append(one.file.name, one._file);
-                  }
-                });
-
-                fd.append('cityId', parseInt(vm.newCompany.cityId));
-                fd.append('categoryId', parseInt(vm.newCompany.categoryId));
-                fd.append('companyId', parseInt(vm.newCompany.id));
-
-                return $http.post('/api/containers/test/upload', fd, {
-                  transformRequest: angular.identity,
-                  headers: {'Content-Type': undefined},
-                  responseType: "arraybuffer"
-                })
+                return Company.upsert({id: vm.newCompany.id}, vm.newCompany)
+                  .$promise
+              })
+              .then(function () {
+                return CompanyDetail.upsert({companyId: vm.detail.companyId}, vm.detail)
+                  .$promise
               })
               .then(function () {
                 Notification.success();
@@ -327,5 +331,7 @@ angular.module('app.company').controller('AddingCompanyController',
           }
         }
       }
-    };
-  });
+    }
+    ;
+  }
+);
