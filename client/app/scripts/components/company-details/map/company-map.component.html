@@ -1,0 +1,6 @@
+<div class="company-detail-gmap" *ngIf="companyDetails">
+  <sebm-google-map [latitude]="companyDetails.point.lat" [longitude]="companyDetails.point.lng" [zoom]="zoom">
+    <sebm-google-map-marker [latitude]="companyDetails.point.lat" [longitude]="companyDetails.point.lng">
+    </sebm-google-map-marker>
+  </sebm-google-map>
+</div>

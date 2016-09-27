@@ -5,9 +5,7 @@
 </div>
 
 
-<div class="company-detail-gmap text-center" *ngIf="companyDetails">
-  <img width="100%" src="scripts/pages/company-details/assets/detail-map.png" alt="">
-</div>
+<company-map [companyDetails]="companyDetails"></company-map>
 
 <div class="container company-detail_pad" *ngIf="companyDetails">
   <div class="row">
