@@ -1,11 +1,11 @@
-import { Component, ViewEncapsulation, OnChanges, SimpleChanges, ElementRef,
+import { Component, ViewEncapsulation, OnChanges, SimpleChanges, ElementRef, Input,
   trigger, state, style, transition, animate} from '@angular/core';
 declare var $: any;
 
 class Image {
   constructor(
     public src: string,
-    public state: string = 'active'
+    public state: string = 'inactive'
   ) {}
 }
 
@@ -20,6 +20,7 @@ const images: Array<string> = [
   'http://placehold.it/300x500?text=Photo 7',
 ];
 
+// TODO: implement "More+" button according to design
 @Component({
   selector: 'image-gallery',
   templateUrl: 'scripts/components/image-gallery/image-gallery.component.html',
@@ -27,13 +28,10 @@ const images: Array<string> = [
   encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('imageState', [
-      state('active', style({transform: 'translateX(0)'})),
-      state('right', style({transform: 'translateX(100%)'})),
-      state('left', style({transform: 'translateX(-100%)'})),
-      transition('active => right', animate(300)),
-      transition('active => left', animate(300)),
-      transition('left => active', animate(300)),
-      transition('right => active', animate(300))
+      state('active', style({opacity: '1'})),
+      state('inactive', style({opacity: '0'})),
+      transition('active => inactive', animate(300)),
+      transition('inactive => active', animate(300))
     ])
   ]
 })
@@ -44,6 +42,8 @@ export class ImageGalleryComponent implements OnChanges {
   public activeImageIndex: number = 0;
   public $container: any;
   public containerHeight: number;
+  @Input() public fixedHeight: boolean = false;
+  @Input() public showThumbs: boolean = false;
   constructor(private elementRef: ElementRef) {
     this.createImages();
   }
@@ -53,7 +53,7 @@ export class ImageGalleryComponent implements OnChanges {
   }
 
   createImages() {
-    this.activeImages = this.srcArray.map((src) => new Image(src, 'right'));
+    this.activeImages = this.srcArray.map((src) => new Image(src, 'inactive'));
     this.activeImages[this.activeImageIndex].state = 'active';
   }
 
@@ -70,20 +70,17 @@ export class ImageGalleryComponent implements OnChanges {
       (action === 'NEXT_IMAGE' && this.activeImageIndex === (this.srcArray.length - 1))
     ) { return; }
 
-    switch (action) {
-      case 'PREV_IMAGE':
-        this.activeImages[this.activeImageIndex].state = 'right';
-        --this.activeImageIndex;
-        this.activeImages[this.activeImageIndex].state = 'left';
-        this.activeImages[this.activeImageIndex].state = 'active';
-        break;
-      case 'NEXT_IMAGE':
-        this.activeImages[this.activeImageIndex].state = 'left';
-        ++this.activeImageIndex;
-        this.activeImages[this.activeImageIndex].state = 'right';
-        this.activeImages[this.activeImageIndex].state = 'active';
-        break;
-      default: return;
-    }
+    this.activeImages[this.activeImageIndex].state = 'inactive';
+
+    this.activeImageIndex = (typeof action === 'number') ? action :
+      (action === 'PREV_IMAGE') ? --this.activeImageIndex : ++this.activeImageIndex;
+
+    this.activeImages[this.activeImageIndex].state = 'active';
+  }
+
+  setContainerHeight(height) {
+    if (this.fixedHeight) { return; }
+
+    this.containerHeight = height;
   }
 }

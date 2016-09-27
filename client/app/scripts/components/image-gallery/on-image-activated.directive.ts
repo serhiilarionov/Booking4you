@@ -8,22 +8,19 @@ declare var $: any;
 export class OnImageActivatedDirective implements AfterViewInit, OnChanges {
   @Input('state') public state: string;
   @Output() public onImageActivated = new EventEmitter<number>();
-  private height: number;
 
   constructor(private elementRef: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if ('state' in changes && changes['state'].currentValue === 'active') {
-      this.onImageActivated.next(this.height);
+      this.onImageActivated.next(this.elementRef.nativeElement.height);
     }
   }
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.addEventListener('load', () => {
-      this.height = $(this.elementRef.nativeElement).height();
-
       if (this.state === 'active') {
-        this.onImageActivated.next(this.height);
+        this.onImageActivated.next(this.elementRef.nativeElement.height);
       }
     });
   }

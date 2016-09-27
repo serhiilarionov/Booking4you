@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var Image = (function () {
     function Image(src, state) {
-        if (state === void 0) { state = 'active'; }
+        if (state === void 0) { state = 'inactive'; }
         this.src = src;
         this.state = state;
     }
@@ -27,19 +27,22 @@ var images = [
     'http://placehold.it/750x800?text=Photo 6',
     'http://placehold.it/300x500?text=Photo 7',
 ];
+// TODO: implement "More+" button according to design
 var ImageGalleryComponent = (function () {
     function ImageGalleryComponent(elementRef) {
         this.elementRef = elementRef;
         this.srcArray = images;
         this.activeImages = [];
         this.activeImageIndex = 0;
+        this.fixedHeight = false;
+        this.showThumbs = false;
         this.createImages();
     }
     ImageGalleryComponent.prototype.ngOnInit = function () {
         this.$container = $(this.elementRef.nativeElement).find('.gallery-container');
     };
     ImageGalleryComponent.prototype.createImages = function () {
-        this.activeImages = this.srcArray.map(function (src) { return new Image(src, 'right'); });
+        this.activeImages = this.srcArray.map(function (src) { return new Image(src, 'inactive'); });
         this.activeImages[this.activeImageIndex].state = 'active';
     };
     ImageGalleryComponent.prototype.ngOnChanges = function (changes) {
@@ -54,22 +57,25 @@ var ImageGalleryComponent = (function () {
             (action === 'NEXT_IMAGE' && this.activeImageIndex === (this.srcArray.length - 1))) {
             return;
         }
-        switch (action) {
-            case 'PREV_IMAGE':
-                this.activeImages[this.activeImageIndex].state = 'right';
-                --this.activeImageIndex;
-                this.activeImages[this.activeImageIndex].state = 'left';
-                this.activeImages[this.activeImageIndex].state = 'active';
-                break;
-            case 'NEXT_IMAGE':
-                this.activeImages[this.activeImageIndex].state = 'left';
-                ++this.activeImageIndex;
-                this.activeImages[this.activeImageIndex].state = 'right';
-                this.activeImages[this.activeImageIndex].state = 'active';
-                break;
-            default: return;
-        }
+        this.activeImages[this.activeImageIndex].state = 'inactive';
+        this.activeImageIndex = (typeof action === 'number') ? action :
+            (action === 'PREV_IMAGE') ? --this.activeImageIndex : ++this.activeImageIndex;
+        this.activeImages[this.activeImageIndex].state = 'active';
     };
+    ImageGalleryComponent.prototype.setContainerHeight = function (height) {
+        if (this.fixedHeight) {
+            return;
+        }
+        this.containerHeight = height;
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], ImageGalleryComponent.prototype, "fixedHeight", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], ImageGalleryComponent.prototype, "showThumbs", void 0);
     ImageGalleryComponent = __decorate([
         core_1.Component({
             selector: 'image-gallery',
@@ -78,13 +84,10 @@ var ImageGalleryComponent = (function () {
             encapsulation: core_1.ViewEncapsulation.None,
             animations: [
                 core_1.trigger('imageState', [
-                    core_1.state('active', core_1.style({ transform: 'translateX(0)' })),
-                    core_1.state('right', core_1.style({ transform: 'translateX(100%)' })),
-                    core_1.state('left', core_1.style({ transform: 'translateX(-100%)' })),
-                    core_1.transition('active => right', core_1.animate(300)),
-                    core_1.transition('active => left', core_1.animate(300)),
-                    core_1.transition('left => active', core_1.animate(300)),
-                    core_1.transition('right => active', core_1.animate(300))
+                    core_1.state('active', core_1.style({ opacity: '1' })),
+                    core_1.state('inactive', core_1.style({ opacity: '0' })),
+                    core_1.transition('active => inactive', core_1.animate(300)),
+                    core_1.transition('inactive => active', core_1.animate(300))
                 ])
             ]
         }), 

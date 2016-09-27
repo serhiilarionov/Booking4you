@@ -8,16 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('./shared/index');
 var index_2 = require('./shared/index');
+var auth_service_1 = require('./shared/sdk/services/core/auth.service');
 var AppComponent = (function () {
-    function AppComponent(sidebar, el, router) {
+    function AppComponent(sidebar, el, router, clientApi, loopBackAuth, broadcaster) {
         var _this = this;
         this.sidebar = sidebar;
         this.el = el;
         this.router = router;
+        this.clientApi = clientApi;
+        this.loopBackAuth = loopBackAuth;
+        this.broadcaster = broadcaster;
         this.$el = $(el.nativeElement);
         index_2.LoopBackConfig.setBaseURL(index_2.BASE_URL);
         index_2.LoopBackConfig.setApiVersion(index_2.API_VERSION);
@@ -30,14 +37,25 @@ var AppComponent = (function () {
             }
         });
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.clientApi.isAuthenticated()) {
+            this.clientApi.getCurrent().subscribe(function (user) {
+                _this.loopBackAuth.setCurrentUserData(user);
+                _this.broadcaster.next(index_2.EventTypes.LOGGED_IN);
+                _this.currentUser = user;
+            });
+        }
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app',
             templateUrl: 'scripts/app.component.html',
             styleUrls: ['scripts/app.component.css'],
             encapsulation: core_1.ViewEncapsulation.None,
-        }), 
-        __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef, router_1.Router])
+        }),
+        __param(5, core_1.Inject(index_2.Broadcaster)), 
+        __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef, router_1.Router, index_2.ClientApi, auth_service_1.LoopBackAuth, index_2.Broadcaster])
     ], AppComponent);
     return AppComponent;
 }());

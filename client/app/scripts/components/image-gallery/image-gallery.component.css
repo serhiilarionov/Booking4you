@@ -1,7 +1,7 @@
 .gallery-container {
+  background: #e8e8e4;
   overflow: hidden;
   position: relative;
-  max-height: 400px;
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -12,6 +12,21 @@
   -webkit-transition: height 0.3s;
   -moz-transition: height 0.3s;
   transition: height 0.3s; }
+  .modal .gallery-container {
+    background: transparent; }
+  .gallery-container.fixed-height {
+    max-height: 450px;
+    min-height: 450px; }
+    .modal .gallery-container.fixed-height {
+      max-height: 350px;
+      min-height: 350px; }
+    .gallery-container.fixed-height img {
+      min-width: 100%;
+      top: 0;
+      bottom: 0;
+      margin: auto; }
+  .gallery-container:hover .prev, .gallery-container:hover .next {
+    opacity: .3; }
   .gallery-container img {
     position: absolute;
     width: 100%;
@@ -20,13 +35,82 @@
     right: 0;
     margin: 0 auto; }
   .gallery-container .prev, .gallery-container .next {
+    color: #ffffff;
+    opacity: 0;
+    padding: 0 20px;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: 50px;
-    font-size: 22px;
+    width: 50%;
+    font-size: 50px;
     text-shadow: 0 0 3px #474747;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    box-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    -o-justify-content: flex-start;
+    justify-content: flex-start;
+    -ms-flex-pack: start;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s; }
+    .gallery-container .prev:hover, .gallery-container .next:hover {
+      opacity: 1; }
+  .gallery-container .next {
+    left: auto;
+    right: 0;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: end; }
+
+.thumbs-container {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify; }
+  .thumbs-container .thumb-wrapper {
+    cursor: pointer;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -52,10 +136,21 @@
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center;
-    background-image: -webkit-linear-gradient(left, rgba(119, 119, 119, 0.5) 0%, transparent 100%);
-    background-image: linear-gradient(to right, rgba(119, 119, 119, 0.5) 0%, transparent 100%); }
-  .gallery-container .next {
-    left: auto;
-    right: 0;
-    background-image: -webkit-linear-gradient(right, rgba(119, 119, 119, 0.5) 0%, transparent 100%);
-    background-image: linear-gradient(to left, rgba(119, 119, 119, 0.5) 0%, transparent 100%); }
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+    -webkit-flex: 0 1 16%;
+    -moz-flex: 0 1 16%;
+    -ms-flex: 0 1 16%;
+    flex: 0 1 16%;
+    height: 50px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    opacity: .5;
+    position: relative; }
+    .thumbs-container .thumb-wrapper.active {
+      opacity: 1; }
+  .thumbs-container img {
+    max-width: 100%;
+    height: auto;
+    width: auto; }

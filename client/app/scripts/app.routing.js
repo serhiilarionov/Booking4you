@@ -19,7 +19,7 @@ var routes = [
         component: Pages.CompanyListPageComponent
     },
     {
-        path: 'company-details',
+        path: 'company-details/:id',
         component: Pages.CompanyDetailsPageComponent
     },
     {

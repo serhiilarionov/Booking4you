@@ -1,7 +1,7 @@
 @import "main";
 
 .content {
-  background: #f4f4f2;
+  background: $c-main-content-bg;
   @include flex-grow(2);
   @include display(flex);
   @include flex-direction(column);

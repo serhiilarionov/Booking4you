@@ -1,6 +1,12 @@
-<div class="gallery-container" [style.height]="containerHeight">
+<div class="gallery-container" [class.fixed-height]="fixedHeight" [style.height]="containerHeight">
     <img *ngFor="let image of activeImages" [@imageState]="image?.state" [src]="image?.src" alt=""
-         (onImageActivated)="containerHeight = $event" [state]="image?.state" />
+         (onImageActivated)="setContainerHeight($event)" [state]="image?.state" />
     <button class="prev" (click)="toggleActiveImage('PREV_IMAGE')"><i class="fa fa-angle-left"></i></button>
     <button class="next" (click)="toggleActiveImage('NEXT_IMAGE')"><i class="fa fa-angle-right"></i></button>
+</div>
+<div class="thumbs-container" *ngIf="showThumbs">
+    <div class="thumb-wrapper" *ngFor="let image of activeImages; let i = index"
+         [class.active]="image?.state === 'active'" (click)="toggleActiveImage(i)">
+        <img [src]="image?.src" alt="" />
+    </div>
 </div>

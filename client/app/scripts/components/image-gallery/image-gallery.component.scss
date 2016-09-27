@@ -1,11 +1,41 @@
 @import "main";
 
+$fixed-height-default: 450px;
+$fixed-height-for-modal: 350px;
+
 .gallery-container {
+  background: darken($c-main-content-bg, 5%);
   overflow: hidden;
   position: relative;
-  max-height: 400px;
   @include display(flex);
   @include transition(height .3s);
+
+  .modal & {
+    background: transparent;
+  }
+
+  &.fixed-height{
+    max-height: $fixed-height-default;
+    min-height: $fixed-height-default;
+
+    .modal & {
+      max-height: $fixed-height-for-modal;
+      min-height: $fixed-height-for-modal;
+    }
+
+    img {
+      min-width: 100%;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+
+  &:hover {
+    .prev, .next {
+      opacity: .3;
+    }
+  }
 
   img {
     position: absolute;
@@ -17,22 +47,59 @@
   }
 
   .prev, .next {
+    color: #ffffff;
+    opacity: 0;
+    padding: 0 20px;
     position: absolute;
     top: 0;
     left: 0;
     height:  100%;
-    width: 50px;
-    font-size: 22px;
+    width: 50%;
+    font-size: 50px;
     text-shadow: 0 0 3px $c-grey-main;
     @include display(flex);
-    @include justify-content(center);
+    @include justify-content(flex-start);
     @include align-items(center);
-    @include background-image(linear-gradient(left, rgba(119, 119, 119, 0.5) 0%, rgba(0, 0, 0, 0) 100%));
+    @include transition(all .3s);
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .next {
     left: auto;
     right: 0;
-    @include background-image(linear-gradient(right, rgba(119, 119, 119, 0.5) 0%, rgba(0, 0, 0, 0) 100%));
+    @include justify-content(flex-end);
+  }
+}
+
+.thumbs-container {
+  margin-top: 15px;
+  @include display(flex);
+  @include flex-flow(row wrap);
+  @include justify-content(space-between);
+
+  .thumb-wrapper {
+    cursor: pointer;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex(0 1 16%);
+    height: 50px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    opacity: .5;
+    position: relative;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
   }
 }

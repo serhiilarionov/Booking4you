@@ -51,12 +51,16 @@
   .sidebar-opened .inner-wrapper {
     left: -200px; }
 
+.fc-grey {
+  color: #777777; }
+
 /**
  * RESET STYLES
  */
 body {
   height: 100%;
-  font-family: Arial, sans-serif; }
+  font-family: Arial, sans-serif;
+  color: #474747; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Ubuntu", sans-serif;

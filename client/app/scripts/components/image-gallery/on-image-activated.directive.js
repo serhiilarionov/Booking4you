@@ -16,15 +16,14 @@ var OnImageActivatedDirective = (function () {
     }
     OnImageActivatedDirective.prototype.ngOnChanges = function (changes) {
         if ('state' in changes && changes['state'].currentValue === 'active') {
-            this.onImageActivated.next(this.height);
+            this.onImageActivated.next(this.elementRef.nativeElement.height);
         }
     };
     OnImageActivatedDirective.prototype.ngAfterViewInit = function () {
         var _this = this;
         this.elementRef.nativeElement.addEventListener('load', function () {
-            _this.height = $(_this.elementRef.nativeElement).height();
             if (_this.state === 'active') {
-                _this.onImageActivated.next(_this.height);
+                _this.onImageActivated.next(_this.elementRef.nativeElement.height);
             }
         });
     };
