@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Company, CompanyApi } from '../../shared/index';
 
 @Component({
@@ -8,26 +8,18 @@ import { Company, CompanyApi } from '../../shared/index';
   styleUrls: ['scripts/pages/company-details/company-details-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class CompanyDetailsPageComponent implements OnInit, OnDestroy {
+export class CompanyDetailsPageComponent implements OnInit {
   public queryId: number;
   public companyDetails: Company;
-  private getCompanyId: any;
 
   constructor(public companyApi: CompanyApi,
-              private route: ActivatedRoute) {}
+              private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-
-    this.getCompanyId = this.route.params.subscribe( params => {
+    this.activatedRoute.params.subscribe((params: Params) => {
       this.queryId = +params['id'];
-    });
-
-    this.companyApi.findById(this.queryId).subscribe((company: Company) => {
+      this.companyApi.findById(this.queryId).subscribe((company: Company) => {
         this.companyDetails = company;
-      }
-    );
-  }
-  ngOnDestroy() {
-    this.getCompanyId.unsubscribe();
-  }
-}
+      });
+    });
+  }}

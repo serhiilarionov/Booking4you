@@ -36,6 +36,8 @@ var CompanyAddToUserFavorite = (function () {
         }
         this.clientApi.existsCompanies(this.currentUser.id, this.companyId).subscribe(function () {
             _this.isAdded = true;
+        }, function (error) {
+            return;
         });
     };
     CompanyAddToUserFavorite.prototype.toggleFavorite = function () {

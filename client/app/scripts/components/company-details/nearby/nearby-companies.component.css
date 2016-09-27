@@ -2,6 +2,7 @@
   display: block;
   margin-bottom: 20px;
   padding: 15px 15px 0 15px;
+  color: #474747;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
@@ -33,10 +34,12 @@
     color: #DDDDDD; }
     .company-detail-nearby__rating_active {
       color: #8D8D8D; }
-  .company-detail-nearby:hover {
-    color: inherit; }
-    .company-detail-nearby:hover .company-detail-nearby__name {
+  .company-detail-nearby:hover, .company-detail-nearby:active {
+    background: #fff; }
+    .company-detail-nearby:hover .company-detail-nearby__name, .company-detail-nearby:active .company-detail-nearby__name {
       -webkit-transition: all 400ms ease-in-out;
       -moz-transition: all 400ms ease-in-out;
       transition: all 400ms ease-in-out;
       color: #FF513F; }
+    .company-detail-nearby:hover:visited, .company-detail-nearby:hover:focus, .company-detail-nearby:hover:hover, .company-detail-nearby:active:visited, .company-detail-nearby:active:focus, .company-detail-nearby:active:hover {
+      color: #474747; }

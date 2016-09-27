@@ -32,6 +32,8 @@ export class CompanyAddToUserFavorite implements OnInit {
     }
     this.clientApi.existsCompanies(this.currentUser.id, this.companyId).subscribe(() => {
       this.isAdded = true;
+    }, (error) => {
+      return;
     });
   }
 

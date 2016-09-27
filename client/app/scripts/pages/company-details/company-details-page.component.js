@@ -12,21 +12,18 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('../../shared/index');
 var CompanyDetailsPageComponent = (function () {
-    function CompanyDetailsPageComponent(companyApi, route) {
+    function CompanyDetailsPageComponent(companyApi, activatedRoute) {
         this.companyApi = companyApi;
-        this.route = route;
+        this.activatedRoute = activatedRoute;
     }
     CompanyDetailsPageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getCompanyId = this.route.params.subscribe(function (params) {
+        this.activatedRoute.params.subscribe(function (params) {
             _this.queryId = +params['id'];
+            _this.companyApi.findById(_this.queryId).subscribe(function (company) {
+                _this.companyDetails = company;
+            });
         });
-        this.companyApi.findById(this.queryId).subscribe(function (company) {
-            _this.companyDetails = company;
-        });
-    };
-    CompanyDetailsPageComponent.prototype.ngOnDestroy = function () {
-        this.getCompanyId.unsubscribe();
     };
     CompanyDetailsPageComponent = __decorate([
         core_1.Component({
