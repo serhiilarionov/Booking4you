@@ -1,5 +1,3 @@
-<button (click)="addToFavorite()" *ngIf="!addToFavoriteState && currentUser"
-        class="add-to-favorite add-to-favorite__btn"><i class="fa fa-star fa-lg fa-fw"></i></button>
-
-<button (click)="removeFromFavorite()" *ngIf="addToFavoriteState && currentUser"
-        class="add-to-favorite add-to-favorite__btn"><i class="fa fa-star fa-lg fa-fw star-rating__star_active"></i></button>
+<button (click)="toggleFavorite()" *ngIf="currentUser" class="add-to-favorite add-to-favorite__btn">
+    <i class="fa fa-star fa-lg fa-fw" [class.star-rating__star_active]="isAdded"></i>
+</button>

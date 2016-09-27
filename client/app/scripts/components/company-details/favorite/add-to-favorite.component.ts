@@ -9,7 +9,7 @@ import {Client, ClientApi, EventTypes, Broadcaster} from '../../../shared/index'
 
 export class CompanyAddToUserFavorite implements OnInit {
   public currentUser: Client;
-  public addToFavoriteState: boolean = false;
+  public isAdded: boolean = false;
   @Input() companyId: number;
 
   constructor(private clientApi: ClientApi,
@@ -30,23 +30,21 @@ export class CompanyAddToUserFavorite implements OnInit {
     if (!this.currentUser) {
       return;
     }
-    this.clientApi.existsCompanies(this.currentUser.id, this.companyId).subscribe((data) => {
-        this.addToFavoriteState = true;
-      }, (error) => {
-        this.addToFavoriteState = false;
-      }
-    );
-  }
-
-  addToFavorite() {
-    this.clientApi.linkCompanies(this.currentUser.id, this.companyId).subscribe(() => {
-      this.addToFavoriteState = true;
+    this.clientApi.existsCompanies(this.currentUser.id, this.companyId).subscribe(() => {
+      this.isAdded = true;
     });
   }
 
-  removeFromFavorite() {
-    this.clientApi.unlinkCompanies(this.currentUser.id, this.companyId).subscribe(() => {
-      this.addToFavoriteState = false;
+  toggleFavorite() {
+    if (this.isAdded) {
+      this.clientApi.unlinkCompanies(this.currentUser.id, this.companyId).subscribe(() => {
+        this.isAdded = false;
+      });
+      return;
+    }
+
+    this.clientApi.linkCompanies(this.currentUser.id, this.companyId).subscribe(() => {
+      this.isAdded = true;
     });
   }
 }
