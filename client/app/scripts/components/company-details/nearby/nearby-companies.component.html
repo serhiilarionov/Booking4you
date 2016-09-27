@@ -1,0 +1,28 @@
+<aside class="aside-box aside-box_margin-bottom" *ngIf="companyList != 0">
+  <div class="aside-box__caption _lg ">Nearby places</div>
+
+
+  <a href="" class="company-detail-nearby" *ngFor="let company of companyList">
+    <span class="company-detail-nearby__name _block">{{company.name}}</span>
+    <span class="company-detail-nearby__street _block">63 Birch Street</span>
+
+    <span class="company-detail-nearby__wrapper  _block clearfix">
+            <span class="company-detail-nearby__img  _block pull-left">
+            <img src="scripts/pages/company-details/assets/detail-photo.jpg" alt="" class="img-responsive">
+          </span>
+          <span class="company-detail-nearby__info  _block pull-right">
+            <span class="company-detail-nearby__type _block"><i class="fa fa-cutlery"></i> <span
+              class="company-detail-nearby__type_title">RESTAURANT</span></span>
+            <span class="company-detail-nearby__rating _block star-rating star-rating_nearby">
+              <i class="fa fa-star star-rating__star_active_nearby" data-score="1"></i>
+              <i class="fa fa-star star-rating__star_active_nearby" data-score="2"></i>
+              <i class="fa fa-star star-rating__star_active_nearby" data-score="3"></i>
+              <i class="fa fa-star star-rating__star_active_nearby" data-score="4"></i>
+              <i class="fa fa-star" data-score="5"></i>
+            </span>
+          </span>
+          </span>
+  </a>
+
+
+</aside>

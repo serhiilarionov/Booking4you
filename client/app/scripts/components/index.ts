@@ -9,6 +9,8 @@ import { GmapComponent } from './gmap/gmap.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { OnImageActivatedDirective } from './image-gallery/on-image-activated.directive';
+import { NearbyCompanies } from './company-details/nearby/nearby-companies.component';
+import { CompanyAddToUserFavorite } from './company-details/favorite/add-to-favorite.component';
 
 export { LoginFormComponent } from './auth/login-form.conponent';
 export { RegistrationFormComponent } from './auth/registration-form.conponent';
@@ -21,6 +23,8 @@ export { GmapComponent } from './gmap/gmap.component';
 export { CommingSoonComponent } from './comming-soon/comming-soon.component';
 export { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 export { OnImageActivatedDirective } from './image-gallery/on-image-activated.directive';
+export { NearbyCompanies } from './company-details/nearby/nearby-companies.component';
+export { CompanyAddToUserFavorite } from './company-details/favorite/add-to-favorite.component';
 
 export const Components: Array<any> = [
   LoginFormComponent,
@@ -33,5 +37,8 @@ export const Components: Array<any> = [
   // GmapInfoboxComponent,
   CommingSoonComponent,
   ImageGalleryComponent,
-  OnImageActivatedDirective
+  OnImageActivatedDirective,
+  CommingSoonComponent,
+  NearbyCompanies,
+  CompanyAddToUserFavorite
 ];

@@ -100,6 +100,34 @@
 
 .company-detail {
 
+  //if not company found
+  &-not-found {
+    position: relative;
+    height: 85%;
+    background: url('scripts/components/comming-soon/assets/comming-soon-sm.jpg') center no-repeat;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    &__title {
+      display: block;
+      position: absolute;
+      z-index: 10;
+      min-width: 460px;
+      max-width: 1000px;
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%, -50%));
+      text-align: center;
+      color: #fff;
+      font-family: $ff-secondary;
+      font-weight: bold;
+      font-size: 5rem;
+      text-shadow: 2px 2px 3px #000;
+    }
+  }
+
+
+
   &_pad {
     padding-top: 40px;
     padding-bottom: 20px;
@@ -174,6 +202,40 @@
     }
   }
 
+
+  //schedule slider
+  &-schedule-slider {
+
+    .carousel__btn-nav {
+      position: absolute;
+      display: inline-block;
+      padding-top: 4px;
+      width: 30px;
+      height: 30px;
+      top: 0;
+      color: #ff513f;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 30px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        border-color: #ff513f;
+        @include transition(all 400ms ease-in-out);
+      }
+    }
+
+    &__prev {
+      right: 40px;
+    }
+    &__next {
+      right: 0;
+    }
+
+  }
+
   //working time
   &-worktime {
     &__day {
@@ -229,73 +291,7 @@
 
 }
 
-//company detail nearby
-.company-detail-nearby {
 
-  display: block;
-  margin-bottom: 20px;
-  padding: 15px 15px 0 15px;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-  border: 2px solid rgba(0, 0, 0, 0.05);
-
-  ._block {
-    display: block;
-  }
-
-  &__wrapper {
-    padding-top: 10px;
-  }
-
-  &__name {
-
-    font-size: 14px;
-    font-weight: bold;
-  }
-  &__street {
-    font-size: 12px;
-  }
-  &__img {
-    width: 35%;
-  }
-  &__info {
-
-    width: 65%;
-    padding-left: 15px;
-  }
-  &__type {
-    opacity: .6;
-    font-size: 10px;
-    &_title {
-      display: inline-block;
-      padding: 5px;
-      font-size: 9px;
-      font-weight: bold;
-    }
-  }
-
-  &__rating {
-    font-size: 11px;
-    color: #DDDDDD;
-    &_active {
-      color: #8D8D8D;
-    }
-  }
-
-  &:hover {
-    color: inherit;
-
-    .company-detail-nearby {
-      &__name {
-        @include transition(all 400ms ease-in-out);
-        color: #FF513F;
-      }
-    }
-
-  }
-
-}
 
 //company detail events
 .company-detail-events {
@@ -308,24 +304,6 @@
   }
 }
 
-//add to favorite
-.add-to-favorite {
-  display: inline-block;
-  min-height: 22px;
-  font-size: 16px;
-
-  &__btn {
-    border: none;
-    padding: 0;
-    margin: 0;
-
-    &:hover {
-      color: #ff513f;
-      @include transition(all 400ms ease-in-out);
-    }
-  }
-
-}
 
 //star rating
 
