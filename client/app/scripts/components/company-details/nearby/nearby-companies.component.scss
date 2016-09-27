@@ -5,6 +5,7 @@
   display: block;
   margin-bottom: 20px;
   padding: 15px 15px 0 15px;
+  color: #474747;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
@@ -53,14 +54,19 @@
     }
   }
 
-  &:hover {
-    color: inherit;
-
+  &:hover, &:active {
+    background: #fff;
     .company-detail-nearby {
       &__name {
         @include transition(all 400ms ease-in-out);
         color: #FF513F;
       }
+    }
+
+    &:visited,
+    &:focus,
+    &:hover {
+      color: #474747;
     }
 
   }

@@ -2,7 +2,7 @@
   <div class="aside-box__caption _lg ">Nearby places</div>
 
 
-  <a href="" class="company-detail-nearby" *ngFor="let company of companyList">
+  <a routerLink="/company-details/{{company.id}}" class="company-detail-nearby" *ngFor="let company of companyList">
     <span class="company-detail-nearby__name _block">{{company.name}}</span>
     <span class="company-detail-nearby__street _block">63 Birch Street</span>
 
@@ -23,6 +23,4 @@
           </span>
           </span>
   </a>
-
-
 </aside>
