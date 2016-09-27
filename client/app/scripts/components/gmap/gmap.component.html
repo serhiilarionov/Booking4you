@@ -1,4 +1,4 @@
-<sebm-google-map [fitBounds]="bounds">
+<sebm-google-map [fitBounds]="bounds" [styles]="styles">
   <sebm-google-map-marker *ngFor="let company of companyList"
                           [latitude]="company.point.lat"
                           [longitude]="company.point.lng">

@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, Input, SimpleChange, OnChanges } from '@angular/core';
 import { Company } from '../../shared/index';
 import { LatLngBoundsLiteral } from 'angular2-google-maps/core';
+import { styles } from './styles';
 
 @Component({
     selector: 'gmap',
@@ -10,6 +11,7 @@ import { LatLngBoundsLiteral } from 'angular2-google-maps/core';
 })
 
 export class GmapComponent implements OnChanges {
+  public styles: any = styles;
   public bounds: LatLngBoundsLiteral = {east: 38, north: 50, south: 46, west: 24};
   @Input() companyList: Array<Company>;
 

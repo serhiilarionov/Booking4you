@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var styles_1 = require('./styles');
 var GmapComponent = (function () {
     function GmapComponent() {
+        this.styles = styles_1.styles;
         this.bounds = { east: 38, north: 50, south: 46, west: 24 };
     }
     GmapComponent.prototype.ngOnChanges = function (changes) {

@@ -19,7 +19,7 @@
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
     "@angular/upgrade": "2.0.0",
-    "angular2-google-maps": "^0.14.0",
+    "angular2-google-maps": "^0.15.0",
     "bourbon": "^4.2.7",
     "browser-sync": "^2.14.3",
     "core-js": "^2.4.1",
