@@ -5,7 +5,7 @@
 </div>
 
 
-<company-map [companyDetails]="companyDetails"></company-map>
+<gmap *ngIf="companyDetails" [companyList]="[companyDetails]"></gmap>
 
 <div class="container company-detail_pad" *ngIf="companyDetails">
   <div class="row">

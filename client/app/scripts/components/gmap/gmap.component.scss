@@ -7,6 +7,7 @@ gmap {
 .sebm-google-map-container {
   @include display(flex);
   @include flex(1 0 auto);
+  min-height: 150px;
 
   &-inner {
     @include flex(1 0 auto);

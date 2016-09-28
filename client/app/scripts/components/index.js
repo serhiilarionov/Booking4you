@@ -12,7 +12,6 @@ var image_gallery_component_1 = require('./image-gallery/image-gallery.component
 var on_image_activated_directive_1 = require('./image-gallery/on-image-activated.directive');
 var nearby_companies_component_1 = require('./company-details/nearby/nearby-companies.component');
 var add_to_favorite_component_1 = require('./company-details/favorite/add-to-favorite.component');
-var company_map_component_1 = require('./company-details/map/company-map.component');
 var login_form_conponent_2 = require('./auth/login-form.conponent');
 exports.LoginFormComponent = login_form_conponent_2.LoginFormComponent;
 var registration_form_conponent_2 = require('./auth/registration-form.conponent');
@@ -38,8 +37,6 @@ var nearby_companies_component_2 = require('./company-details/nearby/nearby-comp
 exports.NearbyCompanies = nearby_companies_component_2.NearbyCompanies;
 var add_to_favorite_component_2 = require('./company-details/favorite/add-to-favorite.component');
 exports.CompanyAddToUserFavorite = add_to_favorite_component_2.CompanyAddToUserFavorite;
-var company_map_component_2 = require('./company-details/map/company-map.component');
-exports.CompanyMap = company_map_component_2.CompanyMap;
 exports.Components = [
     login_form_conponent_1.LoginFormComponent,
     registration_form_conponent_1.RegistrationFormComponent,
@@ -54,7 +51,6 @@ exports.Components = [
     on_image_activated_directive_1.OnImageActivatedDirective,
     comming_soon_component_1.CommingSoonComponent,
     nearby_companies_component_1.NearbyCompanies,
-    add_to_favorite_component_1.CompanyAddToUserFavorite,
-    company_map_component_1.CompanyMap
+    add_to_favorite_component_1.CompanyAddToUserFavorite
 ];
 //# sourceMappingURL=index.js.map
