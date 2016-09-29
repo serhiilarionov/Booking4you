@@ -20,6 +20,10 @@
       "type": "string",
       "required": true
     },
+    "nameRu": {
+      "type": "string",
+      "required": true
+    },
     "active": {
       "type": "boolean",
       "required": true
@@ -28,7 +32,7 @@
       "type": "geopoint"
     },
     "bound": {
-      "type": "geopoint"
+      "type": "string"
     }
   },
   "validations": [],
