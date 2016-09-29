@@ -1,5 +1,6 @@
-import {Component, Input, Inject, OnInit} from '@angular/core';
-import {Client, ClientApi, EventTypes, Broadcaster} from '../../../shared/index';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Client, ClientApi, AuthService } from '../../../shared/index';
 
 @Component({
   selector: 'add-to-favorite',
@@ -12,13 +13,21 @@ export class CompanyAddToUserFavorite implements OnInit {
   public isAdded: boolean = false;
   @Input() companyId: number;
 
-  constructor(private clientApi: ClientApi,
-              @Inject(Broadcaster) private broadcaster: Broadcaster<string>) {
+  constructor(
+    private clientApi: ClientApi,
+    private auth: AuthService,
+    private route: ActivatedRoute
+  ) {
     this.currentUser = this.clientApi.getCachedCurrent();
-    this.broadcaster.subscribe((eventType) => {
-      if (eventType === EventTypes.LOGGED_IN) {
-        this.currentUser = this.clientApi.getCachedCurrent();
-      }
+
+    this.auth.currentUser.subscribe((user: Client) => {
+      this.currentUser = user;
+    });
+
+    this.route.params.subscribe((params: Params) => {
+      this.isAdded = false;
+      this.companyId = params['id'];
+      this.checkForFavoriteExists();
     });
   }
 

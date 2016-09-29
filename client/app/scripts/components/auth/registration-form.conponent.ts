@@ -1,15 +1,6 @@
-import { Component, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {
-  EMAIL_REGEX,
-  PASSWORD_MIN_LENGTH,
-  CustomValidators,
-  ClientApi,
-  Broadcaster,
-  EventTypes,
-  AuthRedirectService
-} from '../../shared/index';
+import { EMAIL_REGEX, PASSWORD_MIN_LENGTH, CustomValidators, AuthService, ClientApi } from '../../shared/index';
 
 @Component({
   selector: 'registration-form',
@@ -25,9 +16,7 @@ export class RegistrationFormComponent {
   constructor(
     private formBuilder: FormBuilder,
     private clientApi: ClientApi,
-    private router: Router,
-    @Inject(AuthRedirectService) private authRedirect: AuthRedirectService,
-    @Inject(Broadcaster) private broadcaster: Broadcaster<string>
+    private auth: AuthService
   ) {
     this.registrationForm = this.formBuilder.group({
       email: ['', Validators.compose([
@@ -61,10 +50,7 @@ export class RegistrationFormComponent {
   private register(userData) {
     this.clientApi.create(userData).subscribe(() => {
       // login on success
-      this.clientApi.login(this.data).subscribe(() => {
-        this.broadcaster.emit(EventTypes.LOGGED_IN);
-        this.router.navigate([this.authRedirect.getRedirectUrl()]);
-      });
+      this.auth.login(this.data);
     }, (error) => {
       console.log(error);
     });

@@ -11,19 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AuthRedirectService = (function () {
     function AuthRedirectService() {
-        this.redirectUrl = null;
+        this.url = '/';
     }
-    AuthRedirectService.prototype.setRedirectUrl = function (url) {
-        this.redirectUrl = url;
-    };
-    AuthRedirectService.prototype.getRedirectUrl = function () {
-        var redirectUrl = this.redirectUrl ? this.redirectUrl : '/';
-        this.deleteRedirectUrl();
-        return redirectUrl;
-    };
-    AuthRedirectService.prototype.deleteRedirectUrl = function () {
-        this.redirectUrl = null;
-    };
+    Object.defineProperty(AuthRedirectService.prototype, "redirectUrl", {
+        get: function () {
+            return this.url;
+        },
+        set: function (url) {
+            this.url = url;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AuthRedirectService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

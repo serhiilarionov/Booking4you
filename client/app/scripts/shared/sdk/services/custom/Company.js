@@ -1345,6 +1345,40 @@ var CompanyApi = (function (_super) {
         return result;
     };
     /**
+     * Update an existing model instance or insert a new one into the data source based on the where criteria.
+     *
+     * @param object where Criteria to match model instances
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Company` object.)
+     * </em>
+     */
+    CompanyApi.prototype.upsertWithWhere = function (where, data) {
+        if (where === void 0) { where = undefined; }
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/upsertWithWhere";
+        var routeParams = {};
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        if (where)
+            urlParams.where = where;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result.map(function (instance) { return new Company_1.Company(instance); });
+    };
+    /**
      * Check whether a model instance exists in the data source.
      *
      * @param any id Model id

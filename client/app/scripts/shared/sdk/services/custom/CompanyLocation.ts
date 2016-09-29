@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { BaseLoopBackApi } from '../core/base.service';
 import { LoopBackConfig } from '../../lb.config';
 import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter } from '../../models/BaseModels';
+import { LoopBackFilter,  } from '../../models/BaseModels';
 import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
@@ -114,6 +114,38 @@ export class CompanyLocationApi extends BaseLoopBackApi {
     let urlParams: any = {};
     let result = this.request(method, url, routeParams, urlParams, postBody);
     return result;
+  }
+
+  /**
+   * Update an existing model instance or insert a new one into the data source based on the where criteria.
+   *
+   * @param object where Criteria to match model instances
+   *
+   * @param object data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `CompanyLocation` object.)
+   * </em>
+   */
+  public upsertWithWhere(where: any = undefined, data: any = undefined) {
+    let method: string = "POST";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/CompanyLocations/upsertWithWhere";
+    let routeParams: any = {};
+    let postBody: any = {
+      data: data
+    };
+    let urlParams: any = {};
+    if (where) urlParams.where = where;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result.map((instance: CompanyLocation) => new CompanyLocation(instance));
   }
 
   /**
@@ -356,7 +388,7 @@ export class CompanyLocationApi extends BaseLoopBackApi {
    * This usually means the response is a `CompanyLocation` object.)
    * </em>
    */
-  public createMany(data: any = undefined) {
+  public createMany(data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/CompanyLocations";
@@ -370,7 +402,6 @@ export class CompanyLocationApi extends BaseLoopBackApi {
         instances.map((instance: CompanyLocation) => new CompanyLocation(instance))
     );
   }
-
 
   /**
    * The name of the model represented by this $resource,

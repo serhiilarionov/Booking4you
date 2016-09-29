@@ -2,20 +2,13 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthRedirectService {
-  private redirectUrl: any = null;
+  private url: string = '/';
 
-  setRedirectUrl(url) {
-    this.redirectUrl = url;
+  get redirectUrl(): string {
+    return this.url;
   }
 
-  getRedirectUrl() {
-    let redirectUrl = this.redirectUrl ? this.redirectUrl : '/';
-    this.deleteRedirectUrl();
-
-    return redirectUrl;
-  }
-
-  deleteRedirectUrl() {
-    this.redirectUrl = null;
+  set redirectUrl(url: string) {
+    this.url = url;
   }
 }

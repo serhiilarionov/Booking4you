@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { BaseLoopBackApi } from '../core/base.service';
 import { LoopBackConfig } from '../../lb.config';
 import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter } from '../../models/BaseModels';
+import { LoopBackFilter,  } from '../../models/BaseModels';
 import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
@@ -108,7 +108,7 @@ export class CityApi extends BaseLoopBackApi {
    * This usually means the response is a `City` object.)
    * </em>
    */
-  public updateByIdDistricts(id: any, fk: any, data: District = undefined) {
+  public updateByIdDistricts(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/cities/:id/districts/:fk";
@@ -201,7 +201,7 @@ export class CityApi extends BaseLoopBackApi {
    * This usually means the response is a `City` object.)
    * </em>
    */
-  public updateByIdStreets(id: any, fk: any, data: Street = undefined) {
+  public updateByIdStreets(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/cities/:id/streets/:fk";
@@ -265,7 +265,7 @@ export class CityApi extends BaseLoopBackApi {
    * This usually means the response is a `City` object.)
    * </em>
    */
-  public createDistricts(id: any, data: District = undefined) {
+  public createDistricts(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/cities/:id/districts";
@@ -381,7 +381,7 @@ export class CityApi extends BaseLoopBackApi {
    * This usually means the response is a `City` object.)
    * </em>
    */
-  public createStreets(id: any, data: Street = undefined) {
+  public createStreets(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/cities/:id/streets";
@@ -534,6 +534,38 @@ export class CityApi extends BaseLoopBackApi {
     let urlParams: any = {};
     let result = this.request(method, url, routeParams, urlParams, postBody);
     return result;
+  }
+
+  /**
+   * Update an existing model instance or insert a new one into the data source based on the where criteria.
+   *
+   * @param object where Criteria to match model instances
+   *
+   * @param object data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `City` object.)
+   * </em>
+   */
+  public upsertWithWhere(where: any = undefined, data: any = undefined) {
+    let method: string = "POST";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/cities/upsertWithWhere";
+    let routeParams: any = {};
+    let postBody: any = {
+      data: data
+    };
+    let urlParams: any = {};
+    if (where) urlParams.where = where;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result.map((instance: City) => new City(instance));
   }
 
   /**
@@ -778,7 +810,7 @@ export class CityApi extends BaseLoopBackApi {
    * This usually means the response is a `City` object.)
    * </em>
    */
-  public createManyDistricts(id: any, data: District = undefined) {
+  public createManyDistricts(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/cities/:id/districts";
@@ -811,7 +843,7 @@ export class CityApi extends BaseLoopBackApi {
    * This usually means the response is a `City` object.)
    * </em>
    */
-  public createManyStreets(id: any, data: Street = undefined) {
+  public createManyStreets(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/cities/:id/streets";
@@ -842,7 +874,7 @@ export class CityApi extends BaseLoopBackApi {
    * This usually means the response is a `City` object.)
    * </em>
    */
-  public createMany(data: any = undefined) {
+  public createMany(data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/cities";
@@ -856,7 +888,6 @@ export class CityApi extends BaseLoopBackApi {
         instances.map((instance: City) => new City(instance))
     );
   }
-
 
   /**
    * The name of the model represented by this $resource,

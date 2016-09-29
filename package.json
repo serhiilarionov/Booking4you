@@ -33,7 +33,7 @@
     "socketio-auth": "0.0.5"
   },
   "devDependencies": {
-    "@mean-expert/loopback-sdk-builder": "^2.0.8",
+    "@mean-expert/loopback-sdk-builder": "^2.0.9",
     "loopback-sdk-angular-cli": "^2.1.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",

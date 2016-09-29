@@ -631,6 +631,40 @@ var ClientApi = (function (_super) {
         return result;
     };
     /**
+     * Update an existing model instance or insert a new one into the data source based on the where criteria.
+     *
+     * @param object where Criteria to match model instances
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Client` object.)
+     * </em>
+     */
+    ClientApi.prototype.upsertWithWhere = function (where, data) {
+        if (where === void 0) { where = undefined; }
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/clients/upsertWithWhere";
+        var routeParams = {};
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        if (where)
+            urlParams.where = where;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result.map(function (instance) { return new Client_1.Client(instance); });
+    };
+    /**
      * Check whether a model instance exists in the data source.
      *
      * @param any id Model id
@@ -883,9 +917,10 @@ var ClientApi = (function (_super) {
      *
      *
      */
-    ClientApi.prototype.login = function (credentials, include) {
+    ClientApi.prototype.login = function (credentials, include, rememberMe) {
         var _this = this;
         if (include === void 0) { include = 'user'; }
+        if (rememberMe === void 0) { rememberMe = true; }
         var method = "POST";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
             "/clients/login";
@@ -898,8 +933,8 @@ var ClientApi = (function (_super) {
             urlParams.include = include;
         var result = this.request(method, url, routeParams, urlParams, postBody)
             .map(function (response) {
-            _this.auth.setUser(response.id, response.userId, response.user);
-            _this.auth.setRememberMe(true);
+            response.rememberMe = rememberMe;
+            _this.auth.setUser(response);
             _this.auth.save();
             return response;
         });
@@ -926,8 +961,7 @@ var ClientApi = (function (_super) {
         var postBody = {};
         var urlParams = {};
         urlParams.access_token = this.auth.getAccessTokenId();
-        this.auth.clearStorage();
-        this.auth.clearUser();
+        this.auth.clear();
         var result = this.request(method, url, routeParams, urlParams, postBody);
         return result;
     };
@@ -1060,10 +1094,19 @@ var ClientApi = (function (_super) {
      * is no user logged in or the data of the current user were not fetched
      * yet.
      *
-     * @returns object A Client instance.
+     * @returns object An Account instance.
      */
     ClientApi.prototype.getCachedCurrent = function () {
         return this.auth.getCurrentUserData();
+    };
+    /**
+     * Get data of the currently logged access tokern that was returned by the last
+     * call to {@link sdk.Client#login}
+     *
+     * @returns object An AccessToken instance.
+     */
+    ClientApi.prototype.getCurrentToken = function () {
+        return this.auth.getToken();
     };
     /**
      * @name sdk.Client#isAuthenticated

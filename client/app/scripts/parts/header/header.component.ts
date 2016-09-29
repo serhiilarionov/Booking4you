@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation, Inject } from '@angular/core';
-import { Client, ClientApi, LoopBackAuth, SidebarService, Broadcaster, EventTypes } from '../../shared/index';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { Client, ClientApi, AuthService, SidebarService } from '../../shared/index';
 declare var $: any;
 
 @Component({
@@ -14,14 +14,13 @@ export class HeaderComponent {
 
   constructor(
     private sidebar: SidebarService,
-    private auth: LoopBackAuth,
     private clientApi: ClientApi,
-    @Inject(Broadcaster) private broadcaster: Broadcaster<string>
+    private auth: AuthService
   ) {
-    this.broadcaster.subscribe((eventType) => {
-      if (eventType === EventTypes.LOGGED_IN) {
-        this.currentUser = this.clientApi.getCachedCurrent();
-      }
+    this.currentUser = this.clientApi.getCachedCurrent();
+
+    this.auth.currentUser.subscribe((user: Client) => {
+      this.currentUser = user;
     });
   }
 
@@ -30,9 +29,6 @@ export class HeaderComponent {
   }
 
   logout() {
-    this.clientApi.logout().subscribe(() => {
-      this.broadcaster.emit(EventTypes.LOGGED_OUT);
-      this.currentUser = null;
-    });
+    this.auth.logout();
   }
 }

@@ -1,6 +1,5 @@
-import { Component, ViewEncapsulation, Inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Broadcaster, EventTypes, Company } from '../../shared/index';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Company } from '../../shared/index';
 declare var $: any;
 
 @Component({
@@ -12,16 +11,6 @@ declare var $: any;
 
 export class CompanyListPageComponent implements OnInit {
   public companyList: Array<Company>;
-  constructor(
-    private router: Router,
-    @Inject(Broadcaster) private broadcaster: Broadcaster<any>
-  ) {
-    this.broadcaster.subscribe((next) => {
-      if (next === EventTypes.LOGGED_OUT) {
-        this.router.navigate(['/']);
-      }
-    });
-  }
 
   ngOnInit() {
     this.resizeMapListWrapper();

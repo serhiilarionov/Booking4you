@@ -1,8 +1,7 @@
-import { Component, ElementRef, ViewEncapsulation, OnInit, Inject } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { SidebarService } from './shared/index';
-import { LoopBackConfig, BASE_URL, API_VERSION, ClientApi, Client, EventTypes, Broadcaster } from './shared/index';
-import {LoopBackAuth} from './shared/sdk/services/core/auth.service';
+import { LoopBackConfig, BASE_URL, API_VERSION } from './shared/index';
 declare var $: any;
 
 @Component({
@@ -12,17 +11,13 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None,
 })
 
-export class AppComponent implements OnInit {
-  public currentUser: Client;
+export class AppComponent {
   private $el: any;
 
   constructor(
     private sidebar: SidebarService,
     private el: ElementRef,
-    private router: Router,
-    private clientApi: ClientApi,
-    private loopBackAuth: LoopBackAuth,
-    @Inject(Broadcaster) private broadcaster: Broadcaster<string>
+    private router: Router
   ) {
     this.$el = $(el.nativeElement);
     LoopBackConfig.setBaseURL(BASE_URL);
@@ -37,15 +32,5 @@ export class AppComponent implements OnInit {
         this.sidebar.toggle();
       }
     });
-  }
-
-  ngOnInit() {
-    if (this.clientApi.isAuthenticated()) {
-      this.clientApi.getCurrent().subscribe((user: Client) => {
-        this.loopBackAuth.setCurrentUserData(user);
-        this.broadcaster.next(EventTypes.LOGGED_IN);
-        this.currentUser = user;
-      });
-    }
   }
 }

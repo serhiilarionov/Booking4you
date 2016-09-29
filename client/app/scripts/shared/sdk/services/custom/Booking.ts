@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { BaseLoopBackApi } from '../core/base.service';
 import { LoopBackConfig } from '../../lb.config';
 import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter } from '../../models/BaseModels';
+import { LoopBackFilter,  } from '../../models/BaseModels';
 import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
@@ -139,7 +139,7 @@ export class BookingApi extends BaseLoopBackApi {
    * This usually means the response is a `Booking` object.)
    * </em>
    */
-  public updateByIdServices(id: any, fk: any, data: CompanyService = undefined) {
+  public updateByIdServices(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/bookings/:id/services/:fk";
@@ -326,7 +326,7 @@ export class BookingApi extends BaseLoopBackApi {
    * This usually means the response is a `Booking` object.)
    * </em>
    */
-  public createServices(id: any, data: CompanyService = undefined) {
+  public createServices(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/bookings/:id/services";
@@ -479,6 +479,38 @@ export class BookingApi extends BaseLoopBackApi {
     let urlParams: any = {};
     let result = this.request(method, url, routeParams, urlParams, postBody);
     return result;
+  }
+
+  /**
+   * Update an existing model instance or insert a new one into the data source based on the where criteria.
+   *
+   * @param object where Criteria to match model instances
+   *
+   * @param object data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Booking` object.)
+   * </em>
+   */
+  public upsertWithWhere(where: any = undefined, data: any = undefined) {
+    let method: string = "POST";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/bookings/upsertWithWhere";
+    let routeParams: any = {};
+    let postBody: any = {
+      data: data
+    };
+    let urlParams: any = {};
+    if (where) urlParams.where = where;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result.map((instance: Booking) => new Booking(instance));
   }
 
   /**
@@ -723,7 +755,7 @@ export class BookingApi extends BaseLoopBackApi {
    * This usually means the response is a `Booking` object.)
    * </em>
    */
-  public createManyServices(id: any, data: CompanyService = undefined) {
+  public createManyServices(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/bookings/:id/services";
@@ -754,7 +786,7 @@ export class BookingApi extends BaseLoopBackApi {
    * This usually means the response is a `Booking` object.)
    * </em>
    */
-  public createMany(data: any = undefined) {
+  public createMany(data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/bookings";
@@ -768,7 +800,6 @@ export class BookingApi extends BaseLoopBackApi {
         instances.map((instance: Booking) => new Booking(instance))
     );
   }
-
 
   /**
    * The name of the model represented by this $resource,

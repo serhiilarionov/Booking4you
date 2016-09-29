@@ -1,17 +1,6 @@
-import { Component, Inject } from '@angular/core';
-import { Broadcaster } from '../../shared/index';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {
-  BASE_URL,
-  API_VERSION,
-  EMAIL_REGEX,
-  PASSWORD_MIN_LENGTH,
-  ClientApi,
-  LoopBackConfig,
-  EventTypes,
-  AuthRedirectService
-} from '../../shared/index';
-import { Router } from '@angular/router';
+import { EMAIL_REGEX, PASSWORD_MIN_LENGTH, AuthService } from '../../shared/index';
 
 @Component({
   selector: 'login-form',
@@ -24,14 +13,9 @@ export class LoginFormComponent {
   passwordMinLength = PASSWORD_MIN_LENGTH;
 
   constructor(
-    private clientApi: ClientApi,
-    private formBuilder: FormBuilder,
-    private router: Router,
-    @Inject(AuthRedirectService) private authRedirect: AuthRedirectService,
-    @Inject(Broadcaster) private broadcaster: Broadcaster<string>
+    private auth: AuthService,
+    private formBuilder: FormBuilder
   ) {
-    LoopBackConfig.setBaseURL(BASE_URL);
-    LoopBackConfig.setApiVersion(API_VERSION);
     this.loginForm = this.formBuilder.group({
       email: ['',
         Validators.compose([
@@ -57,9 +41,6 @@ export class LoginFormComponent {
   }
 
   private login(credentials): void {
-    this.clientApi.login(credentials).subscribe(() => {
-      this.broadcaster.emit(EventTypes.LOGGED_IN);
-      this.router.navigate([this.authRedirect.getRedirectUrl()]);
-    });
+    this.auth.login(credentials);
   }
 }

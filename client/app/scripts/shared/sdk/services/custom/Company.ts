@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { BaseLoopBackApi } from '../core/base.service';
 import { LoopBackConfig } from '../../lb.config';
 import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter } from '../../models/BaseModels';
+import { LoopBackFilter,  } from '../../models/BaseModels';
 import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
@@ -113,7 +113,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public updateByIdService(id: any, fk: any, data: CompanyService = undefined) {
+  public updateByIdService(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/service/:fk";
@@ -177,7 +177,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public updateDetails(id: any, data: CompanyDetail = undefined) {
+  public updateDetails(id: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/details";
@@ -264,7 +264,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createLocation(id: any, data: CompanyLocation = undefined) {
+  public createLocation(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/location";
@@ -297,7 +297,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public updateLocation(id: any, data: CompanyLocation = undefined) {
+  public updateLocation(id: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/location";
@@ -413,7 +413,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public updateByIdBookings(id: any, fk: any, data: Booking = undefined) {
+  public updateByIdBookings(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/bookings/:fk";
@@ -506,7 +506,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public updateByIdCategories(id: any, fk: any, data: Category = undefined) {
+  public updateByIdCategories(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/categories/:fk";
@@ -542,7 +542,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public linkCategories(id: any, fk: any, data: CategoryCompany = undefined) {
+  public linkCategories(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/categories/rel/:fk";
@@ -692,7 +692,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public updateByIdClients(id: any, fk: any, data: Client = undefined) {
+  public updateByIdClients(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/clients/:fk";
@@ -849,7 +849,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createService(id: any, data: CompanyService = undefined) {
+  public createService(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/service";
@@ -965,7 +965,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createBookings(id: any, data: Booking = undefined) {
+  public createBookings(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/bookings";
@@ -1081,7 +1081,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createCategories(id: any, data: Category = undefined) {
+  public createCategories(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/categories";
@@ -1197,7 +1197,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createClients(id: any, data: Client = undefined) {
+  public createClients(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/clients";
@@ -1350,6 +1350,38 @@ export class CompanyApi extends BaseLoopBackApi {
     let urlParams: any = {};
     let result = this.request(method, url, routeParams, urlParams, postBody);
     return result;
+  }
+
+  /**
+   * Update an existing model instance or insert a new one into the data source based on the where criteria.
+   *
+   * @param object where Criteria to match model instances
+   *
+   * @param object data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Company` object.)
+   * </em>
+   */
+  public upsertWithWhere(where: any = undefined, data: any = undefined) {
+    let method: string = "POST";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/companies/upsertWithWhere";
+    let routeParams: any = {};
+    let postBody: any = {
+      data: data
+    };
+    let urlParams: any = {};
+    if (where) urlParams.where = where;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result.map((instance: Company) => new Company(instance));
   }
 
   /**
@@ -1655,7 +1687,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createManyLocation(id: any, data: CompanyLocation = undefined) {
+  public createManyLocation(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/location";
@@ -1688,7 +1720,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createManyService(id: any, data: CompanyService = undefined) {
+  public createManyService(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/service";
@@ -1721,7 +1753,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createManyBookings(id: any, data: Booking = undefined) {
+  public createManyBookings(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/bookings";
@@ -1754,7 +1786,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createManyCategories(id: any, data: Category = undefined) {
+  public createManyCategories(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/categories";
@@ -1787,7 +1819,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createManyClients(id: any, data: Client = undefined) {
+  public createManyClients(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/:id/clients";
@@ -1818,7 +1850,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public createMany(data: any = undefined) {
+  public createMany(data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies";
@@ -1832,7 +1864,6 @@ export class CompanyApi extends BaseLoopBackApi {
         instances.map((instance: Company) => new Company(instance))
     );
   }
-
 
   /**
    * The name of the model represented by this $resource,

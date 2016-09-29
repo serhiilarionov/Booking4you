@@ -11,12 +11,13 @@ export class AuthGuardService implements CanActivate {
   ) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // don't let authenticated user go to login or registration pages
+    // not to allow authenticated user to go to login or registration pages
     if (state.url === '/login' || state.url === '/registration') {
       if (this.clientApi.isAuthenticated()) {
-        this.router.navigate(['/']);
+        this.router.navigate([this.authRedirect.redirectUrl]);
         return false;
       } else {
+        this.authRedirect.redirectUrl = this.router.routerState.snapshot.url;
         return true;
       }
     }
@@ -26,7 +27,7 @@ export class AuthGuardService implements CanActivate {
       return true;
     }
 
-    this.authRedirect.setRedirectUrl(state.url);
+    this.authRedirect.redirectUrl = state.url;
     this.router.navigate(['/login']);
     return false;
   }

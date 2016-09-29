@@ -8,33 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 var core_1 = require('@angular/core');
 var index_1 = require('../../shared/index');
 var HeaderComponent = (function () {
-    function HeaderComponent(sidebar, auth, clientApi, broadcaster) {
+    function HeaderComponent(sidebar, clientApi, auth) {
         var _this = this;
         this.sidebar = sidebar;
-        this.auth = auth;
         this.clientApi = clientApi;
-        this.broadcaster = broadcaster;
-        this.broadcaster.subscribe(function (eventType) {
-            if (eventType === index_1.EventTypes.LOGGED_IN) {
-                _this.currentUser = _this.clientApi.getCachedCurrent();
-            }
+        this.auth = auth;
+        this.currentUser = this.clientApi.getCachedCurrent();
+        this.auth.currentUser.subscribe(function (user) {
+            _this.currentUser = user;
         });
     }
     HeaderComponent.prototype.onSidebarToggle = function () {
         this.sidebar.toggle();
     };
     HeaderComponent.prototype.logout = function () {
-        var _this = this;
-        this.clientApi.logout().subscribe(function () {
-            _this.broadcaster.emit(index_1.EventTypes.LOGGED_OUT);
-            _this.currentUser = null;
-        });
+        this.auth.logout();
     };
     HeaderComponent = __decorate([
         core_1.Component({
@@ -42,9 +33,8 @@ var HeaderComponent = (function () {
             templateUrl: 'scripts/parts/header/header.component.html',
             styleUrls: ['scripts/parts/header/header.component.css'],
             encapsulation: core_1.ViewEncapsulation.None
-        }),
-        __param(3, core_1.Inject(index_1.Broadcaster)), 
-        __metadata('design:paramtypes', [index_1.SidebarService, index_1.LoopBackAuth, index_1.ClientApi, index_1.Broadcaster])
+        }), 
+        __metadata('design:paramtypes', [index_1.SidebarService, index_1.ClientApi, index_1.AuthService])
     ], HeaderComponent);
     return HeaderComponent;
 }());

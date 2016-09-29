@@ -9,15 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../shared/index');
 var RegistrationPageComponent = (function () {
-    function RegistrationPageComponent() {
+    function RegistrationPageComponent(auth, authRedirect, router) {
+        var _this = this;
+        this.auth = auth;
+        this.authRedirect = authRedirect;
+        this.router = router;
+        this.auth.currentUser.subscribe(function (user) {
+            if (user) {
+                _this.router.navigate([_this.authRedirect.redirectUrl]);
+            }
+        });
     }
     RegistrationPageComponent = __decorate([
         core_1.Component({
             selector: 'registration-page',
             templateUrl: 'scripts/pages/registration/registration-page.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.AuthService, index_1.AuthRedirectService, router_1.Router])
     ], RegistrationPageComponent);
     return RegistrationPageComponent;
 }());

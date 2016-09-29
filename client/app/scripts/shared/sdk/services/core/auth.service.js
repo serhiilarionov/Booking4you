@@ -11,65 +11,68 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /* tslint:disable */
 var core_1 = require('@angular/core');
 var storage_driver_1 = require('../../storage/storage.driver');
+var BaseModels_1 = require('../../models/BaseModels');
+/**
+ * @module LoopBackAuth
+ * @author Jonathan Casarrubias <@johncasarrubias> <github:jonathan-casarrubias>
+ * @license MTI
+ * @description
+ * Provides with a LoopBack compatible authentication mechanism.
+ */
 var LoopBackAuth = (function () {
     function LoopBackAuth() {
-        this.propsPrefix = '$LoopBack$';
-        this.accessTokenId = this.load("accessTokenId");
-        this.currentUserId = this.load("currentUserId");
-        this.rememberMe = this.load("rememberMe");
-        this.currentUserData = null;
+        this.token = new BaseModels_1.SDKToken();
+        this.prefix = '$LoopBackSDK$';
+        this.token.id = this.load('id');
+        this.token.user = this.load('user');
+        this.token.userId = this.load('userId');
+        this.token.rememberMe = this.load('rememberMe');
     }
     LoopBackAuth.prototype.setRememberMe = function (value) {
-        this.rememberMe = value;
-        return this;
+        this.token.rememberMe = value;
     };
-    LoopBackAuth.prototype.getCurrentUserId = function () {
-        return this.currentUserId;
-    };
-    LoopBackAuth.prototype.setCurrentUserData = function (data) {
-        this.currentUserData = data;
-        return this;
-    };
-    LoopBackAuth.prototype.getCurrentUserData = function () {
-        return this.currentUserData;
+    LoopBackAuth.prototype.getToken = function () {
+        return this.token;
     };
     LoopBackAuth.prototype.getAccessTokenId = function () {
-        return this.accessTokenId;
+        return this.token.id;
+    };
+    LoopBackAuth.prototype.getCurrentUserId = function () {
+        return this.token.userId;
+    };
+    LoopBackAuth.prototype.getCurrentUserData = function () {
+        return (typeof this.token.user === 'string') ? JSON.parse(this.token.user) : this.token.user;
     };
     LoopBackAuth.prototype.save = function () {
-        this.saveThis("accessTokenId", this.accessTokenId);
-        this.saveThis("currentUserId", this.currentUserId);
-        this.saveThis("rememberMe", this.rememberMe);
+        if (this.token.rememberMe) {
+            this.persist('id', this.token.id);
+            this.persist('user', this.token.user);
+            this.persist('userId', this.token.userId);
+            this.persist('rememberMe', this.token.rememberMe);
+        }
     };
     ;
-    LoopBackAuth.prototype.setUser = function (accessTokenId, userId, userData) {
-        this.accessTokenId = accessTokenId;
-        this.currentUserId = userId;
-        this.currentUserData = userData;
+    LoopBackAuth.prototype.setUser = function (token) {
+        this.token = Object.assign(this.token, token);
     };
-    LoopBackAuth.prototype.clearUser = function () {
-        this.accessTokenId = null;
-        this.currentUserId = null;
-        this.currentUserData = null;
+    LoopBackAuth.prototype.load = function (prop) {
+        return storage_driver_1.StorageDriver.get("" + this.prefix + prop);
     };
-    LoopBackAuth.prototype.clearStorage = function () {
-        storage_driver_1.StorageDriver.remove(this.propsPrefix + 'accessTokenId');
-        storage_driver_1.StorageDriver.remove(this.propsPrefix + 'currentUserId');
-        storage_driver_1.StorageDriver.remove(this.propsPrefix + 'rememberMe');
+    LoopBackAuth.prototype.clear = function () {
+        var _this = this;
+        Object.keys(this.token).forEach(function (prop) { return storage_driver_1.StorageDriver.remove("" + _this.prefix + prop); });
+        this.token = new BaseModels_1.SDKToken();
     };
-    ;
-    LoopBackAuth.prototype.saveThis = function (name, value) {
+    // I do not persist everything in 1 value because I want
+    // to decouple user from token data. User can be larger than
+    // expected and will be easier to handle as will perform better.
+    LoopBackAuth.prototype.persist = function (prop, value) {
         try {
-            var key = this.propsPrefix + name;
-            storage_driver_1.StorageDriver.set(key, value);
+            storage_driver_1.StorageDriver.set("" + this.prefix + prop, (typeof value === 'object') ? JSON.stringify(value) : value);
         }
         catch (err) {
-            console.log('Cannot access local/session storage:', err);
+            console.error('Cannot access local/session storage:', err);
         }
-    };
-    LoopBackAuth.prototype.load = function (name) {
-        var key = this.propsPrefix + name;
-        return storage_driver_1.StorageDriver.get(key);
     };
     LoopBackAuth = __decorate([
         core_1.Injectable(), 

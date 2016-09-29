@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { BaseLoopBackApi } from '../core/base.service';
 import { LoopBackConfig } from '../../lb.config';
 import { LoopBackAuth } from '../core/auth.service';
-import { LoopBackFilter } from '../../models/BaseModels';
+import { LoopBackFilter, SDKToken, AccessToken } from '../../models/BaseModels';
 import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
@@ -108,7 +108,7 @@ export class ClientApi extends BaseLoopBackApi {
    * This usually means the response is a `Client` object.)
    * </em>
    */
-  public updateByIdCompanies(id: any, fk: any, data: Company = undefined) {
+  public updateByIdCompanies(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/clients/:id/companies/:fk";
@@ -294,7 +294,7 @@ export class ClientApi extends BaseLoopBackApi {
    * This usually means the response is a `Client` object.)
    * </em>
    */
-  public updateByIdBookings(id: any, fk: any, data: Booking = undefined) {
+  public updateByIdBookings(id: any, fk: any, data: any = undefined) {
     let method: string = "PUT";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/clients/:id/bookings/:fk";
@@ -358,7 +358,7 @@ export class ClientApi extends BaseLoopBackApi {
    * This usually means the response is a `Client` object.)
    * </em>
    */
-  public createCompanies(id: any, data: Company = undefined) {
+  public createCompanies(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/clients/:id/companies";
@@ -474,7 +474,7 @@ export class ClientApi extends BaseLoopBackApi {
    * This usually means the response is a `Client` object.)
    * </em>
    */
-  public createBookings(id: any, data: Booking = undefined) {
+  public createBookings(id: any, data: any = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/clients/:id/bookings";
@@ -627,6 +627,38 @@ export class ClientApi extends BaseLoopBackApi {
     let urlParams: any = {};
     let result = this.request(method, url, routeParams, urlParams, postBody);
     return result;
+  }
+
+  /**
+   * Update an existing model instance or insert a new one into the data source based on the where criteria.
+   *
+   * @param object where Criteria to match model instances
+   *
+   * @param object data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Client` object.)
+   * </em>
+   */
+  public upsertWithWhere(where: any = undefined, data: any = undefined) {
+    let method: string = "POST";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/clients/upsertWithWhere";
+    let routeParams: any = {};
+    let postBody: any = {
+      data: data
+    };
+    let urlParams: any = {};
+    if (where) urlParams.where = where;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result.map((instance: Client) => new Client(instance));
   }
 
   /**
@@ -878,7 +910,7 @@ export class ClientApi extends BaseLoopBackApi {
    * 
    *
    */
-  public login(credentials: any, include: any = 'user') {
+  public login(credentials: any, include: any = 'user', rememberMe: boolean = true) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/clients/login";
@@ -890,9 +922,9 @@ export class ClientApi extends BaseLoopBackApi {
     if (include) urlParams.include = include;
     let result = this.request(method, url, routeParams, urlParams, postBody)
       .map(
-        (response: { id: string, userId: string, user: any }) => {
-          this.auth.setUser(response.id, response.userId, response.user);
-          this.auth.setRememberMe(true);
+        (response: SDKToken) => {
+          response.rememberMe = rememberMe;
+          this.auth.setUser(response);
           this.auth.save();
           return response;
         }
@@ -922,8 +954,7 @@ export class ClientApi extends BaseLoopBackApi {
     let postBody: any = {};
     let urlParams: any = {};
        urlParams.access_token = this.auth.getAccessTokenId();
-    this.auth.clearStorage();
-    this.auth.clearUser(); 
+    this.auth.clear(); 
     let result = this.request(method, url, routeParams, urlParams, postBody);
     return result;
   }
@@ -946,7 +977,7 @@ export class ClientApi extends BaseLoopBackApi {
    * This usually means the response is a `Client` object.)
    * </em>
    */
-  public createManyCompanies(id: any, data: Company = undefined) {
+  public createManyCompanies(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/clients/:id/companies";
@@ -979,7 +1010,7 @@ export class ClientApi extends BaseLoopBackApi {
    * This usually means the response is a `Client` object.)
    * </em>
    */
-  public createManyBookings(id: any, data: Booking = undefined) {
+  public createManyBookings(id: any, data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/clients/:id/bookings";
@@ -1010,7 +1041,7 @@ export class ClientApi extends BaseLoopBackApi {
    * This usually means the response is a `Client` object.)
    * </em>
    */
-  public createMany(data: any = undefined) {
+  public createMany(data: Array<any> = undefined) {
     let method: string = "POST";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/clients";
@@ -1049,7 +1080,6 @@ export class ClientApi extends BaseLoopBackApi {
     let postBody: any = {};
     return this.request(method, url, routeParams, urlParams, postBody);
   }
-
   /**
    * Get data of the currently logged user that was returned by the last
    * call to {@link sdk.Client#login} or
@@ -1057,12 +1087,20 @@ export class ClientApi extends BaseLoopBackApi {
    * is no user logged in or the data of the current user were not fetched
    * yet.
    *
-   * @returns object A Client instance.
+   * @returns object An Account instance.
    */
   public getCachedCurrent() {
     return this.auth.getCurrentUserData();
   }
-
+  /**
+   * Get data of the currently logged access tokern that was returned by the last
+   * call to {@link sdk.Client#login}
+   *
+   * @returns object An AccessToken instance.
+   */
+  public getCurrentToken(): AccessToken {
+    return this.auth.getToken();
+  }
   /**
    * @name sdk.Client#isAuthenticated
    *

@@ -9,15 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../shared/index');
 var LoginPageComponent = (function () {
-    function LoginPageComponent() {
+    function LoginPageComponent(auth, authRedirect, router) {
+        var _this = this;
+        this.auth = auth;
+        this.authRedirect = authRedirect;
+        this.router = router;
+        this.auth.currentUser.subscribe(function (user) {
+            if (user) {
+                _this.router.navigate([_this.authRedirect.redirectUrl]);
+            }
+        });
     }
     LoginPageComponent = __decorate([
         core_1.Component({
             selector: 'login-page',
             templateUrl: 'scripts/pages/login/login-page.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.AuthService, index_1.AuthRedirectService, router_1.Router])
     ], LoginPageComponent);
     return LoginPageComponent;
 }());
