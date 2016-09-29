@@ -54,6 +54,13 @@
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "property": "geoLogin",
+      "principalType": "ROLE",
+      "principalId": "*",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
