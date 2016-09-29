@@ -57,6 +57,7 @@ var CompanyListComponent = (function () {
         var _this = this;
         // Get companyList only when city and category filters are checked
         if (this.filter.where.cityId && this.filter.where.categoryId) {
+            this.companyListLoaded.next([]);
             this.companyApi.find(this.filter).subscribe(function (companyList) {
                 _this.companyList = companyList;
                 _this.companyListLoaded.next(_this.companyList);

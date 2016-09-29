@@ -65,6 +65,7 @@ export class CompanyListComponent implements OnInit {
   getCompanyList() {
     // Get companyList only when city and category filters are checked
     if (this.filter.where.cityId && this.filter.where.categoryId) {
+      this.companyListLoaded.next([]);
       this.companyApi.find(this.filter).subscribe((companyList: Array<Company>) => {
         this.companyList = companyList;
         this.companyListLoaded.next(this.companyList);

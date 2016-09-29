@@ -12,13 +12,29 @@ var core_1 = require('@angular/core');
 var styles_1 = require('./styles');
 var GmapComponent = (function () {
     function GmapComponent() {
+        this.nativeMarkers = [];
+        this.mapObservable = new core_1.EventEmitter();
+        this.markersObservable = new core_1.EventEmitter();
         this.styles = styles_1.styles;
         this.bounds = { east: 38, north: 50, south: 46, west: 24 };
     }
     GmapComponent.prototype.ngOnChanges = function (changes) {
-        if (changes['companyList'] && this.companyList && this.companyList.length) {
-            this.calculateBounds();
+        if ('companyList' in changes && changes['companyList'].currentValue) {
+            if (!this.companyList.length) {
+                // reset markers input for gmap-marker-clusterer component if company list is empty
+                this.nativeMarkers = [];
+            }
+            else {
+                this.calculateBounds();
+            }
         }
+    };
+    GmapComponent.prototype.onMapLoaded = function (map) {
+        this.mapObservable.next(map);
+    };
+    GmapComponent.prototype.onMarkerLoaded = function (marker) {
+        this.nativeMarkers.push(marker);
+        this.markersObservable.next(this.nativeMarkers);
     };
     GmapComponent.prototype.calculateBounds = function () {
         var lats = this.companyList.map(function (company) { return company.point.lat; });

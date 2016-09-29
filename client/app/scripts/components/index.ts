@@ -5,6 +5,9 @@ import { CompanyCardComponent } from './company/company-card.component';
 import { CompanyModalComponent } from './company/company-modal.component';
 import { HeroComponent } from './hero/hero.component';
 import { GmapComponent } from './gmap/gmap.component';
+import { OnMapLoaded } from './gmap/directives/on-map-loaded.directive';
+import { OnMarkerLoaded } from './gmap/directives/on-marker-loaded.directive';
+import { GmapMarkerClusterer } from './gmap/gmap-marker-clusterer';
 // import { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
@@ -19,6 +22,9 @@ export { CompanyCardComponent } from './company/company-card.component';
 export { CompanyModalComponent } from './company/company-modal.component';
 export { HeroComponent } from './hero/hero.component';
 export { GmapComponent } from './gmap/gmap.component';
+export { OnMapLoaded } from './gmap/directives/on-map-loaded.directive';
+export { OnMarkerLoaded } from './gmap/directives/on-marker-loaded.directive';
+export { GmapMarkerClusterer } from './gmap/gmap-marker-clusterer';
 // export { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
 export { CommingSoonComponent } from './comming-soon/comming-soon.component';
 export { ImageGalleryComponent } from './image-gallery/image-gallery.component';
@@ -34,6 +40,9 @@ export const Components: Array<any> = [
   CompanyModalComponent,
   HeroComponent,
   GmapComponent,
+  OnMapLoaded,
+  OnMarkerLoaded,
+  GmapMarkerClusterer,
   // GmapInfoboxComponent,
   CommingSoonComponent,
   ImageGalleryComponent,

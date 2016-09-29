@@ -6,6 +6,9 @@ var company_card_component_1 = require('./company/company-card.component');
 var company_modal_component_1 = require('./company/company-modal.component');
 var hero_component_1 = require('./hero/hero.component');
 var gmap_component_1 = require('./gmap/gmap.component');
+var on_map_loaded_directive_1 = require('./gmap/directives/on-map-loaded.directive');
+var on_marker_loaded_directive_1 = require('./gmap/directives/on-marker-loaded.directive');
+var gmap_marker_clusterer_1 = require('./gmap/gmap-marker-clusterer');
 // import { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
 var comming_soon_component_1 = require('./comming-soon/comming-soon.component');
 var image_gallery_component_1 = require('./image-gallery/image-gallery.component');
@@ -26,6 +29,12 @@ var hero_component_2 = require('./hero/hero.component');
 exports.HeroComponent = hero_component_2.HeroComponent;
 var gmap_component_2 = require('./gmap/gmap.component');
 exports.GmapComponent = gmap_component_2.GmapComponent;
+var on_map_loaded_directive_2 = require('./gmap/directives/on-map-loaded.directive');
+exports.OnMapLoaded = on_map_loaded_directive_2.OnMapLoaded;
+var on_marker_loaded_directive_2 = require('./gmap/directives/on-marker-loaded.directive');
+exports.OnMarkerLoaded = on_marker_loaded_directive_2.OnMarkerLoaded;
+var gmap_marker_clusterer_2 = require('./gmap/gmap-marker-clusterer');
+exports.GmapMarkerClusterer = gmap_marker_clusterer_2.GmapMarkerClusterer;
 // export { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
 var comming_soon_component_2 = require('./comming-soon/comming-soon.component');
 exports.CommingSoonComponent = comming_soon_component_2.CommingSoonComponent;
@@ -45,6 +54,9 @@ exports.Components = [
     company_modal_component_1.CompanyModalComponent,
     hero_component_1.HeroComponent,
     gmap_component_1.GmapComponent,
+    on_map_loaded_directive_1.OnMapLoaded,
+    on_marker_loaded_directive_1.OnMarkerLoaded,
+    gmap_marker_clusterer_1.GmapMarkerClusterer,
     // GmapInfoboxComponent,
     comming_soon_component_1.CommingSoonComponent,
     image_gallery_component_1.ImageGalleryComponent,
