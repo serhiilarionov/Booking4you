@@ -17,7 +17,8 @@ export class GmapComponent implements OnChanges {
   public markersObservable: EventEmitter<Array<Marker>> = new EventEmitter();
   public styles: any = styles;
   public bounds: LatLngBoundsLiteral = {east: 38, north: 50, south: 46, west: 24};
-  @Input() companyList: Array<Company>;
+  @Input() public companyList: Array<Company>;
+  @Input() public enableClusterer: boolean = false;
 
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
     if ('companyList' in changes && changes['companyList'].currentValue) {

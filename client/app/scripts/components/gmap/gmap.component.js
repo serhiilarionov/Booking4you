@@ -17,6 +17,7 @@ var GmapComponent = (function () {
         this.markersObservable = new core_1.EventEmitter();
         this.styles = styles_1.styles;
         this.bounds = { east: 38, north: 50, south: 46, west: 24 };
+        this.enableClusterer = false;
     }
     GmapComponent.prototype.ngOnChanges = function (changes) {
         if ('companyList' in changes && changes['companyList'].currentValue) {
@@ -49,6 +50,10 @@ var GmapComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Array)
     ], GmapComponent.prototype, "companyList", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], GmapComponent.prototype, "enableClusterer", void 0);
     GmapComponent = __decorate([
         core_1.Component({
             selector: 'gmap',

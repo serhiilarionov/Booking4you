@@ -13,14 +13,22 @@ var core_2 = require('angular2-google-maps/core');
 var OnMapLoaded = (function () {
     function OnMapLoaded(googleMapsAPIWrapper) {
         this.googleMapsAPIWrapper = googleMapsAPIWrapper;
+        this.enableClusterer = false;
         this.onMapLoaded = new core_1.EventEmitter();
     }
     OnMapLoaded.prototype.ngOnInit = function () {
         var _this = this;
+        if (!this.enableClusterer) {
+            return;
+        }
         this.googleMapsAPIWrapper.getNativeMap().then(function (map) {
             _this.onMapLoaded.next(map);
         });
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], OnMapLoaded.prototype, "enableClusterer", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
