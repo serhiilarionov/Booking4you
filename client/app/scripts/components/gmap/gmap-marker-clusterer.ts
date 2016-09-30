@@ -25,7 +25,37 @@ export class GmapMarkerClusterer implements OnInit {
 
   createClusterer(map, markers) {
     this.markerClusterer = new MarkerClusterer(map, markers, {
-      imagePath: '/vendor/js-marker-clusterer/images/m'
+      styles: [{
+        url: '/scripts/components/gmap/images/m1.png',
+        height: 52,
+        width: 53,
+        textColor: '#ffffff',
+        textSize: 11
+      }, {
+        url: '/scripts/components/gmap/images/m2.png',
+        height: 55,
+        width: 56,
+        textColor: '#ffffff',
+        textSize: 11
+      }, {
+        url: '/scripts/components/gmap/images/m3.png',
+        height: 65,
+        width: 66,
+        textColor: '#ffffff',
+        textSize: 11
+      }, {
+        url: '/scripts/components/gmap/images/m4.png',
+        height: 77,
+        width: 78,
+        textColor: '#ffffff',
+        textSize: 11
+      }, {
+        url: '/scripts/components/gmap/images/m5.png',
+        height: 89,
+        width: 90,
+        textColor: '#ffffff',
+        textSize: 11
+      }]
     });
   }
 }

@@ -19,6 +19,6 @@
     "font-awesome": "^4.6.3",
     "bootstrap": "^3.3.7",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
-    "js-marker-clusterer": "googlemaps/js-marker-clusterer#gh-pages"
+    "v3-utility-library": "googlemaps/v3-utility-library"
   }
 }

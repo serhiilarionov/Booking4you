@@ -14,7 +14,7 @@ export class CompanyListComponent implements OnInit {
   public cityList: Array<City>;
   public categoryList: Array<Category>;
   @Output() public companyListLoaded = new EventEmitter<Array<Company>>();
-  public filter: any = {where: {cityId: null, categoryId: null}, limit: 100};
+  public filter: any = {where: {cityId: null, categoryId: null}, limit: 50};
   public navigationExtras: NavigationExtras = {queryParams: {}};
 
   constructor(
