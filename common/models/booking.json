@@ -35,7 +35,8 @@
       "type": "string"
     },
     "active": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "status": {
       "type": "string"

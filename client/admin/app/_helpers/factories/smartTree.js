@@ -5,8 +5,14 @@ angular.module('helpers')
      * Function for recursive creation of tree
      * @param newTree
      * @param item
+     * @param companyId
      */
-    function create(newTree, item) {
+    function create(newTree, item, companyId) {
+      if(companyId) {
+        var checked = item.companies.find(function (company) {
+          return company.id == companyId;
+        });
+      }
       if (item.parentId > 0) {
         var parent = newTree.find(function (newTreeItem) {
           return newTreeItem.id == item.parentId;
@@ -16,7 +22,8 @@ angular.module('helpers')
           parent.expanded = true;
           parent.children.push({
             "id": item.id,
-            "name": item.name
+            "name": item.name,
+            "checked": checked ? true : false
           });
         } else {
           newTree.forEach(function (newTreeItem) {
@@ -30,6 +37,7 @@ angular.module('helpers')
         newTree.push({
           "id": item.id,
           "name": item.name,
+          "checked": checked ? true : false,
           "firstLevel": true
         })
       }

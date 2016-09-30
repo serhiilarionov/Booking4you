@@ -15,6 +15,7 @@ angular.module('app', [
   'restangular',
   'ui.router',
   'ui.bootstrap',
+  'ui.select',
   'datatables',
   'customElements',
   'loopbackSockets',

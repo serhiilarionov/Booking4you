@@ -25,15 +25,6 @@
       "type": "Number",
       "id": true,
       "generated": true
-    },
-    "createdAt": {
-      "type": "date"
-    },
-    "updatedAt": {
-      "type": "date"
-    },
-    "deletedAt": {
-      "type": "date"
     }
   },
   "validations": [],

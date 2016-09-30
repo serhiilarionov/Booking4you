@@ -149,6 +149,9 @@
         background-color: #f2f2f2;
     }
 }
+.Table-row  .action-buttons {
+    flex-grow: 1;
+}
 .Table-row-item {
     display: -webkit-box;
     display: -moz-box;
@@ -176,6 +179,18 @@
     align-items: flex-start;
     align-content: flex-start;
 }
+
+.web-site .Table-row-item,
+.email .Table-row-item {
+    align-items: center;
+    justify-content: center;
+}
+
+.web-site .Table-row-item .input,
+.email .Table-row-item .input {
+    margin-bottom: 0;
+}
+
 .Table-row-button {
     display: -webkit-box;
     display: -moz-box;
