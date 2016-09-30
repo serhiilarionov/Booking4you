@@ -9,8 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../shared/index');
 var ProfilePageComponent = (function () {
-    function ProfilePageComponent() {
+    function ProfilePageComponent(auth, router) {
+        var _this = this;
+        this.auth = auth;
+        this.router = router;
+        this.auth.currentUser.subscribe(function (user) {
+            console.log('profile');
+            if (!user) {
+                _this.router.navigate(['/']);
+            }
+        });
     }
     ProfilePageComponent = __decorate([
         core_1.Component({
@@ -18,7 +29,7 @@ var ProfilePageComponent = (function () {
             templateUrl: 'scripts/pages/profile/profile-page.component.html',
             styleUrls: ['scripts/pages/profile/profile-page.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.AuthService, router_1.Router])
     ], ProfilePageComponent);
     return ProfilePageComponent;
 }());

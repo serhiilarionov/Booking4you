@@ -10,16 +10,21 @@ import { Company, CompanyApi } from '../../shared/index';
 })
 export class CompanyDetailsPageComponent implements OnInit {
   public queryId: number;
+  public companyNotFound: boolean;
   public companyDetails: Company;
 
-  constructor(public companyApi: CompanyApi,
-              private activatedRoute: ActivatedRoute) {}
+  constructor(
+    public companyApi: CompanyApi,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.queryId = +params['id'];
       this.companyApi.findById(this.queryId).subscribe((company: Company) => {
         this.companyDetails = company;
+      }, (error) => {
+        this.companyNotFound = true;
       });
     });
   }}

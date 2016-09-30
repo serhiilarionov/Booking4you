@@ -29,10 +29,7 @@ export class CompanyListPageComponent implements OnInit {
     $(window).on('resize', () => this.resizeMapListWrapper());
 
     this.route.queryParams.subscribe((params: Params) => {
-      this.filter.where = {
-        cityId: params['city'],
-        categoryId: params['category']
-      };
+      this.filter.where = Object.assign({}, params);
       this.getCompanyList();
     });
   }
@@ -44,6 +41,7 @@ export class CompanyListPageComponent implements OnInit {
   }
 
   getCompanyList() {
+    this.companyList = [];
     // Get companyList only when city and category filters are checked
     if ( this.filter.where.cityId && this.filter.where.categoryId ) {
       this.companyApi.find(this.filter).subscribe((companyList: Array<Company>) => {

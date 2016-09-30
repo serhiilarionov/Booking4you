@@ -1,7 +1,7 @@
-<div id="map-list-wrapper" class="company-list-page">
+<div class="company-list-page">
   <div class="company-list" custom-scrollbar>
-    <company-list [companyList]="companyList" [filterActive]="true" ></company-list>
+    <company-list [companyList]="companyList" [filterActive]="true" [gridViewType]="true"></company-list>
   </div>
 
-    <gmap [companyList]="companyList"></gmap>
+  <gmap [companyList]="companyList" [enableClusterer]="true"></gmap>
 </div>

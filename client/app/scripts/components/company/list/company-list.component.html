@@ -1,23 +1,27 @@
 <company-filter *ngIf="filterActive"></company-filter>
 
-<h4 *ngIf="showTitle">Result
-  <small *ngIf="companyList?.length" class="text-muted">
-    ({{companyList.length}}
-    <span *ngIf="companyList.length > 1">companies</span>
-    <span *ngIf="companyList.length === 1">company</span>
-    found)
-  </small>
-</h4>
+<div class="company-list__header">
+    <h4 *ngIf="showTitle">Result
+        <small *ngIf="companyList?.length" class="text-muted">
+            ({{companyList.length}}
+            <span *ngIf="companyList.length > 1">companies</span>
+            <span *ngIf="companyList.length === 1">company</span>
+            found)
+        </small>
+    </h4>
 
-<div class="change-company-view text-right" *ngIf="viewTypeActive">
-  <button (click)="setViewType('grid')" class="change-company-view__btn"><i class="fa fa-th-large" aria-hidden="true"></i></button>
-  <button (click)="setViewType('list')" class="change-company-view__btn"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    <div class="change-company-view text-right" *ngIf="viewTypeActive">
+        <button (click)="setViewType('grid')" class="change-company-view__btn" [class.active]="gridViewType"><i class="fa fa-th-large" aria-hidden="true"></i></button>
+        <button (click)="setViewType('list')" class="change-company-view__btn" [class.active]="!gridViewType"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
 </div>
 
 
-<div class="company-card-list" [class.company-card-list_grid]="gridTypeView">
-    <company-card *ngFor="let company of companyList" [company]="company" (click)="selectedCompany = company"
-         class="company-card-list__item">
+<div class="company-list" [class.company-list__grid]="gridViewType">
+    <company-card class="company-list__item"
+                  *ngFor="let company of companyList"
+                  [company]="company"
+                  (click)="selectedCompany = company">
     </company-card>
 </div>
 <company-modal [company]="selectedCompany"></company-modal>

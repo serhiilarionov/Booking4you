@@ -12,10 +12,8 @@ import { GmapMarkerClusterer } from './gmap/gmap-marker-clusterer';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { OnImageActivatedDirective } from './image-gallery/on-image-activated.directive';
-import { NearbyCompanies } from './company-details/nearby/nearby-companies.component';
-import { CompanyAddToUserFavorite } from './company-details/favorite/add-to-favorite.component';
-import { ProfileMainComponent } from './profile/main/profile-main.component';
-import { ProfileFavoritesComponent } from './profile/favorites/profile-favorites.component';
+import { NearbyCompanies } from './company/details/nearby/nearby-companies.component';
+import { CompanyAddToUserFavorite } from './company/details/favorite/add-to-favorite.component';
 import { CompanyFilterComponent } from './company/filter/company-filter.component';
 
 export { LoginFormComponent } from './auth/login-form.conponent';
@@ -32,10 +30,8 @@ export { GmapMarkerClusterer } from './gmap/gmap-marker-clusterer';
 export { CommingSoonComponent } from './comming-soon/comming-soon.component';
 export { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 export { OnImageActivatedDirective } from './image-gallery/on-image-activated.directive';
-export { NearbyCompanies } from './company-details/nearby/nearby-companies.component';
-export { CompanyAddToUserFavorite } from './company-details/favorite/add-to-favorite.component';
-export {ProfileMainComponent} from './profile/main/profile-main.component';
-export {ProfileFavoritesComponent} from './profile/favorites/profile-favorites.component';
+export { NearbyCompanies } from './company/details/nearby/nearby-companies.component';
+export { CompanyAddToUserFavorite } from './company/details/favorite/add-to-favorite.component';
 export { CompanyFilterComponent } from './company/filter/company-filter.component';
 
 export const Components: Array<any> = [
@@ -56,7 +52,5 @@ export const Components: Array<any> = [
   OnImageActivatedDirective,
   CommingSoonComponent,
   NearbyCompanies,
-  CompanyAddToUserFavorite,
-  ProfileMainComponent,
-  ProfileFavoritesComponent
+  CompanyAddToUserFavorite
 ];

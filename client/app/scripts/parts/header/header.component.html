@@ -9,7 +9,7 @@
       <a routerLink="/registration"><strong>Register</strong></a>
     </div>
     <div *ngIf="currentUser">
-      <a href="#"><strong>{{currentUser.email}}</strong></a>
+      <a routerLink="/profile/favorites"><strong>{{currentUser.email}}</strong></a>
       <a (click)="logout()">Logout</a>
     </div>
     <button (click)="onSidebarToggle()">

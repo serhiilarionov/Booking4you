@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Client, ClientApi, AuthService } from '../../../shared/index';
+import { Client, ClientApi, AuthService } from '../../../../shared/index';
 
 @Component({
   selector: 'add-to-favorite',
-  templateUrl: 'scripts/components/company-details/favorite/add-to-favorite.component.html',
-  styleUrls: ['scripts/components/company-details/favorite/add-to-favorite.component.css']
+  templateUrl: 'scripts/components/company/details/favorite/add-to-favorite.component.html',
+  styleUrls: ['scripts/components/company/details/favorite/add-to-favorite.component.css']
 })
 
 export class CompanyAddToUserFavorite implements OnInit {

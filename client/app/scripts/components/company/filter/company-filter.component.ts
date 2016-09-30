@@ -9,7 +9,6 @@ import { City, CityApi, Category, CategoryApi } from '../../../shared/index';
 })
 
 export class CompanyFilterComponent implements OnInit {
-  public filter: any = { where: { cityId: null, categoryId: null }, limit: 100 };
   public navigationExtras: NavigationExtras = { queryParams: {} };
   public cityList: Array<City>;
   public categoryList: Array<Category>;
@@ -30,31 +29,22 @@ export class CompanyFilterComponent implements OnInit {
     });
 
     this.route.queryParams.subscribe((params: Params) => {
-      this.filter.where = {
-        cityId: params['city'],
-        categoryId: params['category']
-      };
+      this.navigationExtras.queryParams = Object.assign({}, params);
     });
 
   }
 
   onCitySelected(cityId) {
-    this.filter.where.cityId = cityId;
+    this.navigationExtras.queryParams['cityId'] = cityId;
     this.navigateAfterSelected();
   }
 
   onCategorySelected(categoryId) {
-    this.filter.where.categoryId = categoryId;
+    this.navigationExtras.queryParams['categoryId'] = categoryId;
     this.navigateAfterSelected();
   }
 
   navigateAfterSelected () {
-    this.navigationExtras.queryParams = {
-      category: this.filter.where.categoryId,
-      city: this.filter.where.cityId
-    };
-
     this.router.navigate(['/company-list'], this.navigationExtras);
-
   }
 }

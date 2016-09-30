@@ -22,6 +22,8 @@ var CompanyDetailsPageComponent = (function () {
             _this.queryId = +params['id'];
             _this.companyApi.findById(_this.queryId).subscribe(function (company) {
                 _this.companyDetails = company;
+            }, function (error) {
+                _this.companyNotFound = true;
             });
         });
     };

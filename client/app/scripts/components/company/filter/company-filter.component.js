@@ -17,7 +17,6 @@ var CompanyFilterComponent = (function () {
         this.router = router;
         this.cityApi = cityApi;
         this.categoryApi = categoryApi;
-        this.filter = { where: { cityId: null, categoryId: null }, limit: 100 };
         this.navigationExtras = { queryParams: {} };
     }
     CompanyFilterComponent.prototype.ngOnInit = function () {
@@ -29,25 +28,18 @@ var CompanyFilterComponent = (function () {
             _this.categoryList = categoryList;
         });
         this.route.queryParams.subscribe(function (params) {
-            _this.filter.where = {
-                cityId: params['city'],
-                categoryId: params['category']
-            };
+            _this.navigationExtras.queryParams = Object.assign({}, params);
         });
     };
     CompanyFilterComponent.prototype.onCitySelected = function (cityId) {
-        this.filter.where.cityId = cityId;
+        this.navigationExtras.queryParams['cityId'] = cityId;
         this.navigateAfterSelected();
     };
     CompanyFilterComponent.prototype.onCategorySelected = function (categoryId) {
-        this.filter.where.categoryId = categoryId;
+        this.navigationExtras.queryParams['categoryId'] = categoryId;
         this.navigateAfterSelected();
     };
     CompanyFilterComponent.prototype.navigateAfterSelected = function () {
-        this.navigationExtras.queryParams = {
-            category: this.filter.where.categoryId,
-            city: this.filter.where.cityId
-        };
         this.router.navigate(['/company-list'], this.navigationExtras);
     };
     CompanyFilterComponent = __decorate([

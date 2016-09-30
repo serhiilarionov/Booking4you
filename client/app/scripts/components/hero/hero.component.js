@@ -13,16 +13,14 @@ var router_1 = require('@angular/router');
 var forms_1 = require('@angular/forms');
 var index_1 = require('../../shared/index');
 var HeroComponent = (function () {
-    function HeroComponent(auth, cityApi, categoryApi, clientApi, formBuilder, router) {
-        this.auth = auth;
+    function HeroComponent(cityApi, categoryApi, formBuilder, router) {
         this.cityApi = cityApi;
         this.categoryApi = categoryApi;
-        this.clientApi = clientApi;
         this.formBuilder = formBuilder;
         this.router = router;
         this.searchForm = this.formBuilder.group({
-            city: ['', forms_1.Validators.required],
-            category: ['', forms_1.Validators.required]
+            cityId: ['', forms_1.Validators.required],
+            categoryId: ['', forms_1.Validators.required]
         });
     }
     HeroComponent.prototype.ngOnInit = function () {
@@ -44,7 +42,7 @@ var HeroComponent = (function () {
             templateUrl: './scripts/components/hero/hero.component.html',
             styleUrls: ['./scripts/components/hero/hero.component.css']
         }), 
-        __metadata('design:paramtypes', [index_1.LoopBackAuth, index_1.CityApi, index_1.CategoryApi, index_1.ClientApi, forms_1.FormBuilder, router_1.Router])
+        __metadata('design:paramtypes', [index_1.CityApi, index_1.CategoryApi, forms_1.FormBuilder, router_1.Router])
     ], HeroComponent);
     return HeroComponent;
 }());

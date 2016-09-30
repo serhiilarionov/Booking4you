@@ -26,10 +26,7 @@ var CompanyListPageComponent = (function () {
         this.resizeMapListWrapper();
         $(window).on('resize', function () { return _this.resizeMapListWrapper(); });
         this.route.queryParams.subscribe(function (params) {
-            _this.filter.where = {
-                cityId: params['city'],
-                categoryId: params['category']
-            };
+            _this.filter.where = Object.assign({}, params);
             _this.getCompanyList();
         });
     };
@@ -40,6 +37,7 @@ var CompanyListPageComponent = (function () {
     };
     CompanyListPageComponent.prototype.getCompanyList = function () {
         var _this = this;
+        this.companyList = [];
         // Get companyList only when city and category filters are checked
         if (this.filter.where.cityId && this.filter.where.categoryId) {
             this.companyApi.find(this.filter).subscribe(function (companyList) {

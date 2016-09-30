@@ -1,7 +1,6 @@
 "use strict";
 var router_1 = require('@angular/router');
 var Pages = require('./pages/index');
-var Components = require('./components/index');
 var index_1 = require('./shared/index');
 var routes = [
     {
@@ -25,11 +24,11 @@ var routes = [
         children: [
             {
                 path: '',
-                component: Components.ProfileFavoritesComponent
+                component: Pages.ProfileMainComponent
             },
             {
                 path: 'favorites',
-                component: Components.ProfileMainComponent
+                component: Pages.ProfileFavoritesComponent
             }
         ]
     },

@@ -5,6 +5,8 @@ import { CompanyListPageComponent } from './company-list/company-list-page.compo
 import { CommingSoonPageComponent } from './comming-soon/comming-soon-page.component';
 import { CompanyDetailsPageComponent } from './company-details/company-details-page.component';
 import { ProfilePageComponent } from './profile/profile-page.component';
+import { ProfileMainComponent } from './profile/main/profile-main.component';
+import { ProfileFavoritesComponent } from './profile/favorites/profile-favorites.component';
 
 export { HomePageComponent } from './home/home-page.component';
 export { LoginPageComponent } from './login/login-page.component';
@@ -13,6 +15,8 @@ export { CompanyListPageComponent } from './company-list/company-list-page.compo
 export { CompanyDetailsPageComponent } from './company-details/company-details-page.component';
 export { CommingSoonPageComponent } from './comming-soon/comming-soon-page.component';
 export { ProfilePageComponent } from './profile/profile-page.component';
+export { ProfileMainComponent } from './profile/main/profile-main.component';
+export { ProfileFavoritesComponent } from './profile/favorites/profile-favorites.component';
 
 export const Pages: Array<any> = [
   HomePageComponent,
@@ -21,5 +25,7 @@ export const Pages: Array<any> = [
   CompanyListPageComponent,
   CompanyDetailsPageComponent,
   CommingSoonPageComponent,
-  ProfilePageComponent
+  ProfilePageComponent,
+  ProfileMainComponent,
+  ProfileFavoritesComponent
 ];

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService, Client } from '../../shared/index';
 
 @Component({
   selector: 'profile-page',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['scripts/pages/profile/profile-page.component.css']
 })
 
-export class ProfilePageComponent {}
-
+export class ProfilePageComponent {
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {
+    this.auth.currentUser.subscribe((user: Client) => {
+      console.log('profile');
+      if (!user) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
+}

@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var CompanyListComponent = (function () {
     function CompanyListComponent() {
-        this.gridTypeView = false;
+        this.gridViewType = false;
         this.filterActive = false;
         this.viewTypeActive = true;
         this.showTitle = true;
@@ -19,19 +19,19 @@ var CompanyListComponent = (function () {
     CompanyListComponent.prototype.setViewType = function (value) {
         switch (value) {
             case 'grid':
-                this.gridTypeView = true;
+                this.gridViewType = true;
                 break;
             case 'list':
-                this.gridTypeView = false;
+                this.gridViewType = false;
                 break;
             default:
-                this.gridTypeView = false;
+                this.gridViewType = false;
         }
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)
-    ], CompanyListComponent.prototype, "gridTypeView", void 0);
+    ], CompanyListComponent.prototype, "gridViewType", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)

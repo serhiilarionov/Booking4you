@@ -3,8 +3,8 @@ import { Company, Client, ClientApi } from '../../../shared/index';
 
 @Component({
   selector: 'profile-favorites',
-  templateUrl: 'scripts/components/profile/favorites/profile-favorites.component.html',
-  styleUrls: ['scripts/components/profile/favorites/profile-favorites.component.css'],
+  templateUrl: 'scripts/pages/profile/favorites/profile-favorites.component.html',
+  styleUrls: ['scripts/pages/profile/favorites/profile-favorites.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class ProfileFavoritesComponent {

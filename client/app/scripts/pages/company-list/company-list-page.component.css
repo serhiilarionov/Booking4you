@@ -45,5 +45,4 @@
   -webkit-flex-direction: row;
   -moz-flex-direction: row;
   flex-direction: row;
-  -ms-flex-direction: row;
-  padding: 0 15px; }
+  -ms-flex-direction: row; }

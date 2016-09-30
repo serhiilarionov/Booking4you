@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var index_1 = require('../../../shared/index');
+var index_1 = require('../../../../shared/index');
 var CompanyAddToUserFavorite = (function () {
     function CompanyAddToUserFavorite(clientApi, auth, route) {
         var _this = this;
@@ -61,8 +61,8 @@ var CompanyAddToUserFavorite = (function () {
     CompanyAddToUserFavorite = __decorate([
         core_1.Component({
             selector: 'add-to-favorite',
-            templateUrl: 'scripts/components/company-details/favorite/add-to-favorite.component.html',
-            styleUrls: ['scripts/components/company-details/favorite/add-to-favorite.component.css']
+            templateUrl: 'scripts/components/company/details/favorite/add-to-favorite.component.html',
+            styleUrls: ['scripts/components/company/details/favorite/add-to-favorite.component.css']
         }), 
         __metadata('design:paramtypes', [index_1.ClientApi, index_1.AuthService, router_1.ActivatedRoute])
     ], CompanyAddToUserFavorite);

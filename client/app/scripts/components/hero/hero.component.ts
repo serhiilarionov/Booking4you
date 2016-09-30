@@ -15,16 +15,14 @@ export class HeroComponent implements OnInit {
   public categories: Array<Category>;
   public searchForm: FormGroup;
   constructor(
-    private auth: LoopBackAuth,
     private cityApi: CityApi,
     private categoryApi: CategoryApi,
-    private clientApi: ClientApi,
     private formBuilder: FormBuilder,
     private router: Router,
   ) {
     this.searchForm = this.formBuilder.group({
-      city: ['', Validators.required],
-      category: ['', Validators.required]
+      cityId: ['', Validators.required],
+      categoryId: ['', Validators.required]
     });
   }
 

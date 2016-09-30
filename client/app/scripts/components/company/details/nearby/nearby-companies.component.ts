@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Company, CompanyApi } from '../../../shared/index';
+import {Company, CompanyApi } from '../../../../shared/index';
 
 @Component({
   selector: 'nearby-companies',
-  templateUrl: 'scripts/components/company-details/nearby/nearby-companies.component.html',
-  styleUrls: ['scripts/components/company-details/nearby/nearby-companies.component.css']
+  templateUrl: 'scripts/components/company/details/nearby/nearby-companies.component.html',
+  styleUrls: ['scripts/components/company/details/nearby/nearby-companies.component.css']
 })
 
 export class NearbyCompanies implements OnInit {

@@ -16,23 +16,37 @@
   margin-bottom: 8px;
 }
 
-.company-card-list {
+.company-list {
   position: relative;
   @include display(flex);
   @include flex-wrap(wrap);
   @include flex-direction(column);
+
+  .company-list-page > & {
+    padding: 15px;
+  }
+
+  &__header {
+    height: 40px;
+    @include display(flex);
+    @include justify-content(space-between);
+    @include align-items(center);
+
+    > h4, div {
+      margin: 0;
+    }
+  }
 
   &__item {
     @include display(flex);
     @include transition(all 300ms ease-in-out);
   }
 
-  &_grid {
-
+  &__grid {
     @include flex-direction(row);
-    @include justify-content(space-around);
+    @include justify-content(space-between);
 
-    .company-card-list__item {
+    .company-list__item {
       @include flex(1 0 200px);
 
       .company-card {
@@ -82,5 +96,10 @@
 
   &__btn {
     font-size: 18px;
+    @include transition(all .3s);
+  }
+
+  & .active {
+    color: $c-blue-main;
   }
 }

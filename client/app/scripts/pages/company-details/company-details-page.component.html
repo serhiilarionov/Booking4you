@@ -1,4 +1,3 @@
-
 <gmap *ngIf="companyDetails" [companyList]="[companyDetails]"></gmap>
 
 <div class="container container_pad" *ngIf="companyDetails">
@@ -560,7 +559,7 @@
   </div>
 </div>
 
-<div class="company-detail-not-found" *ngIf="!companyDetails">
+<div class="company-detail-not-found" *ngIf="companyNotFound">
   <div class="company-detail-not-found__title"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Company was
     not found!
   </div>

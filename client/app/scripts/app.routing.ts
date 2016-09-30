@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 import * as Pages from './pages/index';
-import * as Components from './components/index';
 import { AuthGuardService } from './shared/index';
 
 const routes: Routes = [
@@ -25,11 +24,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: Components.ProfileFavoritesComponent
+        component: Pages.ProfileMainComponent
       },
       {
         path: 'favorites',
-        component: Components.ProfileMainComponent
+        component: Pages.ProfileFavoritesComponent
       }
     ]
   },

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var index_1 = require('../../../shared/index');
+var index_1 = require('../../../../shared/index');
 var NearbyCompanies = (function () {
     function NearbyCompanies(companyApi) {
         this.companyApi = companyApi;
@@ -35,8 +35,8 @@ var NearbyCompanies = (function () {
     NearbyCompanies = __decorate([
         core_1.Component({
             selector: 'nearby-companies',
-            templateUrl: 'scripts/components/company-details/nearby/nearby-companies.component.html',
-            styleUrls: ['scripts/components/company-details/nearby/nearby-companies.component.css']
+            templateUrl: 'scripts/components/company/details/nearby/nearby-companies.component.html',
+            styleUrls: ['scripts/components/company/details/nearby/nearby-companies.component.css']
         }), 
         __metadata('design:paramtypes', [index_1.CompanyApi])
     ], NearbyCompanies);

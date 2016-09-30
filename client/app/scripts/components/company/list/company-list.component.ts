@@ -9,7 +9,7 @@ import {Company} from '../../../shared/index';
 })
 export class CompanyListComponent {
   public selectedCompany: Company;
-  @Input() gridTypeView: boolean = false;
+  @Input() gridViewType: boolean = false;
   @Input() filterActive: boolean = false;
   @Input() viewTypeActive: boolean = true;
   @Input() showTitle: boolean = true;
@@ -18,15 +18,15 @@ export class CompanyListComponent {
   setViewType(value) {
     switch (value) {
       case 'grid':
-        this.gridTypeView = true;
+        this.gridViewType = true;
             break;
 
       case 'list':
-        this.gridTypeView = false;
+        this.gridViewType = false;
             break;
 
       default:
-        this.gridTypeView = false;
+        this.gridViewType = false;
     }
   }
 }

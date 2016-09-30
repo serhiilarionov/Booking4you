@@ -13,10 +13,8 @@ var gmap_marker_clusterer_1 = require('./gmap/gmap-marker-clusterer');
 var comming_soon_component_1 = require('./comming-soon/comming-soon.component');
 var image_gallery_component_1 = require('./image-gallery/image-gallery.component');
 var on_image_activated_directive_1 = require('./image-gallery/on-image-activated.directive');
-var nearby_companies_component_1 = require('./company-details/nearby/nearby-companies.component');
-var add_to_favorite_component_1 = require('./company-details/favorite/add-to-favorite.component');
-var profile_main_component_1 = require('./profile/main/profile-main.component');
-var profile_favorites_component_1 = require('./profile/favorites/profile-favorites.component');
+var nearby_companies_component_1 = require('./company/details/nearby/nearby-companies.component');
+var add_to_favorite_component_1 = require('./company/details/favorite/add-to-favorite.component');
 var company_filter_component_1 = require('./company/filter/company-filter.component');
 var login_form_conponent_2 = require('./auth/login-form.conponent');
 exports.LoginFormComponent = login_form_conponent_2.LoginFormComponent;
@@ -45,14 +43,10 @@ var image_gallery_component_2 = require('./image-gallery/image-gallery.component
 exports.ImageGalleryComponent = image_gallery_component_2.ImageGalleryComponent;
 var on_image_activated_directive_2 = require('./image-gallery/on-image-activated.directive');
 exports.OnImageActivatedDirective = on_image_activated_directive_2.OnImageActivatedDirective;
-var nearby_companies_component_2 = require('./company-details/nearby/nearby-companies.component');
+var nearby_companies_component_2 = require('./company/details/nearby/nearby-companies.component');
 exports.NearbyCompanies = nearby_companies_component_2.NearbyCompanies;
-var add_to_favorite_component_2 = require('./company-details/favorite/add-to-favorite.component');
+var add_to_favorite_component_2 = require('./company/details/favorite/add-to-favorite.component');
 exports.CompanyAddToUserFavorite = add_to_favorite_component_2.CompanyAddToUserFavorite;
-var profile_main_component_2 = require('./profile/main/profile-main.component');
-exports.ProfileMainComponent = profile_main_component_2.ProfileMainComponent;
-var profile_favorites_component_2 = require('./profile/favorites/profile-favorites.component');
-exports.ProfileFavoritesComponent = profile_favorites_component_2.ProfileFavoritesComponent;
 var company_filter_component_2 = require('./company/filter/company-filter.component');
 exports.CompanyFilterComponent = company_filter_component_2.CompanyFilterComponent;
 exports.Components = [
@@ -73,8 +67,6 @@ exports.Components = [
     on_image_activated_directive_1.OnImageActivatedDirective,
     comming_soon_component_1.CommingSoonComponent,
     nearby_companies_component_1.NearbyCompanies,
-    add_to_favorite_component_1.CompanyAddToUserFavorite,
-    profile_main_component_1.ProfileMainComponent,
-    profile_favorites_component_1.ProfileFavoritesComponent
+    add_to_favorite_component_1.CompanyAddToUserFavorite
 ];
 //# sourceMappingURL=index.js.map

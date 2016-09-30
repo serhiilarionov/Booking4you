@@ -24,8 +24,8 @@ var ProfileFavoritesComponent = (function () {
     ProfileFavoritesComponent = __decorate([
         core_1.Component({
             selector: 'profile-favorites',
-            templateUrl: 'scripts/components/profile/favorites/profile-favorites.component.html',
-            styleUrls: ['scripts/components/profile/favorites/profile-favorites.component.css'],
+            templateUrl: 'scripts/pages/profile/favorites/profile-favorites.component.html',
+            styleUrls: ['scripts/pages/profile/favorites/profile-favorites.component.css'],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [index_1.ClientApi])

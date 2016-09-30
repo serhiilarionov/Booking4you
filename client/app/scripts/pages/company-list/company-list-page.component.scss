@@ -6,12 +6,8 @@
   @include flex-grow(0);
 }
 
-#map-list-wrapper {}
-
-
 .company-list {
   @include display(flex);
   @include flex(0 0 35%);
   @include flex-direction(row);
-  padding: 0 15px;
 }
