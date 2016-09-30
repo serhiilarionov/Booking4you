@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation, Input, SimpleChange, OnChanges } from '@angular/core';
+import { Component, ViewEncapsulation, Input, SimpleChange, OnChanges, EventEmitter } from '@angular/core';
 import { Company } from '../../shared/index';
 import { LatLngBoundsLiteral } from 'angular2-google-maps/core';
 import { styles } from './styles';
+import { GoogleMap, Marker } from 'angular2-google-maps/core/services/google-maps-types';
 
 @Component({
     selector: 'gmap',
@@ -11,14 +12,32 @@ import { styles } from './styles';
 })
 
 export class GmapComponent implements OnChanges {
+  public nativeMarkers: Array<Marker> = [];
+  public mapObservable: EventEmitter<GoogleMap> = new EventEmitter();
+  public markersObservable: EventEmitter<Array<Marker>> = new EventEmitter();
   public styles: any = styles;
   public bounds: LatLngBoundsLiteral = {east: 38, north: 50, south: 46, west: 24};
-  @Input() companyList: Array<Company>;
+  @Input() public companyList: Array<Company>;
+  @Input() public enableClusterer: boolean = false;
 
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
-    if (changes['companyList'] && this.companyList && this.companyList.length) {
-      this.calculateBounds();
+    if ('companyList' in changes && changes['companyList'].currentValue) {
+      if (!this.companyList.length) {
+        // reset markers input for gmap-marker-clusterer component if company list is empty
+        this.nativeMarkers = [];
+      } else {
+        this.calculateBounds();
+      }
     }
+  }
+
+  public onMapLoaded(map): void {
+    this.mapObservable.next(map);
+  }
+
+  public onMarkerLoaded(marker): void {
+    this.nativeMarkers.push(marker);
+    this.markersObservable.next(this.nativeMarkers);
   }
 
   private calculateBounds(): void {

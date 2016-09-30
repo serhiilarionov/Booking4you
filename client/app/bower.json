@@ -18,6 +18,7 @@
     "bootstrap-select": "^1.10.0",
     "font-awesome": "^4.6.3",
     "bootstrap": "^3.3.7",
-    "malihu-custom-scrollbar-plugin": "^3.1.5"
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "v3-utility-library": "googlemaps/v3-utility-library"
   }
 }
