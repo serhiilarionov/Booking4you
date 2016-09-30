@@ -1,4 +1,7 @@
-<div id="map-list-wrapper">
-    <company-list (companyListLoaded)="onCompanyListLoaded($event)" company-list custom-scrollbar></company-list>
+<div id="map-list-wrapper" class="company-list-page">
+  <div class="company-list" custom-scrollbar>
+    <company-list [companyList]="companyList" [filterActive]="true" ></company-list>
+  </div>
+
     <gmap [companyList]="companyList"></gmap>
 </div>

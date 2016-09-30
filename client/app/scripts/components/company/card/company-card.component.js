@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var index_1 = require('../../shared/index');
+var index_1 = require('../../../shared/index');
 var CompanyCardComponent = (function () {
     function CompanyCardComponent() {
     }
@@ -19,9 +19,10 @@ var CompanyCardComponent = (function () {
     ], CompanyCardComponent.prototype, "company", void 0);
     CompanyCardComponent = __decorate([
         core_1.Component({
-            selector: '[company-card]',
-            templateUrl: 'scripts/components/company/company-card.component.html',
-            styleUrls: ['scripts/components/company/company-card.component.css']
+            selector: 'company-card',
+            templateUrl: 'scripts/components/company/card/company-card.component.html',
+            styleUrls: ['scripts/components/company/card/company-card.component.css'],
+            encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [])
     ], CompanyCardComponent);

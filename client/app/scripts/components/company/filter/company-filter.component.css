@@ -35,14 +35,3 @@
   -moz-flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap; }
-
-[company-card],
-.filter-container .bootstrap-select {
-  -webkit-box-flex: 0;
-  -moz-box-flex: 0;
-  box-flex: 0;
-  -webkit-flex: 0 0 48%;
-  -moz-flex: 0 0 48%;
-  -ms-flex: 0 0 48%;
-  flex: 0 0 48%;
-  margin-bottom: 8px; }

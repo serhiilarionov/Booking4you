@@ -1,29 +1,54 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { Company } from '../../shared/index';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Company, CompanyApi } from '../../shared/index';
 declare var $: any;
 
 @Component({
-  selector: 'company-list-page[company-list-page]',
+  selector: 'company-list-page',
   templateUrl: 'scripts/pages/company-list/company-list-page.component.html',
   styleUrls: ['scripts/pages/company-list/company-list-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 
 export class CompanyListPageComponent implements OnInit {
+  public filter: any = {where: {cityId: null, categoryId: null}, limit: 100};
   public companyList: Array<Company>;
+
+  constructor(
+    private route: ActivatedRoute,
+    private companyApi: CompanyApi
+  ) {
+    this.filter.where = {
+      cityId: this.route.snapshot.queryParams['city'],
+      categoryId: this.route.snapshot.queryParams['category']
+    };
+  }
 
   ngOnInit() {
     this.resizeMapListWrapper();
     $(window).on('resize', () => this.resizeMapListWrapper());
-  }
 
-  onCompanyListLoaded(companyList) {
-    this.companyList = companyList;
+    this.route.queryParams.subscribe((params: Params) => {
+      this.filter.where = {
+        cityId: params['city'],
+        categoryId: params['category']
+      };
+      this.getCompanyList();
+    });
   }
 
   resizeMapListWrapper() {
     let windowHeight = $(window).height();
     let headerHeight = $('app-header').height();
     $('#map-list-wrapper').height(windowHeight - headerHeight);
+  }
+
+  getCompanyList() {
+    // Get companyList only when city and category filters are checked
+    if ( this.filter.where.cityId && this.filter.where.categoryId ) {
+      this.companyApi.find(this.filter).subscribe((companyList: Array<Company>) => {
+        this.companyList = companyList;
+      });
+    }
   }
 }

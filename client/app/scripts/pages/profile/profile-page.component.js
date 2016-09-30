@@ -9,24 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var index_1 = require('../../shared/index');
-var CompanyModalComponent = (function () {
-    function CompanyModalComponent() {
+var ProfilePageComponent = (function () {
+    function ProfilePageComponent() {
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', index_1.Company)
-    ], CompanyModalComponent.prototype, "company", void 0);
-    CompanyModalComponent = __decorate([
+    ProfilePageComponent = __decorate([
         core_1.Component({
-            selector: 'company-modal',
-            templateUrl: 'scripts/components/company/company-modal.component.html',
-            styleUrls: ['scripts/components/company/company-modal.component.css'],
-            encapsulation: core_1.ViewEncapsulation.None
+            selector: 'profile-page',
+            templateUrl: 'scripts/pages/profile/profile-page.component.html',
+            styleUrls: ['scripts/pages/profile/profile-page.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], CompanyModalComponent);
-    return CompanyModalComponent;
+    ], ProfilePageComponent);
+    return ProfilePageComponent;
 }());
-exports.CompanyModalComponent = CompanyModalComponent;
-//# sourceMappingURL=company-modal.component.js.map
+exports.ProfilePageComponent = ProfilePageComponent;
+//# sourceMappingURL=profile-page.component.js.map

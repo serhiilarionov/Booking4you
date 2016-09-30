@@ -1,4 +1,4 @@
-[company-list-page] {
+.company-list-page {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -6,35 +6,22 @@
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
   -webkit-box-direction: normal;
   -moz-box-direction: normal;
   box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  -webkit-flex-grow: 1;
-  -moz-flex-grow: 1;
-  flex-grow: 1;
-  -ms-flex-positive: 1; }
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-flex-grow: 0;
+  -moz-flex-grow: 0;
+  flex-grow: 0;
+  -ms-flex-positive: 0; }
 
-#map-list-wrapper {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex; }
-
-[company-list] {
-  -webkit-flex-basis: 35%;
-  -moz-flex-basis: 35%;
-  flex-basis: 35%;
-  -ms-flex-preferred-size: 35%;
+.company-list {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -42,15 +29,21 @@
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 35%;
+  -moz-flex: 0 0 35%;
+  -ms-flex: 0 0 35%;
+  flex: 0 0 35%;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
   -webkit-box-direction: normal;
   -moz-box-direction: normal;
   box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  position: relative;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
   padding: 0 15px; }

@@ -10,9 +10,3 @@
 .filter-container {
   @include flex-wrap(nowrap);
 }
-
-[company-card],
-.filter-container .bootstrap-select {
-  @include flex(0 0 48%);
-  margin-bottom: 8px;
-}

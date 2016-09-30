@@ -4,6 +4,7 @@ import { RegistrationPageComponent } from './registration/registration-page.comp
 import { CompanyListPageComponent } from './company-list/company-list-page.component';
 import { CommingSoonPageComponent } from './comming-soon/comming-soon-page.component';
 import { CompanyDetailsPageComponent } from './company-details/company-details-page.component';
+import { ProfilePageComponent } from './profile/profile-page.component';
 
 export { HomePageComponent } from './home/home-page.component';
 export { LoginPageComponent } from './login/login-page.component';
@@ -11,6 +12,7 @@ export { RegistrationPageComponent } from './registration/registration-page.comp
 export { CompanyListPageComponent } from './company-list/company-list-page.component';
 export { CompanyDetailsPageComponent } from './company-details/company-details-page.component';
 export { CommingSoonPageComponent } from './comming-soon/comming-soon-page.component';
+export { ProfilePageComponent } from './profile/profile-page.component';
 
 export const Pages: Array<any> = [
   HomePageComponent,
@@ -18,5 +20,6 @@ export const Pages: Array<any> = [
   RegistrationPageComponent,
   CompanyListPageComponent,
   CompanyDetailsPageComponent,
-  CommingSoonPageComponent
+  CommingSoonPageComponent,
+  ProfilePageComponent
 ];

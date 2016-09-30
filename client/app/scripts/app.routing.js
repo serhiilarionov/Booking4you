@@ -1,6 +1,7 @@
 "use strict";
 var router_1 = require('@angular/router');
 var Pages = require('./pages/index');
+var Components = require('./components/index');
 var index_1 = require('./shared/index');
 var routes = [
     {
@@ -16,6 +17,21 @@ var routes = [
         path: 'registration',
         component: Pages.RegistrationPageComponent,
         canActivate: [index_1.AuthGuardService]
+    },
+    {
+        path: 'profile',
+        component: Pages.ProfilePageComponent,
+        canActivate: [index_1.AuthGuardService],
+        children: [
+            {
+                path: '',
+                component: Components.ProfileFavoritesComponent
+            },
+            {
+                path: 'favorites',
+                component: Components.ProfileMainComponent
+            }
+        ]
     },
     {
         path: 'company-list',

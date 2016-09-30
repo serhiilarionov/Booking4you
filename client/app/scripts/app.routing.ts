@@ -1,5 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import * as Pages from './pages/index';
+import * as Components from './components/index';
 import { AuthGuardService } from './shared/index';
 
 const routes: Routes = [
@@ -16,6 +17,21 @@ const routes: Routes = [
     path: 'registration',
     component: Pages.RegistrationPageComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile',
+    component: Pages.ProfilePageComponent,
+    canActivate: [AuthGuardService],
+    children: [
+      {
+        path: '',
+        component: Components.ProfileFavoritesComponent
+      },
+      {
+        path: 'favorites',
+        component: Components.ProfileMainComponent
+      }
+    ]
   },
   {
     path: 'company-list',

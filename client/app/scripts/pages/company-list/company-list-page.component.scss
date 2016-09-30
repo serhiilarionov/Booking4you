@@ -1,19 +1,17 @@
 @import "main";
 
-[company-list-page] {
+.company-list-page {
   @include display(flex);
-  @include flex-direction(column);
-  @include flex-grow(1);
+  @include flex-direction(row);
+  @include flex-grow(0);
 }
 
-#map-list-wrapper {
-  @include display(flex);
-}
+#map-list-wrapper {}
 
-[company-list] {
-  @include flex-basis(35%);
+
+.company-list {
   @include display(flex);
-  @include flex-direction(column);
-  position: relative;
+  @include flex(0 0 35%);
+  @include flex-direction(row);
   padding: 0 15px;
 }

@@ -1,10 +1,10 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { Company } from '../../shared/index';
+import { Company } from '../../../shared/index';
 
 @Component({
   selector: 'company-modal',
-  templateUrl: 'scripts/components/company/company-modal.component.html',
-  styleUrls: ['scripts/components/company/company-modal.component.css'],
+  templateUrl: 'scripts/components/company/modal/company-modal.component.html',
+  styleUrls: ['scripts/components/company/modal/company-modal.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 

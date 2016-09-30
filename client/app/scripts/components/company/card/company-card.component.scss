@@ -3,12 +3,18 @@
 $specific-height: 45px;
 
 .company-card {
+  display: table;
+  width: 100%;
+  margin: 4px 4px 10px 4px;
   font-family: $ff-secondary;
   @include box-shadow(0 0 2px lighten($c-grey-main, 50%));
+  @include transition(all 300ms ease-in-out);
+  background: #fff;
 
   &__photo {
     position: relative;
-    display: block;
+    display: table-cell;
+    width: 220px;
     text-decoration: none;
     min-height: $specific-height;
 
@@ -25,12 +31,11 @@ $specific-height: 45px;
       transition: 1s;
       @include background(linear-gradient(top, transparent, rgba(0, 0, 0, 0.8)));
     }
-
   }
 
   &__img {
     width: 100%;
-    height: auto;
+    max-height: 165px;
   }
 
   &__specific {
@@ -58,47 +63,54 @@ $specific-height: 45px;
     &_type {
       font-size: 12px;
     }
-
   }
 
   &__info {
-    padding: 20px 20px 10px;
+    position:relative;
+    display: table-cell;
+    padding: 0 30px;
     font-size: 12px;
     color: #94989A;
-    text-align: center;
+    vertical-align: middle;
     background: #fff;
   }
 
   &__title {
-    margin-bottom: 5px;
+    display: block;
+    margin-bottom: 10px;
     color: #474747;
     font-size: 16px;
     font-weight: bold;
+    line-height: 1em;
 
     &:hover {
       color: $c-blue-main;
     }
-
   }
 
   &__price {
+    position: absolute;
+    top: 0;
+    right: -2px;
     text-align: center;
     display: inline-block;
     padding: 4px 8px;
-    margin-top: 5px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     color: #fff;
     background: $c-blue-main;
   }
 
   &__type {
+    display: inline-block;
     margin-top: 5px;
     font-size: 9px;
     text-transform: uppercase;
   }
-  &__rating {
-    margin-top: 5px;
-  }
 
+  &__rating {
+    display: inline-block;
+    margin-top: 5px;
+    padding-left: 10px;
+  }
 }

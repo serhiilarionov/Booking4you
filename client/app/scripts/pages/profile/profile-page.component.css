@@ -1,0 +1,15 @@
+.profile-navigation__link {
+  display: inline-block;
+  padding: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #777777;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent; }
+  .profile-navigation__link_active {
+    color: #474747;
+    border-bottom: 3px solid #ff513f; }
+
+.profile-content {
+  margin: 20px 0; }

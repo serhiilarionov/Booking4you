@@ -1,13 +1,7 @@
-<div class="company-detail-not-found" *ngIf="!companyDetails">
-  <div class="company-detail-not-found__title"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Company was
-    not found!
-  </div>
-</div>
-
 
 <gmap *ngIf="companyDetails" [companyList]="[companyDetails]"></gmap>
 
-<div class="container company-detail_pad" *ngIf="companyDetails">
+<div class="container container_pad" *ngIf="companyDetails">
   <div class="row">
 
     <!--left-->
@@ -563,5 +557,11 @@
 
 
     </div>
+  </div>
+</div>
+
+<div class="company-detail-not-found" *ngIf="!companyDetails">
+  <div class="company-detail-not-found__title"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Company was
+    not found!
   </div>
 </div>

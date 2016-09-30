@@ -9,30 +9,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../shared/index');
 var CompanyListPageComponent = (function () {
-    function CompanyListPageComponent() {
+    function CompanyListPageComponent(route, companyApi) {
+        this.route = route;
+        this.companyApi = companyApi;
+        this.filter = { where: { cityId: null, categoryId: null }, limit: 100 };
+        this.filter.where = {
+            cityId: this.route.snapshot.queryParams['city'],
+            categoryId: this.route.snapshot.queryParams['category']
+        };
     }
     CompanyListPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.resizeMapListWrapper();
         $(window).on('resize', function () { return _this.resizeMapListWrapper(); });
-    };
-    CompanyListPageComponent.prototype.onCompanyListLoaded = function (companyList) {
-        this.companyList = companyList;
+        this.route.queryParams.subscribe(function (params) {
+            _this.filter.where = {
+                cityId: params['city'],
+                categoryId: params['category']
+            };
+            _this.getCompanyList();
+        });
     };
     CompanyListPageComponent.prototype.resizeMapListWrapper = function () {
         var windowHeight = $(window).height();
         var headerHeight = $('app-header').height();
         $('#map-list-wrapper').height(windowHeight - headerHeight);
     };
+    CompanyListPageComponent.prototype.getCompanyList = function () {
+        var _this = this;
+        // Get companyList only when city and category filters are checked
+        if (this.filter.where.cityId && this.filter.where.categoryId) {
+            this.companyApi.find(this.filter).subscribe(function (companyList) {
+                _this.companyList = companyList;
+            });
+        }
+    };
     CompanyListPageComponent = __decorate([
         core_1.Component({
-            selector: 'company-list-page[company-list-page]',
+            selector: 'company-list-page',
             templateUrl: 'scripts/pages/company-list/company-list-page.component.html',
             styleUrls: ['scripts/pages/company-list/company-list-page.component.css'],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, index_1.CompanyApi])
     ], CompanyListPageComponent);
     return CompanyListPageComponent;
 }());
