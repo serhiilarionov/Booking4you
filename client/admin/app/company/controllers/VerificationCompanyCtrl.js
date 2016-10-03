@@ -361,20 +361,30 @@ angular.module('app.company').controller('VerificationCompanyController',
               smartTree.flatten(vm.subCategoriesList, subCategory)
             });
 
-            // Company.categories.destroyAll
             var promises = [];
             vm.subCategoriesList.forEach(function (subcategory) {
               if (subcategory.checked) {
                 promises.push(Company.categories.link({
-                  id: vm.newCompany.id,
+                  id: vm.company.id,
+                  fk: subcategory.id
+                }, null));
+              }
+              else {
+                promises.push(Company.categories.unlink({
+                  id: vm.company.id,
                   fk: subcategory.id
                 }, null));
               }
             });
             $q.all(promises)
               .then(function () {
+                vm.company.verifiedAt = new Date();
+                return Company.upsert({id: vm.company.id}, vm.company)
+                  .$promise
+              })
+              .then(function(company) {
                 Notification.success();
-                $state.go('app.catalog.companies');
+                $state.go('app.company.companySelect');
               })
               .catch(function (err) {
                 Notification.error("Error", err.data.error.message);

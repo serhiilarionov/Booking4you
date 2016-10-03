@@ -1,21 +1,21 @@
 'use strict';
 
 angular.module('app.company').controller('AddingCompanyController',
-  function ($scope, $state, $stateParams, $http, $q, Company, Category, City, Street, Region,
-            Notification, CompanyDetail, CompanyLocation, CompanyService, FileUploader, smartTree) {
+  function ($scope, $state, $stateParams, $http, $q, Company, Category, City, Street, District, Notification,
+            CompanyDetail, CompanyLocation, CompanyService, FileUploader, SERVER_URL, smartTree) {
     var vm = this;
+    vm.SERVER_URL = SERVER_URL;
 
-    vm.location = {
-      cityId: null,
-      streetId: null
-    };
-    vm.detail = {
+    vm.newCompany = localStorage.newCompany ? JSON.parse(localStorage.newCompany) : {};
+    vm.location = localStorage.location ? JSON.parse(localStorage.location) : {};
+    vm.services = localStorage.services ? JSON.parse(localStorage.services) : [];
+    vm.detail = localStorage.detail ? JSON.parse(localStorage.detail) : {
       email: [],
       website: [],
       phone: [],
       imageList: []
     };
-    vm.services = [];
+
     vm.inputMaps = {};
     vm.subCategories = [];
     vm.weekDays = {
@@ -29,15 +29,13 @@ angular.module('app.company').controller('AddingCompanyController',
     };
     vm.currentStep = null;
     vm.uploader = new FileUploader();
-
-    Region.find().$promise
-      .then(function (regions) {
-        vm.regions = regions;
-      });
-
+    
     Category.find({"filter": {"order": "parentId ASC"}}).$promise
       .then(function (categories) {
         vm.categories = categories;
+        vm.categorySelected = categories.find(function (category) {
+          return category.id == vm.newCompany.categoryId;
+        });
 
         //Recursive creation of category tree
         categories.forEach(function (category) {
@@ -45,24 +43,52 @@ angular.module('app.company').controller('AddingCompanyController',
         });
       });
 
-    /**
-     * Function return all cities by regionId
-     */
-    vm.getCities = function () {
-      City.find({"filter": {"where": {"regionId": vm.location.regionId}}}).$promise
-        .then(function (cities) {
-          vm.cities = cities;
+    City.find()
+      .$promise
+      .then(function (cities) {
+        vm.cities = cities;
+        vm.citySelected = cities.find(function (city) {
+          return city.id == vm.location.cityId;
         });
+        vm.getDistricts(vm.citySelected);
+      });
+
+
+    /**
+     * Function return all cities by cityId
+     */
+    vm.getDistricts = function (city) {
+      if (!city) {
+        delete vm.districtSelected;
+      }
+      else {
+        District.find({"filter": {"where": {"cityId": city.id}}}).$promise
+          .then(function (districts) {
+            vm.districts = districts;
+            vm.districtSelected = vm.districts.find(function (district) {
+              return district.id == vm.location.districtId;
+            });
+            vm.getStreets(vm.districtSelected);
+          });
+      }
     };
 
     /**
-     * Function return all streets by cityId
+     * Function return all streets by districtId
      */
-    vm.getStreets = function () {
-      Street.find({"filter": {"where": {"cityId": vm.location.cityId}}}).$promise
-        .then(function (streets) {
-          vm.streets = streets;
-        });
+    vm.getStreets = function (district) {
+      if (!district) {
+        delete vm.streetSelected;
+      }
+      else {
+        Street.find({"filter": {"where": {"districtId": district.id}}}).$promise
+          .then(function (streets) {
+            vm.streets = streets;
+            vm.streetSelected = vm.streets.find(function (street) {
+              return street.id == vm.location.streetId;
+            });
+          });
+      }
     };
 
     /**
@@ -207,15 +233,35 @@ angular.module('app.company').controller('AddingCompanyController',
         switch (vm.currentStep) {
           case 1:
           {
-            Company.create(vm.newCompany)
-              .$promise
-              .then(function (company) {
-                vm.newCompany.id = vm.detail.companyId = vm.location.companyId = company.id;
-                Notification.success();
-              })
-              .catch(function (err) {
-                Notification.error("Error", err.data.error.message);
-              });
+            vm.newCompany.categoryId = vm.categorySelected.id;
+            if (vm.newCompany.id) {
+              Company.upsert({id: vm.newCompany.id}, vm.newCompany)
+                .$promise
+                .then(function (company) {
+                  vm.newCompany.id = vm.detail.companyId = vm.location.companyId = company.id;
+                  localStorage.setItem('newCompany', JSON.stringify(vm.newCompany));
+                  localStorage.setItem('detail', JSON.stringify(vm.detail));
+                  localStorage.setItem('location', JSON.stringify(vm.location));
+                  Notification.success();
+                })
+                .catch(function (err) {
+                  Notification.error("Error", err.data.error.message);
+                });
+            }
+            else {
+              Company.create(vm.newCompany)
+                .$promise
+                .then(function (company) {
+                  vm.newCompany.id = vm.detail.companyId = vm.location.companyId = company.id;
+                  localStorage.setItem('newCompany', JSON.stringify(vm.newCompany));
+                  localStorage.setItem('detail', JSON.stringify(vm.detail));
+                  localStorage.setItem('location', JSON.stringify(vm.location));
+                  Notification.success();
+                })
+                .catch(function (err) {
+                  Notification.error("Error", err.data.error.message);
+                });
+            }
           }
             break;
           case 2:
@@ -223,7 +269,8 @@ angular.module('app.company').controller('AddingCompanyController',
             CompanyDetail.upsert({companyId: vm.detail.companyId}, vm.detail)
               .$promise
               .then(function (detail) {
-                vm.detail = detail;
+                vm.detail.id = detail.id;
+                localStorage.setItem('detail', JSON.stringify(vm.detail));
                 Notification.success();
               })
               .catch(function (err) {
@@ -233,12 +280,17 @@ angular.module('app.company').controller('AddingCompanyController',
             break;
           case 3:
           {
+            vm.newCompany.cityId = vm.citySelected.id;
+            vm.newCompany.districtId = vm.districtSelected.id;
+            vm.newCompany.streetId = vm.streetSelected.id;
+
             // CompanyLocation.upsert({companyId: vm.location.companyId}, vm.location)
             vm.newCompany = Object.assign(vm.newCompany, vm.location);
             Company.upsert({id: vm.newCompany.id}, vm.newCompany)
               .$promise
               .then(function (location) {
                 vm.location = location;
+                localStorage.setItem('location', JSON.stringify(vm.location));
                 Notification.success();
               })
               .catch(function (err) {
@@ -274,11 +326,13 @@ angular.module('app.company').controller('AddingCompanyController',
                 return Company.upsert({id: vm.newCompany.id}, vm.newCompany)
                   .$promise
               })
-              .then(function () {
+              .then(function (company) {
+                localStorage.setItem('newCompany', JSON.stringify(company));
                 return CompanyDetail.upsert({companyId: vm.detail.companyId}, vm.detail)
                   .$promise
               })
-              .then(function () {
+              .then(function (detail) {
+                localStorage.setItem('detail', JSON.stringify(detail));
                 Notification.success();
               })
               .catch(function (err) {
@@ -288,16 +342,25 @@ angular.module('app.company').controller('AddingCompanyController',
             break;
           case 5:
           {
+            var promisesCompanyService = [];
             vm.services.forEach(function (service) {
-              CompanyService.create(service)
-                .$promise
-                .then(function () {
-                  Notification.success();
-                })
-                .catch(function (err) {
-                  Notification.error("Error", err.data.error.message);
-                });
+              if (service.id) {
+                promisesCompanyService.push(CompanyService.upsert({id: service.id}, service)
+                  .$promise)
+              }
+              else {
+                promisesCompanyService.push(CompanyService.create(service)
+                  .$promise)
+              }
             });
+            $q.all(promisesCompanyService)
+              .then(function (services) {
+                localStorage.setItem('services', JSON.stringify(services));
+                Notification.success();
+              })
+              .catch(function (err) {
+                Notification.error("Error", err.data.error.message);
+              });
           }
             break;
           case 6:
@@ -318,6 +381,11 @@ angular.module('app.company').controller('AddingCompanyController',
             });
             $q.all(promises)
               .then(function () {
+                localStorage.removeItem('services');
+                localStorage.removeItem('detail');
+                localStorage.removeItem('newCompany');
+                localStorage.removeItem('location');
+                
                 Notification.success();
                 $state.go('app.catalog.companies');
               })

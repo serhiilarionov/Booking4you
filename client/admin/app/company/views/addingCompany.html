@@ -85,14 +85,13 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
-                      <select data-smart-select2 class="select2 addressSelect"
-                              data-smart-validate-input data-required
-                              name="category" ng-model="addingCompany.newCompany.categoryId"
-                              ng-change="addingCompany.getCities()">
-                        <option ng-repeat="category in addingCompany.categories" value="{{category.id}}">
-                          {{category.name}}
-                        </option>
-                      </select>
+                      <ui-select tagging ng-model="addingCompany.categorySelected" theme="bootstrap">
+                        <ui-select-match placeholder="Pick one...">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="category in addingCompany.categories |
+                        filter: $select.search track by category.name">
+                          <div ng-bind="category.name"></div>
+                        </ui-select-choices>
+                      </ui-select>
                     </div>
                   </div>
                 </div>
@@ -228,14 +227,14 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
-                      <select data-smart-select2 class="select2 addressSelect"
-                              data-smart-validate-input data-required
-                              name="region" ng-model="addingCompany.location.regionId"
-                              ng-change="addingCompany.getCities()">
-                        <option ng-repeat="region in addingCompany.regions" value="{{region.id}}">
-                          {{region.name}}
-                        </option>
-                      </select>
+                      <ui-select tagging ng-model="addingCompany.citySelected"
+                                 ng-change="addingCompany.getDistricts($select.selected)">
+                        <ui-select-match allow-clear="true" placeholder="Pick one...">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="city in addingCompany.cities |
+                        filter: $select.search track by city.name">
+                          <div ng-bind="city.name"></div>
+                        </ui-select-choices>
+                      </ui-select>
                     </div>
                   </div>
                 </div>
@@ -243,14 +242,14 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
-                      <select data-smart-select2 class="select2 addressSelect"
-                              data-smart-validate-input data-required
-                              name="city" ng-model="addingCompany.location.cityId"
-                              ng-change="addingCompany.getStreets()">
-                        <option ng-repeat="city in addingCompany.cities" value="{{city.id}}">
-                          {{city.name}}
-                        </option>
-                      </select>
+                      <ui-select tagging ng-model="addingCompany.districtSelected"
+                                 ng-change="addingCompany.getStreets($select.selected)">
+                        <ui-select-match allow-clear="true" placeholder="Pick one...">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="district in addingCompany.districts |
+                        filter: $select.search track by district.name">
+                          <div ng-bind="district.name"></div>
+                        </ui-select-choices>
+                      </ui-select>
                     </div>
                   </div>
                 </div>
@@ -258,13 +257,13 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
-                      <select data-smart-select2 class="select2 addressSelect"
-                              data-smart-validate-input data-required
-                              name="street" ng-model="addingCompany.location.streetId">
-                        <option ng-repeat="street in addingCompany.streets" value="{{street.id}}">
-                          {{street.name}}
-                        </option>
-                      </select>
+                      <ui-select tagging ng-model="addingCompany.streetSelected">
+                        <ui-select-match allow-clear="true" placeholder="Pick one...">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="street in addingCompany.streets |
+                        filter: $select.search track by street.name">
+                          <div ng-bind="street.name"></div>
+                        </ui-select-choices>
+                      </ui-select>
                     </div>
                   </div>
                 </div>
@@ -360,11 +359,13 @@
                                ng-model="addingCompany.newCompany.photo" class="form-control input-lg">
                       </div>
                     </div>
-
                     <div ng-if="imageSrc">
                       <img class="col-md-12" ng-src="{{imageSrc}}">
                     </div>
-
+                    <div ng-if="!imageSrc && addingCompany.newCompany.photo">
+                      <img class="col-md-12"
+                           ng-src="{{addingCompany.SERVER_URL}}/storage/test/{{addingCompany.location.cityId}}/{{addingCompany.newCompany.categoryId}}/{{addingCompany.newCompany.id}}/{{addingCompany.newCompany.photo}}">
+                    </div>
                   </div>
                 </div>
 
@@ -379,7 +380,7 @@
                         <input type="text" placeholder="Include some files" readonly="" class="form-control input-lg">
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row" ng-if="addingCompany.uploader.queue.length">
                       <div ng-repeat="item in addingCompany.uploader.queue"
                            class="ng-scope col-sm-10 col-md-8 col-lg-4">
                         <div class="ng-scope">
@@ -391,6 +392,18 @@
                         <div ng-bind="item.file.name" class="col-md-8"></div>
                         <button ng-click="item.remove()" class="col-md-4">Remove</button>
                       </div>
+                    </div>
+
+                    <div ng-if="!addingCompany.uploader.queue.length &&
+                    addingCompany.detail.imageList.length">
+                      <div ng-repeat="photo in addingCompany.detail.imageList"
+                           class="ng-scope col-sm-10 col-md-8 col-lg-4">
+                        <div class="ng-scope">
+                          <img class="col-md-12"
+                               ng-src="{{addingCompany.SERVER_URL}}/storage/test/{{addingCompany.location.cityId}}/{{addingCompany.newCompany.categoryId}}/{{addingCompany.newCompany.id}}/{{photo}}">
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>

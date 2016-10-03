@@ -28,7 +28,7 @@ angular.module('helpers')
         } else {
           newTree.forEach(function (newTreeItem) {
             if (newTreeItem.children) {
-              create(newTreeItem.children, item)
+              create(newTreeItem.children, item, companyId)
             }
           })
         }
