@@ -113,3 +113,5 @@
     display: block;
     font-size: 12px;
     padding: 10px 10px; }
+    .header .user-dropdown__list a:hover {
+      background: #f4f4f2; }

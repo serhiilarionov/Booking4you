@@ -31,6 +31,10 @@ $specific-height: 45px;
       transition: 1s;
       @include background(linear-gradient(top, transparent, rgba(0, 0, 0, 0.8)));
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__img {
@@ -85,6 +89,10 @@ $specific-height: 45px;
 
     &:hover {
       color: $c-blue-main;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 

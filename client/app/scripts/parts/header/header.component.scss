@@ -95,6 +95,10 @@
         display: block;
         font-size: 12px;
         padding: 10px 10px;
+
+        &:hover {
+          background: $c-main-content-bg;
+        }
       }
     }
   }
