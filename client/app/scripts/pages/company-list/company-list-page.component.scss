@@ -1,13 +1,24 @@
 @import "main";
 
+@import "main";
+
 .company-list-page {
   @include display(flex);
   @include flex-direction(row);
   @include flex-grow(0);
 }
 
+#map-list-wrapper {}
+
+
 .company-list {
   @include display(flex);
-  @include flex(0 0 35%);
-  @include flex-direction(row);
+  @include flex(0 0 30%);
+  @include flex-direction(column);
+  padding: 0 15px;
+}
+
+.gmap {
+  @include display(flex);
+  @include flex(1 0 auto);
 }

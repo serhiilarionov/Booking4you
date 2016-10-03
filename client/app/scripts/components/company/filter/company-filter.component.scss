@@ -1,12 +1,11 @@
 @import "main";
 
-.filter-container, .list-container {
-  @include display(flex);
-  @include flex-wrap(wrap);
-  @include justify-content(space-between);
-  @include flex-shrink(0);
-}
-
 .filter-container {
+  @include display(flex);
   @include flex-wrap(nowrap);
+  @include justify-content(space-between);
+
+  .btn-group.bootstrap-select {
+    @include flex(0 0 47%);
+  }
 }

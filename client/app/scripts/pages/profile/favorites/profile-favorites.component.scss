@@ -1,7 +1,20 @@
 @import "main";
 
-.profile-favorite {
-  &__item {
+.profile-favorites-filter {
+
+  &__btn {
     display: block;
+    padding: 15px 0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    &._active {
+      color: #ff513f;
+    }
   }
 }

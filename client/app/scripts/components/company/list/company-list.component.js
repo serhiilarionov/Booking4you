@@ -48,6 +48,10 @@ var CompanyListComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Array)
     ], CompanyListComponent.prototype, "companyList", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], CompanyListComponent.prototype, "categoryId", void 0);
     CompanyListComponent = __decorate([
         core_1.Component({
             selector: 'company-list',

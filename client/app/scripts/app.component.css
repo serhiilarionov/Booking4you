@@ -54,6 +54,9 @@
 .fc-grey {
   color: #777777; }
 
+.container_pad {
+  padding: 40px 0; }
+
 /**
  * RESET STYLES
  */

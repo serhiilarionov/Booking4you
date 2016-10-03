@@ -46,7 +46,8 @@ var CompanyFilterComponent = (function () {
         core_1.Component({
             selector: 'company-filter',
             templateUrl: 'scripts/components/company/filter/company-filter.component.html',
-            styleUrls: ['scripts/components/company/filter/company-filter.component.css']
+            styleUrls: ['scripts/components/company/filter/company-filter.component.css'],
+            encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, index_1.CityApi, index_1.CategoryApi])
     ], CompanyFilterComponent);

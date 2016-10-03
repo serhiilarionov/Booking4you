@@ -1,53 +1,60 @@
 @import "main";
 
-.filter-container {
-  @include display(flex);
-  @include flex-wrap(wrap);
-  @include justify-content(space-between);
-  @include flex-shrink(0);
+.filter-wrapper {
+
 }
 
-.filter-container {
-  @include flex-wrap(nowrap);
-}
+.change-company-view {
+  color: #a5a5a5;
 
-.filter-container .bootstrap-select {
-  @include flex(0 0 48%);
-  margin-bottom: 8px;
+  &__btn {
+    font-size: 18px;
+    &.active {
+      color: $c-grey-main;
+    }
+  }
 }
 
 .company-list {
+  &__section {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  &__header {
+    padding-bottom: 15px;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  &__warning {
+    font-size: 14px;
+    margin: 15px 0;
+  }
+}
+
+.company-card-list {
   position: relative;
   @include display(flex);
   @include flex-wrap(wrap);
   @include flex-direction(column);
-
-  .company-list-page > & {
-    padding: 15px;
-  }
-
-  &__header {
-    height: 40px;
-    @include display(flex);
-    @include justify-content(space-between);
-    @include align-items(center);
-
-    > h4, div {
-      margin: 0;
-    }
-  }
 
   &__item {
     @include display(flex);
     @include transition(all 300ms ease-in-out);
   }
 
-  &__grid {
-    @include flex-direction(row);
-    @include justify-content(space-between);
+  &_grid {
 
-    .company-list__item {
+    @include flex-direction(row);
+    @include justify-content(space-around);
+
+    .company-card-list__item {
       @include flex(1 0 200px);
+      @include transition(all 300ms ease-in-out);
 
       .company-card {
         display: block;
@@ -88,18 +95,5 @@
         }
       }
     }
-  }
-}
-
-.change-company-view {
-  margin: 5px 0;
-
-  &__btn {
-    font-size: 18px;
-    @include transition(all .3s);
-  }
-
-  & .active {
-    color: $c-blue-main;
   }
 }

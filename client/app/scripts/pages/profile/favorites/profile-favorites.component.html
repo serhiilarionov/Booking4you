@@ -1,7 +1,17 @@
 <div class="cold-md-3 col-sm-3">
+    <div class="profile-favorites-filter">
+        <button (click)="selectedCategory = null" class="profile-favorites-filter__btn"
+                [class._active]="!selectedCategory">All items
+        </button>
+        <button *ngFor="let category of categoryList"
+                (click)="selectedCategory = category.id"
+                class="profile-favorites-filter__btn"
+                [class._active]="selectedCategory == category.id">{{category.name}}
+        </button>
+    </div>
 
 </div>
 
 <div class="col-md-9 col-sm-9">
-  <company-list [companyList]="companyList" [showTitle]="false"></company-list>
+    <company-list [companyList]="companyList" [showTitle]="false" [categoryId]="selectedCategory"></company-list>
 </div>

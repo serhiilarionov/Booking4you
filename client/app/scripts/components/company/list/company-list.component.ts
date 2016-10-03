@@ -14,6 +14,7 @@ export class CompanyListComponent {
   @Input() viewTypeActive: boolean = true;
   @Input() showTitle: boolean = true;
   @Input() companyList: Array<Company>;
+  @Input() categoryId: number;
 
   setViewType(value) {
     switch (value) {

@@ -11,14 +11,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var index_1 = require('../../../shared/index');
 var ProfileFavoritesComponent = (function () {
-    function ProfileFavoritesComponent(clientApi) {
+    function ProfileFavoritesComponent(clientApi, categoryApi) {
         this.clientApi = clientApi;
+        this.categoryApi = categoryApi;
+        this.categoryIdList = [];
+        this.filter = { where: { id: { inq: [] } } };
         this.currentUser = this.clientApi.getCachedCurrent();
     }
     ProfileFavoritesComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.clientApi.getCompanies(this.currentUser.id).subscribe(function (data) {
-            _this.companyList = data;
+        this.clientApi.getCompanies(this.currentUser.id)
+            .subscribe(function (companyList) {
+            _this.companyList = companyList;
+            Object.keys(_this.companyList).map(function (company) {
+                if (_this.categoryIdList.indexOf(_this.companyList[company]['categoryId']) === -1) {
+                    _this.categoryIdList.push(_this.companyList[company]['categoryId']);
+                }
+            });
+            _this.filter.where.id.inq = _this.categoryIdList;
+            _this.getCategories();
+        });
+    };
+    ProfileFavoritesComponent.prototype.getCategories = function () {
+        var _this = this;
+        this.categoryApi.find(this.filter)
+            .subscribe(function (categoryList) {
+            _this.categoryList = categoryList;
         });
     };
     ProfileFavoritesComponent = __decorate([
@@ -28,7 +46,7 @@ var ProfileFavoritesComponent = (function () {
             styleUrls: ['scripts/pages/profile/favorites/profile-favorites.component.css'],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
-        __metadata('design:paramtypes', [index_1.ClientApi])
+        __metadata('design:paramtypes', [index_1.ClientApi, index_1.CategoryApi])
     ], ProfileFavoritesComponent);
     return ProfileFavoritesComponent;
 }());

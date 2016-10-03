@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NavigationExtras, ActivatedRoute, Router, Params } from '@angular/router';
 import { City, CityApi, Category, CategoryApi } from '../../../shared/index';
 
 @Component({
   selector: 'company-filter',
   templateUrl: 'scripts/components/company/filter/company-filter.component.html',
-  styleUrls: ['scripts/components/company/filter/company-filter.component.css']
+  styleUrls: ['scripts/components/company/filter/company-filter.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class CompanyFilterComponent implements OnInit {

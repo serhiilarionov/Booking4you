@@ -33,7 +33,7 @@ var AppModule = (function () {
                     apiKey: 'AIzaSyAp4wClu7rjAWLAavgCRv5FhM0G9CZeUNI'
                 })
             ],
-            declarations: [app_component_1.AppComponent].concat(index_1.Parts, index_2.Pages, index_4.Directives, index_3.Components),
+            declarations: [app_component_1.AppComponent].concat(index_1.Parts, index_2.Pages, index_4.Directives, index_4.Pipes, index_3.Components),
             bootstrap: [app_component_1.AppComponent],
             providers: index_4.Services.slice()
         }), 

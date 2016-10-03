@@ -7,7 +7,7 @@ import { routing } from './app.routing';
 import { SDKModule } from './shared/sdk/sdk.module';
 import { Pages } from './pages/index';
 import { Components } from './components/index';
-import { Services, Directives } from './shared/index';
+import { Services, Directives, Pipes } from './shared/index';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
       apiKey: 'AIzaSyAp4wClu7rjAWLAavgCRv5FhM0G9CZeUNI'
     })
   ],
-  declarations: [AppComponent, ...Parts, ...Pages, ...Directives, ...Components],
+  declarations: [AppComponent, ...Parts, ...Pages, ...Directives, ...Pipes, ...Components],
   bootstrap: [AppComponent],
   providers: [...Services]
 })

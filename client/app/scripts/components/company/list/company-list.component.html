@@ -1,27 +1,38 @@
-<company-filter *ngIf="filterActive"></company-filter>
-
-<div class="company-list__header">
-    <h4 *ngIf="showTitle">Result
-        <small *ngIf="companyList?.length" class="text-muted">
-            ({{companyList.length}}
-            <span *ngIf="companyList.length > 1">companies</span>
-            <span *ngIf="companyList.length === 1">company</span>
-            found)
-        </small>
-    </h4>
-
-    <div class="change-company-view text-right" *ngIf="viewTypeActive">
-        <button (click)="setViewType('grid')" class="change-company-view__btn" [class.active]="gridViewType"><i class="fa fa-th-large" aria-hidden="true"></i></button>
-        <button (click)="setViewType('list')" class="change-company-view__btn" [class.active]="!gridViewType"><i class="fa fa-th-list" aria-hidden="true"></i></button>
-    </div>
+<div class="company-list__section">
+  <company-filter *ngIf="filterActive"></company-filter>
 </div>
 
+<div class="company-list__section">
+  <div class="company-list__header clearfix">
+    <h4 *ngIf="showTitle" class="company-list__title pull-left">Result
+      <small *ngIf="companyList?.length" class="text-muted">
+        ({{companyList.length}}
+        <span *ngIf="companyList.length > 1">companies</span>
+        <span *ngIf="companyList.length === 1">company</span>
+        found)
+      </small>
+    </h4>
 
-<div class="company-list" [class.company-list__grid]="gridViewType">
-    <company-card class="company-list__item"
-                  *ngFor="let company of companyList"
+    <div class="change-company-view pull-right" *ngIf="viewTypeActive && (companyList && companyList != 0)">
+      <button (click)="setViewType('grid')" class="change-company-view__btn" [class.active]="gridViewType"><i
+        class="fa fa-th-large" aria-hidden="true"></i></button>
+      <button (click)="setViewType('list')" class="change-company-view__btn" [class.active]="!gridViewType"><i
+        class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div class="company-card-list" [class.company-card-list_grid]="gridViewType" *ngIf="companyList?.length">
+    <company-card class="company-card-list__item"
+                  *ngFor="let company of (companyList | filterBy: {'categoryId': categoryId})"
                   [company]="company"
                   (click)="selectedCompany = company">
     </company-card>
+  </div>
+
+  <div *ngIf="companyList == 0" class="text-muted text-center company-list__warning">
+    <i class="fa fa-lg fa-search"></i>
+    Nothing to show.
+  </div>
 </div>
+
 <company-modal [company]="selectedCompany"></company-modal>
