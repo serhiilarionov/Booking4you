@@ -1,6 +1,5 @@
 .header {
   height: 70px;
-  overflow: hidden;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); }
   .header .container-fluid {
     height: 100%;
@@ -103,3 +102,14 @@
         -ms-transform: translate(-50%, -50%) scale(1);
         -o-transform: translate(-50%, -50%) scale(1);
         transform: translate(-50%, -50%) scale(1); }
+  .header .user-dropdown__btn {
+    position: relative;
+    z-index: 1001;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    color: #36b6ff; }
+  .header .user-dropdown__list a {
+    display: block;
+    font-size: 12px;
+    padding: 10px 10px; }

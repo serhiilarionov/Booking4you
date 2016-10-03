@@ -9,7 +9,15 @@
       <a routerLink="/registration"><strong>Register</strong></a>
     </div>
     <div *ngIf="currentUser">
-      <a routerLink="/profile/favorites"><strong>{{currentUser.email}}</strong></a>
+      <div class="dropdown user-dropdown">
+        <button class="dropdown" class="user-dropdown__btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{currentUser.email}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu user-dropdown__list">
+          <a routerLink="/profile"><strong>Profile</strong></a>
+          <a routerLink="/profile/favorites"><strong>My Favorites</strong></a>
+        </ul>
+      </div>
       <a (click)="logout()">Logout</a>
     </div>
     <button (click)="onSidebarToggle()">
