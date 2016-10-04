@@ -78,6 +78,9 @@
       "default": "$now"
     }
   },
+  "scope": {
+    "limit": 100
+  },
   "validations": [],
   "relations": {
     "details": {

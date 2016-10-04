@@ -49,6 +49,9 @@
       "default": "$now"
     }
   },
+  "scope": {
+    "limit": 1000
+  },
   "validations": [],
   "relations": {
     "company": {

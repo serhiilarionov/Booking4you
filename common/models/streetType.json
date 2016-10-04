@@ -17,6 +17,9 @@
       "required": true
     }
   },
+  "scope": {
+    "limit": 1000
+  },
   "validations": [],
   "relations": {},
   "acls": [
