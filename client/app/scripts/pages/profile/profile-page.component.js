@@ -17,7 +17,6 @@ var ProfilePageComponent = (function () {
         this.auth = auth;
         this.router = router;
         this.auth.currentUser.subscribe(function (user) {
-            console.log('profile');
             if (!user) {
                 _this.router.navigate(['/']);
             }

@@ -14,7 +14,6 @@ export class ProfilePageComponent {
     private router: Router
   ) {
     this.auth.currentUser.subscribe((user: Client) => {
-      console.log('profile');
       if (!user) {
         this.router.navigate(['/']);
       }
