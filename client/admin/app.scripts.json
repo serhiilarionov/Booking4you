@@ -31,7 +31,8 @@
       "datatables-tools",
       "datatables-colvis",
       "datatables-responsive",
-      "jt.timepicker"
+      "jt.timepicker",
+      "ui.select"
     ],
     "vendor.ui": [
       "select2",
@@ -82,6 +83,7 @@
     "fastclick": "bower_components/fastclick/lib/fastclick.js",
     "jquery-color": "bower_components/jquery-color/jquery.color.js",
     "select2": "bower_components/select2/select2.min.js",
+    "ui.select": "bower_components/angular-ui-select/dist/select.js",
     "summernote": "bower_components/summernote/dist/summernote.min.js",
     "he": "bower_components/he/he.js",
     "to-markdown": "bower_components/to-markdown/dist/to-markdown.js",

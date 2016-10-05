@@ -25,5 +25,5 @@ module.exports = function(Client) {
   Client.disableRemoteMethod('__findById__accessTokens', false);
   Client.disableRemoteMethod('__get__accessTokens', false);
   Client.disableRemoteMethod('__updateById__accessTokens', false);
-
 };
+

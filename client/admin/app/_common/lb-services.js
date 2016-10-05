@@ -321,6 +321,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Category#upsertWithWhere
+             * @methodOf lbServices.Category
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Category` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/categories/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.Category#exists
              * @methodOf lbServices.Category
              *
@@ -790,6 +827,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Category#patchOrCreateWithWhere
+             * @methodOf lbServices.Category
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Category` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -1986,6 +2057,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Company#upsertWithWhere
+             * @methodOf lbServices.Company
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Company` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/companies/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.Company#exists
              * @methodOf lbServices.Company
              *
@@ -2565,6 +2673,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Company#patchOrCreateWithWhere
+             * @methodOf lbServices.Company
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Company` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -4469,6 +4611,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use CompanyService.bookings.link() instead.
+            "prototype$__link__bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/CompanyServices/:id/bookings/rel/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use CompanyService.bookings.unlink() instead.
+            "prototype$__unlink__bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/CompanyServices/:id/bookings/rel/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use CompanyService.bookings.exists() instead.
+            "prototype$__exists__bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/CompanyServices/:id/bookings/rel/:fk",
+              method: "HEAD",
+            },
+
             // INTERNAL. Use CompanyService.bookings() instead.
             "prototype$__get__bookings": {
               isArray: true,
@@ -4644,6 +4813,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/CompanyServices/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CompanyService#upsertWithWhere
+             * @methodOf lbServices.CompanyService
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyService` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/CompanyServices/upsertWithWhere",
               method: "POST",
             },
 
@@ -5035,9 +5241,89 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Booking.service() instead.
-            "::get::Booking::service": {
-              url: urlBase + "/bookings/:id/service",
+            // INTERNAL. Use Booking.services.findById() instead.
+            "::findById::Booking::services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Booking.services.destroyById() instead.
+            "::destroyById::Booking::services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Booking.services.updateById() instead.
+            "::updateById::Booking::services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Booking.services.link() instead.
+            "::link::Booking::services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/rel/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Booking.services.unlink() instead.
+            "::unlink::Booking::services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/rel/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Booking.services.exists() instead.
+            "::exists::Booking::services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/rel/:fk",
+              method: "HEAD",
+            },
+
+            // INTERNAL. Use Booking.services() instead.
+            "::get::Booking::services": {
+              isArray: true,
+              url: urlBase + "/bookings/:id/services",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Booking.services.create() instead.
+            "::create::Booking::services": {
+              url: urlBase + "/bookings/:id/services",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Booking.services.createMany() instead.
+            "::createMany::Booking::services": {
+              isArray: true,
+              url: urlBase + "/bookings/:id/services",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Booking.services.destroyAll() instead.
+            "::delete::Booking::services": {
+              url: urlBase + "/bookings/:id/services",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Booking.services.count() instead.
+            "::count::Booking::services": {
+              url: urlBase + "/bookings/:id/services/count",
               method: "GET",
             },
           }
@@ -5114,6 +5400,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CompanyService#patchOrCreateWithWhere
+             * @methodOf lbServices.CompanyService
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyService` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -5481,6 +5801,42 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.CompanyService.bookings#exists
+             * @methodOf lbServices.CompanyService.bookings
+             *
+             * @description
+             *
+             * Check the existence of bookings relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for bookings
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+        R.bookings.exists = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::exists::CompanyService::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
              * @name lbServices.CompanyService.bookings#findById
              * @methodOf lbServices.CompanyService.bookings
              *
@@ -5512,6 +5868,79 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.bookings.findById = function() {
           var TargetResource = $injector.get("Booking");
           var action = TargetResource["::findById::CompanyService::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CompanyService.bookings#link
+             * @methodOf lbServices.CompanyService.bookings
+             *
+             * @description
+             *
+             * Add a related item by id for bookings.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for bookings
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+        R.bookings.link = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::link::CompanyService::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CompanyService.bookings#unlink
+             * @methodOf lbServices.CompanyService.bookings
+             *
+             * @description
+             *
+             * Remove the bookings relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for bookings
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.bookings.unlink = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::unlink::CompanyService::bookings"];
           return action.apply(R, arguments);
         };
 
@@ -5736,6 +6165,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/CompanyDetails/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CompanyDetail#upsertWithWhere
+             * @methodOf lbServices.CompanyDetail
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyDetail` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/CompanyDetails/upsertWithWhere",
               method: "POST",
             },
 
@@ -6103,6 +6569,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.CompanyDetail#patchOrCreateWithWhere
+             * @methodOf lbServices.CompanyDetail
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyDetail` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
              * @name lbServices.CompanyDetail#update
              * @methodOf lbServices.CompanyDetail
              *
@@ -6385,6 +6885,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/CompanyLocations/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CompanyLocation#upsertWithWhere
+             * @methodOf lbServices.CompanyLocation
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyLocation` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/CompanyLocations/upsertWithWhere",
               method: "POST",
             },
 
@@ -6765,6 +7302,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.CompanyLocation#patchOrCreateWithWhere
+             * @methodOf lbServices.CompanyLocation
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyLocation` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
              * @name lbServices.CompanyLocation#update
              * @methodOf lbServices.CompanyLocation
              *
@@ -7099,6 +7670,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/countries/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Country#upsertWithWhere
+             * @methodOf lbServices.Country
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Country` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/countries/upsertWithWhere",
               method: "POST",
             },
 
@@ -7445,6 +8053,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Country#patchOrCreateWithWhere
+             * @methodOf lbServices.Country
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Country` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -8088,6 +8730,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Region#upsertWithWhere
+             * @methodOf lbServices.Region
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Region` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/regions/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.Region#exists
              * @methodOf lbServices.Region
              *
@@ -8488,6 +9167,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Region#patchOrCreateWithWhere
+             * @methodOf lbServices.Region
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Region` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -9183,6 +9896,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.City#upsertWithWhere
+             * @methodOf lbServices.City
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `City` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/cities/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.City#exists
              * @methodOf lbServices.City
              *
@@ -9583,6 +10333,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.City#patchOrCreateWithWhere
+             * @methodOf lbServices.City
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `City` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -10527,6 +11311,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.District#upsertWithWhere
+             * @methodOf lbServices.District
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `District` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/districts/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.District#exists
              * @methodOf lbServices.District
              *
@@ -10927,6 +11748,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.District#patchOrCreateWithWhere
+             * @methodOf lbServices.District
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `District` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -11518,6 +12373,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.StreetType#upsertWithWhere
+             * @methodOf lbServices.StreetType
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `StreetType` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/streetTypes/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.StreetType#exists
              * @methodOf lbServices.StreetType
              *
@@ -11868,6 +12760,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.StreetType#patchOrCreateWithWhere
+             * @methodOf lbServices.StreetType
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `StreetType` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
              * @name lbServices.StreetType#update
              * @methodOf lbServices.StreetType
              *
@@ -12208,6 +13134,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/streets/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Street#upsertWithWhere
+             * @methodOf lbServices.Street
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Street` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/streets/upsertWithWhere",
               method: "POST",
             },
 
@@ -12672,6 +13635,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Street#patchOrCreateWithWhere
+             * @methodOf lbServices.Street
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Street` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -13299,6 +14296,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Building#upsertWithWhere
+             * @methodOf lbServices.Building
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Building` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/buildings/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.Building#exists
              * @methodOf lbServices.Building
              *
@@ -13702,6 +14736,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Building#patchOrCreateWithWhere
+             * @methodOf lbServices.Building
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Building` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
              * @name lbServices.Building#update
              * @methodOf lbServices.Building
              *
@@ -13840,15 +14908,88 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Booking.service() instead.
-            "prototype$__get__service": {
-              url: urlBase + "/bookings/:id/service",
+            // INTERNAL. Use Booking.services.findById() instead.
+            "prototype$__findById__services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/:fk",
               method: "GET",
+            },
+
+            // INTERNAL. Use Booking.services.destroyById() instead.
+            "prototype$__destroyById__services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Booking.services.updateById() instead.
+            "prototype$__updateById__services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Booking.services.link() instead.
+            "prototype$__link__services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/rel/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Booking.services.unlink() instead.
+            "prototype$__unlink__services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/rel/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Booking.services.exists() instead.
+            "prototype$__exists__services": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/bookings/:id/services/rel/:fk",
+              method: "HEAD",
             },
 
             // INTERNAL. Use Booking.user() instead.
             "prototype$__get__user": {
               url: urlBase + "/bookings/:id/user",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Booking.services() instead.
+            "prototype$__get__services": {
+              isArray: true,
+              url: urlBase + "/bookings/:id/services",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Booking.services.create() instead.
+            "prototype$__create__services": {
+              url: urlBase + "/bookings/:id/services",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Booking.services.destroyAll() instead.
+            "prototype$__delete__services": {
+              url: urlBase + "/bookings/:id/services",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Booking.services.count() instead.
+            "prototype$__count__services": {
+              url: urlBase + "/bookings/:id/services/count",
               method: "GET",
             },
 
@@ -14002,6 +15143,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/bookings/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking#upsertWithWhere
+             * @methodOf lbServices.Booking
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/bookings/upsertWithWhere",
               method: "POST",
             },
 
@@ -14361,6 +15539,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use CompanyService.bookings.link() instead.
+            "::link::CompanyService::bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/CompanyServices/:id/bookings/rel/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use CompanyService.bookings.unlink() instead.
+            "::unlink::CompanyService::bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/CompanyServices/:id/bookings/rel/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use CompanyService.bookings.exists() instead.
+            "::exists::CompanyService::bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/CompanyServices/:id/bookings/rel/:fk",
+              method: "HEAD",
+            },
+
             // INTERNAL. Use CompanyService.bookings() instead.
             "::get::CompanyService::bookings": {
               isArray: true,
@@ -14390,6 +15595,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use CompanyService.bookings.count() instead.
             "::count::CompanyService::bookings": {
               url: urlBase + "/CompanyServices/:id/bookings/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.bookings.findById() instead.
+            "::findById::Client::bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/clients/:id/bookings/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.bookings.destroyById() instead.
+            "::destroyById::Client::bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/clients/:id/bookings/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Client.bookings.updateById() instead.
+            "::updateById::Client::bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/clients/:id/bookings/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Client.bookings() instead.
+            "::get::Client::bookings": {
+              isArray: true,
+              url: urlBase + "/clients/:id/bookings",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.bookings.create() instead.
+            "::create::Client::bookings": {
+              url: urlBase + "/clients/:id/bookings",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.bookings.createMany() instead.
+            "::createMany::Client::bookings": {
+              isArray: true,
+              url: urlBase + "/clients/:id/bookings",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.bookings.destroyAll() instead.
+            "::delete::Client::bookings": {
+              url: urlBase + "/clients/:id/bookings",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Client.bookings.count() instead.
+            "::count::Client::bookings": {
+              url: urlBase + "/clients/:id/bookings/count",
               method: "GET",
             },
           }
@@ -14466,6 +15730,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking#patchOrCreateWithWhere
+             * @methodOf lbServices.Booking
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -14605,21 +15903,108 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           var action = TargetResource["::get::Booking::company"];
           return action.apply(R, arguments);
         };
+    /**
+     * @ngdoc object
+     * @name lbServices.Booking.services
+     * @header lbServices.Booking.services
+     * @object
+     * @description
+     *
+     * The object `Booking.services` groups methods
+     * manipulating `CompanyService` instances related to `Booking`.
+     *
+     * Call {@link lbServices.Booking#services Booking.services()}
+     * to query all related instances.
+     */
+
 
             /**
              * @ngdoc method
-             * @name lbServices.Booking#service
+             * @name lbServices.Booking#services
              * @methodOf lbServices.Booking
              *
              * @description
              *
-             * Fetches belongsTo relation service.
+             * Queries services of Booking.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `refresh` – `{boolean=}` -
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyService` object.)
+             * </em>
+             */
+        R.services = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::get::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#count
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Counts services of Booking.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.services.count = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::count::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#create
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Creates a new instance in services of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -14636,9 +16021,296 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `CompanyService` object.)
              * </em>
              */
-        R.service = function() {
+        R.services.create = function() {
           var TargetResource = $injector.get("CompanyService");
-          var action = TargetResource["::get::Booking::service"];
+          var action = TargetResource["::create::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#createMany
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Creates a new instance in services of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyService` object.)
+             * </em>
+             */
+        R.services.createMany = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::createMany::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#destroyAll
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Deletes all services of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.services.destroyAll = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::delete::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#destroyById
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Delete a related item by id for services.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for services
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.services.destroyById = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::destroyById::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#exists
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Check the existence of services relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for services
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyService` object.)
+             * </em>
+             */
+        R.services.exists = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::exists::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#findById
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Find a related item by id for services.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for services
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyService` object.)
+             * </em>
+             */
+        R.services.findById = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::findById::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#link
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Add a related item by id for services.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for services
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyService` object.)
+             * </em>
+             */
+        R.services.link = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::link::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#unlink
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Remove the services relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for services
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.services.unlink = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::unlink::Booking::services"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Booking.services#updateById
+             * @methodOf lbServices.Booking.services
+             *
+             * @description
+             *
+             * Update a related item by id for services.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for services
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CompanyService` object.)
+             * </em>
+             */
+        R.services.updateById = function() {
+          var TargetResource = $injector.get("CompanyService");
+          var action = TargetResource["::updateById::Booking::services"];
           return action.apply(R, arguments);
         };
 
@@ -14871,6 +16543,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/CategoryCompanies/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CategoryCompany#upsertWithWhere
+             * @methodOf lbServices.CategoryCompany
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CategoryCompany` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/CategoryCompanies/upsertWithWhere",
               method: "POST",
             },
 
@@ -15217,6 +16926,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.CategoryCompany#patchOrCreateWithWhere
+             * @methodOf lbServices.CategoryCompany
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `CategoryCompany` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -15585,6 +17328,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Notify#upsertWithWhere
+             * @methodOf lbServices.Notify
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Notify` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/notifies/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.Notify#exists
              * @methodOf lbServices.Notify
              *
@@ -15929,6 +17709,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Notify#patchOrCreateWithWhere
+             * @methodOf lbServices.Notify
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Notify` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
              * @name lbServices.Notify#update
              * @methodOf lbServices.Notify
              *
@@ -16247,6 +18061,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/logs/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Logs#upsertWithWhere
+             * @methodOf lbServices.Logs
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Logs` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/logs/upsertWithWhere",
               method: "POST",
             },
 
@@ -16670,6 +18521,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Logs#patchOrCreateWithWhere
+             * @methodOf lbServices.Logs
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Logs` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
              * @name lbServices.Logs#update
              * @methodOf lbServices.Logs
              *
@@ -16992,6 +18877,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/smsLogs/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.SmsLogs#upsertWithWhere
+             * @methodOf lbServices.SmsLogs
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `SmsLogs` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/smsLogs/upsertWithWhere",
               method: "POST",
             },
 
@@ -17412,6 +19334,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.SmsLogs#patchOrCreateWithWhere
+             * @methodOf lbServices.SmsLogs
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `SmsLogs` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
 
             /**
              * @ngdoc method
@@ -18052,6 +20008,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "HEAD",
             },
 
+            // INTERNAL. Use Client.bookings.findById() instead.
+            "prototype$__findById__bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/clients/:id/bookings/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.bookings.destroyById() instead.
+            "prototype$__destroyById__bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/clients/:id/bookings/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Client.bookings.updateById() instead.
+            "prototype$__updateById__bookings": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/clients/:id/bookings/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use Client.companies() instead.
             "prototype$__get__companies": {
               isArray: true,
@@ -18074,6 +20057,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use Client.companies.count() instead.
             "prototype$__count__companies": {
               url: urlBase + "/clients/:id/companies/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.bookings() instead.
+            "prototype$__get__bookings": {
+              isArray: true,
+              url: urlBase + "/clients/:id/bookings",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Client.bookings.create() instead.
+            "prototype$__create__bookings": {
+              url: urlBase + "/clients/:id/bookings",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Client.bookings.destroyAll() instead.
+            "prototype$__delete__bookings": {
+              url: urlBase + "/clients/:id/bookings",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Client.bookings.count() instead.
+            "prototype$__count__bookings": {
+              url: urlBase + "/clients/:id/bookings/count",
               method: "GET",
             },
 
@@ -18227,6 +20235,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "replaceOrCreate": {
               url: urlBase + "/clients/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client#upsertWithWhere
+             * @methodOf lbServices.Client
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Client` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/clients/upsertWithWhere",
               method: "POST",
             },
 
@@ -18822,6 +20867,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Client#patchOrCreateWithWhere
+             * @methodOf lbServices.Client
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Client` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
              * @name lbServices.Client#update
              * @methodOf lbServices.Client
              *
@@ -19371,6 +21450,307 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.companies.updateById = function() {
           var TargetResource = $injector.get("Company");
           var action = TargetResource["::updateById::Client::companies"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Client.bookings
+     * @header lbServices.Client.bookings
+     * @object
+     * @description
+     *
+     * The object `Client.bookings` groups methods
+     * manipulating `Booking` instances related to `Client`.
+     *
+     * Call {@link lbServices.Client#bookings Client.bookings()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client#bookings
+             * @methodOf lbServices.Client
+             *
+             * @description
+             *
+             * Queries bookings of Client.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+        R.bookings = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::get::Client::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.bookings#count
+             * @methodOf lbServices.Client.bookings
+             *
+             * @description
+             *
+             * Counts bookings of Client.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.bookings.count = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::count::Client::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.bookings#create
+             * @methodOf lbServices.Client.bookings
+             *
+             * @description
+             *
+             * Creates a new instance in bookings of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+        R.bookings.create = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::create::Client::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.bookings#createMany
+             * @methodOf lbServices.Client.bookings
+             *
+             * @description
+             *
+             * Creates a new instance in bookings of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+        R.bookings.createMany = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::createMany::Client::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.bookings#destroyAll
+             * @methodOf lbServices.Client.bookings
+             *
+             * @description
+             *
+             * Deletes all bookings of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.bookings.destroyAll = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::delete::Client::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.bookings#destroyById
+             * @methodOf lbServices.Client.bookings
+             *
+             * @description
+             *
+             * Delete a related item by id for bookings.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for bookings
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.bookings.destroyById = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::destroyById::Client::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.bookings#findById
+             * @methodOf lbServices.Client.bookings
+             *
+             * @description
+             *
+             * Find a related item by id for bookings.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for bookings
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+        R.bookings.findById = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::findById::Client::bookings"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Client.bookings#updateById
+             * @methodOf lbServices.Client.bookings
+             *
+             * @description
+             *
+             * Update a related item by id for bookings.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for bookings
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Booking` object.)
+             * </em>
+             */
+        R.bookings.updateById = function() {
+          var TargetResource = $injector.get("Booking");
+          var action = TargetResource["::updateById::Client::bookings"];
           return action.apply(R, arguments);
         };
 

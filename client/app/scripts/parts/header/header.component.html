@@ -5,12 +5,12 @@
     </div>
     <span></span>
     <div *ngIf="!currentUser">
-      <a routerLink="/login">Sign In</a>
-      <a routerLink="/registration"><strong>Register</strong></a>
+      <a routerLink="/login">Войти</a>
+      <a routerLink="/registration"><strong>Регистрация</strong></a>
     </div>
     <div *ngIf="currentUser">
       <a href="#"><strong>{{currentUser.email}}</strong></a>
-      <a (click)="logout()">Logout</a>
+      <a (click)="logout()">Выйти</a>
     </div>
     <button (click)="onSidebarToggle()">
       <i class="fa fa-navicon"></i>

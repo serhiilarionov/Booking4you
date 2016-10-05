@@ -60,31 +60,14 @@ angular.module('app.catalog').controller('CompaniesController', function ($state
           }
         },
         {
-          dataField: 'districtId',
-          title: 'ID района',
-          dataType: 'number',
-          editorType: 'selectBox',
-          editorOptions: {
-            dataSource: District.find(),
-            value: 'id',
-            caption: 'name'
-          }
-        },
-        {
-          dataField: 'streetId',
-          title: 'ID улицы',
-          dataType: 'number',
-          editorType: 'selectBox',
-          editorOptions: {
-            dataSource: Street.find(),
-            value: 'id',
-            caption: 'name'
-          }
-        },
-        {
           dataField: 'point',
           title: 'Point',
           editorType: 'points'
+        },
+        {
+          dataField: 'photo',
+          title: 'Photo',
+          editorType: 'photo'
         },
         {
           dataField: 'active',

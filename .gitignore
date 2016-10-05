@@ -23,6 +23,7 @@ client/admin/bower_components
 client/admin/build
 server/datasources.json
 **/storage/**/*
+!**/loading.png
 !client/app/scripts/shared/sdk/storage
 !client/app/scripts/shared/sdk/storage/storage.*
 robots.txt

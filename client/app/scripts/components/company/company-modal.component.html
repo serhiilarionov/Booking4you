@@ -18,10 +18,10 @@
             <div class="modal__price">$2500</div>
             <div class="modal__left">
                 <div class="modal__gallery">
-                    <img [src]="company.photo" alt="">
+                    <img src="{{company.photo || 'http://placehold.it/200?text=no+photo'}}" alt="">
                 </div>
                 <div class="modal__features">
-                    <header>Features</header>
+                    <header>Особенности</header>
                     <ul>
                         <li><i class="fa fa-circle"></i>Lorem ipsum.</li>
                         <li><i class="fa fa-circle"></i>Aut, consequuntur.</li>
@@ -35,21 +35,21 @@
             </div>
             <div class="modal__right">
                 <header>
-                    Description
+                    Описание
                 </header>
                 <div class="modal__right-description">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis cum debitis dicta dignissimos dolorum eum facere fugiat id illum maiores maxime molestias mollitia natus, neque nihil odio officia perferendis, placeat possimus quae quibusdam quo, quos suscipit ullam vel velit vero voluptas voluptate voluptatem. Aliquid debitis molestias nam odio sit.
                 </div>
                 <header>
-                    Overview
+                    Обзор
                 </header>
                 <ul class="modal__props">
-                    <li>Bedrooms <span>2</span></li>
-                    <li>Area <span>240</span></li>
-                    <li>Garages <span>1</span></li>
+                    <li>Комнаты <span>2</span></li>
+                    <li>Площадь <span>240</span></li>
+                    <li>Гараж <span>1</span></li>
                 </ul>
                 <header>
-                    Last Review
+                    Последний отзыв
                 </header>
                 <div class="modal__right-description">
                     <small class="modal__rating">
@@ -61,7 +61,7 @@
                     </small>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet aperiam blanditiis dolore ipsum libero sapiente sint tempore ullam velit.</p>
                 </div>
-                <button class="modal__show-detail">Show Detail</button>
+                <button class="modal__show-detail">Подробнее</button>
             </div>
         </div>
     </div>

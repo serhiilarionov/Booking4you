@@ -20,6 +20,10 @@
       "type": "string",
       "required": true
     },
+    "nameRu": {
+      "type": "string",
+      "required": true
+    },
     "active": {
       "type": "boolean",
       "required": true
@@ -28,8 +32,11 @@
       "type": "geopoint"
     },
     "bound": {
-      "type": "geopoint"
+      "type": "string"
     }
+  },
+  "scope": {
+    "limit": 1000
   },
   "validations": [],
   "relations": {
@@ -49,6 +56,13 @@
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "property": "geoLogin",
+      "principalType": "ROLE",
+      "principalId": "*",
       "permission": "ALLOW"
     }
   ],

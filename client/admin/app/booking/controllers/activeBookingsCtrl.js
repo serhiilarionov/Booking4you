@@ -32,7 +32,7 @@ angular.module('app.booking').controller('ActiveBookingsController', function ($
         PubSub.subscribe({
           collectionName: 'Booking',
           method: 'DELETE',
-          modelId: bookings[i].taskId
+          modelId: bookings[i].id
         }, onBookingDelete);
       }
     });
@@ -47,7 +47,7 @@ angular.module('app.booking').controller('ActiveBookingsController', function ($
     PubSub.subscribe({
       collectionName: 'Booking',
       method: 'DELETE',
-      modelId: booking.taskId
+      modelId: booking.id
     }, onBookingDelete);
     if (booking.active) {
       vm.bookings.push(booking);
@@ -61,7 +61,7 @@ angular.module('app.booking').controller('ActiveBookingsController', function ($
 
   var onBookingDelete = function (deletedId) {
     var index = vm.bookings.findIndex(function (booking) {
-      return deletedId == booking.taskId
+      return deletedId == booking.id
     });
     vm.bookings.splice(index, 1);
   };

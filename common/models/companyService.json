@@ -40,13 +40,17 @@
     },
     "active": {
       "type": "boolean",
-      "required": true
+      "required": true,
+      "default": false
     },
     "deletedAt": {
       "type": "date",
       "required": false,
       "default": "$now"
     }
+  },
+  "scope": {
+    "limit": 1000
   },
   "validations": [],
   "relations": {

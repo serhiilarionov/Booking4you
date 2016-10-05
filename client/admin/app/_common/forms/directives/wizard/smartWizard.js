@@ -4,7 +4,8 @@ angular.module('SmartAdmin.Forms').directive('smartWizard', function () {
     return {
         restrict: 'A',
         scope: {
-            'smartWizardCallback': '&'
+            'smartWizardCallback': '&',
+            'currentStep': '='
         },
         link: function (scope, element, attributes) {
 
@@ -22,6 +23,7 @@ angular.module('SmartAdmin.Forms').directive('smartWizard', function () {
 
             function setStep(step) {
                 currentStep = step;
+                scope.currentStep = currentStep;
                 $('[data-smart-wizard-pane=' + step + ']', element).addClass('active').siblings('[data-smart-wizard-pane]').removeClass('active');
                 $('[data-smart-wizard-tab=' + step + ']', element).addClass('active').siblings('[data-smart-wizard-tab]').removeClass('active');
 
