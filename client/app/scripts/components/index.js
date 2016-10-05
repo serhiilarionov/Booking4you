@@ -6,10 +6,11 @@ var company_card_component_1 = require('./company/card/company-card.component');
 var company_modal_component_1 = require('./company/modal/company-modal.component');
 var hero_component_1 = require('./hero/hero.component');
 var gmap_component_1 = require('./gmap/gmap.component');
-var on_map_loaded_directive_1 = require('./gmap/directives/on-map-loaded.directive');
 var on_marker_loaded_directive_1 = require('./gmap/directives/on-marker-loaded.directive');
-var gmap_marker_clusterer_1 = require('./gmap/gmap-marker-clusterer');
-// import { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
+var on_marker_clicked_directive_1 = require('./gmap/directives/on-marker-clicked.directive');
+var gmap_marker_clusterer_directive_1 = require('./gmap/directives/gmap-marker-clusterer.directive');
+var gmap_info_box_component_1 = require('./gmap/components/gmap-info-box.component');
+var gmap_rich_marker_component_1 = require('./gmap/components/gmap-rich-marker.component');
 var comming_soon_component_1 = require('./comming-soon/comming-soon.component');
 var image_gallery_component_1 = require('./image-gallery/image-gallery.component');
 var on_image_activated_directive_1 = require('./image-gallery/on-image-activated.directive');
@@ -30,13 +31,16 @@ var hero_component_2 = require('./hero/hero.component');
 exports.HeroComponent = hero_component_2.HeroComponent;
 var gmap_component_2 = require('./gmap/gmap.component');
 exports.GmapComponent = gmap_component_2.GmapComponent;
-var on_map_loaded_directive_2 = require('./gmap/directives/on-map-loaded.directive');
-exports.OnMapLoaded = on_map_loaded_directive_2.OnMapLoaded;
 var on_marker_loaded_directive_2 = require('./gmap/directives/on-marker-loaded.directive');
 exports.OnMarkerLoaded = on_marker_loaded_directive_2.OnMarkerLoaded;
-var gmap_marker_clusterer_2 = require('./gmap/gmap-marker-clusterer');
-exports.GmapMarkerClusterer = gmap_marker_clusterer_2.GmapMarkerClusterer;
-// export { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
+var on_marker_clicked_directive_2 = require('./gmap/directives/on-marker-clicked.directive');
+exports.OnMarkerClicked = on_marker_clicked_directive_2.OnMarkerClicked;
+var gmap_marker_clusterer_directive_2 = require('./gmap/directives/gmap-marker-clusterer.directive');
+exports.GmapMarkerClusterer = gmap_marker_clusterer_directive_2.GmapMarkerClusterer;
+var gmap_info_box_component_2 = require('./gmap/components/gmap-info-box.component');
+exports.GmapInfoBoxComponent = gmap_info_box_component_2.GmapInfoBoxComponent;
+var gmap_rich_marker_component_2 = require('./gmap/components/gmap-rich-marker.component');
+exports.GmapRichMarkerComponent = gmap_rich_marker_component_2.GmapRichMarkerComponent;
 var comming_soon_component_2 = require('./comming-soon/comming-soon.component');
 exports.CommingSoonComponent = comming_soon_component_2.CommingSoonComponent;
 var image_gallery_component_2 = require('./image-gallery/image-gallery.component');
@@ -58,10 +62,11 @@ exports.Components = [
     company_filter_component_1.CompanyFilterComponent,
     hero_component_1.HeroComponent,
     gmap_component_1.GmapComponent,
-    on_map_loaded_directive_1.OnMapLoaded,
     on_marker_loaded_directive_1.OnMarkerLoaded,
-    gmap_marker_clusterer_1.GmapMarkerClusterer,
-    // GmapInfoboxComponent,
+    on_marker_clicked_directive_1.OnMarkerClicked,
+    gmap_marker_clusterer_directive_1.GmapMarkerClusterer,
+    gmap_info_box_component_1.GmapInfoBoxComponent,
+    gmap_rich_marker_component_1.GmapRichMarkerComponent,
     comming_soon_component_1.CommingSoonComponent,
     image_gallery_component_1.ImageGalleryComponent,
     on_image_activated_directive_1.OnImageActivatedDirective,

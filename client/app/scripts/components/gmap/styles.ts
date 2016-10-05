@@ -108,4 +108,4 @@ export const styles: Array<MapTypeStyle> = [
       }
     ]
   }
-] 
+];

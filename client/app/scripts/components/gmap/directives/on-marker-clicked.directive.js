@@ -10,36 +10,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var core_2 = require('angular2-google-maps/core');
-var OnMapLoaded = (function () {
-    function OnMapLoaded(googleMapsAPIWrapper) {
-        this.googleMapsAPIWrapper = googleMapsAPIWrapper;
-        this.enableClusterer = false;
-        this.onMapLoaded = new core_1.EventEmitter();
+var OnMarkerClicked = (function () {
+    function OnMarkerClicked(markerManager, marker) {
+        this.markerManager = markerManager;
+        this.marker = marker;
+        this.enableInfoBox = false;
+        this.onMarkerClicked = new core_1.EventEmitter();
     }
-    OnMapLoaded.prototype.ngOnInit = function () {
+    OnMarkerClicked.prototype.ngOnInit = function () {
         var _this = this;
-        if (!this.enableClusterer) {
+        if (!this.enableInfoBox) {
             return;
         }
-        this.googleMapsAPIWrapper.getNativeMap().then(function (map) {
-            _this.onMapLoaded.next(map);
+        this.markerManager.createEventObservable('click', this.marker).subscribe(function () {
+            _this.markerManager.getNativeMarker(_this.marker).then(function (marker) {
+                _this.onMarkerClicked.next(marker);
+            });
         });
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)
-    ], OnMapLoaded.prototype, "enableClusterer", void 0);
+    ], OnMarkerClicked.prototype, "enableInfoBox", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
-    ], OnMapLoaded.prototype, "onMapLoaded", void 0);
-    OnMapLoaded = __decorate([
+    ], OnMarkerClicked.prototype, "onMarkerClicked", void 0);
+    OnMarkerClicked = __decorate([
         core_1.Directive({
-            selector: '[onMapLoaded]'
+            selector: '[onMarkerClicked]'
         }), 
-        __metadata('design:paramtypes', [core_2.GoogleMapsAPIWrapper])
-    ], OnMapLoaded);
-    return OnMapLoaded;
+        __metadata('design:paramtypes', [core_2.MarkerManager, core_2.SebmGoogleMapMarker])
+    ], OnMarkerClicked);
+    return OnMarkerClicked;
 }());
-exports.OnMapLoaded = OnMapLoaded;
-//# sourceMappingURL=on-map-loaded.directive.js.map
+exports.OnMarkerClicked = OnMarkerClicked;
+//# sourceMappingURL=on-marker-clicked.directive.js.map

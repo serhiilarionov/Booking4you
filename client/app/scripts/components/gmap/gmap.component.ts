@@ -2,7 +2,12 @@ import { Component, ViewEncapsulation, Input, SimpleChange, OnChanges, EventEmit
 import { Company } from '../../shared/index';
 import { LatLngBoundsLiteral } from 'angular2-google-maps/core';
 import { styles } from './styles';
-import { GoogleMap, Marker } from 'angular2-google-maps/core/services/google-maps-types';
+import { Marker } from 'angular2-google-maps/core/services/google-maps-types';
+
+export interface CompanyMarker {
+  marker: Marker;
+  company: Company;
+}
 
 @Component({
     selector: 'gmap',
@@ -12,18 +17,29 @@ import { GoogleMap, Marker } from 'angular2-google-maps/core/services/google-map
 })
 
 export class GmapComponent implements OnChanges {
+  public markerIconUrl: string = 'scripts/components/gmap/images/spotlight-poi.png';
+  public richMarkers: Array<any> = [];
   public nativeMarkers: Array<Marker> = [];
-  public mapObservable: EventEmitter<GoogleMap> = new EventEmitter();
+  public infoBox: any;
   public markersObservable: EventEmitter<Array<Marker>> = new EventEmitter();
+  public markerClicked: EventEmitter<CompanyMarker> = new EventEmitter();
+  public zoomChange: EventEmitter<any> = new EventEmitter();
   public styles: any = styles;
   public bounds: LatLngBoundsLiteral = {east: 38, north: 50, south: 46, west: 24};
   @Input() public companyList: Array<Company>;
   @Input() public enableClusterer: boolean = false;
+  @Input() public enableInfoBox: boolean = false;
 
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
     if ('companyList' in changes && changes['companyList'].currentValue) {
       if (!this.companyList.length) {
+        // hide infobox when new companyList
+        if (this.infoBox) { this.infoBox.setVisible(false); }
         // reset markers input for gmap-marker-clusterer component if company list is empty
+        this.richMarkers.forEach((marker) => {
+          marker.onRemove();
+        });
+        this.richMarkers = [];
         this.nativeMarkers = [];
       } else {
         this.calculateBounds();
@@ -31,13 +47,21 @@ export class GmapComponent implements OnChanges {
     }
   }
 
-  public onMapLoaded(map): void {
-    this.mapObservable.next(map);
-  }
-
   public onMarkerLoaded(marker): void {
     this.nativeMarkers.push(marker);
     this.markersObservable.next(this.nativeMarkers);
+  }
+
+  public onMarkerClicked(companyMarker: CompanyMarker): void {
+    this.markerClicked.next(companyMarker);
+  }
+
+  public onRichMarkerCreated(marker) {
+    this.richMarkers.push(marker);
+  }
+
+  public onInfoBoxCreated(infoBox) {
+    this.infoBox = infoBox;
   }
 
   private calculateBounds(): void {

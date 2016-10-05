@@ -14,22 +14,14 @@ var OnMarkerLoaded = (function () {
     function OnMarkerLoaded(markerManager, marker) {
         this.markerManager = markerManager;
         this.marker = marker;
-        this.enableClusterer = false;
         this.onMarkerLoaded = new core_1.EventEmitter();
     }
     OnMarkerLoaded.prototype.ngOnInit = function () {
         var _this = this;
-        if (!this.enableClusterer) {
-            return;
-        }
         this.markerManager.getNativeMarker(this.marker).then(function (marker) {
             _this.onMarkerLoaded.next(marker);
         });
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], OnMarkerLoaded.prototype, "enableClusterer", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)

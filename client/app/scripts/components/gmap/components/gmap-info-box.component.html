@@ -1,0 +1,13 @@
+<div class="gmap-info-box__inner" *ngIf="company">
+    <div class="gmap-info-box__image">
+        <img src="http://placehold.it/500x300" alt="">
+        <div class="gmap-info-box__image-overlay">
+            <a>Quick view</a>
+            <a [routerLink]="['/company-details/', company.id]">Go to Detail</a>
+        </div>
+    </div>
+    <div class="gmap-info-box__info">
+        <a [routerLink]="['/company-details/', company.id]">{{company.name}}</a>
+        <span>{{company.locationDetail}}</span>
+    </div>
+</div>

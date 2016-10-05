@@ -1,0 +1,91 @@
+@import "main";
+
+$info-box-width: 295px;
+
+.gmap-info-box {
+  &__wrapper {
+    width: $info-box-width;
+    opacity: 1;
+    @include animation(gmapInfoBoxFadeIn .2s);
+
+    > img {
+      z-index: 1;
+    }
+  }
+
+  &__inner {
+    border-bottom: 35px solid $c-blue-main;
+  }
+
+  &__image {
+    max-width: 100%;
+
+    img {
+      max-width: 100%;
+    }
+    &-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      border-bottom: 35px solid $c-blue-main;
+      background: rgba(0, 0, 0, .7);
+      font-family: $ff-secondary;
+      @include transition(all .3s);
+      @include display(flex);
+      @include flex-direction(column);
+      @include align-items(center);
+      @include justify-content(center);
+
+      a {
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        padding: 10px 30px;
+
+        &:first-child {
+          border-bottom: 2px solid $c-blue-main;
+        }
+
+        &:hover {
+          color: $c-blue-main;
+        }
+      }
+    }
+
+    &:hover &-overlay {
+      opacity: 1;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    width: $info-box-width - 36px;
+    right: 0;
+    padding: 22px;
+    bottom: -22px;
+    background: #fff;
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(center);
+
+    a {
+      font-size: 14px;
+      font-family: $ff-secondary;
+      font-weight: bold;
+    }
+  }
+}
+
+@include keyframes(gmapInfoBoxFadeIn) {
+  from {
+    margin-bottom: -10px;
+    opacity: 0;
+  }
+  to {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}

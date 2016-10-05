@@ -8,13 +8,17 @@
     'app': 'scripts', // 'dist',
     '@angular': 'node_modules/@angular',
     'rxjs': 'node_modules/rxjs',
-    'angular2-google-maps': 'node_modules/angular2-google-maps'
+    'angular2-google-maps': 'node_modules/angular2-google-maps',
+    'info-box': 'vendor/v3-utility-library/infobox',
+    'rich-marker': 'vendor/v3-utility-library/richmarker'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-    'angular2-google-maps/core':  { main: 'index.js',  defaultExtension: 'js' }
+    'angular2-google-maps/core':  { main: 'index.js',  defaultExtension: 'js' },
+    'info-box':                   { main: 'src/infobox.js',  defaultExtension: 'js' },
+    'rich-marker':                { main: 'src/richmarker-compiled.js',  defaultExtension: 'js' }
   };
   var ngPackageNames = [
     'common',

@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var core_2 = require('angular2-google-maps/core');
 var GmapMarkerClusterer = (function () {
-    function GmapMarkerClusterer() {
+    function GmapMarkerClusterer(googleMapsAPIWrapper) {
+        this.googleMapsAPIWrapper = googleMapsAPIWrapper;
     }
     GmapMarkerClusterer.prototype.ngOnInit = function () {
         var _this = this;
-        this.mapObservable.subscribe(function (map) {
+        this.googleMapsAPIWrapper.getNativeMap().then(function (map) {
             _this.markersObservable.subscribe(function (markers) {
                 if (!_this.markerClusterer) {
                     _this.createClusterer(map, markers);
@@ -63,18 +65,14 @@ var GmapMarkerClusterer = (function () {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', core_1.EventEmitter)
-    ], GmapMarkerClusterer.prototype, "mapObservable", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', core_1.EventEmitter)
     ], GmapMarkerClusterer.prototype, "markersObservable", void 0);
     GmapMarkerClusterer = __decorate([
         core_1.Directive({
             selector: 'gmap-marker-clusterer'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_2.GoogleMapsAPIWrapper])
     ], GmapMarkerClusterer);
     return GmapMarkerClusterer;
 }());
 exports.GmapMarkerClusterer = GmapMarkerClusterer;
-//# sourceMappingURL=gmap-marker-clusterer.js.map
+//# sourceMappingURL=gmap-marker-clusterer.directive.js.map

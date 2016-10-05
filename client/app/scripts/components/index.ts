@@ -5,10 +5,11 @@ import { CompanyCardComponent } from './company/card/company-card.component';
 import { CompanyModalComponent } from './company/modal/company-modal.component';
 import { HeroComponent } from './hero/hero.component';
 import { GmapComponent } from './gmap/gmap.component';
-import { OnMapLoaded } from './gmap/directives/on-map-loaded.directive';
 import { OnMarkerLoaded } from './gmap/directives/on-marker-loaded.directive';
-import { GmapMarkerClusterer } from './gmap/gmap-marker-clusterer';
-// import { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
+import { OnMarkerClicked } from './gmap/directives/on-marker-clicked.directive';
+import { GmapMarkerClusterer } from './gmap/directives/gmap-marker-clusterer.directive';
+import { GmapInfoBoxComponent } from './gmap/components/gmap-info-box.component';
+import { GmapRichMarkerComponent } from './gmap/components/gmap-rich-marker.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { OnImageActivatedDirective } from './image-gallery/on-image-activated.directive';
@@ -23,10 +24,11 @@ export { CompanyCardComponent } from './company/card/company-card.component';
 export { CompanyModalComponent } from './company/modal/company-modal.component';
 export { HeroComponent } from './hero/hero.component';
 export { GmapComponent } from './gmap/gmap.component';
-export { OnMapLoaded } from './gmap/directives/on-map-loaded.directive';
 export { OnMarkerLoaded } from './gmap/directives/on-marker-loaded.directive';
-export { GmapMarkerClusterer } from './gmap/gmap-marker-clusterer';
-// export { GmapInfoboxComponent } from './gmap/gmap-infobox.component';
+export { OnMarkerClicked } from './gmap/directives/on-marker-clicked.directive';
+export { GmapMarkerClusterer } from './gmap/directives/gmap-marker-clusterer.directive';
+export { GmapInfoBoxComponent } from './gmap/components/gmap-info-box.component';
+export { GmapRichMarkerComponent } from './gmap/components/gmap-rich-marker.component';
 export { CommingSoonComponent } from './comming-soon/comming-soon.component';
 export { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 export { OnImageActivatedDirective } from './image-gallery/on-image-activated.directive';
@@ -43,10 +45,11 @@ export const Components: Array<any> = [
   CompanyFilterComponent,
   HeroComponent,
   GmapComponent,
-  OnMapLoaded,
   OnMarkerLoaded,
+  OnMarkerClicked,
   GmapMarkerClusterer,
-  // GmapInfoboxComponent,
+  GmapInfoBoxComponent,
+  GmapRichMarkerComponent,
   CommingSoonComponent,
   ImageGalleryComponent,
   OnImageActivatedDirective,

@@ -1,13 +1,17 @@
 <sebm-google-map [fitBounds]="bounds"
-                 [styles]="styles"
-                 [enableClusterer]="enableClusterer"
-                 (onMapLoaded)="onMapLoaded($event)">
-  <sebm-google-map-marker *ngFor="let company of companyList"
-                          [latitude]="company.point.lat"
-                          [longitude]="company.point.lng"
-                          [enableClusterer]="enableClusterer"
-                          (onMarkerLoaded)="onMarkerLoaded($event)"></sebm-google-map-marker>
+                 [styles]="styles">
+    <sebm-google-map-marker *ngFor="let company of companyList"
+                            [iconUrl]="markerIconUrl"
+                            [latitude]="company.point.lat"
+                            [longitude]="company.point.lng"
+                            (onMarkerLoaded)="onMarkerLoaded($event)">
+      <gmap-rich-marker [enableInfoBox]="enableInfoBox"
+                        (onRichMarkerCreated)="onRichMarkerCreated($event)"
+                        (onMarkerClicked)="onMarkerClicked({marker: $event, company: company})"></gmap-rich-marker>
+    </sebm-google-map-marker>
+    <gmap-marker-clusterer *ngIf="enableClusterer"
+                           [markersObservable]="markersObservable"></gmap-marker-clusterer>
+    <gmap-info-box *ngIf="enableInfoBox"
+                   [markerClicked]="markerClicked"
+                   (onInfoBoxCreated)="onInfoBoxCreated($event)"></gmap-info-box>
 </sebm-google-map>
-<gmap-marker-clusterer *ngIf="enableClusterer"
-                       [mapObservable]="mapObservable"
-                       [markersObservable]="markersObservable"></gmap-marker-clusterer>

@@ -12,17 +12,29 @@ var core_1 = require('@angular/core');
 var styles_1 = require('./styles');
 var GmapComponent = (function () {
     function GmapComponent() {
+        this.markerIconUrl = 'scripts/components/gmap/images/spotlight-poi.png';
+        this.richMarkers = [];
         this.nativeMarkers = [];
-        this.mapObservable = new core_1.EventEmitter();
         this.markersObservable = new core_1.EventEmitter();
+        this.markerClicked = new core_1.EventEmitter();
+        this.zoomChange = new core_1.EventEmitter();
         this.styles = styles_1.styles;
         this.bounds = { east: 38, north: 50, south: 46, west: 24 };
         this.enableClusterer = false;
+        this.enableInfoBox = false;
     }
     GmapComponent.prototype.ngOnChanges = function (changes) {
         if ('companyList' in changes && changes['companyList'].currentValue) {
             if (!this.companyList.length) {
+                // hide infobox when new companyList
+                if (this.infoBox) {
+                    this.infoBox.setVisible(false);
+                }
                 // reset markers input for gmap-marker-clusterer component if company list is empty
+                this.richMarkers.forEach(function (marker) {
+                    marker.onRemove();
+                });
+                this.richMarkers = [];
                 this.nativeMarkers = [];
             }
             else {
@@ -30,12 +42,18 @@ var GmapComponent = (function () {
             }
         }
     };
-    GmapComponent.prototype.onMapLoaded = function (map) {
-        this.mapObservable.next(map);
-    };
     GmapComponent.prototype.onMarkerLoaded = function (marker) {
         this.nativeMarkers.push(marker);
         this.markersObservable.next(this.nativeMarkers);
+    };
+    GmapComponent.prototype.onMarkerClicked = function (companyMarker) {
+        this.markerClicked.next(companyMarker);
+    };
+    GmapComponent.prototype.onRichMarkerCreated = function (marker) {
+        this.richMarkers.push(marker);
+    };
+    GmapComponent.prototype.onInfoBoxCreated = function (infoBox) {
+        this.infoBox = infoBox;
     };
     GmapComponent.prototype.calculateBounds = function () {
         var lats = this.companyList.map(function (company) { return company.point.lat; });
@@ -54,6 +72,10 @@ var GmapComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Boolean)
     ], GmapComponent.prototype, "enableClusterer", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], GmapComponent.prototype, "enableInfoBox", void 0);
     GmapComponent = __decorate([
         core_1.Component({
             selector: 'gmap',
