@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('customElements')
-  .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder, ErrorHandler, Notification) {
+  .factory('Table', function ($compile, $timeout, DTOptionsBuilder, DTColumnBuilder, ErrorHandler, Notification,
+                              SERVER_URL, $http) {
     return function ($scope, $stateParams) {
       var _Table = this;
       var crud = null;
-      
+      $scope.SERVER_URL = SERVER_URL;
+
       /**
        * Fucntion for create table settings
        */
@@ -63,7 +65,21 @@ angular.module('customElements')
        */
       function addNewRow() {
         return _selectPromise($scope.table.newData, 'add', 'create')
-          .then(function () {
+          .then(function (newData) {
+            var fd = new FormData();
+            fd.append('test', $scope.table.newData.file);
+            fd.append('cityId', parseInt($scope.table.newData.cityId));
+            fd.append('categoryId', parseInt($scope.table.newData.categoryId));
+            fd.append('companyId', parseInt(newData.id));
+
+            return $http.post('/api/containers/test/upload', fd, {
+              transformRequest: angular.identity,
+              headers: {'Content-Type': undefined},
+              responseType: "arraybuffer"
+            })
+            
+          })
+          .then(function() {
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal($scope.settings.name + 'NewRowModal');
             $scope.table.newData = {active: false};
@@ -88,6 +104,20 @@ angular.module('customElements')
         newData.id = data.id;
         return _selectPromise(newData, 'edit', 'upsert')
           .then(function () {
+            var fd = new FormData();
+            fd.append('test', $scope.table.editRowData.file);
+            fd.append('cityId', parseInt($scope.table.editRowData.cityId));
+            fd.append('categoryId', parseInt($scope.table.editRowData.categoryId));
+            fd.append('companyId', parseInt($scope.table.editRowData.id));
+
+            return $http.post('/api/containers/test/upload', fd, {
+              transformRequest: angular.identity,
+              headers: {'Content-Type': undefined},
+              responseType: "arraybuffer"
+            })
+
+          })
+          .then(function() {
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal(settings.name + 'EditRowModal');
             Notification.success();
@@ -166,8 +196,8 @@ angular.module('customElements')
       function _onRowClick(nRow, aData) {
         var settings = $scope.settings;
         if (settings.onRowClick) {
-          $('td', nRow).unbind('click');
-          $('td', nRow).bind('click', function () {
+          $('td:not(.action-buttons)', nRow).unbind('click');
+          $('td:not(.action-buttons)', nRow).bind('click', function () {
             settings.onRowClick(nRow, aData);
           });
         }

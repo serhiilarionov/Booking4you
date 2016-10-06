@@ -46,7 +46,7 @@ angular.module('app.catalog').directive('workTimes', function ($timeout) {
           "6": []
         }
       ];
-      $scope.workTimes = $scope.workTimes.length ? $scope.workTimes : workHours;
+      $scope.workTimes = $scope.workTimes && $scope.workTimes.length ? $scope.workTimes : workHours;
 
       $scope.lunch = $scope.workTimes[0][0].length > 1 || $scope.workTimes[1][1].length > 1 ||
         $scope.workTimes[2][2].length > 1 || $scope.workTimes[3][3].length > 1 || $scope.workTimes[4][4].length > 1 ||

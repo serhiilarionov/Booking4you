@@ -35,7 +35,8 @@
       "type": "string"
     },
     "active": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "status": {
       "type": "string"
@@ -48,6 +49,12 @@
     },
     "deletedAt": {
       "type": "date"
+    }
+  },
+  "scope": {
+    "limit": 1000,
+    "where": {
+      "active": true
     }
   },
   "validations": [],

@@ -43,12 +43,16 @@
       "type": "date"
     }
   },
+  "scope": {
+    "limit": 1000
+  },
   "validations": [],
   "relations": {
     "companies": {
       "type": "hasMany",
       "model": "Company",
-      "foreignKey": "categoryId"
+      "foreignKey": "categoryId",
+      "through": "CategoryCompany"
     },
     "services": {
       "type": "hasMany",

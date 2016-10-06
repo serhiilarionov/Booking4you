@@ -82,14 +82,6 @@
 
 .angular-google-map-container { height: 400px; }
 
-/* Adding company styles */
-.bootstrapWizard li {
-    width: 50%;
-}
-
-#c-table .tab-content {
-    margin-top: 30px;
-}
 
 /* Table flex */
 
@@ -117,6 +109,7 @@
     font-size: 1rem;
     margin: 0.5rem;
     line-height: 1.5;
+    width: 100%;
 }
 .Table-header {
     display: none;
@@ -156,6 +149,9 @@
         background-color: #f2f2f2;
     }
 }
+.Table-row  .action-buttons {
+    flex-grow: 1;
+}
 .Table-row-item {
     display: -webkit-box;
     display: -moz-box;
@@ -183,6 +179,18 @@
     align-items: flex-start;
     align-content: flex-start;
 }
+
+.web-site .Table-row-item,
+.email .Table-row-item {
+    align-items: center;
+    justify-content: center;
+}
+
+.web-site .Table-row-item .input,
+.email .Table-row-item .input {
+    margin-bottom: 0;
+}
+
 .Table-row-button {
     display: -webkit-box;
     display: -moz-box;
@@ -224,4 +232,8 @@
     .Table-row-item:before {
         content: none;
     }
+}
+
+.select2-hidden-accessible {
+    display: none !important;
 }

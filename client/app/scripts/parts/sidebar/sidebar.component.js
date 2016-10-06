@@ -12,11 +12,11 @@ var core_1 = require('@angular/core');
 var index_1 = require('../../shared/index');
 var MENU_TREE = [
     {
-        name: 'Home',
+        name: 'Главная',
         link: ''
     },
     {
-        name: 'Company list',
+        name: 'Список компаний',
         link: 'company-list'
     }
 ];

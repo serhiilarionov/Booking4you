@@ -60,6 +60,10 @@
     "fullAddress": {
       "type": "string"
     },
+    "verifiedAt": {
+      "type": "date",
+      "default": "$now"
+    },
     "createdAt": {
       "type": "date",
       "default": "$now"
@@ -73,6 +77,9 @@
       "required": false,
       "default": "$now"
     }
+  },
+  "scope": {
+    "limit": 1000
   },
   "validations": [],
   "relations": {
@@ -101,6 +108,11 @@
       "model": "Category",
       "foreignKey": "companyId",
       "through": "CategoryCompany"
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "categoryId"
     },
     "clients": {
       "type": "hasMany",

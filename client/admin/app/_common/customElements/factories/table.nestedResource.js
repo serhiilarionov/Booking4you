@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('customElements')
-  .factory('TableNestedResource', function (Table, DTOptionsBuilder, ErrorHandler, Notification) {
+  .factory('TableNestedResource', function (Table, DTOptionsBuilder, ErrorHandler, Notification, SERVER_URL, $http) {
     return function ($scope, $stateParams) {
       var _TableNestedResource = new Table($scope, $stateParams);
-
+      $scope.SERVER_URL = SERVER_URL;
       /**
        * Fucntion for create table settings
        */
@@ -23,7 +23,20 @@ angular.module('customElements')
       function addNewRow () {
         return $scope.settings.resource.create({id: $stateParams.id}, $scope.table.newData)
           .$promise
-          .then(function () {
+          .then(function (newData) {
+            var fd = new FormData();
+            fd.append('test', $scope.table.newData.file);
+            fd.append('cityId', parseInt($scope.table.newData.cityId));
+            fd.append('categoryId', parseInt($scope.table.newData.categoryId));
+            fd.append('companyId', parseInt(newData.id));
+
+            return $http.post('/api/containers/test/upload', fd, {
+              transformRequest: angular.identity,
+              headers: {'Content-Type': undefined},
+              responseType: "arraybuffer"
+            })
+          })
+          .then(function() {
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal($scope.settings.name + 'NewRowModal');
             $scope.table.newData = {active: false};
@@ -48,6 +61,19 @@ angular.module('customElements')
         return $scope.settings.resource.updateById({fk: id, id: $stateParams.id}, newData)
           .$promise
           .then(function () {
+            var fd = new FormData();
+            fd.append('test', $scope.table.editRowData.file);
+            fd.append('cityId', parseInt($scope.table.editRowData.cityId));
+            fd.append('categoryId', parseInt($scope.table.editRowData.categoryId));
+            fd.append('companyId', parseInt($scope.table.editRowData.id));
+
+            return $http.post('/api/containers/test/upload', fd, {
+              transformRequest: angular.identity,
+              headers: {'Content-Type': undefined},
+              responseType: "arraybuffer"
+            })
+          })
+          .then(function() {
             $scope.tableInstance.changeData(_dataList);
             $scope.hideModal(settings.name + 'EditRowModal');
             Notification.success();

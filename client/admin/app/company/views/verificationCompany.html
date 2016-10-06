@@ -1,13 +1,13 @@
 <div id="content">
   <div class="row">
-    <big-breadcrumbs items="['Компания', 'Создание компании']" icon="home" class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <big-breadcrumbs items="['Компания', 'Подтверждение компании']" icon="home" class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
     </big-breadcrumbs>
   </div>
   <div>
     <div class="row">
-      <form novalidate="novalidate" data-smart-validate-form name="addingCompany.smartForm">
+      <form novalidate="novalidate" data-smart-validate-form name="verificationCompany.smartForm">
         <div class="col-sm-12" data-smart-wizard
-             data-current-step="addingCompany.currentStep">
+             data-current-step="verificationCompany.currentStep">
           <div class="form-bootstrapWizard clearfix">
             <ul class="bootstrapWizard">
               <li data-smart-wizard-tab="1">
@@ -46,7 +46,7 @@
                              data-smart-validate-input
                              data-required
                              data-message="Please specify your name"
-                             ng-model="addingCompany.newCompany.name">
+                             ng-model="verificationCompany.company.name">
 
                     </div>
                   </div>
@@ -60,7 +60,7 @@
                              data-smart-validate-input
                              data-required
                              data-message="Please specify your title"
-                             ng-model="addingCompany.newCompany.title">
+                             ng-model="verificationCompany.company.title">
 
                     </div>
                   </div>
@@ -75,7 +75,7 @@
                                 placeholder="Описание"
                                 data-smart-validate-input
                                 data-message="Please specify your description"
-                                ng-model="addingCompany.newCompany.desc"></textarea>
+                                ng-model="verificationCompany.company.desc"></textarea>
 
                     </div>
                   </div>
@@ -85,12 +85,12 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
-                      <ui-select tagging ng-model="addingCompany.categorySelected" theme="bootstrap">
+                      <ui-select tagging ng-model="verificationCompany.categorySelected" theme="bootstrap">
                         <ui-select-match placeholder="Pick one...">{{$select.selected.name}}</ui-select-match>
-                        <ui-select-choices repeat="category in addingCompany.categories |
+                        <ui-select-choices repeat="category in verificationCompany.categories |
                         filter: $select.search track by category.name">
                           <div ng-bind="category.name"></div>
-                        </ui-select-choices>
+                          </ui-select-choices>
                       </ui-select>
                     </div>
                   </div>
@@ -116,7 +116,7 @@
                             <label class="input">Number
                               <div class="input-group">
                                 <input type="text" class="form-control"
-                                       ng-model="addingCompany.newphone.number"
+                                       ng-model="verificationCompany.newphone.number"
                                        data-smart-masked-input="+999999999999" data-mask-placeholder="X">
                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                               </div>
@@ -126,7 +126,7 @@
                             <label class="input">Note
                               <div class="input-group">
                                 <input type="text" class="form-control"
-                                       ng-model="addingCompany.newphone.note">
+                                       ng-model="verificationCompany.newphone.note">
                               </div>
                             </label>
                           </section>
@@ -134,12 +134,12 @@
                             <label class="input">Priority
                               <div class="input-group">
                                 <input type="text" class="form-control"
-                                       ng-model="addingCompany.newphone.priority">
+                                       ng-model="verificationCompany.newphone.priority">
                               </div>
                             </label>
                           </section>
                           <section class="col-md-6 form-input detailButton">
-                            <button class="btn btn-primary" ng-click="addingCompany.AddDetail('phone')">Сохранить
+                            <button class="btn btn-primary" ng-click="verificationCompany.AddDetail('phone')">Сохранить
                             </button>
                           </section>
                         </fieldset>
@@ -147,11 +147,18 @@
                       <div class="Table-row-item">
                         <div class="form-group Table">
                           <div class="Table-row Table-header">
+                            <div class="Table-row-item">delete</div>
                             <div class="Table-row-item">number</div>
                             <div class="Table-row-item">note</div>
                             <div class="Table-row-item">priority</div>
                           </div>
-                          <div class="Table-row" ng-repeat="phone in addingCompany.detail.phone track by $index">
+                          <div class="Table-row" ng-repeat="phone in verificationCompany.detail.phone track by $index">
+                            <div class="Table-row-item action-buttons">
+                              <button class="btn btn-danger"
+                                      ng-click="verificationCompany.detail.phone.splice($index, 1);" >
+                                <i class="fa fa-trash-o"></i>
+                              </button>
+                            </div>
                             <div class="Table-row-item">{{phone.number}}</div>
                             <div class="Table-row-item">{{phone.note}}</div>
                             <div class="Table-row-item">{{phone.priority}}</div>
@@ -162,8 +169,8 @@
                   </div>
                   <div class="Table-row-item">
                     <div class="form-group">
-                      <div work-times="addingCompany.detail.workTime"
-                           week-days="addingCompany.weekDays"></div>
+                      <div work-times="verificationCompany.detail.workTime"
+                           week-days="verificationCompany.weekDays"></div>
                     </div>
                   </div>
                 </div>
@@ -171,21 +178,27 @@
                   <div class="Table-row-item">Email</div>
                   <div class="Table-row-item">Website</div>
                 </div>
-                <div class="Table-row">
+                <div class="Table-row email">
                   <div class="Table-row-item">
                     <div class="form-group Table">
                       <div class="Table-row">
                         <div class="Table-row-item">
                           <label class="input">
                             <input class="form-control" name="email"
-                                   ng-model="addingCompany.newemail">
+                                   ng-model="verificationCompany.newemail">
                           </label>
-                          <button class="btn btn-primary" ng-click="addingCompany.AddDetail('email')"> +</button>
+                          <button class="btn btn-primary" ng-click="verificationCompany.AddDetail('email')"> +</button>
                         </div>
                         <div class="Table-row-item">
                           <div class="form-group Table">
                             <div class="Table-row"
-                                 ng-repeat="email in addingCompany.detail.email track by $index">
+                                 ng-repeat="email in verificationCompany.detail.email track by $index">
+                              <div class="Table-row-item action-buttons">
+                                <button class="btn btn-danger"
+                                        ng-click="verificationCompany.detail.email.splice($index, 1);" >
+                                  <i class="fa fa-trash-o"></i>
+                                </button>
+                              </div>
                               <div class="Table-row-item">{{email}}</div>
                             </div>
                           </div>
@@ -193,20 +206,26 @@
                       </div>
                     </div>
                   </div>
-                  <div class="Table-row-item">
+                  <div class="Table-row-item web-site">
                     <div class="form-group Table">
                       <div class="Table-row">
                         <div class="Table-row-item">
                           <label class="input">
                             <input class="form-control" name="website"
-                                   ng-model="addingCompany.newwebsite">
+                                   ng-model="verificationCompany.newwebsite">
                           </label>
-                          <button class="btn btn-primary" ng-click="addingCompany.AddDetail('website')"> +</button>
+                          <button class="btn btn-primary" ng-click="verificationCompany.AddDetail('website')"> +</button>
                         </div>
                         <div class="Table-row-item">
                           <div class="form-group Table">
                             <div class="Table-row"
-                                 ng-repeat="website in addingCompany.detail.website track by $index">
+                                 ng-repeat="website in verificationCompany.detail.website track by $index">
+                              <div class="Table-row-item action-buttons">
+                                <button class="btn btn-danger"
+                                        ng-click="verificationCompany.detail.website.splice($index, 1);" >
+                                  <i class="fa fa-trash-o"></i>
+                                </button>
+                              </div>
                               <div class="Table-row-item">{{website}}</div>
                             </div>
                           </div>
@@ -227,10 +246,10 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
-                      <ui-select tagging ng-model="addingCompany.citySelected"
-                                 ng-change="addingCompany.getDistricts($select.selected)">
+                      <ui-select tagging ng-model="verificationCompany.citySelected"
+                                 ng-change="verificationCompany.getDistricts($select.selected)">
                         <ui-select-match allow-clear="true" placeholder="Pick one...">{{$select.selected.name}}</ui-select-match>
-                        <ui-select-choices repeat="city in addingCompany.cities |
+                        <ui-select-choices repeat="city in verificationCompany.cities |
                         filter: $select.search track by city.name">
                           <div ng-bind="city.name"></div>
                         </ui-select-choices>
@@ -242,10 +261,10 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
-                      <ui-select tagging ng-model="addingCompany.districtSelected"
-                                 ng-change="addingCompany.getStreets($select.selected)">
+                      <ui-select tagging ng-model="verificationCompany.districtSelected"
+                                 ng-change="verificationCompany.getStreets($select.selected)">
                         <ui-select-match allow-clear="true" placeholder="Pick one...">{{$select.selected.name}}</ui-select-match>
-                        <ui-select-choices repeat="district in addingCompany.districts |
+                        <ui-select-choices repeat="district in verificationCompany.districts |
                         filter: $select.search track by district.name">
                           <div ng-bind="district.name"></div>
                         </ui-select-choices>
@@ -257,9 +276,9 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-map-marker fa-lg fa-fw"></i></span>
-                      <ui-select tagging ng-model="addingCompany.streetSelected">
+                      <ui-select tagging ng-model="verificationCompany.streetSelected">
                         <ui-select-match allow-clear="true" placeholder="Pick one...">{{$select.selected.name}}</ui-select-match>
-                        <ui-select-choices repeat="street in addingCompany.streets |
+                        <ui-select-choices repeat="street in verificationCompany.streets |
                         filter: $select.search track by street.name">
                           <div ng-bind="street.name"></div>
                         </ui-select-choices>
@@ -274,7 +293,7 @@
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
                       <input class="form-control input-lg" placeholder="Номер дома"
-                             type="text" name="building" ng-model="addingCompany.location.buildingId"
+                             type="text" name="building" ng-model="verificationCompany.company.buildingId"
                              data-smart-validate-input data-required data-minlength="1">
                     </div>
                   </div>
@@ -284,7 +303,7 @@
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-building  fa-lg fa-fw"></i></span>
                       <input class="form-control input-lg" placeholder="Номер квартиры"
-                             type="text" name="room" ng-model="addingCompany.location.room"
+                             type="text" name="room" ng-model="verificationCompany.company.room"
                              data-smart-validate-input>
                     </div>
                   </div>
@@ -294,15 +313,15 @@
                   <div class="form-group">
                     <div class="input-group">
                       <input class="form-control input-lg" type="text" id="companyPointAdd"
-                             ng-model="addingCompany.location.fullAddress"
-                             ng-enter="addingCompany.findAddress('point', addingCompany.location.fullAddress, 'new')">
+                             ng-model="verificationCompany.company.fullAddress"
+                             ng-enter="verificationCompany.findAddress('point', verificationCompany.company.fullAddress, 'new')">
                       <span class="ng-binding input-group-addon">
                           <i class="icon-append fa fa-map-marker"
-                             ng-click="addingCompany.findAddress('point', addingCompany.location.fullAddress, 'new')">
+                             ng-click="verificationCompany.findAddress('point', verificationCompany.company.fullAddress, 'new')">
                           </i></span>
                     </div>
                     <!-- Warning -->
-                    <article class="col-sm-12" ng-if="addingCompany.inputMaps['newpoint'].notFound">
+                    <article class="col-sm-12" ng-if="verificationCompany.inputMaps['newpoint'].notFound">
                       <div class="alert alert-warning fade in">
                         <button class="close" data-dismiss="alert"
                                 ng-click="inputMaps['newpoint'].notFound == false">×
@@ -314,24 +333,24 @@
                     <!-- Warning -->
                     <!-- MAP -->
                     <div class="map"
-                         ng-if="addingCompany.inputMaps['newpoint'] && addingCompany.inputMaps['newpoint'].display">
-                      <ui-gmap-google-map center="addingCompany.inputMaps['newpoint'].map.center"
-                                          zoom="addingCompany.inputMaps['newpoint'].map.zoom"
-                                          events="addingCompany.inputMaps['newpoint'].map.events">
-                        <ui-gmap-marker coords="addingCompany.inputMaps['newpoint'].marker.coords"
-                                        ptions="addingCompany.inputMaps['newpoint'].marker.options"
-                                        events="addingCompany.inputMaps['newpoint'].marker.events"
-                                        idkey="addingCompany.inputMaps['newpoint'].marker.id">
+                         ng-if="verificationCompany.inputMaps['newpoint'] && verificationCompany.inputMaps['newpoint'].display">
+                      <ui-gmap-google-map center="verificationCompany.inputMaps['newpoint'].map.center"
+                                          zoom="verificationCompany.inputMaps['newpoint'].map.zoom"
+                                          events="verificationCompany.inputMaps['newpoint'].map.events">
+                        <ui-gmap-marker coords="verificationCompany.inputMaps['newpoint'].marker.coords"
+                                        ptions="verificationCompany.inputMaps['newpoint'].marker.options"
+                                        events="verificationCompany.inputMaps['newpoint'].marker.events"
+                                        idkey="verificationCompany.inputMaps['newpoint'].marker.id">
                         </ui-gmap-marker>
                       </ui-gmap-google-map>
                       <div class="map-hide"
-                           ng-click="addingCompany.inputMaps['newpoint'].display = false;"></div>
-                      (<span ng-bind="addingCompany.location.point.lat.toFixed(5)"></span>,
-                      <span ng-bind="addingCompany.location.point.lng.toFixed(5)"></span>)
+                           ng-click="verificationCompany.inputMaps['newpoint'].display = false;"></div>
+                      (<span ng-bind="verificationCompany.company.point.lat.toFixed(5)"></span>,
+                      <span ng-bind="verificationCompany.company.point.lng.toFixed(5)"></span>)
                     </div>
                     <div class="map-show"
-                         ng-click="addingCompany.showMap('point', 'new')"
-                         ng-if="!addingCompany.inputMaps['newpoint'].display"></div>
+                         ng-click="verificationCompany.showMap('point', 'new')"
+                         ng-if="!verificationCompany.inputMaps['newpoint'].display"></div>
                     <!-- MAP -->
                     <!-- End Point -->
                   </div>
@@ -352,19 +371,19 @@
                       <span class="input-group-addon"><i class="fa fa-file-image-o fa-lg fa-fw"></i></span>
                       <div class="input input-file">
                         <span class="button">
-                          <input type="file" file-model="addingCompany.newCompany.file"
-                                 file-name-model="addingCompany.newCompany.photo">Найти
+                          <input type="file" file-model="verificationCompany.company.file"
+                                 file-name-model="verificationCompany.company.photo">Найти
                         </span>
                         <input type="text" placeholder="Include some files" readonly=""
-                               ng-model="addingCompany.newCompany.photo" class="form-control input-lg">
+                               ng-model="verificationCompany.company.photo" class="form-control input-lg">
                       </div>
                     </div>
                     <div ng-if="imageSrc">
                       <img class="col-md-12" ng-src="{{imageSrc}}">
                     </div>
-                    <div ng-if="!imageSrc && addingCompany.newCompany.photo">
+                    <div ng-if="!imageSrc && verificationCompany.company.photo">
                       <img class="col-md-12"
-                           ng-src="{{addingCompany.SERVER_URL}}/storage/test/{{addingCompany.location.cityId}}/{{addingCompany.newCompany.categoryId}}/{{addingCompany.newCompany.id}}/{{addingCompany.newCompany.photo}}">
+                           ng-src="{{verificationCompany.SERVER_URL}}/storage/test/{{verificationCompany.company.cityId}}/{{verificationCompany.company.categoryId}}/{{verificationCompany.company.id}}/{{verificationCompany.company.photo}}">
                     </div>
                   </div>
                 </div>
@@ -375,32 +394,32 @@
                       <span class="input-group-addon"><i class="fa fa-file-image-o fa-lg fa-fw"></i></span>
                       <div class="input input-file">
                         <span class="button">
-                          <input type="file" nv-file-select uploader="addingCompany.uploader">Найти
+                          <input type="file" nv-file-select uploader="verificationCompany.uploader">Найти
                         </span>
                         <input type="text" placeholder="Include some files" readonly="" class="form-control input-lg">
                       </div>
                     </div>
-                    <div class="row" ng-if="addingCompany.uploader.queue.length">
-                      <div ng-repeat="item in addingCompany.uploader.queue"
+                    <div class="row" ng-if="verificationCompany.uploader.queue.length">
+                      <div ng-repeat="item in verificationCompany.uploader.queue"
                            class="ng-scope col-sm-10 col-md-8 col-lg-4">
-                        <div class="ng-scope">
-                          <!-- Image preview -->
-                          <div ng-thumb="{ file: item._file, height: 150 }" class="col-md-12"></div>
-                          <!--fixed width and height -->
-                          <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
-                        </div>
-                        <div ng-bind="item.file.name" class="col-md-8"></div>
-                        <button ng-click="item.remove()" class="col-md-4">Remove</button>
+                          <div class="ng-scope">
+                            <!-- Image preview -->
+                            <div ng-thumb="{ file: item._file, height: 150 }" class="col-md-12"></div>
+                            <!--fixed width and height -->
+                            <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+                          </div>
+                          <div ng-bind="item.file.name" class="col-md-8"></div>
+                          <button ng-click="item.remove()" class="col-md-4">Remove</button>
                       </div>
                     </div>
 
-                    <div ng-if="!addingCompany.uploader.queue.length &&
-                    addingCompany.detail.imageList.length">
-                      <div ng-repeat="photo in addingCompany.detail.imageList"
+                    <div ng-if="!verificationCompany.uploader.queue.length &&
+                    verificationCompany.detail.imageList.length">
+                      <div ng-repeat="photo in verificationCompany.detail.imageList"
                            class="ng-scope col-sm-10 col-md-8 col-lg-4">
                         <div class="ng-scope">
                           <img class="col-md-12"
-                               ng-src="{{addingCompany.SERVER_URL}}/storage/test/{{addingCompany.location.cityId}}/{{addingCompany.newCompany.categoryId}}/{{addingCompany.newCompany.id}}/{{photo}}">
+                               ng-src="{{verificationCompany.SERVER_URL}}/storage/test/{{verificationCompany.company.cityId}}/{{verificationCompany.company.categoryId}}/{{verificationCompany.company.id}}/{{photo}}">
                         </div>
                       </div>
 
@@ -427,41 +446,41 @@
                           <div class="col-md-2 form-input">
                             <label class="input">Name
                               <input type="text" class="form-control"
-                                     ng-model="addingCompany.newService.name">
+                                     ng-model="verificationCompany.newService.name">
                             </label>
                           </div>
                           <div class="col-md-4 form-input">
                             <label class="input">Description
                               <textarea rows="1" class="form-control input-lg" type="text" name="desc"
-                                        ng-model="addingCompany.newService.desc"></textarea>
+                                        ng-model="verificationCompany.newService.desc"></textarea>
                             </label>
                           </div>
                           <div class="col-md-1 form-input">
                             <label class="input">Price
                               <input type="text" class="form-control"
-                                     ng-model="addingCompany.newService.price">
+                                     ng-model="verificationCompany.newService.price">
                             </label>
                           </div>
                           <div class="col-md-1 form-input">
                             <label class="input">Sale price
                               <input type="text" class="form-control"
-                                     ng-model="addingCompany.newService.salePrice">
+                                     ng-model="verificationCompany.newService.salePrice">
                             </label>
                           </div>
                           <div class="col-md-2 form-input">
                             <label class="input">Currency
                               <input type="text" class="form-control"
-                                     ng-model="addingCompany.newService.currency">
+                                     ng-model="verificationCompany.newService.currency">
                             </label>
                           </div>
                           <div class="col-md-1 form-input">
                             <label class="input">Position
                               <input type="text" class="form-control"
-                                     ng-model="addingCompany.newService.position">
+                                     ng-model="verificationCompany.newService.position">
                             </label>
                           </div>
                           <div class="col-md-1 form-input detailButton">
-                            <button class="btn btn-primary" ng-click="addingCompany.AddService()">Сохранить
+                            <button class="btn btn-primary" ng-click="verificationCompany.AddService()">Сохранить
                             </button>
                           </div>
                       </div>
@@ -470,6 +489,7 @@
                       <div class="Table-row-item">
                         <div class="form-group Table">
                           <div class="Table-row Table-header">
+                            <div class="Table-row-item action-buttons">Delete</div>
                             <div class="Table-row-item">Name</div>
                             <div class="Table-row-item">Description</div>
                             <div class="Table-row-item">Price</div>
@@ -477,7 +497,13 @@
                             <div class="Table-row-item">Currency</div>
                             <div class="Table-row-item">Position</div>
                           </div>
-                          <div class="Table-row" ng-repeat="phone in addingCompany.services track by $index">
+                          <div class="Table-row" ng-repeat="phone in verificationCompany.services track by $index">
+                            <div class="Table-row-item action-buttons">
+                              <button class="btn btn-danger"
+                                      ng-click="verificationCompany.DeleteService($index)" >
+                                 <i class="fa fa-trash-o"></i>
+                              </button>
+                            </div>
                             <div class="Table-row-item">{{phone.name}}</div>
                             <div class="Table-row-item">{{phone.desc}}</div>
                             <div class="Table-row-item">{{phone.price}}</div>
@@ -489,7 +515,6 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -502,7 +527,7 @@
                 <div class="col-sm-6">
                   <div class="widget-body">
                     <div class="tree smart-form">
-                      <ul data-smart-treeview data-items="addingCompany.subCategories" role="tree"></ul>
+                      <ul data-smart-treeview data-items="verificationCompany.subCategories" role="tree"></ul>
                     </div>
                   </div>
                 </div>
@@ -517,7 +542,7 @@
                       <a href="#" class="btn btn-lg btn-default"> Previous </a>
                     </li>
                     <li class="next" data-smart-wizard-next>
-                      <a href="#" class="btn btn-lg txt-color-darken" ng-click="addingCompany.formSubmit()"> Next </a>
+                      <a href="#" class="btn btn-lg txt-color-darken" ng-click="verificationCompany.formSubmit()"> Next </a>
                     </li>
                   </ul>
                 </div>

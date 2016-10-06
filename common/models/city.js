@@ -26,4 +26,34 @@ module.exports = function(City) {
   City.disableRemoteMethod('__get__accessTokens', false);
   City.disableRemoteMethod('__updateById__accessTokens', false);
 
+  /**
+   * Login with geolocation
+   * @param coordinates
+   * @param cb
+   */
+  City.geoCity = function (coordinates, cb) {
+
+    var ds = City.dataSource;
+    var sql = "SELECT city.id, city.nameru from city where " +
+      "ST_GeomFromText('POINT(' || " +
+      "replace('" + coordinates + "', ',', ' ') || ')', 4326) " +
+      "&& ST_MakeEnvelope(cast(split_part(city.bound, ', ', 1) as FLOAT), cast(split_part(city.bound, ', ', 2) as FLOAT)," +
+      " cast(split_part(city.bound, ', ', 3) as FLOAT), cast(split_part(city.bound, ', ', 4) as FLOAT));";
+
+    ds.connector.query(sql, [], function (err, city) {
+      if (err) console.error(err);
+      cb(err, city);
+    });
+  };
+
+  City.remoteMethod(
+    'geoCity',
+    {
+      accepts: [
+        {arg: 'coordinates', type: 'string', required: true}
+      ],
+      http: {path: '/geoCity', verb: 'get'},
+      returns: {arg: 'result', type: 'object'}
+    }
+  )
 };

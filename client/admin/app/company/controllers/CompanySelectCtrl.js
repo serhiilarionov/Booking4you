@@ -1,19 +1,19 @@
 'use strict';
 
-angular.module('app.catalog').controller('CompaniesController', function ($state, $stateParams, Company,
+angular.module('app.catalog').controller('CompanySelectController', function ($state, $stateParams, Company,
                                                                           Category, City, District, Street) {
   var vm = this;
 
   //UI settings
   vm.UI = {
-    companiesTableSettings: {
-      name: 'companiesTable',
+    companySelectTableSettings: {
+      name: 'companySelectTable',
       title: 'Компании',
       resource: Company,
       buttons: {
-        add: true,
+        add: false,
         refresh: true,
-        edit: true,
+        edit: false,
         remove: true
       },
       columns: [
@@ -78,9 +78,8 @@ angular.module('app.catalog').controller('CompaniesController', function ($state
       ],
       onRowClick: function (nRow, aData) {
         delete $stateParams.filter;
-        $state.go('app.catalog.companyDetails', {
-          id: aData.id,
-          previousState: 'app.catalog.companies'
+        $state.transitionTo('app.company.verification', {
+          id: aData.id
         })
       }
     }
