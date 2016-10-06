@@ -37,6 +37,37 @@ var CompanyApi = (function (_super) {
         this.searchParams = searchParams;
     }
     /**
+     * Fetches belongsTo relation category.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param boolean refresh
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Company` object.)
+     * </em>
+     */
+    CompanyApi.prototype.getCategory = function (id, refresh) {
+        if (refresh === void 0) { refresh = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/category";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (refresh)
+            urlParams.refresh = refresh;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * Find a related item by id for service.
      *
      * @param any id PersistedModel id

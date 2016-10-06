@@ -8,9 +8,10 @@ export interface CityInterface {
   id?: number;
   slug: string;
   name: string;
+  nameRu: string;
   active: boolean;
   point?: any;
-  bound?: any;
+  bound?: string;
   regionId?: number;
   districts?: Array<District>;
   streets?: Array<Street>;
@@ -20,9 +21,10 @@ export class City implements CityInterface {
   id: number;
   slug: string;
   name: string;
+  nameRu: string;
   active: boolean;
   point: any;
-  bound: any;
+  bound: string;
   regionId: number;
   districts: Array<District>;
   streets: Array<Street>;

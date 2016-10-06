@@ -1,10 +1,10 @@
 /* tslint:disable */
 import {
+  Category,
   CompanyService,
   CompanyDetail,
   CompanyLocation,
   Booking,
-  Category,
   Client
 } from '../index';
 
@@ -23,10 +23,12 @@ export interface CompanyInterface {
   room?: string;
   locationDetail?: string;
   fullAddress?: string;
+  verifiedAt?: any;
   createdAt?: any;
   updatedAt?: any;
   deletedAt?: any;
   categoryId?: number;
+  category?: Category;
   service?: Array<CompanyService>;
   details?: CompanyDetail;
   location?: CompanyLocation;
@@ -50,10 +52,12 @@ export class Company implements CompanyInterface {
   room: string;
   locationDetail: string;
   fullAddress: string;
+  verifiedAt: any;
   createdAt: any;
   updatedAt: any;
   deletedAt: any;
   categoryId: number;
+  category: Category;
   service: Array<CompanyService>;
   details: CompanyDetail;
   location: CompanyLocation;

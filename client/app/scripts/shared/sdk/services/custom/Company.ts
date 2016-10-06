@@ -10,12 +10,12 @@ import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { Company } from '../../models/Company';
+import { Category } from '../../models/Category';
 import { CompanyService } from '../../models/CompanyService';
 import { CompanyDetail } from '../../models/CompanyDetail';
 import { CompanyLocation } from '../../models/CompanyLocation';
 import { Booking } from '../../models/Booking';
 import { CategoryCompany } from '../../models/CategoryCompany';
-import { Category } from '../../models/Category';
 import { Client } from '../../models/Client';
 
 // Making Sure EventSource Type is available to avoid compilation issues.
@@ -34,6 +34,36 @@ export class CompanyApi extends BaseLoopBackApi {
     @Optional() @Inject(ErrorHandler) errorHandler: ErrorHandler
   ) {
     super(http, auth, searchParams, errorHandler);
+  }
+
+  /**
+   * Fetches belongsTo relation category.
+   *
+   * @param any id PersistedModel id
+   *
+   * @param boolean refresh 
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Company` object.)
+   * </em>
+   */
+  public getCategory(id: any, refresh: any = undefined) {
+    let method: string = "GET";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/companies/:id/category";
+    let routeParams: any = {
+      id: id
+    };
+    let postBody: any = {};
+    let urlParams: any = {};
+    if (refresh) urlParams.refresh = refresh;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result;
   }
 
   /**

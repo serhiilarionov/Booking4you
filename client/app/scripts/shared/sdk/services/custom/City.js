@@ -802,6 +802,33 @@ var CityApi = (function (_super) {
         return result;
     };
     /**
+     * <em>
+           * (The remote method definition does not provide any description.)
+           * </em>
+     *
+     * @param string coordinates
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * Data properties:
+     *
+     *  - `result` – `{object}` -
+     */
+    CityApi.prototype.geoCity = function (coordinates) {
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/cities/geoCity";
+        var routeParams = {};
+        var postBody = {};
+        var urlParams = {};
+        if (coordinates)
+            urlParams.coordinates = coordinates;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * Creates a new instance in districts of this model.
      *
      * @param any id PersistedModel id

@@ -1,7 +1,7 @@
 /* tslint:disable */
 import {
-  Company,
-  CompanyService
+  CompanyService,
+  Company
 } from '../index';
 
 export interface CategoryInterface {
@@ -13,8 +13,8 @@ export interface CategoryInterface {
   position: number;
   active: boolean;
   deletedAt?: any;
-  companies?: Array<Company>;
   services?: Array<CompanyService>;
+  companies?: Array<Company>;
 }
 
 export class Category implements CategoryInterface {
@@ -26,8 +26,8 @@ export class Category implements CategoryInterface {
   position: number;
   active: boolean;
   deletedAt: any;
-  companies: Array<Company>;
   services: Array<CompanyService>;
+  companies: Array<Company>;
   constructor(instance?: Category) {
     Object.assign(this, instance);
   }

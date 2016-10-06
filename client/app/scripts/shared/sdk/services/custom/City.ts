@@ -793,6 +793,33 @@ export class CityApi extends BaseLoopBackApi {
   }
 
   /**
+   * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+   *
+   * @param string coordinates 
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * Data properties:
+   *
+   *  - `result` – `{object}` - 
+   */
+  public geoCity(coordinates: any) {
+    let method: string = "GET";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/cities/geoCity";
+    let routeParams: any = {};
+    let postBody: any = {};
+    let urlParams: any = {};
+    if (coordinates) urlParams.coordinates = coordinates;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result;
+  }
+
+  /**
    * Creates a new instance in districts of this model.
    *
    * @param any id PersistedModel id

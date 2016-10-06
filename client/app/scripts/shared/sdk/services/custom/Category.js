@@ -37,97 +37,6 @@ var CategoryApi = (function (_super) {
         this.searchParams = searchParams;
     }
     /**
-     * Find a related item by id for companies.
-     *
-     * @param any id PersistedModel id
-     *
-     * @param any fk Foreign key for companies
-     *
-     * @returns object An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Category` object.)
-     * </em>
-     */
-    CategoryApi.prototype.findByIdCompanies = function (id, fk) {
-        var method = "GET";
-        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/categories/:id/companies/:fk";
-        var routeParams = {
-            id: id,
-            fk: fk
-        };
-        var postBody = {};
-        var urlParams = {};
-        var result = this.request(method, url, routeParams, urlParams, postBody);
-        return result.map(function (instance) { return new Category_1.Category(instance); });
-    };
-    /**
-     * Delete a related item by id for companies.
-     *
-     * @param any id PersistedModel id
-     *
-     * @param any fk Foreign key for companies
-     *
-     * @returns object An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * This method returns no data.
-     */
-    CategoryApi.prototype.destroyByIdCompanies = function (id, fk) {
-        var method = "DELETE";
-        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/categories/:id/companies/:fk";
-        var routeParams = {
-            id: id,
-            fk: fk
-        };
-        var postBody = {};
-        var urlParams = {};
-        var result = this.request(method, url, routeParams, urlParams, postBody);
-        return result;
-    };
-    /**
-     * Update a related item by id for companies.
-     *
-     * @param any id PersistedModel id
-     *
-     * @param any fk Foreign key for companies
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Category` object.)
-     * </em>
-     */
-    CategoryApi.prototype.updateByIdCompanies = function (id, fk, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "PUT";
-        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/categories/:id/companies/:fk";
-        var routeParams = {
-            id: id,
-            fk: fk
-        };
-        var postBody = {
-            data: data
-        };
-        var urlParams = {};
-        var result = this.request(method, url, routeParams, urlParams, postBody);
-        return result;
-    };
-    /**
      * Find a related item by id for services.
      *
      * @param any id PersistedModel id
@@ -219,13 +128,13 @@ var CategoryApi = (function (_super) {
         return result;
     };
     /**
-     * Queries companies of Category.
+     * Find a related item by id for companies.
      *
      * @param any id PersistedModel id
      *
-     * @param object filter
+     * @param any fk Foreign key for companies
      *
-     * @returns object[] An empty reference that will be
+     * @returns object An empty reference that will be
      *   populated with the actual data once the response is returned
      *   from the server.
      *
@@ -234,25 +143,51 @@ var CategoryApi = (function (_super) {
      * This usually means the response is a `Category` object.)
      * </em>
      */
-    CategoryApi.prototype.getCompanies = function (id, filter) {
-        if (filter === void 0) { filter = undefined; }
+    CategoryApi.prototype.findByIdCompanies = function (id, fk) {
         var method = "GET";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/categories/:id/companies";
+            "/categories/:id/companies/:fk";
         var routeParams = {
-            id: id
+            id: id,
+            fk: fk
         };
         var postBody = {};
         var urlParams = {};
-        if (filter)
-            urlParams.filter = filter;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result.map(function (instance) { return new Category_1.Category(instance); });
+    };
+    /**
+     * Delete a related item by id for companies.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for companies
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    CategoryApi.prototype.destroyByIdCompanies = function (id, fk) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/categories/:id/companies/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
         var result = this.request(method, url, routeParams, urlParams, postBody);
         return result;
     };
     /**
-     * Creates a new instance in companies of this model.
+     * Update a related item by id for companies.
      *
      * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for companies
      *
      * @param object data Request data.
      *
@@ -267,13 +202,14 @@ var CategoryApi = (function (_super) {
      * This usually means the response is a `Category` object.)
      * </em>
      */
-    CategoryApi.prototype.createCompanies = function (id, data) {
+    CategoryApi.prototype.updateByIdCompanies = function (id, fk, data) {
         if (data === void 0) { data = undefined; }
-        var method = "POST";
+        var method = "PUT";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/categories/:id/companies";
+            "/categories/:id/companies/:fk";
         var routeParams = {
-            id: id
+            id: id,
+            fk: fk
         };
         var postBody = {
             data: data
@@ -283,9 +219,47 @@ var CategoryApi = (function (_super) {
         return result;
     };
     /**
-     * Deletes all companies of this model.
+     * Add a related item by id for companies.
      *
      * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for companies
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Category` object.)
+     * </em>
+     */
+    CategoryApi.prototype.linkCompanies = function (id, fk, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "PUT";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/categories/:id/companies/rel/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Remove the companies relation to an item by id.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for companies
      *
      * @returns object An empty reference that will be
      *   populated with the actual data once the response is returned
@@ -293,12 +267,13 @@ var CategoryApi = (function (_super) {
      *
      * This method returns no data.
      */
-    CategoryApi.prototype.deleteCompanies = function (id) {
+    CategoryApi.prototype.unlinkCompanies = function (id, fk) {
         var method = "DELETE";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/categories/:id/companies";
+            "/categories/:id/companies/rel/:fk";
         var routeParams = {
-            id: id
+            id: id,
+            fk: fk
         };
         var postBody = {};
         var urlParams = {};
@@ -306,32 +281,31 @@ var CategoryApi = (function (_super) {
         return result;
     };
     /**
-     * Counts companies of Category.
+     * Check the existence of companies relation to an item by id.
      *
      * @param any id PersistedModel id
      *
-     * @param object where Criteria to match model instances
+     * @param any fk Foreign key for companies
      *
      * @returns object An empty reference that will be
      *   populated with the actual data once the response is returned
      *   from the server.
      *
-     * Data properties:
-     *
-     *  - `count` – `{number}` -
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Category` object.)
+     * </em>
      */
-    CategoryApi.prototype.countCompanies = function (id, where) {
-        if (where === void 0) { where = undefined; }
-        var method = "GET";
+    CategoryApi.prototype.existsCompanies = function (id, fk) {
+        var method = "HEAD";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/categories/:id/companies/count";
+            "/categories/:id/companies/rel/:fk";
         var routeParams = {
-            id: id
+            id: id,
+            fk: fk
         };
         var postBody = {};
         var urlParams = {};
-        if (where)
-            urlParams.where = where;
         var result = this.request(method, url, routeParams, urlParams, postBody);
         return result;
     };
@@ -442,6 +416,123 @@ var CategoryApi = (function (_super) {
         var method = "GET";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
             "/categories/:id/services/count";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (where)
+            urlParams.where = where;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Queries companies of Category.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object filter
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Category` object.)
+     * </em>
+     */
+    CategoryApi.prototype.getCompanies = function (id, filter) {
+        if (filter === void 0) { filter = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/categories/:id/companies";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (filter)
+            urlParams.filter = filter;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in companies of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Category` object.)
+     * </em>
+     */
+    CategoryApi.prototype.createCompanies = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/categories/:id/companies";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Deletes all companies of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    CategoryApi.prototype.deleteCompanies = function (id) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/categories/:id/companies";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Counts companies of Category.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object where Criteria to match model instances
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * Data properties:
+     *
+     *  - `count` – `{number}` -
+     */
+    CategoryApi.prototype.countCompanies = function (id, where) {
+        if (where === void 0) { where = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/categories/:id/companies/count";
         var routeParams = {
             id: id
         };
@@ -833,39 +924,6 @@ var CategoryApi = (function (_super) {
         });
     };
     /**
-     * Creates a new instance in companies of this model.
-     *
-     * @param any id PersistedModel id
-     *
-     * @param object data Request data.
-     *
-     * This method expects a subset of model properties as request parameters.
-     *
-     * @returns object[] An empty reference that will be
-     *   populated with the actual data once the response is returned
-     *   from the server.
-     *
-     * <em>
-     * (The remote method definition does not provide any description.
-     * This usually means the response is a `Category` object.)
-     * </em>
-     */
-    CategoryApi.prototype.createManyCompanies = function (id, data) {
-        if (data === void 0) { data = undefined; }
-        var method = "POST";
-        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
-            "/categories/:id/companies";
-        var routeParams = {
-            id: id
-        };
-        var postBody = {
-            data: data
-        };
-        var urlParams = {};
-        var result = this.request(method, url, routeParams, urlParams, postBody);
-        return result;
-    };
-    /**
      * Creates a new instance in services of this model.
      *
      * @param any id PersistedModel id
@@ -888,6 +946,39 @@ var CategoryApi = (function (_super) {
         var method = "POST";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
             "/categories/:id/services";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in companies of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Category` object.)
+     * </em>
+     */
+    CategoryApi.prototype.createManyCompanies = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/categories/:id/companies";
         var routeParams = {
             id: id
         };
