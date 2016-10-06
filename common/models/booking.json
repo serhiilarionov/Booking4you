@@ -51,12 +51,6 @@
       "type": "date"
     }
   },
-  "scope": {
-    "limit": 1000,
-    "where": {
-      "active": true
-    }
-  },
   "validations": [],
   "relations": {
     "user": {

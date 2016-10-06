@@ -27,9 +27,6 @@
       "generated": true
     }
   },
-  "scope": {
-    "limit": 1000
-  },
   "validations": [],
   "relations": {
     "booking": {
