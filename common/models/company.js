@@ -115,4 +115,34 @@ module.exports = function (Company) {
       returns: {arg: 'data', type: ['Company'], root: true}
     }
   );
+
+  /**
+   * Function return companies by geolocation
+   * @param bound
+   * @param cb
+   */
+  Company.byGeo = function (bound, cb) {
+
+    var ds = Company.dataSource;
+    var sql = "SELECT * from company where " +
+      "ST_GeomFromText('POINT' || " +
+      "replace('' || company.point, ',', ' '), 4326) " +
+      "&& ST_MakeEnvelope(" + bound + ");";
+
+    ds.connector.query(sql, [], function (err, company) {
+      if (err) console.error(err);
+      cb(err, company);
+    });
+  };
+
+  Company.remoteMethod(
+    'byGeo',
+    {
+      accepts: [
+        {arg: 'bound', type: 'string', required: true}
+      ],
+      http: {path: '/byGeo', verb: 'get'},
+      returns: {arg: 'result', type: 'object'}
+    }
+  )
 };
