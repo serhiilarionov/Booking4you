@@ -4,8 +4,8 @@ declare var $: any;
 
 @Component({
   selector: 'profile-favorites',
-  templateUrl: 'scripts/pages/profile/favorites/profile-favorites.component.html',
-  styleUrls: ['scripts/pages/profile/favorites/profile-favorites.component.css'],
+  templateUrl: './profile-favorites.component.html',
+  styleUrls: ['./profile-favorites.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class ProfileFavoritesComponent {

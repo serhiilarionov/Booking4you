@@ -4,8 +4,8 @@ import { Company, CompanyApi } from '../../shared/index';
 
 @Component({
   selector: 'company-details-page',
-  templateUrl: 'scripts/pages/company-details/company-details-page.component.html',
-  styleUrls: ['scripts/pages/company-details/company-details-page.component.css'],
+  templateUrl: './company-details-page.component.html',
+  styleUrls: ['./company-details-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class CompanyDetailsPageComponent implements OnInit {

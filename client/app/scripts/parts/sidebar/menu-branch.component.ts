@@ -8,7 +8,7 @@ export interface MenuBranch {
 
 @Component({
   selector: '.menu-branch',
-  templateUrl: 'scripts/parts/sidebar/menu-branch.component.html'
+  templateUrl: './menu-branch.component.html'
 })
 
 export class MenuBranchComponent {

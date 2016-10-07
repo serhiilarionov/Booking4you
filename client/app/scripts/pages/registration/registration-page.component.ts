@@ -4,7 +4,7 @@ import { AuthService, AuthRedirectService, Client } from '../../shared/index';
 
 @Component({
   selector: 'registration-page',
-  templateUrl: 'scripts/pages/registration/registration-page.component.html'
+  templateUrl: './registration-page.component.html'
 })
 
 export class RegistrationPageComponent {

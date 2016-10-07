@@ -11,22 +11,6 @@
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
   <link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
-  <!-- 1. Load libraries -->
-  <script src="vendor/jquery/dist/jquery.min.js"></script>
-  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-  <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script src="vendor/v3-utility-library/markerclusterer/src/markerclusterer.js"></script>
-  <!-- Polyfill(s) for older browsers -->
-  <script src="node_modules/core-js/client/shim.min.js"></script>
-  <script src="node_modules/zone.js/dist/zone.js"></script>
-  <script src="node_modules/reflect-metadata/Reflect.js"></script>
-  <script src="node_modules/systemjs/dist/system.src.js"></script>
-  <!-- 2. Configure SystemJS -->
-  <script src="systemjs.config.js"></script>
-  <script>
-    System.import('app').catch(function(err){ console.error(err); });
-  </script>
   <style>
     .app-loading {
       height: 100%;
@@ -63,7 +47,6 @@
     }
   </style>
 </head>
-<!-- 3. Display the application -->
 <body>
 <app class="outer-wrapper">
   <h1 class="app-loading">Loading<span>.</span><span>.</span><span>.</span></h1>

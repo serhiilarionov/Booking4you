@@ -16,8 +16,8 @@ const MENU_TREE: Array<MenuBranch> = [
 
 @Component({
   selector: 'sidebar',
-  styleUrls: ['scripts/parts/sidebar/sidebar.component.css'],
-  templateUrl: 'scripts/parts/sidebar/sidebar.component.html',
+  styleUrls: ['./sidebar.component.css'],
+  templateUrl: './sidebar.component.html',
   encapsulation: ViewEncapsulation.None
 })
 

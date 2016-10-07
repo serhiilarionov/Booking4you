@@ -4,7 +4,7 @@ declare var $: any;
 
 @Component({
   selector: 'select.selectpicker',
-  templateUrl: 'scripts/shared/directives/dropdown.html'
+  templateUrl: './dropdown.html'
 })
 export class Dropdown implements OnChanges, AfterViewInit {
   @Input() public items: any[];

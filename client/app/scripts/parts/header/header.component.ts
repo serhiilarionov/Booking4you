@@ -4,8 +4,8 @@ declare var $: any;
 
 @Component({
   selector: 'app-header',
-  templateUrl: 'scripts/parts/header/header.component.html',
-  styleUrls: ['scripts/parts/header/header.component.css'],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 

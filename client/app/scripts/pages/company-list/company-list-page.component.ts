@@ -5,8 +5,8 @@ declare var $: any;
 
 @Component({
   selector: 'company-list-page',
-  templateUrl: 'scripts/pages/company-list/company-list-page.component.html',
-  styleUrls: ['scripts/pages/company-list/company-list-page.component.css'],
+  templateUrl: './company-list-page.component.html',
+  styleUrls: ['./company-list-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 

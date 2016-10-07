@@ -4,7 +4,7 @@ import { AuthService, AuthRedirectService, Client } from '../../shared/index';
 
 @Component({
   selector: 'login-page',
-  templateUrl: 'scripts/pages/login/login-page.component.html'
+  templateUrl: './login-page.component.html'
 })
 
 export class LoginPageComponent {
