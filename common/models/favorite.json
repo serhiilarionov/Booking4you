@@ -39,9 +39,6 @@
       "required": false
     }
   },
-  "scope": {
-    "limit": 1000
-  },
   "validations": [],
   "relations": {
     "client": {

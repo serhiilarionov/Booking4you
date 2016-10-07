@@ -23,9 +23,6 @@
       "type": "geopoint"
     }
   },
-  "scope": {
-    "limit": 1000
-  },
   "validations": [],
   "relations": {
     "streetType": {
