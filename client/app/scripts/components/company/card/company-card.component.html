@@ -1,5 +1,5 @@
 <div class="company-card">
-<a href="#company-modal" class="company-card__photo" data-toggle="modal">
+<a href="#company-modal" (click)="openCompanyModal(company)" class="company-card__photo" data-toggle="modal">
     <img src="{{company.photo || 'http://placehold.it/220?text=no+photo'}}" alt="" class="company-card__img">
 
     <div class="company-card__specific">
@@ -10,7 +10,7 @@
     </div>
   </a>
   <div class="company-card__info">
-    <a href="#company-modal" class="company-card__title" data-toggle="modal">{{company.title}}</a>
+    <a href="#company-modal" class="company-card__title" data-toggle="modal" (click)="openCompanyModal(company)">{{company.title}}</a>
     <div class="company-card__location">{{company.locationDetail}}</div>
     <div class="company-card__price">$42.000</div>
     <div class="company-card__type"><i class="fa fa-building-o company-card__icon company-card__icon_type"></i>{{'Apartment' | translate}}</div>
@@ -22,4 +22,5 @@
       <i class="fa fa-star" data-score="5"></i>
     </div>
   </div>
+  <button data-target="#booking-modal" class="company-card__btn" (click)="openCompanyModal(company)" data-toggle="modal">Reserve</button>
 </div>

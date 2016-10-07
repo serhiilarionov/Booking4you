@@ -14,8 +14,8 @@
           {{currentUser.email}} <span class="caret"></span>
         </button>
         <ul class="dropdown-menu user-dropdown__list">
-          <a routerLink="/profile"><strong>Profile</strong></a>
-          <a routerLink="/profile/favorites"><strong>My Favorites</strong></a>
+          <a routerLink="/profile"><i class="fa fa-user"></i> <strong>Profile</strong></a>
+          <a routerLink="/profile/favorites"><i class="fa fa-star"></i> <strong>My Favorites</strong></a>
         </ul>
       </div>
       <a (click)="logout()">Logout</a>

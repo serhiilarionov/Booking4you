@@ -3,6 +3,7 @@
 $specific-height: 45px;
 
 .company-card {
+  position: relative;
   display: table;
   width: 100%;
   margin: 4px 4px 10px 4px;
@@ -97,15 +98,21 @@ $specific-height: 45px;
   }
 
   &__price {
+    font-size: 14px;
+    color: $c-blue-main;
+  }
+
+  &__btn {
     position: absolute;
     top: 0;
-    right: -2px;
+    right: 0;
     text-align: center;
     display: inline-block;
     padding: 4px 8px;
     font-size: 14px;
     font-weight: bold;
     color: #fff;
+    text-transform: uppercase;
     background: $c-blue-main;
   }
 

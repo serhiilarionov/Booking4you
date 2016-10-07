@@ -10,31 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var index_1 = require('../../../shared/index');
-var CompanyCardComponent = (function () {
-    function CompanyCardComponent() {
-        this.onCompanySelected = new core_1.EventEmitter();
+var BookingModalComponent = (function () {
+    function BookingModalComponent() {
     }
-    CompanyCardComponent.prototype.openCompanyModal = function (company) {
-        this.onCompanySelected.next(company);
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', index_1.Company)
-    ], CompanyCardComponent.prototype, "company", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], CompanyCardComponent.prototype, "onCompanySelected", void 0);
-    CompanyCardComponent = __decorate([
+    ], BookingModalComponent.prototype, "company", void 0);
+    BookingModalComponent = __decorate([
         core_1.Component({
-            selector: 'company-card',
-            templateUrl: 'scripts/components/company/card/company-card.component.html',
-            styleUrls: ['scripts/components/company/card/company-card.component.css'],
+            selector: 'booking-modal',
+            templateUrl: 'scripts/components/booking/modal/booking-modal.component.html',
+            styleUrls: ['scripts/components/booking/modal/booking-modal.component.css'],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [])
-    ], CompanyCardComponent);
-    return CompanyCardComponent;
+    ], BookingModalComponent);
+    return BookingModalComponent;
 }());
-exports.CompanyCardComponent = CompanyCardComponent;
-//# sourceMappingURL=company-card.component.js.map
+exports.BookingModalComponent = BookingModalComponent;
+//# sourceMappingURL=booking-modal.component.js.map

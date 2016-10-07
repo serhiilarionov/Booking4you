@@ -1,3 +1,3 @@
-<button (click)="toggleFavorite()" *ngIf="currentUser" class="add-to-favorite add-to-favorite__btn">
-    <i class="fa fa-star fa-lg fa-fw" [class.star-rating__star_active]="isAdded"></i>
+<button (click)="toggleFavorite()" *ngIf="currentUser" class="add-to-favorite add-to-favorite__btn" [class._active]="isAdded">
+    <i class="fa fa-heart fa-lg fa-fw"></i>
 </button>

@@ -1,0 +1,41 @@
+<h3 class="booking-form__title"><i class="fa fa-cogs" aria-hidden="true"></i> Reservation </h3>
+<section class="booking-form" >
+  <div class="booking-form__alert" *ngIf="submitSuccessfull === 'success'"> <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Reservation successfull!</span></div>
+  <div class="booking-form__alert" *ngIf="submitSuccessfull === 'fail'"> <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Something went wrong!</span></div>
+  <div class="booking-form__alert" *ngIf="!currentUser"> <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please Sign In!</span></div>
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+  <div class="booking-form__section _datetime">
+    <div class="form-group _date">
+      <label for="booking-form__date" class="booking-form__datetime-label clearfix">Date <i class="fa fa-calendar pull-right" aria-hidden="true"></i></label>
+        <input formControlName="bookingDate" type="text"
+               class="booking-form__input _date"
+               id="booking-form__date"
+               [(ngModel)]="date.value"
+               [datetimepicker]  #date required >
+    </div>
+
+    <div class="form-group _time">
+      <label for="booking-form__time" class="booking-form__datetime-label clearfix">Time <i class="fa fa-clock-o pull-right" aria-hidden="true"></i></label>
+      <input formControlName="bookingTime" type="text"
+             class="booking-form__input _time"
+             id="booking-form__time"
+             [(ngModel)]="time.value"
+             [datetimepicker]="{ format: 'LT', stepping: '5', showClear: true, locale: 'RU', showClose: true}"
+             #time required>
+    </div>
+  </div>
+
+  <fieldset class="booking-form__section _services" *ngIf="services?.length">
+    <header class="booking-form__section-header"><i class="fa fa-list" aria-hidden="true"></i> Select services</header>
+    <label *ngFor="let service of services" class="booking-form__chkbox-label"  [class._checked]="checkbox.checked">
+      <input formControlName="bookingService" type="checkbox"
+             class="booking-form__chkbox"
+             (change)="onCheck($event, service.id)"
+             [value]="service.id"  #checkbox>
+      <i class="fa fa-check booking-form__pseudo-chkbox" aria-hidden="true"></i>
+      {{service.name}}
+    </label>
+  </fieldset>
+  <button type="submit" class="booking-form__submit" [disabled]="submitSuccessfull || !currentUser">Reserve</button>
+</form>
+</section>

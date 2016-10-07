@@ -3,12 +3,13 @@
   display: inline-block;
   min-height: 22px;
   font-size: 16px;
+  color: $c-grey-bright;
 
   &__btn {
     padding: 0;
     margin: 0;
     &:hover,
-    &:active {
+    &._active {
       color: #ff513f;
       @include transition(all 400ms ease-in-out);
     }

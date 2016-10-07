@@ -24,13 +24,16 @@ export class ProfileFavoritesComponent {
     this.clientApi.getCompanies(this.currentUser.id)
       .subscribe((companyList: Array<Company>) => {
         this.companyList = companyList;
-        Object.keys(this.companyList).map((company) => {
-          if (this.categoryIdList.indexOf(this.companyList[company]['categoryId']) === -1) {
-            this.categoryIdList.push(this.companyList[company]['categoryId']);
-          }
-        });
-        this.filter.where.id.inq = this.categoryIdList;
-        this.getCategories();
+
+        if (this.companyList.length) {
+          Object.keys(this.companyList).map((company) => {
+            if (this.categoryIdList.indexOf(this.companyList[company]['categoryId']) === -1) {
+              this.categoryIdList.push(this.companyList[company]['categoryId']);
+            }
+          });
+          this.filter.where.id.inq = this.categoryIdList;
+          this.getCategories();
+        }
       });
   }
 
@@ -40,5 +43,4 @@ export class ProfileFavoritesComponent {
         this.categoryList = categoryList;
       });
   }
-
 }

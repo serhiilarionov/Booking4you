@@ -17,6 +17,8 @@ import { NearbyCompanies } from './company/details/nearby/nearby-companies.compo
 import { CompanyAddToUserFavorite } from './company/details/favorite/add-to-favorite.component';
 import { CompanyFilterComponent } from './company/filter/company-filter.component';
 import { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
+import { BookingFormComponent } from './booking/form/booking-form.component';
+import { BookingModalComponent } from './booking/modal/booking-modal.component';
 
 export { LoginFormComponent } from './auth/login-form.conponent';
 export { RegistrationFormComponent } from './auth/registration-form.conponent';
@@ -37,6 +39,9 @@ export { NearbyCompanies } from './company/details/nearby/nearby-companies.compo
 export { CompanyAddToUserFavorite } from './company/details/favorite/add-to-favorite.component';
 export { CompanyFilterComponent } from './company/filter/company-filter.component';
 export { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
+export { BookingFormComponent } from './booking/form/booking-form.component';
+export { BookingModalComponent } from './booking/modal/booking-modal.component';
+
 
 export const Components: Array<any> = [
   LoginFormComponent,
@@ -57,6 +62,9 @@ export const Components: Array<any> = [
   OnImageActivatedDirective,
   CommingSoonComponent,
   NearbyCompanies,
+  CompanyAddToUserFavorite,
+  BookingFormComponent,
+  BookingModalComponent,
   CompanyAddToUserFavorite,
   LangSwitcherComponent
 ];

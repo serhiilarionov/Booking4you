@@ -28,6 +28,9 @@ var CompanyListComponent = (function () {
                 this.gridViewType = false;
         }
     };
+    CompanyListComponent.prototype.onCompanySelected = function (company) {
+        this.selectedCompany = company;
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)

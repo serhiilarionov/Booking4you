@@ -18,6 +18,8 @@ var nearby_companies_component_1 = require('./company/details/nearby/nearby-comp
 var add_to_favorite_component_1 = require('./company/details/favorite/add-to-favorite.component');
 var company_filter_component_1 = require('./company/filter/company-filter.component');
 var lang_switcher_component_1 = require('./lang-switcher/lang-switcher.component');
+var booking_form_component_1 = require('./booking/form/booking-form.component');
+var booking_modal_component_1 = require('./booking/modal/booking-modal.component');
 var login_form_conponent_2 = require('./auth/login-form.conponent');
 exports.LoginFormComponent = login_form_conponent_2.LoginFormComponent;
 var registration_form_conponent_2 = require('./auth/registration-form.conponent');
@@ -56,6 +58,10 @@ var company_filter_component_2 = require('./company/filter/company-filter.compon
 exports.CompanyFilterComponent = company_filter_component_2.CompanyFilterComponent;
 var lang_switcher_component_2 = require('./lang-switcher/lang-switcher.component');
 exports.LangSwitcherComponent = lang_switcher_component_2.LangSwitcherComponent;
+var booking_form_component_2 = require('./booking/form/booking-form.component');
+exports.BookingFormComponent = booking_form_component_2.BookingFormComponent;
+var booking_modal_component_2 = require('./booking/modal/booking-modal.component');
+exports.BookingModalComponent = booking_modal_component_2.BookingModalComponent;
 exports.Components = [
     login_form_conponent_1.LoginFormComponent,
     registration_form_conponent_1.RegistrationFormComponent,
@@ -75,6 +81,9 @@ exports.Components = [
     on_image_activated_directive_1.OnImageActivatedDirective,
     comming_soon_component_1.CommingSoonComponent,
     nearby_companies_component_1.NearbyCompanies,
+    add_to_favorite_component_1.CompanyAddToUserFavorite,
+    booking_form_component_1.BookingFormComponent,
+    booking_modal_component_1.BookingModalComponent,
     add_to_favorite_component_1.CompanyAddToUserFavorite,
     lang_switcher_component_1.LangSwitcherComponent
 ];

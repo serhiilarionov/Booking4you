@@ -1,4 +1,4 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation } from '@angular/core';
 import {Company} from '../../../shared/index';
 
 @Component({
@@ -8,7 +8,7 @@ import {Company} from '../../../shared/index';
   encapsulation: ViewEncapsulation.None
 })
 export class CompanyListComponent {
-  public selectedCompany: Company;
+  public selectedCompany: any;
   @Input() gridViewType: boolean = false;
   @Input() filterActive: boolean = false;
   @Input() viewTypeActive: boolean = true;
@@ -29,5 +29,9 @@ export class CompanyListComponent {
       default:
         this.gridViewType = false;
     }
+  }
+
+  onCompanySelected(company: Company) {
+    this.selectedCompany = company;
   }
 }

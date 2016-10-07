@@ -1,0 +1,181 @@
+.booking-form {
+  position: relative;
+  display: block;
+  padding: 20px;
+  font-family: "Ubuntu", sans-serif; }
+  .booking-form__alert {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-basis: 100%;
+    -moz-flex-basis: 100%;
+    flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-pack: distribute;
+    -moz-box-pack: distribute;
+    box-pack: distribute;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around;
+    -ms-flex-pack: distribute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #0094e9;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.9); }
+  .booking-form__title {
+    font-size: 22px;
+    margin: 0;
+    padding: 15px 20px;
+    color: #fff;
+    background: #2E2E2E; }
+  .booking-form .form-group {
+    margin-bottom: 0; }
+  .booking-form__section-header {
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #474747; }
+  .booking-form label {
+    display: block; }
+  .booking-form__section {
+    margin-bottom: 15px; }
+    .booking-form__section._datetime {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex; }
+  .booking-form .form-group {
+    position: relative; }
+    .booking-form .form-group._date {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1 0 100px;
+      -moz-flex: 1 0 100px;
+      -ms-flex: 1 0 100px;
+      flex: 1 0 100px;
+      max-width: 200px;
+      margin-right: 10px; }
+    .booking-form .form-group._time {
+      -webkit-box-flex: 0;
+      -moz-box-flex: 0;
+      box-flex: 0;
+      -webkit-flex: 0 0 80px;
+      -moz-flex: 0 0 80px;
+      -ms-flex: 0 0 80px;
+      flex: 0 0 80px; }
+  .booking-form__input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: block;
+    background: #fff;
+    border: 1px solid rgba(71, 71, 71, 0.5); }
+    .booking-form__input-wrapper {
+      position: relative;
+      display: inline-block; }
+    .booking-form__input-icon {
+      position: absolute;
+      z-index: 1;
+      right: 10px;
+      top: 12px; }
+  .booking-form__chkbox {
+    display: none; }
+  .booking-form__pseudo-chkbox {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 16px;
+    opacity: .25;
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    transition: all 400ms ease; }
+    .booking-form__pseudo-chkbox:before {
+      position: absolute;
+      top: 5%;
+      left: 10%; }
+  .booking-form__chkbox-label {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: 7px 5px 7px 35px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    vertical-align: middle;
+    text-wrap: none;
+    background: #fff; }
+    .booking-form__chkbox-label._checked {
+      color: #474747; }
+      .booking-form__chkbox-label._checked .booking-form__pseudo-chkbox {
+        opacity: 1; }
+  .booking-form__submit {
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #474747;
+    color: #fff;
+    text-align: center; }
+  .booking-form__datetime-label {
+    position: relative; }
+
+booking-form._blue .booking-form {
+  background: #fff;
+  padding: 15px; }
+  booking-form._blue .booking-form__title {
+    background: #36B6FF; }
+  booking-form._blue .booking-form__section-header {
+    background: #36B6FF;
+    color: #fff;
+    border-bottom: none; }
+  booking-form._blue .booking-form__input {
+    color: #8a8888;
+    font-size: 16px;
+    background: #f2faff;
+    border: none; }
+  booking-form._blue .booking-form__chkbox-label {
+    border: none; }
+    booking-form._blue .booking-form__chkbox-label._checked {
+      color: #36B6FF; }
+      booking-form._blue .booking-form__chkbox-label._checked .booking-form__pseudo-chkbox {
+        opacity: 1; }
+  booking-form._blue .booking-form__pseudo-chkbox {
+    background: #36B6FF;
+    color: #fff; }
+  booking-form._blue .booking-form__datetime-label {
+    padding: 5px 10px;
+    background: #36B6FF;
+    color: #fff;
+    margin-bottom: 0; }
+  booking-form._blue .booking-form__submit {
+    background: #36B6FF; }

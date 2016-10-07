@@ -1,0 +1,26 @@
+<div class="modal fade" id="booking-modal" *ngIf="company" custom-scrollbar custom-scrollbar-theme="minimal">
+  <div class="modal__wrapper _booking">
+    <div class="modal__header">
+      <h2 class="modal__title">{{company.name}}</h2>
+      <div class="modal__location-detail">{{company.locationDetail}}</div>
+      <small class="modal__rating">
+        <i class="fa fa-star fa-star_active" data-score="1"></i>
+        <i class="fa fa-star fa-star_active" data-score="2"></i>
+        <i class="fa fa-star fa-star_active" data-score="3"></i>
+        <i class="fa fa-star" data-score="4"></i>
+        <i class="fa fa-star" data-score="5"></i>
+      </small>
+      <button class="modal__close" data-dismiss="modal">
+        <i class="fa fa-close"></i>
+      </button>
+    </div>
+    <div class="modal__body">
+
+      <div class="modal__wrapper_booking-wrapper">
+        <booking-form [company]="company"></booking-form>
+      </div>
+
+
+    </div>
+  </div>
+</div>

@@ -57,7 +57,9 @@
       @include transition(all 300ms ease-in-out);
 
       .company-card {
-        display: block;
+        @include display(flex);
+        @include flex-direction(column);
+        @include justify-content(space-between);
 
         &__photo {
           display: block;
@@ -92,6 +94,12 @@
 
         &__rating {
           display: block;
+        }
+
+        &__btn {
+          position: relative;
+          text-transform: uppercase;
+          height: 30px;
         }
       }
     }

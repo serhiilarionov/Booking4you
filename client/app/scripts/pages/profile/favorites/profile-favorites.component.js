@@ -23,13 +23,15 @@ var ProfileFavoritesComponent = (function () {
         this.clientApi.getCompanies(this.currentUser.id)
             .subscribe(function (companyList) {
             _this.companyList = companyList;
-            Object.keys(_this.companyList).map(function (company) {
-                if (_this.categoryIdList.indexOf(_this.companyList[company]['categoryId']) === -1) {
-                    _this.categoryIdList.push(_this.companyList[company]['categoryId']);
-                }
-            });
-            _this.filter.where.id.inq = _this.categoryIdList;
-            _this.getCategories();
+            if (_this.companyList.length) {
+                Object.keys(_this.companyList).map(function (company) {
+                    if (_this.categoryIdList.indexOf(_this.companyList[company]['categoryId']) === -1) {
+                        _this.categoryIdList.push(_this.companyList[company]['categoryId']);
+                    }
+                });
+                _this.filter.where.id.inq = _this.categoryIdList;
+                _this.getCategories();
+            }
         });
     };
     ProfileFavoritesComponent.prototype.getCategories = function () {

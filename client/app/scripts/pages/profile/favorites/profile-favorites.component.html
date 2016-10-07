@@ -1,4 +1,4 @@
-<div class="cold-md-3 col-sm-3">
+<div class="col-sm-3" *ngIf="categoryList">
     <div class="profile-favorites-filter">
         <button (click)="selectedCategory = null" class="profile-favorites-filter__btn"
                 [class._active]="!selectedCategory">All items
@@ -12,6 +12,6 @@
 
 </div>
 
-<div class="col-md-9 col-sm-9">
+<div [class.col-sm-9]="categoryList" [class.col-sm-12]="!categoryList">
     <company-list [companyList]="companyList" [showTitle]="false" [categoryId]="selectedCategory"></company-list>
 </div>
