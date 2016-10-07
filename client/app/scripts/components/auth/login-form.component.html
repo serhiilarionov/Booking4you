@@ -1,27 +1,27 @@
 <div class="login-form">
   <header>
-    <h2 class="page-title">Войти</h2>
+    <h2 class="page-title">{{'Sign in' | translate}}</h2>
   </header>
   <hr>
   <form role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group" [ngClass]="{'has-warning': loginForm.controls.email.invalid && (loginForm.controls.email.touched || submitted)}">
-      <label for="email">Email:</label>
+      <label for="email">{{'Email' | translate}}:</label>
       <input type="email" class="form-control" id="email" formControlName="email">
       <div *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.touched || submitted)" class="help-block text-warning">
-        <span *ngIf="loginForm.controls.email.errors.required">Это поле обязательно.</span>
-        <span *ngIf="loginForm.controls.email.errors.pattern">Введите корректный email.</span>
+        <span *ngIf="loginForm.controls.email.errors.required">{{'This field is required.' | translate}}</span>
+        <span *ngIf="loginForm.controls.email.errors.pattern">{{'Enter a valid email.' | translate}}</span>
       </div>
     </div>
     <div class="form-group" [ngClass]="{'has-warning': loginForm.controls.password.invalid && (loginForm.controls.password.touched || submitted)}">
-      <label for="password">Пароль:</label>
+      <label for="password">{{'Password' | translate}}:</label>
       <input type="password" class="form-control" id="password" formControlName="password">
       <div *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.touched || submitted)" class="help-block text-warning">
-        <span *ngIf="loginForm.controls.password.errors.required">Это поле обязательно.</span>
-        <span *ngIf="loginForm.controls.password.errors.minlength">Пароль должен быть минимум {{passwordMinLength}} символов.</span>
+        <span *ngIf="loginForm.controls.password.errors.required">{{'This field is required.' | translate}}</span>
+        <span *ngIf="loginForm.controls.password.errors.minlength">{{'Password must be of minimum PASSWORD_MIN_LENGTH characters length.' | translate:{PASSWORD_MIN_LENGTH: passwordMinLength} }}</span>
       </div>
     </div>
     <div class="form-group clearfix">
-      <button type="submit" class="btn pull-right btn-default" id="account-submit">Войти</button>
+      <button type="submit" class="btn pull-right btn-default" id="account-submit">{{'Sign in' | translate}}</button>
     </div>
   </form>
 </div>

@@ -17,6 +17,7 @@ var on_image_activated_directive_1 = require('./image-gallery/on-image-activated
 var nearby_companies_component_1 = require('./company/details/nearby/nearby-companies.component');
 var add_to_favorite_component_1 = require('./company/details/favorite/add-to-favorite.component');
 var company_filter_component_1 = require('./company/filter/company-filter.component');
+var lang_switcher_component_1 = require('./lang-switcher/lang-switcher.component');
 var login_form_conponent_2 = require('./auth/login-form.conponent');
 exports.LoginFormComponent = login_form_conponent_2.LoginFormComponent;
 var registration_form_conponent_2 = require('./auth/registration-form.conponent');
@@ -53,6 +54,8 @@ var add_to_favorite_component_2 = require('./company/details/favorite/add-to-fav
 exports.CompanyAddToUserFavorite = add_to_favorite_component_2.CompanyAddToUserFavorite;
 var company_filter_component_2 = require('./company/filter/company-filter.component');
 exports.CompanyFilterComponent = company_filter_component_2.CompanyFilterComponent;
+var lang_switcher_component_2 = require('./lang-switcher/lang-switcher.component');
+exports.LangSwitcherComponent = lang_switcher_component_2.LangSwitcherComponent;
 exports.Components = [
     login_form_conponent_1.LoginFormComponent,
     registration_form_conponent_1.RegistrationFormComponent,
@@ -72,6 +75,7 @@ exports.Components = [
     on_image_activated_directive_1.OnImageActivatedDirective,
     comming_soon_component_1.CommingSoonComponent,
     nearby_companies_component_1.NearbyCompanies,
-    add_to_favorite_component_1.CompanyAddToUserFavorite
+    add_to_favorite_component_1.CompanyAddToUserFavorite,
+    lang_switcher_component_1.LangSwitcherComponent
 ];
 //# sourceMappingURL=index.js.map

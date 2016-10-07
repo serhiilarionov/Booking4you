@@ -1,11 +1,11 @@
 <a *ngIf="!branch.children"
-   routerLink="{{branch.link}}">{{branch.name}}
+   routerLink="{{branch.link}}">{{branch.name | translate}}
 </a>
 <a *ngIf="branch.children"
    data-toggle="collapse"
    aria-expanded="false"
    class="has-children"
-   href="{{'#'+id+branch.link}}">{{branch.name}}
+   href="{{'#'+id+branch.link}}">{{branch.name | translate}}
     <span>
       <i class="fa fa-plus"></i>
       <i class="fa fa-minus"></i>

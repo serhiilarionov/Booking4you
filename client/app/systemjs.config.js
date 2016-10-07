@@ -7,6 +7,7 @@
   var map = {
     'app': 'scripts', // 'dist',
     '@angular': 'node_modules/@angular',
+    'ng2-translate': 'node_modules/ng2-translate/bundles',
     'rxjs': 'node_modules/rxjs',
     'angular2-google-maps': 'node_modules/angular2-google-maps',
     'info-box': 'vendor/v3-utility-library/infobox',
@@ -18,7 +19,8 @@
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-google-maps/core':  { main: 'index.js',  defaultExtension: 'js' },
     'info-box':                   { main: 'src/infobox.js',  defaultExtension: 'js' },
-    'rich-marker':                { main: 'src/richmarker-compiled.js',  defaultExtension: 'js' }
+    'rich-marker':                { main: 'src/richmarker-compiled.js',  defaultExtension: 'js' },
+    'ng2-translate':              { defaultExtension: 'js' }
   };
   var ngPackageNames = [
     'common',

@@ -16,6 +16,7 @@ import { OnImageActivatedDirective } from './image-gallery/on-image-activated.di
 import { NearbyCompanies } from './company/details/nearby/nearby-companies.component';
 import { CompanyAddToUserFavorite } from './company/details/favorite/add-to-favorite.component';
 import { CompanyFilterComponent } from './company/filter/company-filter.component';
+import { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
 
 export { LoginFormComponent } from './auth/login-form.conponent';
 export { RegistrationFormComponent } from './auth/registration-form.conponent';
@@ -35,6 +36,7 @@ export { OnImageActivatedDirective } from './image-gallery/on-image-activated.di
 export { NearbyCompanies } from './company/details/nearby/nearby-companies.component';
 export { CompanyAddToUserFavorite } from './company/details/favorite/add-to-favorite.component';
 export { CompanyFilterComponent } from './company/filter/company-filter.component';
+export { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
 
 export const Components: Array<any> = [
   LoginFormComponent,
@@ -55,5 +57,6 @@ export const Components: Array<any> = [
   OnImageActivatedDirective,
   CommingSoonComponent,
   NearbyCompanies,
-  CompanyAddToUserFavorite
+  CompanyAddToUserFavorite,
+  LangSwitcherComponent
 ];

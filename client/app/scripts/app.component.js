@@ -12,12 +12,16 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('./shared/index');
 var index_2 = require('./shared/index');
+var ng2_translate_1 = require('ng2-translate/ng2-translate');
 var AppComponent = (function () {
-    function AppComponent(sidebar, el, router) {
+    function AppComponent(sidebar, el, router, translate) {
         var _this = this;
         this.sidebar = sidebar;
         this.el = el;
         this.router = router;
+        this.translate = translate;
+        this.translate.setDefaultLang('ru');
+        this.translate.use('ru');
         this.$el = $(el.nativeElement);
         index_2.LoopBackConfig.setBaseURL(index_2.BASE_URL);
         index_2.LoopBackConfig.setApiVersion(index_2.API_VERSION);
@@ -37,7 +41,7 @@ var AppComponent = (function () {
             styleUrls: ['scripts/app.component.css'],
             encapsulation: core_1.ViewEncapsulation.None,
         }), 
-        __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef, router_1.Router])
+        __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef, router_1.Router, ng2_translate_1.TranslateService])
     ], AppComponent);
     return AppComponent;
 }());

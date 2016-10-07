@@ -9,6 +9,7 @@ import { Pages } from './pages/index';
 import { Components } from './components/index';
 import { Services, Directives, Pipes } from './shared/index';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { TranslateModule } from 'ng2-translate/ng2-translate';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     SDKModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAp4wClu7rjAWLAavgCRv5FhM0G9CZeUNI'
-    })
+    }),
+    TranslateModule.forRoot()
   ],
   declarations: [AppComponent, ...Parts, ...Pages, ...Directives, ...Pipes, ...Components],
   bootstrap: [AppComponent],

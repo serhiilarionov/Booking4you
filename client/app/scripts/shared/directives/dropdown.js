@@ -17,7 +17,7 @@ var Dropdown = (function () {
     }
     Dropdown.prototype.ngAfterViewInit = function () {
         var _this = this;
-        this.$el.selectpicker();
+        this.$el.selectpicker({ width: this.width });
         this.$el.on('changed.bs.select', function () {
             _this.onSelected.next(_this.$el.selectpicker('val'));
         });
@@ -40,6 +40,10 @@ var Dropdown = (function () {
         core_1.Input(), 
         __metadata('design:type', Object)
     ], Dropdown.prototype, "selected", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], Dropdown.prototype, "width", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)

@@ -21,7 +21,7 @@
                     <image-gallery></image-gallery>
                 </div>
                 <div class="modal__features">
-                    <header>Features</header>
+                    <header>{{'Features' | translate}}</header>
                     <ul>
                         <li><i class="fa fa-circle"></i>Lorem ipsum.</li>
                         <li><i class="fa fa-circle"></i>Aut, consequuntur.</li>
@@ -35,13 +35,13 @@
             </div>
             <div class="modal__right">
                 <header>
-                    Description
+                    {{'Description' | translate}}
                 </header>
                 <div class="modal__right-description">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis cum debitis dicta dignissimos dolorum eum facere fugiat id illum maiores maxime molestias mollitia natus, neque nihil odio officia perferendis, placeat possimus quae quibusdam quo, quos suscipit ullam vel velit vero voluptas voluptate voluptatem. Aliquid debitis molestias nam odio sit.
                 </div>
                 <header>
-                    Overview
+                    {{'Overview' | translate}}
                 </header>
                 <ul class="modal__props">
                     <li>Bedrooms <span>2</span></li>
@@ -49,7 +49,7 @@
                     <li>Garages <span>1</span></li>
                 </ul>
                 <header>
-                    Last Review
+                    {{'Last review' | translate}}
                 </header>
                 <div class="modal__right-description">
                     <small class="modal__rating">
@@ -61,7 +61,7 @@
                     </small>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet aperiam blanditiis dolore ipsum libero sapiente sint tempore ullam velit.</p>
                 </div>
-                <a [routerLink]="['/company-details/', company.id]" data-dismiss="modal" class="modal__show-detail">Show Detail</a>
+                <a [routerLink]="['/company-details/', company.id]" data-dismiss="modal" class="modal__show-detail">{{'Show detail' | translate}}</a>
             </div>
         </div>
     </div>

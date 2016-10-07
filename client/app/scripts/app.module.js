@@ -19,6 +19,7 @@ var index_2 = require('./pages/index');
 var index_3 = require('./components/index');
 var index_4 = require('./shared/index');
 var core_2 = require('angular2-google-maps/core');
+var ng2_translate_1 = require('ng2-translate/ng2-translate');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,7 +32,8 @@ var AppModule = (function () {
                 sdk_module_1.SDKModule.forRoot(),
                 core_2.AgmCoreModule.forRoot({
                     apiKey: 'AIzaSyAp4wClu7rjAWLAavgCRv5FhM0G9CZeUNI'
-                })
+                }),
+                ng2_translate_1.TranslateModule.forRoot()
             ],
             declarations: [app_component_1.AppComponent].concat(index_1.Parts, index_2.Pages, index_4.Directives, index_4.Pipes, index_3.Components),
             bootstrap: [app_component_1.AppComponent],

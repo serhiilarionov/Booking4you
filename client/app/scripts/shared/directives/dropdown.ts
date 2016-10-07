@@ -9,6 +9,7 @@ declare var $: any;
 export class Dropdown implements OnChanges, AfterViewInit {
   @Input() public items: any[];
   @Input() public selected: any;
+  @Input() public width: string;
   @Output() public onSelected = new EventEmitter();
   private $el: any;
 
@@ -17,7 +18,7 @@ export class Dropdown implements OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.$el.selectpicker();
+    this.$el.selectpicker({width: this.width});
     this.$el.on('changed.bs.select', () => {
       this.onSelected.next(this.$el.selectpicker('val'));
     });

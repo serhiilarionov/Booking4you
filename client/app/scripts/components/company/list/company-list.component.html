@@ -4,12 +4,11 @@
 
 <div class="company-list__section">
   <div class="company-list__header clearfix">
-    <h4 *ngIf="showTitle" class="company-list__title pull-left">Result
+    <h4 *ngIf="showTitle" class="company-list__title pull-left">{{'Result' | translate}}
       <small *ngIf="companyList?.length" class="text-muted">
         ({{companyList.length}}
-        <span *ngIf="companyList.length > 1">companies</span>
-        <span *ngIf="companyList.length === 1">company</span>
-        found)
+        <span *ngIf="companyList.length > 1">{{'companies found' | translate}}</span>
+        <span *ngIf="companyList.length === 1">{{'company found' | translate}}</span>)
       </small>
     </h4>
 
@@ -31,7 +30,7 @@
 
   <div *ngIf="companyList == 0" class="text-muted text-center company-list__warning">
     <i class="fa fa-lg fa-search"></i>
-    Nothing to show.
+    {{'No companies' | translate}}
   </div>
 </div>
 

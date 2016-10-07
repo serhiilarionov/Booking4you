@@ -1,0 +1,13 @@
+@import "main";
+
+lang-switcher {
+  margin: 0 5px;
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
+
+  .btn {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
