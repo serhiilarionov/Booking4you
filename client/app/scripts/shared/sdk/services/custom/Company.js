@@ -1701,6 +1701,39 @@ var CompanyApi = (function (_super) {
         });
     };
     /**
+     * <em>
+           * (The remote method definition does not provide any description.)
+           * </em>
+     *
+     * @param string bound
+     *
+     * @param number categoryId
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Company` object.)
+     * </em>
+     */
+    CompanyApi.prototype.byGeo = function (bound, categoryId) {
+        if (categoryId === void 0) { categoryId = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/byGeo";
+        var routeParams = {};
+        var postBody = {};
+        var urlParams = {};
+        if (bound)
+            urlParams.bound = bound;
+        if (categoryId)
+            urlParams.categoryId = categoryId;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * Creates a new instance in location of this model.
      *
      * @param any id PersistedModel id

@@ -1700,6 +1700,37 @@ export class CompanyApi extends BaseLoopBackApi {
   }
 
   /**
+   * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+   *
+   * @param string bound 
+   *
+   * @param number categoryId 
+   *
+   * @returns object An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Company` object.)
+   * </em>
+   */
+  public byGeo(bound: any, categoryId: any = undefined) {
+    let method: string = "GET";
+    let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/companies/byGeo";
+    let routeParams: any = {};
+    let postBody: any = {};
+    let urlParams: any = {};
+    if (bound) urlParams.bound = bound;
+    if (categoryId) urlParams.categoryId = categoryId;
+    let result = this.request(method, url, routeParams, urlParams, postBody);
+    return result;
+  }
+
+  /**
    * Creates a new instance in location of this model.
    *
    * @param any id PersistedModel id
