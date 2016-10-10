@@ -122,27 +122,39 @@ module.exports = function (Company) {
    * @param cb
    */
   Company.byGeo = function (bound, cb) {
-
     var ds = Company.dataSource;
-    var sql = "SELECT * from company where " +
+    var sql = "SELECT id, title, photo, point, categoryid, cityid from company where " +
       "ST_GeomFromText('POINT' || " +
       "replace('' || company.point, ',', ' '), 4326) " +
       "&& ST_MakeEnvelope(" + bound + ");";
 
-    ds.connector.query(sql, [], function (err, company) {
+    ds.connector.query(sql, [], function (err, companies) {
       if (err) console.error(err);
-      cb(err, company);
+      companies.forEach(function(company) {
+        company.point.lat = company.point.y;
+        company.point.lng = company.point.x;
+        company.categoryId = company.categoryid;
+        company.cityId = company.cityid;
+        
+        delete company.point.x;
+        delete company.point.y;
+        delete company.cityid;
+        delete company.categoryid;
+      });
+
+      cb(err, companies);
     });
   };
-
-  Company.remoteMethod(
-    'byGeo',
-    {
-      accepts: [
-        {arg: 'bound', type: 'string', required: true}
-      ],
-      http: {path: '/byGeo', verb: 'get'},
-      returns: {arg: 'result', type: 'object'}
+  
+  Company.remoteMethod('byGeo', {
+    accepts: [
+      {arg: 'bound', type: 'string', required: false}
+    ],
+    returns: [
+      {arg:"data",type:"Company",root:true}
+    ],
+    http: {
+      verb: 'get'
     }
-  )
+  });
 };
