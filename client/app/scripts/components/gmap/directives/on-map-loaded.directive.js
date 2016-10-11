@@ -10,29 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var core_2 = require('angular2-google-maps/core');
-var OnMarkerLoaded = (function () {
-    function OnMarkerLoaded(markerManager, marker) {
-        this.markerManager = markerManager;
-        this.marker = marker;
-        this.onMarkerLoaded = new core_1.EventEmitter();
+var OnMapLoaded = (function () {
+    function OnMapLoaded(googleMapsAPIWrapper) {
+        this.googleMapsAPIWrapper = googleMapsAPIWrapper;
+        this.onMapLoaded = new core_1.EventEmitter();
     }
-    OnMarkerLoaded.prototype.ngOnInit = function () {
-        var _this = this;
-        this.markerManager.getNativeMarker(this.marker).then(function (marker) {
-            _this.onMarkerLoaded.next(marker);
-        });
+    OnMapLoaded.prototype.ngOnInit = function () {
+        this.onMapLoaded.next(this.googleMapsAPIWrapper);
     };
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
-    ], OnMarkerLoaded.prototype, "onMarkerLoaded", void 0);
-    OnMarkerLoaded = __decorate([
+    ], OnMapLoaded.prototype, "onMapLoaded", void 0);
+    OnMapLoaded = __decorate([
         core_1.Directive({
-            selector: '[onMarkerLoaded]'
+            selector: '[onMapLoaded]'
         }), 
-        __metadata('design:paramtypes', [core_2.MarkerManager, core_2.SebmGoogleMapMarker])
-    ], OnMarkerLoaded);
-    return OnMarkerLoaded;
+        __metadata('design:paramtypes', [core_2.GoogleMapsAPIWrapper])
+    ], OnMapLoaded);
+    return OnMapLoaded;
 }());
-exports.OnMarkerLoaded = OnMarkerLoaded;
-//# sourceMappingURL=on-marker-loaded.directive.js.map
+exports.OnMapLoaded = OnMapLoaded;
+//# sourceMappingURL=on-map-loaded.directive.js.map

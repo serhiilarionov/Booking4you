@@ -9,60 +9,106 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var index_1 = require('../../shared/index');
 var styles_1 = require('./styles');
 var GmapComponent = (function () {
-    function GmapComponent() {
+    function GmapComponent(cityApi, route) {
+        this.cityApi = cityApi;
+        this.route = route;
         this.markerIconUrl = 'scripts/components/gmap/images/spotlight-poi.png';
+        this.activeCompanyList = [];
         this.richMarkers = [];
-        this.nativeMarkers = [];
-        this.markersObservable = new core_1.EventEmitter();
-        this.markerClicked = new core_1.EventEmitter();
-        this.zoomChange = new core_1.EventEmitter();
+        this.companyIds = [];
+        this.markersToAdd = [];
+        this.markersToRemove = [];
         this.styles = styles_1.styles;
         this.bounds = { east: 38, north: 50, south: 46, west: 24 };
+        this.markerClicked = new core_1.EventEmitter();
         this.enableClusterer = false;
         this.enableInfoBox = false;
+        this.boundsChanged = new core_1.EventEmitter();
     }
-    GmapComponent.prototype.ngOnChanges = function (changes) {
-        if ('companyList' in changes && changes['companyList'].currentValue) {
-            if (!this.companyList.length) {
-                // hide infobox when new companyList
-                if (this.infoBox) {
-                    this.infoBox.setVisible(false);
-                }
-                // reset markers input for gmap-marker-clusterer component if company list is empty
-                this.richMarkers.forEach(function (marker) {
-                    marker.onRemove();
+    GmapComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.queryParams.subscribe(function (params) {
+            if ('cityId' in params) {
+                _this.cityApi.findById(params['cityId']).subscribe(function (city) {
+                    var res = city.bound.split(', ');
+                    _this.bounds = {
+                        west: parseFloat(res[0]),
+                        north: parseFloat(res[1]),
+                        east: parseFloat(res[2]),
+                        south: parseFloat(res[3])
+                    };
                 });
-                this.richMarkers = [];
-                this.nativeMarkers = [];
             }
-            else {
-                this.calculateBounds();
-            }
+        });
+    };
+    GmapComponent.prototype.ngOnChanges = function (changes) {
+        if ('companyList' in changes) {
+            this.updateMarkers();
         }
     };
-    GmapComponent.prototype.onMarkerLoaded = function (marker) {
-        this.nativeMarkers.push(marker);
-        this.markersObservable.next(this.nativeMarkers);
+    GmapComponent.prototype.onMarkerClustererLoaded = function (markerClusterer) {
+        this.markerClusterer = markerClusterer;
+    };
+    GmapComponent.prototype.onRichMarkerCreated = function (richMarker) {
+        this.richMarkers.push(richMarker);
     };
     GmapComponent.prototype.onMarkerClicked = function (companyMarker) {
         this.markerClicked.next(companyMarker);
     };
-    GmapComponent.prototype.onRichMarkerCreated = function (marker) {
-        this.richMarkers.push(marker);
-    };
     GmapComponent.prototype.onInfoBoxCreated = function (infoBox) {
         this.infoBox = infoBox;
     };
-    GmapComponent.prototype.calculateBounds = function () {
-        var lats = this.companyList.map(function (company) { return company.point.lat; });
-        var lngs = this.companyList.map(function (company) { return company.point.lng; });
-        var east = Math.max.apply(null, lngs);
-        var north = Math.max.apply(null, lats);
-        var south = Math.min.apply(null, lats);
-        var west = Math.min.apply(null, lngs);
-        this.bounds = { east: east, north: north, south: south, west: west };
+    GmapComponent.prototype.onMapLoaded = function (googleMapsAPIWrapper) {
+        this.googleMapsAPIWrapper = googleMapsAPIWrapper;
+        this.googleMapsAPIWrapper.getNativeMap().then(function (map) {
+            map.setOptions(Object.create({ minZoom: 8 }));
+        });
+    };
+    GmapComponent.prototype.onZoomChanged = function () {
+        if (this.infoBox) {
+            this.infoBox.setVisible(false);
+        }
+    };
+    GmapComponent.prototype.idle = function () {
+        var _this = this;
+        if (!this.googleMapsAPIWrapper) {
+            return;
+        }
+        this.googleMapsAPIWrapper.getBounds().then(function (bounds) {
+            _this.boundsChanged.next(bounds);
+        });
+    };
+    GmapComponent.prototype.updateMarkers = function () {
+        var _this = this;
+        var newCompanyListIds = [];
+        // check for new companies
+        this.companyList.forEach(function (company) {
+            newCompanyListIds.push(company.id);
+            if (_this.companyIds.indexOf(company.id) === -1) {
+                _this.activeCompanyList.push(company);
+                _this.companyIds.push(company.id);
+            }
+        });
+        // check for companies that should be removed
+        this.companyIds.forEach(function (id, indexOfCompany) {
+            if (newCompanyListIds.indexOf(id) === -1) {
+                _this.companyIds.splice(indexOfCompany, 1);
+                var companyToRemove_1 = _this.activeCompanyList.splice(indexOfCompany, 1)[0];
+                var indexOfRichMarker_1;
+                _this.richMarkers.forEach(function (richMarker, index) {
+                    if (Number((richMarker.getPosition().lat() / companyToRemove_1.point.lat).toFixed(5)) === 1 &&
+                        Number((richMarker.getPosition().lng() / companyToRemove_1.point.lng).toFixed(5)) === 1) {
+                        indexOfRichMarker_1 = index;
+                        richMarker.onRemove();
+                    }
+                });
+                _this.richMarkers.splice(indexOfRichMarker_1, 1);
+            }
+        });
     };
     __decorate([
         core_1.Input(), 
@@ -76,6 +122,10 @@ var GmapComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Boolean)
     ], GmapComponent.prototype, "enableInfoBox", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], GmapComponent.prototype, "boundsChanged", void 0);
     GmapComponent = __decorate([
         core_1.Component({
             selector: 'gmap',
@@ -83,7 +133,7 @@ var GmapComponent = (function () {
             styleUrls: ['scripts/components/gmap/gmap.component.css'],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.CityApi, router_1.ActivatedRoute])
     ], GmapComponent);
     return GmapComponent;
 }());

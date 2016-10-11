@@ -21,7 +21,7 @@ export class GmapInfoBoxComponent implements OnInit {
   public map: GoogleMap;
   public marker: Marker;
   @Input() public markerClicked: EventEmitter<Marker>;
-  @Output() public onInfoBoxCreated: EventEmitter<any> = new EventEmitter();
+  @Output() public onInfoBoxCreated: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private googleMapsAPIWrapper: GoogleMapsAPIWrapper,

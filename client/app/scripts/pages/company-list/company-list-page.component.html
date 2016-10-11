@@ -1,4 +1,8 @@
 <div id="map-list-wrapper" class="company-list-page">
   <company-list class="company-list" [companyList]="companyList" [filterActive]="true" custom-scrollbar></company-list>
-  <gmap class="gmap" [companyList]="companyList" [enableClusterer]="true" [enableInfoBox]="true"></gmap>
+  <gmap class="gmap"
+        [companyList]="companyList"
+        [enableClusterer]="true"
+        [enableInfoBox]="true"
+        (boundsChanged)="onBoundsChanged($event)"></gmap>
 </div>

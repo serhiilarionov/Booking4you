@@ -6,8 +6,8 @@ var company_card_component_1 = require('./company/card/company-card.component');
 var company_modal_component_1 = require('./company/modal/company-modal.component');
 var hero_component_1 = require('./hero/hero.component');
 var gmap_component_1 = require('./gmap/gmap.component');
-var on_marker_loaded_directive_1 = require('./gmap/directives/on-marker-loaded.directive');
-var on_marker_clicked_directive_1 = require('./gmap/directives/on-marker-clicked.directive');
+var on_map_loaded_directive_1 = require('./gmap/directives/on-map-loaded.directive');
+var on_marker_events_directive_1 = require('./gmap/directives/on-marker-events.directive');
 var gmap_marker_clusterer_directive_1 = require('./gmap/directives/gmap-marker-clusterer.directive');
 var gmap_info_box_component_1 = require('./gmap/components/gmap-info-box.component');
 var gmap_rich_marker_component_1 = require('./gmap/components/gmap-rich-marker.component');
@@ -34,10 +34,10 @@ var hero_component_2 = require('./hero/hero.component');
 exports.HeroComponent = hero_component_2.HeroComponent;
 var gmap_component_2 = require('./gmap/gmap.component');
 exports.GmapComponent = gmap_component_2.GmapComponent;
-var on_marker_loaded_directive_2 = require('./gmap/directives/on-marker-loaded.directive');
-exports.OnMarkerLoaded = on_marker_loaded_directive_2.OnMarkerLoaded;
-var on_marker_clicked_directive_2 = require('./gmap/directives/on-marker-clicked.directive');
-exports.OnMarkerClicked = on_marker_clicked_directive_2.OnMarkerClicked;
+var on_map_loaded_directive_2 = require('./gmap/directives/on-map-loaded.directive');
+exports.OnMapLoaded = on_map_loaded_directive_2.OnMapLoaded;
+var on_marker_events_directive_2 = require('./gmap/directives/on-marker-events.directive');
+exports.OnMarkerEvents = on_marker_events_directive_2.OnMarkerEvents;
 var gmap_marker_clusterer_directive_2 = require('./gmap/directives/gmap-marker-clusterer.directive');
 exports.GmapMarkerClusterer = gmap_marker_clusterer_directive_2.GmapMarkerClusterer;
 var gmap_info_box_component_2 = require('./gmap/components/gmap-info-box.component');
@@ -71,8 +71,8 @@ exports.Components = [
     company_filter_component_1.CompanyFilterComponent,
     hero_component_1.HeroComponent,
     gmap_component_1.GmapComponent,
-    on_marker_loaded_directive_1.OnMarkerLoaded,
-    on_marker_clicked_directive_1.OnMarkerClicked,
+    on_map_loaded_directive_1.OnMapLoaded,
+    on_marker_events_directive_1.OnMarkerEvents,
     gmap_marker_clusterer_directive_1.GmapMarkerClusterer,
     gmap_info_box_component_1.GmapInfoBoxComponent,
     gmap_rich_marker_component_1.GmapRichMarkerComponent,

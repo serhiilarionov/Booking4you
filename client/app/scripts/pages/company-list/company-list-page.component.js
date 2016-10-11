@@ -15,18 +15,16 @@ var CompanyListPageComponent = (function () {
     function CompanyListPageComponent(route, companyApi) {
         this.route = route;
         this.companyApi = companyApi;
-        this.filter = { where: { cityId: null, categoryId: null }, limit: 100 };
-        this.filter.where = {
-            cityId: this.route.snapshot.queryParams['city'],
-            categoryId: this.route.snapshot.queryParams['category']
-        };
+        this.categoryId = null;
+        this.companyList = [];
+        this.categoryId = this.route.snapshot.queryParams['category'];
     }
     CompanyListPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.resizeMapListWrapper();
         $(window).on('resize', function () { return _this.resizeMapListWrapper(); });
         this.route.queryParams.subscribe(function (params) {
-            _this.filter.where = Object.assign({}, params);
+            _this.categoryId = 'categoryId' in params ? params['categoryId'] : null;
             _this.getCompanyList();
         });
     };
@@ -35,12 +33,15 @@ var CompanyListPageComponent = (function () {
         var headerHeight = $('app-header').height();
         $('#map-list-wrapper').height(windowHeight - headerHeight);
     };
+    CompanyListPageComponent.prototype.onBoundsChanged = function (bounds) {
+        this.bounds = bounds.toJSON();
+        this.getCompanyList();
+    };
     CompanyListPageComponent.prototype.getCompanyList = function () {
         var _this = this;
-        this.companyList = [];
         // Get companyList only when city and category filters are checked
-        if (this.filter.where.cityId && this.filter.where.categoryId) {
-            this.companyApi.find(this.filter).subscribe(function (companyList) {
+        if (this.bounds && this.categoryId) {
+            this.companyApi.byGeo(this.bounds.west + ", " + this.bounds.north + ", " + this.bounds.east + ", " + this.bounds.south, this.categoryId).subscribe(function (companyList) {
                 _this.companyList = companyList;
             });
         }

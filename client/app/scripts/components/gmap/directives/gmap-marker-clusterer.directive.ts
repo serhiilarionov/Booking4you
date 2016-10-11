@@ -1,4 +1,4 @@
-import { Directive, OnInit, Input, EventEmitter } from '@angular/core';
+import { Directive, OnInit, Output, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
 import { GoogleMap, Marker } from 'angular2-google-maps/core/services/google-maps-types';
 declare var MarkerClusterer: any;
@@ -8,20 +8,14 @@ declare var MarkerClusterer: any;
 })
 export class GmapMarkerClusterer implements OnInit {
   public markerClusterer: any;
-  @Input() public markersObservable: EventEmitter<Array<Marker>>;
+
+  @Output() markerClustererLoaded: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private googleMapsAPIWrapper: GoogleMapsAPIWrapper) {}
 
   ngOnInit() {
     this.googleMapsAPIWrapper.getNativeMap().then((map: GoogleMap) => {
-      this.markersObservable.subscribe((markers: Array<Marker>) => {
-        if (!this.markerClusterer) {
-          this.createClusterer(map, markers);
-          return;
-        }
-        this.markerClusterer.clearMarkers();
-        this.markerClusterer.addMarkers(markers);
-      });
+      this.createClusterer(map, []);
     });
   }
 
@@ -59,5 +53,7 @@ export class GmapMarkerClusterer implements OnInit {
         textSize: 11
       }]
     });
+
+    this.markerClustererLoaded.next(this.markerClusterer);
   }
 }

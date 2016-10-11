@@ -5,8 +5,8 @@ import { CompanyCardComponent } from './company/card/company-card.component';
 import { CompanyModalComponent } from './company/modal/company-modal.component';
 import { HeroComponent } from './hero/hero.component';
 import { GmapComponent } from './gmap/gmap.component';
-import { OnMarkerLoaded } from './gmap/directives/on-marker-loaded.directive';
-import { OnMarkerClicked } from './gmap/directives/on-marker-clicked.directive';
+import { OnMapLoaded } from './gmap/directives/on-map-loaded.directive';
+import { OnMarkerEvents } from './gmap/directives/on-marker-events.directive';
 import { GmapMarkerClusterer } from './gmap/directives/gmap-marker-clusterer.directive';
 import { GmapInfoBoxComponent } from './gmap/components/gmap-info-box.component';
 import { GmapRichMarkerComponent } from './gmap/components/gmap-rich-marker.component';
@@ -27,8 +27,8 @@ export { CompanyCardComponent } from './company/card/company-card.component';
 export { CompanyModalComponent } from './company/modal/company-modal.component';
 export { HeroComponent } from './hero/hero.component';
 export { GmapComponent } from './gmap/gmap.component';
-export { OnMarkerLoaded } from './gmap/directives/on-marker-loaded.directive';
-export { OnMarkerClicked } from './gmap/directives/on-marker-clicked.directive';
+export { OnMapLoaded } from './gmap/directives/on-map-loaded.directive';
+export { OnMarkerEvents } from './gmap/directives/on-marker-events.directive';
 export { GmapMarkerClusterer } from './gmap/directives/gmap-marker-clusterer.directive';
 export { GmapInfoBoxComponent } from './gmap/components/gmap-info-box.component';
 export { GmapRichMarkerComponent } from './gmap/components/gmap-rich-marker.component';
@@ -52,8 +52,8 @@ export const Components: Array<any> = [
   CompanyFilterComponent,
   HeroComponent,
   GmapComponent,
-  OnMarkerLoaded,
-  OnMarkerClicked,
+  OnMapLoaded,
+  OnMarkerEvents,
   GmapMarkerClusterer,
   GmapInfoBoxComponent,
   GmapRichMarkerComponent,

@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Company, CompanyApi } from '../../shared/index';
+import { LatLngBounds, LatLngBoundsLiteral } from 'angular2-google-maps/core';
 declare var $: any;
 
 @Component({
@@ -11,17 +12,15 @@ declare var $: any;
 })
 
 export class CompanyListPageComponent implements OnInit {
-  public filter: any = {where: {cityId: null, categoryId: null}, limit: 100};
-  public companyList: Array<Company>;
+  public bounds: LatLngBoundsLiteral;
+  public categoryId: number = null;
+  public companyList: Array<Company> = [];
 
   constructor(
     private route: ActivatedRoute,
     private companyApi: CompanyApi
   ) {
-    this.filter.where = {
-      cityId: this.route.snapshot.queryParams['city'],
-      categoryId: this.route.snapshot.queryParams['category']
-    };
+    this.categoryId = this.route.snapshot.queryParams['category'];
   }
 
   ngOnInit() {
@@ -29,7 +28,7 @@ export class CompanyListPageComponent implements OnInit {
     $(window).on('resize', () => this.resizeMapListWrapper());
 
     this.route.queryParams.subscribe((params: Params) => {
-      this.filter.where = Object.assign({}, params);
+      this.categoryId = 'categoryId' in params ? params['categoryId'] : null;
       this.getCompanyList();
     });
   }
@@ -40,11 +39,16 @@ export class CompanyListPageComponent implements OnInit {
     $('#map-list-wrapper').height(windowHeight - headerHeight);
   }
 
+  onBoundsChanged(bounds: LatLngBounds) {
+    this.bounds = bounds.toJSON();
+    this.getCompanyList();
+  }
+
   getCompanyList() {
-    this.companyList = [];
     // Get companyList only when city and category filters are checked
-    if ( this.filter.where.cityId && this.filter.where.categoryId ) {
-      this.companyApi.find(this.filter).subscribe((companyList: Array<Company>) => {
+    if (this.bounds && this.categoryId) {
+      this.companyApi.byGeo(`${this.bounds.west}, ${this.bounds.north}, ${this.bounds.east}, ${this.bounds.south}`,
+                              this.categoryId).subscribe((companyList: Array<Company>) => {
         this.companyList = companyList;
       });
     }

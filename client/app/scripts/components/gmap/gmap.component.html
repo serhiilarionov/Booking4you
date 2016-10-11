@@ -1,16 +1,21 @@
 <sebm-google-map [fitBounds]="bounds"
-                 [styles]="styles">
-    <sebm-google-map-marker *ngFor="let company of companyList"
+                 [styles]="styles"
+                 (zoomChange)="onZoomChanged()"
+                 (onMapLoaded)="onMapLoaded($event)"
+                 (idle)="idle($event)">
+    <sebm-google-map-marker *ngFor="let company of activeCompanyList"
                             [iconUrl]="markerIconUrl"
                             [latitude]="company.point.lat"
                             [longitude]="company.point.lng"
-                            (onMarkerLoaded)="onMarkerLoaded($event)">
-      <gmap-rich-marker [enableInfoBox]="enableInfoBox"
-                        (onRichMarkerCreated)="onRichMarkerCreated($event)"
-                        (onMarkerClicked)="onMarkerClicked({marker: $event, company: company})"></gmap-rich-marker>
+                            [enableInfoBox]="enableInfoBox"
+                            [enableClusterer]="enableClusterer"
+                            [markerClusterer]="markerClusterer"
+                            onMarkerEvents
+                            (onMarkerClicked)="onMarkerClicked({marker: $event, company: company})">
+        <gmap-rich-marker (onRichMarkerCreated)="onRichMarkerCreated($event)"></gmap-rich-marker>
     </sebm-google-map-marker>
     <gmap-marker-clusterer *ngIf="enableClusterer"
-                           [markersObservable]="markersObservable"></gmap-marker-clusterer>
+                           (markerClustererLoaded)="onMarkerClustererLoaded($event)"></gmap-marker-clusterer>
     <gmap-info-box *ngIf="enableInfoBox"
                    [markerClicked]="markerClicked"
                    (onInfoBoxCreated)="onInfoBoxCreated($event)"></gmap-info-box>
