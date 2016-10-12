@@ -121,9 +121,10 @@ module.exports = function (Company) {
     * Function return companies by geolocation
     * @param bound
     * @param categoryId
+    * @param limit
     * @param cb
    */
-  Company.byGeo = function (bound, categoryId, cb) {
+  Company.byGeo = function (bound, categoryId, limit, cb) {
     var ds = Company.dataSource;
     var sql = "SELECT id, name, title, photo, point, categoryid, cityid, createdat from company where " +
       "ST_GeomFromText('POINT' || " +
@@ -131,6 +132,9 @@ module.exports = function (Company) {
       "&& ST_MakeEnvelope(" + bound + ")";
     if (categoryId) {
       sql += "and categoryId =" + categoryId;
+    }
+    if (limit) {
+      sql += " LIMIT " + limit;
     }
     ds.connector.query(sql, [], function (err, companies) {
       if (err) console.error(err);
@@ -156,7 +160,8 @@ module.exports = function (Company) {
   Company.remoteMethod('byGeo', {
     accepts: [
       {arg: 'bound', type: 'string', required: true},
-      {arg: 'categoryId', type: 'number', required: false}
+      {arg: 'categoryId', type: 'number', required: false},
+      {arg: 'limit', type: 'number', required: false}
     ],
     returns: [
       {arg: "data", type: "Company", root: true}
