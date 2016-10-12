@@ -1,4 +1,5 @@
 var logger = require('../../server/helpers/logger');
+var Promise = require('bluebird');
 
 module.exports = function (Company) {
   logger(Company);
@@ -63,7 +64,7 @@ module.exports = function (Company) {
       returns: {arg: 'companies', type: 'object'}
     }
   );
-  
+
   Company.findWithCategory = function (filter, cb) {
     filter || (filter = {});
     var dataSource = Company.dataSource;
@@ -120,42 +121,50 @@ module.exports = function (Company) {
     * Function return companies by geolocation
     * @param bound
     * @param categoryId
+    * @param limit
     * @param cb
    */
-  Company.byGeo = function (bound, categoryId, cb) {
+  Company.byGeo = function (bound, categoryId, limit, cb) {
     var ds = Company.dataSource;
-    var sql = "SELECT id, name, title, photo, point, categoryid, cityid from company where " +
+    var sql = "SELECT id, name, title, photo, point, categoryid, cityid, createdat from company where " +
       "ST_GeomFromText('POINT' || " +
       "replace('' || company.point, ',', ' '), 4326) " +
       "&& ST_MakeEnvelope(" + bound + ")";
-    if(categoryId) {
+    if (categoryId) {
       sql += "and categoryId =" + categoryId;
+    }
+    if (limit) {
+      sql += " LIMIT " + limit;
     }
     ds.connector.query(sql, [], function (err, companies) {
       if (err) console.error(err);
-      companies.forEach(function(company) {
+      companies.forEach(function (company) {
         company.point.lat = company.point.y;
         company.point.lng = company.point.x;
         company.categoryId = company.categoryid;
+        company.createdAt = company.createdat;
         company.cityId = company.cityid;
-        
+        company.cityId = company.cityid;
+
         delete company.point.x;
         delete company.point.y;
         delete company.cityid;
         delete company.categoryid;
+        delete company.createdat;
       });
 
       cb(err, companies);
     });
   };
-  
+
   Company.remoteMethod('byGeo', {
     accepts: [
       {arg: 'bound', type: 'string', required: true},
-      {arg: 'categoryId', type: 'number', required: false}
+      {arg: 'categoryId', type: 'number', required: false},
+      {arg: 'limit', type: 'number', required: false}
     ],
     returns: [
-      {arg:"data",type:"Company",root:true}
+      {arg: "data", type: "Company", root: true}
     ],
     http: {
       verb: 'get'
