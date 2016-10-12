@@ -48,7 +48,7 @@ export class CompanyListPageComponent implements OnInit {
     // Get companyList only when city and category filters are checked
     if (this.bounds && this.categoryId) {
       this.companyApi.byGeo(`${this.bounds.west}, ${this.bounds.north}, ${this.bounds.east}, ${this.bounds.south}`,
-                              this.categoryId).subscribe((companyList: Array<Company>) => {
+                              this.categoryId, 50).subscribe((companyList: Array<Company>) => {
         this.companyList = companyList;
       });
     }

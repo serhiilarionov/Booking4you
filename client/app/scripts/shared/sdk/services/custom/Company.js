@@ -1709,6 +1709,8 @@ var CompanyApi = (function (_super) {
      *
      * @param number categoryId
      *
+     * @param number limit
+     *
      * @returns object An empty reference that will be
      *   populated with the actual data once the response is returned
      *   from the server.
@@ -1718,8 +1720,9 @@ var CompanyApi = (function (_super) {
      * This usually means the response is a `Company` object.)
      * </em>
      */
-    CompanyApi.prototype.byGeo = function (bound, categoryId) {
+    CompanyApi.prototype.byGeo = function (bound, categoryId, limit) {
         if (categoryId === void 0) { categoryId = undefined; }
+        if (limit === void 0) { limit = undefined; }
         var method = "GET";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
             "/companies/byGeo";
@@ -1730,6 +1733,8 @@ var CompanyApi = (function (_super) {
             urlParams.bound = bound;
         if (categoryId)
             urlParams.categoryId = categoryId;
+        if (limit)
+            urlParams.limit = limit;
         var result = this.request(method, url, routeParams, urlParams, postBody);
         return result;
     };

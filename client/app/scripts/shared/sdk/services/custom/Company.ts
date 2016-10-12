@@ -1708,6 +1708,8 @@ export class CompanyApi extends BaseLoopBackApi {
    *
    * @param number categoryId 
    *
+   * @param number limit 
+   *
    * @returns object An empty reference that will be
    *   populated with the actual data once the response is returned
    *   from the server.
@@ -1717,7 +1719,7 @@ export class CompanyApi extends BaseLoopBackApi {
    * This usually means the response is a `Company` object.)
    * </em>
    */
-  public byGeo(bound: any, categoryId: any = undefined) {
+  public byGeo(bound: any, categoryId: any = undefined, limit: any = undefined) {
     let method: string = "GET";
     let url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/companies/byGeo";
@@ -1726,6 +1728,7 @@ export class CompanyApi extends BaseLoopBackApi {
     let urlParams: any = {};
     if (bound) urlParams.bound = bound;
     if (categoryId) urlParams.categoryId = categoryId;
+    if (limit) urlParams.limit = limit;
     let result = this.request(method, url, routeParams, urlParams, postBody);
     return result;
   }
