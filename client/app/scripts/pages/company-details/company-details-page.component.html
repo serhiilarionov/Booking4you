@@ -1,6 +1,6 @@
-<gmap *ngIf="companyDetails" [companyList]="[companyDetails]"></gmap>
+<gmap *ngIf="company" [companyList]="[company]"></gmap>
 
-<div class="container container_pad" *ngIf="companyDetails">
+<div class="container container_pad" *ngIf="company">
   <div class="row">
 
     <!--left-->
@@ -10,7 +10,7 @@
       <div class="company-detail-caption clearfix">
         <div class="col-md-8">
           <h1 class="page-title company-detail-caption__title">
-            {{companyDetails?.title}}
+            {{company?.title}}
           </h1>
           <p class="company-detail__street">63 Birch Street</p>
         </div>
@@ -31,7 +31,7 @@
       <div class="col-md-4 col-sm-4">
 
         <aside class="aside-box">
-          <booking-form [company]="companyDetails" class="_blue"></booking-form>
+          <booking-form [company]="company" class="_blue"></booking-form>
         </aside>
 
 
@@ -141,7 +141,7 @@
 
       <div class="col-md-8 col-sm-8">
         <div class="company-detail-gallery">
-          <image-gallery [fixedHeight]="true" [showThumbs]="true"></image-gallery>
+          <image-gallery [srcArray]="srcArray" [fixedHeight]="true" [showThumbs]="true"></image-gallery>
         </div>
 
         <div class="main-box">
@@ -524,7 +524,7 @@
     <!--right-->
     <div class="col-md-3">
 
-      <nearby-companies [companyDetails]="companyDetails"></nearby-companies>
+      <nearby-companies [companyDetails]="company"></nearby-companies>
 
 
       <aside class="aside-box aside-box_margin-bottom company-detail-categories">

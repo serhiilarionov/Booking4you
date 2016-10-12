@@ -99,16 +99,7 @@
   display: flex;
   -webkit-flex-flow: row wrap;
   -moz-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  -o-justify-content: space-between;
-  justify-content: space-between;
-  -ms-flex-pack: justify; }
+  flex-flow: row wrap; }
   .thumbs-container .thumb-wrapper {
     cursor: pointer;
     display: -webkit-box;
@@ -145,7 +136,7 @@
     flex: 0 1 16%;
     height: 50px;
     overflow: hidden;
-    margin-bottom: 8px;
+    margin: 0 5px 5px 0;
     opacity: .5;
     position: relative; }
     .thumbs-container .thumb-wrapper.active {

@@ -23,7 +23,7 @@ var AppComponent = (function () {
         this.translate.setDefaultLang('ru');
         this.translate.use('ru');
         this.$el = $(el.nativeElement);
-        index_2.LoopBackConfig.setBaseURL(index_2.BASE_URL);
+        index_2.LoopBackConfig.setBaseURL(index_2.BASE_URL + ":" + index_2.API_PORT);
         index_2.LoopBackConfig.setApiVersion(index_2.API_VERSION);
         this.sidebar.toggled$.subscribe(function () {
             _this.$el.toggleClass('sidebar-opened');

@@ -17,6 +17,13 @@ var CompanyCardComponent = (function () {
     CompanyCardComponent.prototype.openCompanyModal = function (company) {
         this.onCompanySelected.next(company);
     };
+    CompanyCardComponent.prototype.ngOnChanges = function (changes) {
+        if ('company' in changes && changes['company'].currentValue) {
+            this.photoUrl = this.company.photo ?
+                index_1.BASE_URL + "/storage/test/" + this.company.cityId + "/" + this.company.categoryId + "/" + this.company.id + "/" + this.company.photo :
+                'http://placehold.it/220?text=no+photo';
+        }
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', index_1.Company)

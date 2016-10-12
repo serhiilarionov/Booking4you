@@ -1,4 +1,4 @@
-<div class="gallery-container" [class.fixed-height]="fixedHeight" [style.height]="containerHeight">
+<div class="gallery-container" *ngIf="activeImages.length" [class.fixed-height]="fixedHeight" [style.height]="containerHeight">
     <img *ngFor="let image of activeImages" [@imageState]="image?.state" [src]="image?.src" alt=""
          (onImageActivated)="setContainerHeight($event)" [state]="image?.state" />
     <button class="prev" (click)="toggleActiveImage('PREV_IMAGE')"><i class="fa fa-angle-left"></i></button>

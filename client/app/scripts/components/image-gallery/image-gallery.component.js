@@ -17,39 +17,32 @@ var Image = (function () {
     }
     return Image;
 }());
-// TODO: get images srcArray from parent component
-var images = [
-    'http://placehold.it/500x350?text=Photo 1',
-    'http://placehold.it/600x350?text=Photo 2',
-    'http://placehold.it/700x600?text=Photo 3',
-    'http://placehold.it/950x500?text=Photo 4',
-    'http://placehold.it/500x800?text=Photo 5',
-    'http://placehold.it/750x800?text=Photo 6',
-    'http://placehold.it/300x500?text=Photo 7',
-];
 // TODO: implement "More+" button according to design
 var ImageGalleryComponent = (function () {
     function ImageGalleryComponent(elementRef) {
         this.elementRef = elementRef;
-        this.srcArray = images;
         this.activeImages = [];
         this.activeImageIndex = 0;
+        this.srcArray = [];
         this.fixedHeight = false;
         this.showThumbs = false;
-        this.createImages();
     }
     ImageGalleryComponent.prototype.ngOnInit = function () {
         this.$container = $(this.elementRef.nativeElement).find('.gallery-container');
     };
     ImageGalleryComponent.prototype.createImages = function () {
+        if (this.srcArray.length === 0) {
+            this.activeImages = [];
+            return;
+        }
+        this.activeImageIndex = 0;
         this.activeImages = this.srcArray.map(function (src) { return new Image(src, 'inactive'); });
         this.activeImages[this.activeImageIndex].state = 'active';
     };
     ImageGalleryComponent.prototype.ngOnChanges = function (changes) {
-        if (!('srcArray' in changes) || !changes['srcArray'].currentValue) {
-            return;
+        if ('srcArray' in changes && changes['srcArray'].currentValue) {
+            this.createImages();
         }
-        this.createImages();
     };
     ImageGalleryComponent.prototype.toggleActiveImage = function (action) {
         // not to allow PREV_IMAGE and NEXT_IMAGE actions on first and last images, respectively
@@ -68,6 +61,10 @@ var ImageGalleryComponent = (function () {
         }
         this.containerHeight = height;
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], ImageGalleryComponent.prototype, "srcArray", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Boolean)

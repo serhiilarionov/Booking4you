@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { SidebarService } from './shared/index';
-import { LoopBackConfig, BASE_URL, API_VERSION } from './shared/index';
+import { LoopBackConfig, BASE_URL, API_VERSION, API_PORT } from './shared/index';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 declare var $: any;
 
@@ -24,7 +24,7 @@ export class AppComponent {
     this.translate.setDefaultLang('ru');
     this.translate.use('ru');
     this.$el = $(el.nativeElement);
-    LoopBackConfig.setBaseURL(BASE_URL);
+    LoopBackConfig.setBaseURL(`${BASE_URL}:${API_PORT}`);
     LoopBackConfig.setApiVersion(API_VERSION);
 
     this.sidebar.toggled$.subscribe(() => {

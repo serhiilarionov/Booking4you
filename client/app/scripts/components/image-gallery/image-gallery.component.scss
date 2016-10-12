@@ -78,7 +78,6 @@ $fixed-height-for-modal: 350px;
   margin-top: 15px;
   @include display(flex);
   @include flex-flow(row wrap);
-  @include justify-content(space-between);
 
   .thumb-wrapper {
     cursor: pointer;
@@ -88,7 +87,7 @@ $fixed-height-for-modal: 350px;
     @include flex(0 1 16%);
     height: 50px;
     overflow: hidden;
-    margin-bottom: 8px;
+    margin: 0 5px 5px 0;
     opacity: .5;
     position: relative;
 

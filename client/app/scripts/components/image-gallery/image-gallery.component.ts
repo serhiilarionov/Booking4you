@@ -9,17 +9,6 @@ class Image {
   ) {}
 }
 
-// TODO: get images srcArray from parent component
-const images: Array<string> = [
-  'http://placehold.it/500x350?text=Photo 1',
-  'http://placehold.it/600x350?text=Photo 2',
-  'http://placehold.it/700x600?text=Photo 3',
-  'http://placehold.it/950x500?text=Photo 4',
-  'http://placehold.it/500x800?text=Photo 5',
-  'http://placehold.it/750x800?text=Photo 6',
-  'http://placehold.it/300x500?text=Photo 7',
-];
-
 // TODO: implement "More+" button according to design
 @Component({
   selector: 'image-gallery',
@@ -37,30 +26,33 @@ const images: Array<string> = [
 })
 
 export class ImageGalleryComponent implements OnChanges {
-  public srcArray: Array<string> = images;
   public activeImages: Array<Image> = [];
   public activeImageIndex: number = 0;
   public $container: any;
   public containerHeight: number;
+  @Input() public srcArray: Array<string> = [];
   @Input() public fixedHeight: boolean = false;
   @Input() public showThumbs: boolean = false;
-  constructor(private elementRef: ElementRef) {
-    this.createImages();
-  }
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
     this.$container = $(this.elementRef.nativeElement).find('.gallery-container');
   }
 
   createImages() {
+    if (this.srcArray.length === 0) {
+      this.activeImages = [];
+      return;
+    }
+    this.activeImageIndex = 0;
     this.activeImages = this.srcArray.map((src) => new Image(src, 'inactive'));
     this.activeImages[this.activeImageIndex].state = 'active';
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (!('srcArray' in changes) || !changes['srcArray'].currentValue) { return; }
-
-    this.createImages();
+    if ('srcArray' in changes && changes['srcArray'].currentValue) {
+      this.createImages();
+    }
   }
 
   toggleActiveImage(action) {
