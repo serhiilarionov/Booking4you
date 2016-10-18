@@ -42,10 +42,12 @@
       "type": "string"
     },
     "createdAt": {
-      "type": "date"
+      "type": "date",
+      "default": "$now"
     },
     "updatedAt": {
-      "type": "date"
+      "type": "date",
+      "default": "$now"
     },
     "deletedAt": {
       "type": "date"
