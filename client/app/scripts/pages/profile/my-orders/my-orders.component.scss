@@ -1,0 +1,160 @@
+@import "main";
+
+.bookings-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 2px;
+
+  &__head {
+    color: #fff;
+    text-shadow: 1px 1px #0376b7;
+
+    &:after {
+      display: block;
+      content: ' ';
+      height: 10px;
+    }
+  }
+
+  &__caption {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    background: $c-blue-main;
+    //border: 1px solid #fff;
+    .fa {
+      font-size: 12px;
+      vertical-align: baseline;
+    }
+  }
+
+  ._faded-txt {
+    color: $c-grey-bright;
+  }
+
+  &__tr {
+    margin: 5px 0;
+    &._separate {
+      height: 10px;
+    }
+  }
+
+  &__td {
+    height: 100%;
+    padding: 10px 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+
+    &._number {
+      width: 40px;
+      font-size: 12px;
+      color: $c-grey-bright;
+    }
+
+    &._booking-time {
+      width: 140px;
+      padding: 0;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        display: block;
+        content: ' ';
+        width: 50px;
+        height: 100%;
+        background: $c-blue-main;
+      }
+
+      &:after{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        display: block;
+        content: ' ';
+        width: 90px;
+        height: 100%;
+        background: #dcf2ff;
+      }
+    }
+
+    &._created {
+      width: 80px;
+      font-size: 12px;
+    }
+
+    &._title {
+      width: 50%;
+    }
+
+    &._services {
+      text-align: left;
+      font-size: 12px;
+      padding: 0 20px;
+    }
+
+    &._status {
+      background: $c-blue-main;
+      color: #fff;
+      font-size: 12px;
+    }
+  }
+
+  &__time, &__date {
+    position: relative;
+    z-index: 10;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+  }
+
+  &__time {
+    width: 50px;
+    color: #fff;
+  }
+
+  &__date {
+    width: 90px;
+    color: #1694dc;
+    font-size: 12px;
+  }
+}
+
+.bookings-company-info {
+  padding: 0 20px;
+  text-align: left;
+
+  &__title {
+    font-weight: bold;
+    padding-bottom: 5px;
+  }
+
+  &__address {
+    font-size: 12px;
+    padding-bottom: 5px;
+  }
+
+  &__contacts {
+    padding-top: 5px;
+  }
+
+  &__phone {
+    margin-bottom: 3px;
+    line-height: 1em;
+
+    small {
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+}

@@ -9,6 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var index_1 = require('../../shared/index');
+require('moment');
+require('moment/locale/ru');
 var DateTimePickerDirective = (function () {
     function DateTimePickerDirective(elementRef) {
         this.elementRef = elementRef;
@@ -30,6 +33,7 @@ var DateTimePickerDirective = (function () {
         };
     }
     DateTimePickerDirective.prototype.ngOnInit = function () {
+        var _this = this;
         if (!this.dateTimePickerOptions) {
             this.dateTimePickerOptions = {
                 format: 'YYYY-MM-DD',
@@ -37,13 +41,16 @@ var DateTimePickerDirective = (function () {
                 stepping: 5,
                 showTodayButton: true,
                 showClear: true,
-                showClose: true
+                showClose: true,
+                minDate: index_1.TODAY_DATE
             };
         }
         if (this.dateTimePickerOptions.locale.toLocaleLowerCase() === 'ru') {
             this.dateTimePickerOptions.tooltips = this.tooltipsRU;
         }
-        $(this.elementRef.nativeElement).datetimepicker(this.dateTimePickerOptions);
+        System.import('bootstrap-datetimepicker').then(function () {
+            $(_this.elementRef.nativeElement).datetimepicker(_this.dateTimePickerOptions);
+        });
     };
     __decorate([
         core_1.Input('datetimepicker'), 

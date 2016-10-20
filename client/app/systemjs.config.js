@@ -11,7 +11,9 @@
     'rxjs': 'node_modules/rxjs',
     'angular2-google-maps': 'node_modules/angular2-google-maps',
     'info-box': 'vendor/v3-utility-library/infobox',
-    'rich-marker': 'vendor/v3-utility-library/richmarker'
+    'rich-marker': 'vendor/v3-utility-library/richmarker',
+    'moment': 'node_modules/moment',
+    'bootstrap-datetimepicker': 'vendor/eonasdan-bootstrap-datetimepicker/build/js/'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
@@ -19,8 +21,10 @@
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-google-maps/core':  { main: 'index.js',  defaultExtension: 'js' },
     'info-box':                   { main: 'src/infobox.js',  defaultExtension: 'js' },
-    'rich-marker':                { main: 'src/richmarker-compiled.js',  defaultExtension: 'js' },
-    'ng2-translate':              { defaultExtension: 'js' }
+    'rich-marker':                { main: 'src/richmarker-compiled.js', defaultExtension: 'js' },
+    'ng2-translate':              { defaultExtension: 'js' },
+    'moment':                     { format: 'global', main: 'moment.js', defaultExtension: 'js' },
+    'bootstrap-datetimepicker':   { format: 'global', main: 'bootstrap-datetimepicker.min', defaultExtension: 'js'}
   };
   var ngPackageNames = [
     'common',
@@ -32,7 +36,7 @@
     'platform-browser-dynamic',
     'router',
     'router-deprecated',
-    'upgrade',
+    'upgrade'
   ];
   // Individual files (~300 requests):
   function packIndex(pkgName) {

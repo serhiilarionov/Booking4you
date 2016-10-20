@@ -50,7 +50,11 @@ var BookingFormComponent = (function () {
         var _this = this;
         var dateTime = this.bookingForm.value.bookingDate + " " + this.bookingForm.value.bookingTime;
         this.coreApi.createBooking(this.company.id, dateTime, this.servicesSelected)
-            .subscribe(function (success) { _this.submitSuccessfull = 'success'; }, function (error) { _this.submitSuccessfull = 'fail'; });
+            .subscribe(function (success) {
+            _this.submitSuccessfull = 'success';
+        }, function (error) {
+            _this.submitSuccessfull = 'fail';
+        });
     };
     __decorate([
         core_1.Input(), 

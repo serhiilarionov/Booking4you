@@ -18,7 +18,7 @@ export class HeroComponent implements OnInit {
     private cityApi: CityApi,
     private categoryApi: CategoryApi,
     private formBuilder: FormBuilder,
-    private router: Router,
+    private router: Router
   ) {
     this.searchForm = this.formBuilder.group({
       cityId: ['', Validators.required],

@@ -9,23 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var FilterByPipe = (function () {
-    function FilterByPipe() {
+var moment = require('moment');
+// under systemjs, moment is actually exported as the default export, so we account for that
+var momentConstructor = moment.default || moment;
+var DateFormatPipe = (function () {
+    function DateFormatPipe() {
     }
-    FilterByPipe.prototype.transform = function (list, obj) {
-        var key = Object.keys(obj)[0];
-        if (obj[key]) {
-            return list.filter(function (instance) { return instance[key] === obj[key]; });
+    DateFormatPipe.prototype.transform = function (value) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
         }
-        return list;
+        var utcOffsetValue = args[1] || 0;
+        return momentConstructor(value).utcOffset(utcOffsetValue).format(args[0]);
     };
-    FilterByPipe = __decorate([
-        core_1.Pipe({
-            name: 'filterBy'
-        }), 
+    DateFormatPipe = __decorate([
+        core_1.Pipe({ name: 'dateFormat' }), 
         __metadata('design:paramtypes', [])
-    ], FilterByPipe);
-    return FilterByPipe;
+    ], DateFormatPipe);
+    return DateFormatPipe;
 }());
-exports.FilterByPipe = FilterByPipe;
-//# sourceMappingURL=company-list.pipe.js.map
+exports.DateFormatPipe = DateFormatPipe;
+//# sourceMappingURL=dateformat.pipe.js.map

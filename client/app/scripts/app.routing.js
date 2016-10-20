@@ -29,6 +29,10 @@ var routes = [
             {
                 path: 'favorites',
                 component: Pages.ProfileFavoritesComponent
+            },
+            {
+                path: 'orders',
+                component: Pages.ProfileMyOrdersComponent
             }
         ]
     },

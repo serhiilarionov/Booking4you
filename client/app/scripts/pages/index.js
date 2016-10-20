@@ -8,6 +8,7 @@ var company_details_page_component_1 = require('./company-details/company-detail
 var profile_page_component_1 = require('./profile/profile-page.component');
 var profile_main_component_1 = require('./profile/main/profile-main.component');
 var profile_favorites_component_1 = require('./profile/favorites/profile-favorites.component');
+var my_orders_component_1 = require('./profile/my-orders/my-orders.component');
 var home_page_component_2 = require('./home/home-page.component');
 exports.HomePageComponent = home_page_component_2.HomePageComponent;
 var login_page_component_2 = require('./login/login-page.component');
@@ -26,6 +27,8 @@ var profile_main_component_2 = require('./profile/main/profile-main.component');
 exports.ProfileMainComponent = profile_main_component_2.ProfileMainComponent;
 var profile_favorites_component_2 = require('./profile/favorites/profile-favorites.component');
 exports.ProfileFavoritesComponent = profile_favorites_component_2.ProfileFavoritesComponent;
+var my_orders_component_2 = require('./profile/my-orders/my-orders.component');
+exports.ProfileMyOrdersComponent = my_orders_component_2.ProfileMyOrdersComponent;
 exports.Pages = [
     home_page_component_1.HomePageComponent,
     login_page_component_1.LoginPageComponent,
@@ -35,6 +38,7 @@ exports.Pages = [
     comming_soon_page_component_1.CommingSoonPageComponent,
     profile_page_component_1.ProfilePageComponent,
     profile_main_component_1.ProfileMainComponent,
-    profile_favorites_component_1.ProfileFavoritesComponent
+    profile_favorites_component_1.ProfileFavoritesComponent,
+    my_orders_component_1.ProfileMyOrdersComponent
 ];
 //# sourceMappingURL=index.js.map
