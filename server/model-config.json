@@ -124,20 +124,4 @@
   "Email": {
     "dataSource": "emailDs"
   }
-//  "push": {
-//    "dataSource": "push",
-//    "public": true
-//  },
-//  "application": {
-//    "public": true,
-//    "dataSource": "pgsql"
-//  },
-//  "installation": {
-//    "public": true,
-//    "dataSource": "pgsql"
-//  },
-//  "notification": {
-//    "public": true,
-//    "dataSource": "pgsql"
-//  }
 }
