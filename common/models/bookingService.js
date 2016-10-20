@@ -1,5 +1,3 @@
-var pubsub = require('../../server/pubsub.js');
-
 module.exports = function(BookingService) {
 
   BookingService.disableRemoteMethod("create", false);

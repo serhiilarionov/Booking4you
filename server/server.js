@@ -9,6 +9,8 @@ app.set('json spaces', 2);
 
 app.set('views', path.resolve(__dirname, 'views'));
 
+app.use(loopback.token());
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
@@ -27,6 +29,7 @@ app.start = function() {
 boot(app, __dirname, function(err) {
   if (err) throw err;
 
+  //require('./push-demo')(app);
   // start the server if `$ node server.js`
   if (require.main === module) {
     app.io = require('socket.io')(app.start());

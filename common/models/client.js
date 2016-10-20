@@ -1,3 +1,5 @@
+var config = require('../../server/config.json');
+
 module.exports = function(Client) {
 
   Client.disableRemoteMethod("create", false);
@@ -25,5 +27,22 @@ module.exports = function(Client) {
   Client.disableRemoteMethod('__findById__accessTokens', false);
   Client.disableRemoteMethod('__get__accessTokens', false);
   Client.disableRemoteMethod('__updateById__accessTokens', false);
+
+  //send password reset link when password reset requested
+  Client.on('resetPasswordRequest', function(info) {
+    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var html = 'Click <a href="' + url + '?access_token=' +
+      info.accessToken.id + '">here</a> to reset your password';
+    //'here' in above html is linked to : 'http://<host:port>/reset-password?access_token=<short-lived/temporary access token>'
+    Client.app.models.Email.send({
+      to: info.email,
+      from: info.email,
+      subject: 'Password reset',
+      html: html
+    }, function(err) {
+      if (err) return console.log('> error sending password reset email');
+      console.log('> sending password reset email to:', info.email);
+    });
+  });
 };
 

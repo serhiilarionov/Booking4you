@@ -16,7 +16,8 @@
     },
     "phoneVerified": {
       "type": "date",
-      "required": false
+      "required": false,
+      "default": "$now"
     }
   },
   "validations": [],
