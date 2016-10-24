@@ -42,7 +42,7 @@ var DateTimePickerDirective = (function () {
                 showTodayButton: true,
                 showClear: true,
                 showClose: true,
-                minDate: index_1.TODAY_DATE
+                minDate: index_1.TODAY_DATE.setHours(0, 0, 0)
             };
         }
         if (this.dateTimePickerOptions.locale.toLocaleLowerCase() === 'ru') {

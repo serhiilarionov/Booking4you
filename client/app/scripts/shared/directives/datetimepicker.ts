@@ -43,7 +43,7 @@ export class DateTimePickerDirective implements OnInit {
         showTodayButton: true,
         showClear: true,
         showClose: true,
-        minDate: TODAY_DATE
+        minDate: TODAY_DATE.setHours(0, 0, 0)
       };
     }
 

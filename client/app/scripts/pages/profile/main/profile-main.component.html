@@ -1,0 +1,98 @@
+<div class="user-profile-form">
+
+    <div class="col-sm-3">
+        <section class="user-profile-form__section">
+            <h3 class="user-profile-form__title"><i class="fa fa-image"></i> Profile Picture</h3>
+            <div id="profile-picture" class="user-profile-form__photo-wrapper">
+                <input name="file" type="file" class="user-profile-form__photo-input">
+                <div class="user-profile-form__photo-message">Click to upload picture here</div>
+                <img src="http://placehold.it/220?text=no+photo" alt="" class="user-profile-form__photo">
+            </div>
+        </section>
+    </div>
+
+    <div class="col-sm-9">
+
+
+        <section class="user-profile-form__section">
+            <h3 class="user-profile-form__title"><i class="fa fa-user"></i> Personal Info</h3>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="John Doe">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="johndoe@example.com">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label for="mobile">Mobile</label>
+                        <input type="text" class="form-control" id="mobile" name="mobile" pattern="\d*"
+                               value="903-675-5323">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" pattern="\d*"
+                               value="(0)123 456 7890">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="user-profile-form__section">
+            <h3 class="user-profile-form__title"><i class="fa fa-map-marker"></i> Address</h3>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" name="state" value="Ohio">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="city" value="Georgetown">
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <div class="form-group">
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" id="street" name="street" value="2050 Sampson Street">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="form-group">
+                        <label for="zip">ZIP</label>
+                        <input type="text" class="form-control" id="zip" name="zip" pattern="\d*" value="80444">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="additional-address">Additional Address Line</label>
+                <input type="text" class="form-control" id="additional-address" name="additional-address">
+            </div>
+        </section>
+
+        <section class="user-profile-form__section">
+            <h3 class="user-profile-form__title"><i class="fa fa-info-circle"></i> About Me</h3>
+            <div class="form-group">
+                <label for="about-me">Some Words About Me</label>
+                <div class="form-group">
+                    <textarea class="form-control" id="about-me" rows="3" name="about-me" required=""></textarea>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-large btn-default" id="submit">Save Changes</button>
+        </div>
+
+    </div>
+</div>
