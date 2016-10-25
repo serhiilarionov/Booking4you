@@ -12,9 +12,8 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('../../shared/index');
 var CompanyDetailsPageComponent = (function () {
-    function CompanyDetailsPageComponent(companyApi, companyDetailApi, activatedRoute) {
+    function CompanyDetailsPageComponent(companyApi, activatedRoute) {
         this.companyApi = companyApi;
-        this.companyDetailApi = companyDetailApi;
         this.activatedRoute = activatedRoute;
         this.srcArray = [];
     }
@@ -25,7 +24,7 @@ var CompanyDetailsPageComponent = (function () {
             _this.srcArray = [];
             _this.companyApi.findById(_this.queryId).subscribe(function (company) {
                 _this.company = company;
-                _this.companyDetailApi.findById(_this.queryId).subscribe(function (companyDetail) {
+                _this.companyApi.getDetails(_this.queryId).subscribe(function (companyDetail) {
                     _this.srcArray = companyDetail.imageList.map(function (imageName) {
                         return index_1.BASE_URL + "/storage/test/" + _this.company.cityId + "/" + _this.company.categoryId + "/" + _this.company.id + "/" + imageName;
                     });
@@ -42,7 +41,7 @@ var CompanyDetailsPageComponent = (function () {
             styleUrls: ['scripts/pages/company-details/company-details-page.component.css'],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
-        __metadata('design:paramtypes', [index_1.CompanyApi, index_1.CompanyDetailApi, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [index_1.CompanyApi, router_1.ActivatedRoute])
     ], CompanyDetailsPageComponent);
     return CompanyDetailsPageComponent;
 }());

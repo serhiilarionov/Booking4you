@@ -44,6 +44,9 @@ var GmapComponent = (function () {
                 });
             }
         });
+        if (this.latitude && this.longitude) {
+            this.bounds = null;
+        }
     };
     GmapComponent.prototype.ngOnChanges = function (changes) {
         if ('companyList' in changes) {
@@ -122,6 +125,18 @@ var GmapComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Boolean)
     ], GmapComponent.prototype, "enableInfoBox", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], GmapComponent.prototype, "latitude", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], GmapComponent.prototype, "longitude", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], GmapComponent.prototype, "zoom", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)

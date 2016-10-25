@@ -33,6 +33,9 @@ export class GmapComponent implements OnChanges {
   @Input() public companyList: Array<Company>;
   @Input() public enableClusterer: boolean = false;
   @Input() public enableInfoBox: boolean = false;
+  @Input() public latitude: number;
+  @Input() public longitude: number;
+  @Input() public zoom: number;
   @Output() public boundsChanged: EventEmitter<LatLngBounds> = new EventEmitter<LatLngBounds>();
 
   constructor(
@@ -54,6 +57,10 @@ export class GmapComponent implements OnChanges {
         });
       }
     });
+
+    if (this.latitude && this.longitude) {
+      this.bounds = null;
+    }
   }
 
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
