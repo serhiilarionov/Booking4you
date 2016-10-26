@@ -1,4 +1,7 @@
-<a *ngIf="!branch.children"
+<a *ngIf="!branch.children && branch.name === 'Home page'"
+   href="http://b4u.com.ua/">{{branch.name | translate}}
+</a>
+<a *ngIf="!branch.children && branch.name !== 'Home page'"
    routerLink="{{branch.link}}">{{branch.name | translate}}
 </a>
 <a *ngIf="branch.children"
