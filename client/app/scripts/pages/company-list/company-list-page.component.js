@@ -42,7 +42,7 @@ var CompanyListPageComponent = (function () {
         // Get companyList only when city and category filters are checked
         if (this.bounds && this.categoryId) {
             this.companyApi.byGeo(this.bounds.west + ", " + this.bounds.north + ", " + this.bounds.east + ", " + this.bounds.south, this.categoryId, 50).subscribe(function (companyList) {
-                _this.companyList = companyList;
+                _this.companyList = companyList.sort(function (companyA) { return companyA.photo ? -1 : 1; });
             });
         }
     };

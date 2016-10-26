@@ -49,7 +49,7 @@ export class CompanyListPageComponent implements OnInit {
     if (this.bounds && this.categoryId) {
       this.companyApi.byGeo(`${this.bounds.west}, ${this.bounds.north}, ${this.bounds.east}, ${this.bounds.south}`,
                               this.categoryId, 50).subscribe((companyList: Array<Company>) => {
-        this.companyList = companyList;
+        this.companyList = companyList.sort((companyA) => companyA.photo ? -1 : 1);
       });
     }
   }
