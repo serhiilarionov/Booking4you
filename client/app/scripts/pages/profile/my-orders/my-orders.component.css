@@ -1,0 +1,109 @@
+.bookings-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 2px; }
+  .bookings-table__head {
+    color: #fff;
+    text-shadow: 1px 1px #0376b7; }
+    .bookings-table__head:after {
+      display: block;
+      content: ' ';
+      height: 10px; }
+  .bookings-table__caption {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    background: #36b6ff; }
+    .bookings-table__caption .fa {
+      font-size: 12px;
+      vertical-align: baseline; }
+  .bookings-table ._faded-txt {
+    color: #777777; }
+  .bookings-table__tr {
+    margin: 5px 0; }
+    .bookings-table__tr._separate {
+      height: 10px; }
+  .bookings-table__td {
+    height: 100%;
+    padding: 10px 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #dcdcdc; }
+    .bookings-table__td._number {
+      width: 40px;
+      font-size: 12px;
+      color: #777777; }
+    .bookings-table__td._booking-time {
+      width: 140px;
+      padding: 0;
+      position: relative; }
+      .bookings-table__td._booking-time:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        display: block;
+        content: ' ';
+        width: 50px;
+        height: 100%;
+        background: #36b6ff; }
+      .bookings-table__td._booking-time:after {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        display: block;
+        content: ' ';
+        width: 90px;
+        height: 100%;
+        background: #dcf2ff; }
+    .bookings-table__td._created {
+      width: 80px;
+      font-size: 12px; }
+    .bookings-table__td._title {
+      width: 50%; }
+    .bookings-table__td._services {
+      text-align: left;
+      font-size: 12px;
+      padding: 0 20px; }
+    .bookings-table__td._status {
+      background: #36b6ff;
+      color: #fff;
+      font-size: 12px; }
+  .bookings-table__time, .bookings-table__date {
+    position: relative;
+    z-index: 10;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #333;
+    font-weight: bold; }
+  .bookings-table__time {
+    width: 50px;
+    color: #fff; }
+  .bookings-table__date {
+    width: 90px;
+    color: #1694dc;
+    font-size: 12px; }
+
+.bookings-company-info {
+  padding: 0 20px;
+  text-align: left; }
+  .bookings-company-info__title {
+    font-weight: bold;
+    padding-bottom: 5px; }
+  .bookings-company-info__address {
+    font-size: 12px;
+    padding-bottom: 5px; }
+  .bookings-company-info__contacts {
+    padding-top: 5px; }
+  .bookings-company-info__phone {
+    margin-bottom: 3px;
+    line-height: 1em; }
+    .bookings-company-info__phone small {
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle; }

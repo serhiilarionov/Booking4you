@@ -1,0 +1,35 @@
+.user-profile-form {
+  display: block; }
+  .user-profile-form__section {
+    margin-bottom: 30px; }
+  .user-profile-form__title {
+    margin-bottom: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: none; }
+    .user-profile-form__title .fa {
+      color: #36b6ff; }
+  .user-profile-form__photo-wrapper {
+    position: relative;
+    width: 220px; }
+  .user-profile-form__photo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1; }
+  .user-profile-form__photo-input {
+    position: relative;
+    z-index: 10;
+    width: 220px;
+    height: 220px;
+    opacity: 0;
+    cursor: pointer; }
+  .user-profile-form__photo-message {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.6); }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Company, CompanyDetail, CompanyApi, CompanyDetailApi, BASE_URL } from '../../shared/index';
+import { Company, CompanyDetail, CompanyApi, BASE_URL } from '../../shared/index';
 
 @Component({
   selector: 'company-details-page',
@@ -17,7 +17,6 @@ export class CompanyDetailsPageComponent implements OnInit {
 
   constructor(
     public companyApi: CompanyApi,
-    public companyDetailApi: CompanyDetailApi,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -28,7 +27,7 @@ export class CompanyDetailsPageComponent implements OnInit {
 
       this.companyApi.findById(this.queryId).subscribe((company: Company) => {
         this.company = company;
-        this.companyDetailApi.findById(this.queryId).subscribe((companyDetail: CompanyDetail) => {
+        this.companyApi.getDetails(this.queryId).subscribe((companyDetail: CompanyDetail) => {
           this.srcArray = companyDetail.imageList.map((imageName: string) => {
             return `${BASE_URL}/storage/test/${this.company.cityId}/${this.company.categoryId}/${this.company.id}/${imageName}`
           });

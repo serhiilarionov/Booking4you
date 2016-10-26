@@ -19,7 +19,7 @@ var RegistrationPageComponent = (function () {
         this.router = router;
         this.auth.currentUser.subscribe(function (user) {
             if (user) {
-                _this.router.navigate([_this.authRedirect.redirectUrl]);
+                _this.router.navigateByUrl(_this.authRedirect.redirectUrl);
             }
         });
     }

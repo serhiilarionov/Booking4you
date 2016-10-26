@@ -1,4 +1,9 @@
 import { Directive, OnInit, ElementRef, Input } from '@angular/core';
+import { TODAY_DATE } from '../../shared/index';
+
+import 'moment';
+import 'moment/locale/ru';
+declare var System: any;
 declare var $: any;
 
 @Directive({
@@ -7,7 +12,6 @@ declare var $: any;
 
 export class DateTimePickerDirective implements OnInit {
   public tooltipsRU: any;
-  public defaultOptions: any;
   @Input('datetimepicker') dateTimePickerOptions: any;
 
   constructor(private elementRef: ElementRef) {
@@ -38,7 +42,8 @@ export class DateTimePickerDirective implements OnInit {
         stepping: 5,
         showTodayButton: true,
         showClear: true,
-        showClose: true
+        showClose: true,
+        minDate: TODAY_DATE.setHours(0, 0, 0)
       };
     }
 
@@ -46,6 +51,8 @@ export class DateTimePickerDirective implements OnInit {
       this.dateTimePickerOptions.tooltips = this.tooltipsRU;
     }
 
-    $(this.elementRef.nativeElement).datetimepicker(this.dateTimePickerOptions);
+    System.import('bootstrap-datetimepicker').then(() => {
+      $(this.elementRef.nativeElement).datetimepicker(this.dateTimePickerOptions);
+    });
   }
 }

@@ -21,10 +21,13 @@ export class BookingFormComponent implements OnChanges {
               private authService: AuthService,
               private clientApi: ClientApi,
               private coreApi: CoreApi) {
+
     this.currentUser = this.clientApi.getCachedCurrent();
+
     this.authService.currentUser.subscribe((user) => {
       this.currentUser = user;
     });
+
     this.bookingForm = this.formBuilder.group({
       bookingDate: ['', Validators.required],
       bookingTime: ['', Validators.required],
@@ -52,12 +55,13 @@ export class BookingFormComponent implements OnChanges {
 
     let dateTime = `${this.bookingForm.value.bookingDate} ${this.bookingForm.value.bookingTime}`;
 
-    this.coreApi.createBooking(
-      this.company.id,
-      dateTime,
-      this.servicesSelected)
+    this.coreApi.createBooking(this.company.id, dateTime, this.servicesSelected)
       .subscribe(
-        (success) => {this.submitSuccessfull = 'success';},
-        (error) => {this.submitSuccessfull = 'fail';});
+        (success) => {
+          this.submitSuccessfull = 'success';
+        },
+        (error) => {
+          this.submitSuccessfull = 'fail';
+        });
   }
 }

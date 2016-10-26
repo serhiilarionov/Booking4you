@@ -1,4 +1,7 @@
-<gmap *ngIf="company" [companyList]="[company]"></gmap>
+<gmap *ngIf="company" [companyList]="[company]"
+                      [latitude]="company.point.lat"
+                      [longitude]="company.point.lng"
+                      [zoom]="14"></gmap>
 
 <div class="container container_pad" *ngIf="company">
   <div class="row">

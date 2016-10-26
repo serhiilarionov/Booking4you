@@ -1,0 +1,51 @@
+<table class="table bookings-table">
+
+  <thead class="bookings-table__head">
+  <tr>
+    <th class="bookings-table__caption">ID</th>
+    <th class="bookings-table__caption"><i class="fa fa-calendar" aria-hidden="true"></i> Booked in</th>
+    <th class="bookings-table__caption"><i class="fa fa-building-o" aria-hidden="true"></i> Company info</th>
+    <th class="bookings-table__caption"><i class="fa fa-list" aria-hidden="true"></i> Services</th>
+    <th class="bookings-table__caption"><i class="fa fa-clock-o" aria-hidden="true"></i> Created</th>
+    <th class="bookings-table__caption"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Status</th>
+  </tr>
+  </thead>
+
+  <template ngFor let-booking [ngForOf]="bookingsList">
+    <tr class="bookings-table__tr">
+      <td class="bookings-table__td _number">{{booking.number}}</td>
+      <td class="bookings-table__td _booking-time">
+        <span class="bookings-table__time">{{booking.date | dateFormat: 'HH:mm' }}</span>
+        <span class="bookings-table__date">{{booking.date | dateFormat: 'YYYY.MM.DD' }} </span>
+      </td>
+      <td class="bookings-table__td _title">
+        <div class="bookings-company-info">
+          <div class="bookings-company-info__title">{{booking.company.title}}</div>
+          <div class="bookings-company-info__address _faded-txt" *ngIf="booking.company.fullAddress">
+            {{booking.company.fullAddress}}
+          </div>
+          <div class="bookings-company-info__contacts">
+            <div class="bookings-company-info__phone" *ngFor="let phones of booking.company.details.phone">
+              <small *ngIf="phones.note">{{phones.note}} :</small>
+              {{phones.number}}
+            </div>
+          </div>
+        </div>
+
+      </td>
+      <td class="bookings-table__td _services">
+        <span *ngIf="!booking?.services" class="_faded-txt">Nothing selected</span>
+
+        <ul *ngIf="booking?.services">
+          <li *ngFor="let service of booking?.services"><i class="fa fa-share-square" aria-hidden="true"></i>
+            {{service.name}}
+          </li>
+        </ul>
+
+      </td>
+      <td class="bookings-table__td _created">{{booking.createdAt | dateFormat: 'YYYY.MM.DD HH:mm': 3 }}</td>
+      <td class="bookings-table__td _status">{{booking.status}}</td>
+    </tr>
+    <tr class="bookings-table__tr _separate"></tr>
+  </template>
+</table>

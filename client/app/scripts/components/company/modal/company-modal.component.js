@@ -11,15 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var index_1 = require('../../../shared/index');
 var CompanyModalComponent = (function () {
-    function CompanyModalComponent(companyDetailApi) {
-        this.companyDetailApi = companyDetailApi;
+    function CompanyModalComponent(companyApi) {
+        this.companyApi = companyApi;
         this.srcArray = [];
     }
     CompanyModalComponent.prototype.ngOnChanges = function (changes) {
         var _this = this;
         if ('company' in changes && changes['company'].currentValue) {
             this.srcArray = [];
-            this.companyDetailApi.findById(this.company.id).subscribe(function (companyDetail) {
+            this.companyApi.getDetails(this.company.id).subscribe(function (companyDetail) {
                 _this.srcArray = companyDetail.imageList.map(function (imageName) {
                     return index_1.BASE_URL + "/storage/test/" + _this.company.cityId + "/" + _this.company.categoryId + "/" + _this.company.id + "/" + imageName;
                 });
@@ -37,7 +37,7 @@ var CompanyModalComponent = (function () {
             styleUrls: ['scripts/components/company/modal/company-modal.component.css'],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
-        __metadata('design:paramtypes', [index_1.CompanyDetailApi])
+        __metadata('design:paramtypes', [index_1.CompanyApi])
     ], CompanyModalComponent);
     return CompanyModalComponent;
 }());

@@ -18,7 +18,7 @@ export class CompanyFilterComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private cityApi: CityApi,
-    private categoryApi: CategoryApi,
+    private categoryApi: CategoryApi
   ) {}
 
   ngOnInit() {
