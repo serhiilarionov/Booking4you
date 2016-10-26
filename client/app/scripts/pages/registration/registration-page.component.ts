@@ -14,7 +14,7 @@ export class RegistrationPageComponent {
     private router: Router
   ) {
     this.auth.currentUser.subscribe((user: Client) => {
-      if (user) { this.router.navigate([this.authRedirect.redirectUrl]); }
+      if (user) { this.router.navigateByUrl(this.authRedirect.redirectUrl); }
     });
   }
 }
