@@ -3,6 +3,7 @@
 angular.module('loopbackSockets')
   .factory('PubSub', function (socket) {
     var container =  [];
+    var socket = socket();
     return {
       subscribe: function(options, callback){
         if(options){

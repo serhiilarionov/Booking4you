@@ -4,7 +4,8 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
-      "./models"
+      "./models",
+      "./node_modules/loopback-component-passport/lib/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -14,6 +15,14 @@
     ]
   },
   "User": {
+    "dataSource": "pgsql",
+    "public": false
+  },
+  "userCredential": {
+    "dataSource": "pgsql",
+    "public": false
+  },
+  "userIdentity": {
     "dataSource": "pgsql",
     "public": false
   },

@@ -5,7 +5,7 @@ angular.module('app.booking').controller('UnprocessedBookingsController', functi
                                                                                     Core, Notification, PubSub, socket) {
   var vm = this;
   vm.newBooking = {};
-
+  var socket = socket();
   socket.on('/notify/' + localStorage.$LoopBack$currentUserId, function (params) {
     Notification[params.type](params.name, params.process);
   });

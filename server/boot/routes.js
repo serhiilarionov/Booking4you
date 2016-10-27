@@ -103,6 +103,10 @@ module.exports = function (server) {
       });
     });
   });
+  
+  router.get('/auth/account', function(req, res, next) {
+    res.send(req.user);
+  });
 
   server.use(router);
 };

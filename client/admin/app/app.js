@@ -12,6 +12,7 @@
 angular.module('app', [
   'ngSanitize',
   'ngAnimate',
+  'ngCookies',
   'restangular',
   'ui.router',
   'ui.bootstrap',
@@ -20,6 +21,7 @@ angular.module('app', [
   'customElements',
   'loopbackSockets',
   'lbServices',
+  'customMethods',
   'uiGmapgoogle-maps',
   'angularFileUpload',
 

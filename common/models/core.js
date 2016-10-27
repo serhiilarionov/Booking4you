@@ -7,7 +7,9 @@ module.exports = function (Core) {
    * @returns {*}
    */
   function getToken() {
-    return LoopBackContext.getCurrentContext().get('accessToken');
+    var ctx = LoopBackContext.getCurrentContext();
+    // Get the current access token
+    return ctx && ctx.get('accessToken');
   }
 
   /**
@@ -132,7 +134,7 @@ module.exports = function (Core) {
     };
     socket.emit('/notify/' + token.userId, params);
     params.clientId = token.userId;
-    Notify.create(params, cb(null, data));
+    Notify.create(params, cb(null, params));
   };
 
   Core.remoteMethod(
@@ -144,7 +146,7 @@ module.exports = function (Core) {
         {arg: 'process', type: 'string', required: true},
         {arg: 'data', type: 'object'}
       ],
-      returns: {arg: 'result', type: 'object'}
+      returns: {arg: 'params', type: 'object'}
     }
   );
 

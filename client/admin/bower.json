@@ -62,6 +62,7 @@
     "angular-datatables": "^0.5.3",
     "angular-file-upload": "^2.3.4",
     "jt.timepicker": "jquery-timepicker-jt#^1.11.2",
-    "angular-ui-select": "^0.19.4"
+    "angular-ui-select": "^0.19.4",
+    "angular-cookies": "^1.5.8"
   }
 }
