@@ -114,15 +114,11 @@ angular.module('app.booking').controller('ActiveBookingsController', function ($
     vm.selectedBooking.status = status;
     vm.selectedIndex = selectedIndex;
 
-    Booking.upsert({id: vm.selectedBooking.id}, vm.selectedBooking)
+    Core.bookingStatusUpdate({
+      taskId: vm.bookings[selectedIndex].taskId,
+      status: status
+    })
       .$promise
-      .then(function (booking) {
-        return Core.bookingStatusUpdate({
-          taskId: booking.taskId,
-          status: status
-        })
-          .$promise
-      })
       .then(function () {
         Notification.success();
       })
