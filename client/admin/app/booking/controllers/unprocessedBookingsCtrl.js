@@ -114,16 +114,13 @@ angular.module('app.booking').controller('UnprocessedBookingsController', functi
     vm.selectedBooking.status = status;
     vm.selectedIndex = selectedIndex;
 
-    Booking.upsert({id: vm.selectedBooking.id}, vm.selectedBooking)
+    Core.bookingStatusUpdate({
+      taskId: vm.bookings[selectedIndex].taskId,
+      status: status
+    })
       .$promise
-      .then(function (booking) {
-        return Core.bookingStatusUpdate({
-          taskId: booking.taskId,
-          status: status
-        })
-          .$promise
-      })
       .then(function () {
+        vm.bookings[vm.selectedIndex].status = vm.selectedBooking.status;
         Notification.success();
       })
       .catch(function (err) {

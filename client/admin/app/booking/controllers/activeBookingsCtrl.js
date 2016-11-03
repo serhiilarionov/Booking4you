@@ -124,6 +124,7 @@ angular.module('app.booking').controller('ActiveBookingsController', function ($
           .$promise
       })
       .then(function () {
+        vm.bookings[vm.selectedIndex].status = vm.selectedBooking.status;
         Notification.success();
       })
       .catch(function (err) {

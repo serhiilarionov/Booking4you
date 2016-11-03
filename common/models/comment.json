@@ -1,0 +1,62 @@
+{
+  "name": "Comment",
+  "plural": "Comment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "indexes": {},
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "createdAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true
+    },
+    "message": {
+      "type": "String"
+    },
+    "rating": {
+      "type": "Number",
+      "required": true
+    },
+    "displayName": {
+      "type": "String"
+    },
+    "createdAt": {
+      "type": "Date",
+      "default": "$now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "questions": {
+      "type": "hasMany",
+      "model": "Questions",
+      "foreignKey": "questionId",
+      "through": "commentQuestion"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "clientId"
+    },
+    "booking": {
+      "type": "belongsTo",
+      "model": "Booking",
+      "foreignKey": "bookingId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
