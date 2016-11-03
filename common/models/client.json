@@ -39,6 +39,11 @@
       "type": "hasMany",
       "model": "userCredential",
       "foreignKey": "userId"
+    },
+    "comment": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": "clientId"
     }
   },
   "acls": [

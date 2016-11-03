@@ -37,6 +37,10 @@
       "type": "boolean",
       "default": true
     },
+    "commented": {
+      "type": "boolean",
+      "default": false
+    },
     "status": {
       "type": "string"
     },
@@ -69,6 +73,11 @@
       "model": "CompanyService",
       "foreignKey": "bookingId",
       "through": "BookingService"
+    },
+    "comment": {
+      "type": "hasOne",
+      "model": "Comment",
+      "foreignKey": "commentId"
     }
   },
   "acls": [

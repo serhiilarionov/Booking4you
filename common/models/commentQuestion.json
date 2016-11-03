@@ -1,0 +1,50 @@
+{
+  "name": "CommentQuestion",
+  "plural": "CommentQuestion",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "indexes": {},
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "createdAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": true,
+      "generated": true
+    },
+    "rating": {
+      "type": "Number",
+      "required": true
+    },
+    "createdAt": {
+      "type": "date",
+      "default": "$now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "comment": {
+      "type": "belongsTo",
+      "model": "Comment",
+      "foreignKey": "commentId"
+    },
+    "question": {
+      "type": "belongsTo",
+      "model": "Question",
+      "foreignKey": "questionId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

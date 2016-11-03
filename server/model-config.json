@@ -118,6 +118,18 @@
     "dataSource": "pgsql",
     "public": true
   },
+  "Comment": {
+    "dataSource": "pgsql",
+    "public": true
+  },
+  "Question": {
+    "dataSource": "pgsql",
+    "public": true
+  },
+  "CommentQuestion": {
+    "dataSource": "pgsql",
+    "public": true
+  },
   "Container": {
     "dataSource": "storage",
     "public": true
