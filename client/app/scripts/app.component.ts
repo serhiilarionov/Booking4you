@@ -9,7 +9,7 @@ declare var $: any;
   selector: 'app',
   templateUrl: 'scripts/app.component.html',
   styleUrls: ['scripts/app.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent {

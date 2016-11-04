@@ -1,0 +1,10 @@
+<div class="notify-box">
+  <div *ngFor="let notice of messageList" class="notify-box__message"
+       [@messageInOut]="notice.state"
+       [class._error]="notice.message.type === 'error'"
+       [class._success]="notice.message.type === 'success'"> {{notice.message.name}}: {{notice.message.process}}
+
+    <i class="fa fa-times notify-box__close" aria-hidden="true" (click)="hideNotice(notice)"></i>
+  </div>
+</div>
+

@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "~2.1.1",
     "@angular/router": "~3.1.1",
     "@angular/upgrade": "~2.1.1",
+    "@types/socket.io-client": "^1.4.27",
     "angular2-google-maps": "^0.15.0",
     "bourbon": "^4.2.7",
     "browser-sync": "^2.14.3",
@@ -27,6 +28,7 @@
     "ng2-translate": "3.1.2",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-rc.1",
+    "socket.io-client": "^1.5.1",
     "systemjs": "0.19.39",
     "typings": "^1.4.0",
     "zone.js": "^0.6.25"

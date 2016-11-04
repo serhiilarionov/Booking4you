@@ -13,7 +13,7 @@ export class ProfileMyOrdersComponent {
   constructor(private clientApi: ClientApi, private bookingApi: BookingApi) {
     this.currentUser = this.clientApi.getCachedCurrent();
 
-    this.clientApi.getBookings(this.currentUser.id, {order: 'createdAt DESC', include: {'company': ['details']}})
+    this.clientApi.getBookings(this.currentUser.id, {order: 'createdAt DESC', include: {company: ['details']}})
       .subscribe((bookings) => {
         this.bookingsList = bookings.map((instance) => {
           this.bookingApi.getServices(instance.id).subscribe((services) => {
@@ -21,6 +21,10 @@ export class ProfileMyOrdersComponent {
           });
           return instance;
         });
-      })
+      });
   }
 }
+
+  // TODO: fix td "booked in" view on md devices
+  // TODO: 'nothing found' if no bookings
+

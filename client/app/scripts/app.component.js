@@ -39,7 +39,7 @@ var AppComponent = (function () {
             selector: 'app',
             templateUrl: 'scripts/app.component.html',
             styleUrls: ['scripts/app.component.css'],
-            encapsulation: core_1.ViewEncapsulation.None,
+            encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [index_1.SidebarService, core_1.ElementRef, router_1.Router, ng2_translate_1.TranslateService])
     ], AppComponent);

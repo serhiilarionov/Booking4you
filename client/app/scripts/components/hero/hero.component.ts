@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoopBackAuth, City, CityApi, Category, CategoryApi, ClientApi } from '../../shared/index';
+import { City, CityApi, Category, CategoryApi } from '../../shared/index';
 declare var $: any;
 
 @Component({

@@ -16,7 +16,7 @@ var ProfileMyOrdersComponent = (function () {
         this.clientApi = clientApi;
         this.bookingApi = bookingApi;
         this.currentUser = this.clientApi.getCachedCurrent();
-        this.clientApi.getBookings(this.currentUser.id, { order: 'createdAt DESC', include: { 'company': ['details'] } })
+        this.clientApi.getBookings(this.currentUser.id, { order: 'createdAt DESC', include: { company: ['details'] } })
             .subscribe(function (bookings) {
             _this.bookingsList = bookings.map(function (instance) {
                 _this.bookingApi.getServices(instance.id).subscribe(function (services) {
@@ -37,4 +37,6 @@ var ProfileMyOrdersComponent = (function () {
     return ProfileMyOrdersComponent;
 }());
 exports.ProfileMyOrdersComponent = ProfileMyOrdersComponent;
+// TODO: fix td "booked in" view on md devices
+// TODO: 'nothing found' if no bookings
 //# sourceMappingURL=my-orders.component.js.map

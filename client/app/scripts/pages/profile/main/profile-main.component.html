@@ -7,8 +7,40 @@
                 <input name="file" type="file" class="user-profile-form__photo-input">
                 <div class="user-profile-form__photo-message">Click to upload picture here</div>
                 <img src="http://placehold.it/220?text=no+photo" alt="" class="user-profile-form__photo">
+
             </div>
         </section>
+
+        <section class="user-profile-form__section _password-change">
+            <h3 class="user-profile-form__title _password-change"><i class="fa fa-asterisk"></i> Password Change</h3>
+
+
+
+            <form [formGroup]="changePassForm" id="form-password" (ngSubmit)="onSubmit($event)">
+                <div *ngIf="changePassForm.invalid && submitted" class="form-info bg-danger">
+                    <p *ngIf="changePassForm.controls.newPass.errors?.required || changePassForm.controls.newPassConfirm.errors?.required">{{'This field(s) is required.' | translate}}</p>
+                    <p *ngIf="changePassForm.controls.newPass.errors?.minlength">{{'Password must be of minimum PASSWORD_MIN_LENGTH characters length.' | translate:{PASSWORD_MIN_LENGTH: passwordMinLength} }}</p>
+                    <p *ngIf="changePassForm.errors?.areEqual">{{'Passwords must match.' | translate}}</p>
+                </div>
+                <div *ngIf="success" class="form-info bg-success">
+                    {{ 'Password was changed' | translate }}
+                </div>
+                <div class="form-group" >
+                    <label for="new-password">New Password</label>
+                    <input formControlName="newPass" type="password" class="form-control" id="new-password" name="new-password"
+                           [class.has-error]="changePassForm.controls.newPass.errors?.required && submitted">
+                </div>
+                <div class="form-group" >
+                    <label for="confirm-new-password">Confirm New Password</label>
+                    <input formControlName="newPassConfirm" type="password" class="form-control" id="confirm-new-password" name="confirm-new-password"
+                           [class.has-error]="changePassForm.controls.newPassConfirm.errors?.required && submitted">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default" [disabled]="success">Change Password</button>
+                </div>
+            </form>
+        </section>
+
     </div>
 
     <div class="col-sm-9">
@@ -91,8 +123,9 @@
 
 
         <div class="form-group">
-            <button type="submit" class="btn btn-large btn-default" id="submit">Save Changes</button>
+            <button type="submit" class="btn btn-large btn-default" id="submit" disabled="submitted">Save Changes</button>
         </div>
 
     </div>
+
 </div>

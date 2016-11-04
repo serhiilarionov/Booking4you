@@ -1,10 +1,15 @@
 @import "main";
 
-.user-profile-form  {
+.user-profile-form {
   display: block;
 
   &__section {
     margin-bottom: 30px;
+
+    &._password-change {
+      padding: 20px;
+      border: 2px dashed #FF513F;
+    }
   }
 
   &__title {
@@ -16,11 +21,20 @@
     .fa {
       color: #36b6ff;
     }
+
+    &._password-change {
+      margin-top: 0;
+      font-size: 16px;
+      .fa {
+        color: #FF513F;
+      }
+    }
   }
 
   &__photo-wrapper {
     position: relative;
     width: 220px;
+    margin: 0 auto;
   }
 
   &__photo {
@@ -47,6 +61,22 @@
     font-weight: bold;
     text-align: center;
     z-index: 2;
-    background: rgba(255,255,255, .6);
+    background: rgba(255, 255, 255, .6);
+  }
+
+}
+
+input.has-error {
+  border: 1px solid #a94442;
+}
+
+.form-info {
+  padding: 10px;
+  margin-bottom: 10px;
+
+  p {
+    margin: 5px 0;
+    line-height: 1em;
+    color: #333;
   }
 }
