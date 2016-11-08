@@ -17,6 +17,10 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "question": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

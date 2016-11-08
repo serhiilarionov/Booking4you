@@ -16,7 +16,10 @@
       "id": true,
       "generated": true
     },
-    "message": {
+    "positiveMessage": {
+      "type": "String"
+    },
+    "negativeMessage": {
       "type": "String"
     },
     "rating": {
