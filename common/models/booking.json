@@ -76,7 +76,7 @@
     "comment": {
       "type": "hasOne",
       "model": "Comment",
-      "foreignKey": "commentId"
+      "foreignKey": "bookingId"
     }
   },
   "acls": [
