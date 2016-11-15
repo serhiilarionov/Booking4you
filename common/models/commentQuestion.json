@@ -18,6 +18,9 @@
     },
     "rating": {
       "type": "Number",
+      "postgresql": {
+        "dataType": "NUMERIC(10,2)"
+      },
       "required": true
     },
     "createdAt": {
