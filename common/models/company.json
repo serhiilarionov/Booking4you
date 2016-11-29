@@ -90,6 +90,11 @@
       "model": "CompanyLocation",
       "foreignKey": "companyId"
     },
+    "comment": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": "companyId"
+    },
     "service": {
       "type": "hasMany",
       "model": "CompanyService",

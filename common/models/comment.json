@@ -44,6 +44,11 @@
       "model": "Client",
       "foreignKey": "clientId"
     },
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": "companyId"
+    },
     "booking": {
       "type": "belongsTo",
       "model": "Booking",
