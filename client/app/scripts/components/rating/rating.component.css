@@ -1,0 +1,42 @@
+.star-rating {
+  color: #DDDDDD;
+  text-align: center; }
+  .star-rating__star {
+    position: relative;
+    margin: 0.05em;
+    line-height: 1em; }
+    .star-rating__star.enabled:hover {
+      cursor: pointer; }
+    .star-rating__star:after {
+      display: inline-block;
+      content: '\f005';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      color: #36b6ff;
+      overflow: hidden; }
+    .star-rating__star.fill:after {
+      width: 100%; }
+    .star-rating__star.fill_10:after {
+      width: 10%; }
+    .star-rating__star.fill_20:after {
+      width: 20%; }
+    .star-rating__star.fill_30:after {
+      width: 30%; }
+    .star-rating__star.fill_40:after {
+      width: 40%; }
+    .star-rating__star.fill_50:after {
+      width: 50%; }
+    .star-rating__star.fill_60:after {
+      width: 60%; }
+    .star-rating__star.fill_70:after {
+      width: 70%; }
+    .star-rating__star.fill_80:after {
+      width: 80%; }
+    .star-rating__star.fill_90:after {
+      width: 90%; }
+    .star-rating__star_active {
+      color: #36b6ff; }
+    .star-rating__star_active_nearby {
+      color: #8D8D8D; }

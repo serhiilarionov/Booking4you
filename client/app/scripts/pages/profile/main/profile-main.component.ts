@@ -24,7 +24,6 @@ export class ProfileMainComponent {
     }
 
     onSubmit() {
-
         this.submitted = true;
         if (this.changePassForm.valid) {
             this.clientApi.upsert({
@@ -33,5 +32,4 @@ export class ProfileMainComponent {
             }).subscribe(() => { this.success = true; }, (error) => { console.log(error); });
         }
     }
-
 }

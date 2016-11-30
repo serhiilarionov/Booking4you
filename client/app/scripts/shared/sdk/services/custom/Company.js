@@ -639,6 +639,97 @@ var CompanyApi = (function (_super) {
         return result;
     };
     /**
+     * Find a related item by id for comment.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for comment
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Company` object.)
+     * </em>
+     */
+    CompanyApi.prototype.findByIdComment = function (id, fk) {
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/comment/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result.map(function (instance) { return new Company_1.Company(instance); });
+    };
+    /**
+     * Delete a related item by id for comment.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for comment
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    CompanyApi.prototype.destroyByIdComment = function (id, fk) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/comment/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Update a related item by id for comment.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param any fk Foreign key for comment
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Company` object.)
+     * </em>
+     */
+    CompanyApi.prototype.updateByIdComment = function (id, fk, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "PUT";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/comment/:fk";
+        var routeParams = {
+            id: id,
+            fk: fk
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * Find a related item by id for clients.
      *
      * @param any id PersistedModel id
@@ -1172,6 +1263,123 @@ var CompanyApi = (function (_super) {
         return result;
     };
     /**
+     * Queries comment of Company.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object filter
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Company` object.)
+     * </em>
+     */
+    CompanyApi.prototype.getComment = function (id, filter) {
+        if (filter === void 0) { filter = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/comment";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (filter)
+            urlParams.filter = filter;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in comment of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Company` object.)
+     * </em>
+     */
+    CompanyApi.prototype.createComment = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/comment";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Deletes all comment of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    CompanyApi.prototype.deleteComment = function (id) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/comment";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Counts comment of Company.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object where Criteria to match model instances
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * Data properties:
+     *
+     *  - `count` – `{number}` -
+     */
+    CompanyApi.prototype.countComment = function (id, where) {
+        if (where === void 0) { where = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/comment/count";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (where)
+            urlParams.where = where;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * Queries clients of Company.
      *
      * @param any id PersistedModel id
@@ -1567,7 +1775,7 @@ var CompanyApi = (function (_super) {
      *   populated with the actual data once the response is returned
      *   from the server.
      *
-     * The number of instances updated
+     * Information related to the outcome of the operation
      */
     CompanyApi.prototype.updateAll = function (where, data) {
         if (where === void 0) { where = undefined; }
@@ -1860,6 +2068,39 @@ var CompanyApi = (function (_super) {
         var method = "POST";
         var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
             "/companies/:id/categories";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in comment of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Company` object.)
+     * </em>
+     */
+    CompanyApi.prototype.createManyComment = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/companies/:id/comment";
         var routeParams = {
             id: id
         };

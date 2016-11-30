@@ -14,7 +14,8 @@
     'rich-marker': 'vendor/v3-utility-library/richmarker',
     'moment': 'node_modules/moment',
     'bootstrap-datetimepicker': 'vendor/eonasdan-bootstrap-datetimepicker/build/js/',
-    'socket.io-client': '/node_modules/socket.io-client/'
+    'socket.io-client': '/node_modules/socket.io-client/',
+    'ng2-rating': '/node_modules/ng2-rating'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
@@ -26,7 +27,8 @@
     'ng2-translate':              { defaultExtension: 'js' },
     'moment':                     { format: 'global', main: 'moment.js', defaultExtension: 'js' },
     'bootstrap-datetimepicker':   { format: 'global', main: 'bootstrap-datetimepicker.min', defaultExtension: 'js'},
-    'socket.io-client':           { main: 'socket.io.js', defaultExtension: 'js'}
+    'socket.io-client':           { main: 'socket.io.js', defaultExtension: 'js'},
+    'ng2-rating':                 { main: 'index.js', defaultExtension: 'js' }
   };
   var ngPackageNames = [
     'common',

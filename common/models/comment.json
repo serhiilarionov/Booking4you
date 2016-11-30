@@ -16,11 +16,17 @@
       "id": true,
       "generated": true
     },
-    "message": {
+    "positiveMessage": {
+      "type": "String"
+    },
+    "negativeMessage": {
       "type": "String"
     },
     "rating": {
       "type": "Number",
+      "postgresql": {
+        "dataType": "NUMERIC(10,2)"
+      },
       "required": true
     },
     "displayName": {

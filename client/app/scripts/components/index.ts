@@ -19,6 +19,9 @@ import { CompanyFilterComponent } from './company/filter/company-filter.componen
 import { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
 import { BookingFormComponent } from './booking/form/booking-form.component';
 import { BookingModalComponent } from './booking/modal/booking-modal.component';
+import { ReviewFormComponent } from './review/review-form.component';
+import { ReviewComponent } from './review/review.component';
+import { RatingComponent } from './rating/rating.component';
 
 export { LoginFormComponent } from './auth/login-form.conponent';
 export { RegistrationFormComponent } from './auth/registration-form.conponent';
@@ -41,7 +44,9 @@ export { CompanyFilterComponent } from './company/filter/company-filter.componen
 export { LangSwitcherComponent } from './lang-switcher/lang-switcher.component';
 export { BookingFormComponent } from './booking/form/booking-form.component';
 export { BookingModalComponent } from './booking/modal/booking-modal.component';
-
+export { ReviewFormComponent } from './review/review-form.component';
+export { ReviewComponent } from './review/review.component';
+export { RatingComponent } from './rating/rating.component';
 
 export const Components: Array<any> = [
   LoginFormComponent,
@@ -66,5 +71,8 @@ export const Components: Array<any> = [
   BookingFormComponent,
   BookingModalComponent,
   CompanyAddToUserFavorite,
-  LangSwitcherComponent
+  LangSwitcherComponent,
+  ReviewFormComponent,
+  ReviewComponent,
+  RatingComponent
 ];

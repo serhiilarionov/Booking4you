@@ -7,8 +7,8 @@ import { Client, ClientApi, Booking, BookingApi } from '../../../shared/index';
   styleUrls: ['scripts/pages/profile/my-orders/my-orders.component.css']
 })
 export class ProfileMyOrdersComponent {
-  private currentUser: Client;
   public bookingsList: Array<Booking>;
+  private currentUser: Client;
 
   constructor(private clientApi: ClientApi, private bookingApi: BookingApi) {
     this.currentUser = this.clientApi.getCachedCurrent();

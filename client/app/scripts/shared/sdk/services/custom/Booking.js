@@ -250,6 +250,126 @@ var BookingApi = (function (_super) {
         return result;
     };
     /**
+     * Fetches hasOne relation comment.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param boolean refresh
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.getComment = function (id, refresh) {
+        if (refresh === void 0) { refresh = undefined; }
+        var method = "GET";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/comment";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        if (refresh)
+            urlParams.refresh = refresh;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in comment of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.createComment = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/comment";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Update comment of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.updateComment = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "PUT";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/comment";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Deletes comment of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @returns object An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * This method returns no data.
+     */
+    BookingApi.prototype.destroyComment = function (id) {
+        var method = "DELETE";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/comment";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {};
+        var urlParams = {};
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
      * Fetches belongsTo relation user.
      *
      * @param any id PersistedModel id
@@ -676,7 +796,7 @@ var BookingApi = (function (_super) {
      *   populated with the actual data once the response is returned
      *   from the server.
      *
-     * The number of instances updated
+     * Information related to the outcome of the operation
      */
     BookingApi.prototype.updateAll = function (where, data) {
         if (where === void 0) { where = undefined; }
@@ -743,6 +863,39 @@ var BookingApi = (function (_super) {
         var urlParams = {};
         if (where)
             urlParams.where = where;
+        var result = this.request(method, url, routeParams, urlParams, postBody);
+        return result;
+    };
+    /**
+     * Creates a new instance in comment of this model.
+     *
+     * @param any id PersistedModel id
+     *
+     * @param object data Request data.
+     *
+     * This method expects a subset of model properties as request parameters.
+     *
+     * @returns object[] An empty reference that will be
+     *   populated with the actual data once the response is returned
+     *   from the server.
+     *
+     * <em>
+     * (The remote method definition does not provide any description.
+     * This usually means the response is a `Booking` object.)
+     * </em>
+     */
+    BookingApi.prototype.createManyComment = function (id, data) {
+        if (data === void 0) { data = undefined; }
+        var method = "POST";
+        var url = lb_config_1.LoopBackConfig.getPath() + "/" + lb_config_1.LoopBackConfig.getApiVersion() +
+            "/bookings/:id/comment";
+        var routeParams = {
+            id: id
+        };
+        var postBody = {
+            data: data
+        };
+        var urlParams = {};
         var result = this.request(method, url, routeParams, urlParams, postBody);
         return result;
     };

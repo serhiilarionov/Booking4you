@@ -14,16 +14,20 @@ export class CompanyDetailsPageComponent implements OnInit {
   public companyNotFound: boolean;
   public company: Company;
   public companyDetail: CompanyDetail;
+  public commentList: Array<Comment>;
 
   constructor(
     public companyApi: CompanyApi,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.queryId = +params['id'];
       this.srcArray = [];
+
+      this.companyApi.getComment(this.queryId).subscribe((comments) => {
+        this.commentList = comments;
+      });
 
       this.companyApi.findById(this.queryId).subscribe((company: Company) => {
         this.company = company;
@@ -32,8 +36,6 @@ export class CompanyDetailsPageComponent implements OnInit {
             return `${BASE_URL}/storage/test/${this.company.cityId}/${this.company.categoryId}/${this.company.id}/${imageName}`
           });
         });
-      }, (error) => {
-        this.companyNotFound = true;
       });
     });
   }}

@@ -20,7 +20,7 @@
       </td>
       <td class="bookings-table__td _title">
         <div class="bookings-company-info">
-          <div class="bookings-company-info__title">{{booking.company.title}}</div>
+          <a href="/company-details/{{booking.companyId}}" class="bookings-company-info__title" target="_blank">{{booking.company.title}}</a>
           <div class="bookings-company-info__address _faded-txt" *ngIf="booking.company.fullAddress">
             {{booking.company.fullAddress}}
           </div>
@@ -30,6 +30,8 @@
               {{phones.number}}
             </div>
           </div>
+          <a href="/review/{{booking.id}}" *ngIf="!booking.commented && booking.status ==='done'" class="booking-comment-btn"><i class="fa fa-comment" aria-hidden="true"></i> Write a review</a>
+          <div class="booking-comment-btn _commented" *ngIf="booking.commented"><i class="fa fa-comment" aria-hidden="true"></i> Already commented!</div>
         </div>
 
       </td>

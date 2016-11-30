@@ -1,0 +1,22 @@
+<div class="container container_pad" *ngIf="allowed">
+    <div class="col-xs-9">
+        <review-form [bookingId]="bookingId" [companyId]="booking.companyId"></review-form>
+    </div>
+    <div class="col-xs-3">
+        <div class="row">
+            <div class="review-company-details">
+                <div class="review-company-details__photo"><img src="{{photoUrl}}" alt="" class="img-responsive">
+                </div>
+                <div class="review-company-details__description">
+                    <a href="/company-details/{{booking?.companyId}}" target="_blank" class="review-company-details__title">{{booking?.company.name}}</a>
+                    <div class="review-company-details__address">{{booking?.company.fullAddress}}</div>
+                    <div class="review-company-details__phone" *ngFor="let phone of booking?.company.details.phone">
+                        <i class="fa fa-phone" aria-hidden="true"></i> {{phone.number}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!allowed" class="review-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> You can not leave a review!</div>

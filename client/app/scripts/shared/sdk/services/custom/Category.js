@@ -822,7 +822,7 @@ var CategoryApi = (function (_super) {
      *   populated with the actual data once the response is returned
      *   from the server.
      *
-     * The number of instances updated
+     * Information related to the outcome of the operation
      */
     CategoryApi.prototype.updateAll = function (where, data) {
         if (where === void 0) { where = undefined; }

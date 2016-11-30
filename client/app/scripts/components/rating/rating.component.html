@@ -1,0 +1,7 @@
+<div class="star-rating" (mouseleave)="clearHovered()">
+    <i class="fa fa-star star-rating__star fa-lg {{star?.floatClass}}" *ngFor="let star of ratingRanges"
+       (mouseenter)="setHovered(star.value)"
+       (click)="setRating(star.value)"
+       [class.fill]="star.fill"
+        [class.enabled]="!show"></i>
+</div>

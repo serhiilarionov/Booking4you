@@ -5,6 +5,7 @@ import {
   CompanyDetail,
   CompanyLocation,
   Booking,
+  Comment,
   Client
 } from '../index';
 
@@ -34,6 +35,7 @@ export interface CompanyInterface {
   location?: CompanyLocation;
   bookings?: Array<Booking>;
   categories?: Array<Category>;
+  comment?: Array<Comment>;
   clients?: Array<Client>;
 }
 
@@ -63,6 +65,7 @@ export class Company implements CompanyInterface {
   location: CompanyLocation;
   bookings: Array<Booking>;
   categories: Array<Category>;
+  comment: Array<Comment>;
   clients: Array<Client>;
   constructor(instance?: Company) {
     Object.assign(this, instance);

@@ -93,8 +93,12 @@
   padding: 0 20px;
   text-align: left; }
   .bookings-company-info__title {
+    display: block;
     font-weight: bold;
-    padding-bottom: 5px; }
+    padding-bottom: 5px;
+    text-decoration: underline; }
+    .bookings-company-info__title:hover, .bookings-company-info__title:focus, .bookings-company-info__title:active {
+      color: #474747; }
   .bookings-company-info__address {
     font-size: 12px;
     padding-bottom: 5px; }
@@ -107,3 +111,17 @@
       display: inline-block;
       margin-right: 5px;
       vertical-align: middle; }
+
+.booking-comment-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #36b6ff;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif; }
+  .booking-comment-btn .fa {
+    font-size: 18px; }
+  .booking-comment-btn._commented {
+    padding: 5px 0;
+    background: transparent;
+    color: #777777; }

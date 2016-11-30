@@ -1,0 +1,37 @@
+@import "main";
+
+.review-company-details {
+  background: #fff;
+
+  &__description {
+    padding: 10px;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+    color: $c-grey-main;
+  }
+  &__address{
+    font-size: 12px;
+  }
+  &__photo {
+    text-align: center;
+    border-bottom: 5px solid $c-blue-main;
+  }
+  &__phone {
+    margin-top: 5px;
+  }
+}
+
+.review-alert {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  min-width: 30px;
+  max-width: 1000px;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -50%));
+  font-size: 32px;
+}

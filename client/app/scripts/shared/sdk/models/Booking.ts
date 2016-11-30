@@ -2,6 +2,7 @@
 import {
   Company,
   CompanyService,
+  Comment,
   Client
 } from '../index';
 
@@ -13,6 +14,7 @@ export interface BookingInterface {
   date?: any;
   phone?: string;
   active?: boolean;
+  commented?: boolean;
   status?: string;
   createdAt?: any;
   updatedAt?: any;
@@ -21,6 +23,7 @@ export interface BookingInterface {
   clientId?: number;
   company?: Company;
   services?: Array<CompanyService>;
+  comment?: Comment;
   user?: Client;
 }
 
@@ -32,6 +35,7 @@ export class Booking implements BookingInterface {
   date: any;
   phone: string;
   active: boolean;
+  commented: boolean;
   status: string;
   createdAt: any;
   updatedAt: any;
@@ -40,6 +44,7 @@ export class Booking implements BookingInterface {
   clientId: number;
   company: Company;
   services: Array<CompanyService>;
+  comment: Comment;
   user: Client;
   constructor(instance?: Booking) {
     Object.assign(this, instance);

@@ -20,6 +20,9 @@ var company_filter_component_1 = require('./company/filter/company-filter.compon
 var lang_switcher_component_1 = require('./lang-switcher/lang-switcher.component');
 var booking_form_component_1 = require('./booking/form/booking-form.component');
 var booking_modal_component_1 = require('./booking/modal/booking-modal.component');
+var review_form_component_1 = require('./review/review-form.component');
+var review_component_1 = require('./review/review.component');
+var rating_component_1 = require('./rating/rating.component');
 var login_form_conponent_2 = require('./auth/login-form.conponent');
 exports.LoginFormComponent = login_form_conponent_2.LoginFormComponent;
 var registration_form_conponent_2 = require('./auth/registration-form.conponent');
@@ -62,6 +65,12 @@ var booking_form_component_2 = require('./booking/form/booking-form.component');
 exports.BookingFormComponent = booking_form_component_2.BookingFormComponent;
 var booking_modal_component_2 = require('./booking/modal/booking-modal.component');
 exports.BookingModalComponent = booking_modal_component_2.BookingModalComponent;
+var review_form_component_2 = require('./review/review-form.component');
+exports.ReviewFormComponent = review_form_component_2.ReviewFormComponent;
+var review_component_2 = require('./review/review.component');
+exports.ReviewComponent = review_component_2.ReviewComponent;
+var rating_component_2 = require('./rating/rating.component');
+exports.RatingComponent = rating_component_2.RatingComponent;
 exports.Components = [
     login_form_conponent_1.LoginFormComponent,
     registration_form_conponent_1.RegistrationFormComponent,
@@ -85,6 +94,9 @@ exports.Components = [
     booking_form_component_1.BookingFormComponent,
     booking_modal_component_1.BookingModalComponent,
     add_to_favorite_component_1.CompanyAddToUserFavorite,
-    lang_switcher_component_1.LangSwitcherComponent
+    lang_switcher_component_1.LangSwitcherComponent,
+    review_form_component_1.ReviewFormComponent,
+    review_component_1.ReviewComponent,
+    rating_component_1.RatingComponent
 ];
 //# sourceMappingURL=index.js.map

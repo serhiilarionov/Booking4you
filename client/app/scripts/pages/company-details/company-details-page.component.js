@@ -22,6 +22,9 @@ var CompanyDetailsPageComponent = (function () {
         this.activatedRoute.params.subscribe(function (params) {
             _this.queryId = +params['id'];
             _this.srcArray = [];
+            _this.companyApi.getComment(_this.queryId).subscribe(function (comments) {
+                _this.commentList = comments;
+            });
             _this.companyApi.findById(_this.queryId).subscribe(function (company) {
                 _this.company = company;
                 _this.companyApi.getDetails(_this.queryId).subscribe(function (companyDetail) {
@@ -29,8 +32,6 @@ var CompanyDetailsPageComponent = (function () {
                         return index_1.BASE_URL + "/storage/test/" + _this.company.cityId + "/" + _this.company.categoryId + "/" + _this.company.id + "/" + imageName;
                     });
                 });
-            }, function (error) {
-                _this.companyNotFound = true;
             });
         });
     };

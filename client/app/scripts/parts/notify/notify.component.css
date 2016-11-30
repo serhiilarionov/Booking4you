@@ -1,0 +1,33 @@
+.notify-box {
+  position: fixed;
+  z-index: 1000;
+  top: 60px;
+  right: 0;
+  width: 360px;
+  text-align: right; }
+  .notify-box__message {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 10px 30px 10px 20px;
+    background: rgba(54, 182, 255, 0.9);
+    text-align: left;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px 0 0 5px;
+    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); }
+    .notify-box__message._error {
+      background: rgba(255, 53, 42, 0.9); }
+    .notify-box__message._success {
+      background: rgba(0, 220, 27, 0.9); }
+  .notify-box__close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 100%;
+    display: inline-block;
+    font-size: 16px;
+    opacity: .9;
+    cursor: pointer; }

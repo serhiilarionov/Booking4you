@@ -1,0 +1,66 @@
+<section class="review-form">
+    <h1 class="review-form__title _ff-ubuntu">
+        Write a review
+    </h1>
+
+    <div class="review-form__wrapper">
+        <form [formGroup]="reviewForm" (ngSubmit)="onSubmit();" >
+            <div class="review-form__section _username-section">
+                <div class="review-form__label _ff-ubuntu">Ваше имя:</div>
+                <input type="text" [value]="currentUser.username || 'Anonymous'" formControlName="displayName" class="review-form__username _ff-ubuntu" maxlength="60">
+            </div>
+
+            <div class="review-form__section" *ngIf="reviewForm.controls.rating.invalid && submitted">
+                <div class="review-form__alert-danger"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                     Please, leave your assessment below!</div>
+            </div>
+
+            <div class="review-form__section _columns">
+                <div class="review-form__rate" *ngFor="let question of questionList">
+                    <div class="review-form__caption _ff-ubuntu"><i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        {{question.name}}
+                    </div>
+                    <div class="review-form__rate-wrapper">
+                        <star-rating [max]="10" [disable]="success" formControlName="ratingCriteria_{{question.id}}"></star-rating>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-form__section" *ngIf="reviewForm.controls.positiveMessage.invalid && submitted">
+                <div class="review-form__alert-danger"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                     Please, leave your comment below!</div>
+            </div>
+
+            <div class="review-form__section _columns">
+                <div class="review-form__text">
+                    <div class="review-form__text-title _ff-ubuntu"><i class="fa fa-smile-o" aria-hidden="true"></i>
+                        Что Вам понравилось ?
+                    </div>
+                    <textarea formControlName="positiveMessage" name="" rows="7" class="review-form__textarea"
+                              placeholder="Самые позитивные впечатления :)" [class._invalid]="reviewForm.controls.positiveMessage.invalid && submitted"></textarea>
+                </div>
+
+                <div class="review-form__text">
+                    <div class="review-form__text-title _ff-ubuntu"><i class="fa fa-frown-o" aria-hidden="true"></i>
+                        Что Вам не понравилось ?
+                    </div>
+                    <textarea formControlName="negativeMessage" name="" rows="7" class="review-form__textarea"
+                              placeholder="Что можно улучшить ?" ></textarea>
+                </div>
+            </div>
+
+            <div class="review-form__section" *ngIf="reviewForm.value.positiveMessage || reviewForm.value.negativeMessage">
+                    <review [review]="reviewForm.value"></review>
+            </div>
+
+            <div class="review-form__section _columns">
+                <button class="review-form__submit _ff-ubuntu" type="submit" [disabled]="success" [class._disable]="success">Оставить отзыв</button>
+                <div class="review-form__alert-success" *ngIf="success"> <i class="fa fa-smile-o" aria-hidden="true"></i> Thanks! Your review has been saved! </div>
+                <div class="review-form__overall-rating">
+                    Ваша оценка: <span class="review-form__overall-rating-value"> {{reviewForm.controls?.rating.value || 0 }} </span>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>

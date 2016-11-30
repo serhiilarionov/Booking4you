@@ -40,6 +40,9 @@ import { CategoryCompanyApi } from './services/custom/CategoryCompany';
 import { NotifyApi } from './services/custom/Notify';
 import { LogsApi } from './services/custom/Logs';
 import { SmsLogsApi } from './services/custom/SmsLogs';
+import { CommentApi } from './services/custom/Comment';
+import { QuestionApi } from './services/custom/Question';
+import { CommentQuestionApi } from './services/custom/CommentQuestion';
 import { ContainerApi } from './services/custom/Container';
 import { ClientApi } from './services/custom/Client';
 import { CoreApi } from './services/custom/Core';
@@ -71,6 +74,9 @@ export const API_PROVIDERS: any[] = [
   NotifyApi,
   LogsApi,
   SmsLogsApi,
+  CommentApi,
+  QuestionApi,
+  CommentQuestionApi,
   ContainerApi,
   ClientApi,
   CoreApi

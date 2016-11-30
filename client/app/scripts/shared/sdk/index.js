@@ -44,6 +44,9 @@ var CategoryCompany_1 = require('./services/custom/CategoryCompany');
 var Notify_1 = require('./services/custom/Notify');
 var Logs_1 = require('./services/custom/Logs');
 var SmsLogs_1 = require('./services/custom/SmsLogs');
+var Comment_1 = require('./services/custom/Comment');
+var Question_1 = require('./services/custom/Question');
+var CommentQuestion_1 = require('./services/custom/CommentQuestion');
 var Container_1 = require('./services/custom/Container');
 var Client_1 = require('./services/custom/Client');
 var Core_1 = require('./services/custom/Core');
@@ -75,6 +78,9 @@ exports.API_PROVIDERS = [
     Notify_1.NotifyApi,
     Logs_1.LogsApi,
     SmsLogs_1.SmsLogsApi,
+    Comment_1.CommentApi,
+    Question_1.QuestionApi,
+    CommentQuestion_1.CommentQuestionApi,
     Container_1.ContainerApi,
     Client_1.ClientApi,
     Core_1.CoreApi

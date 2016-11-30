@@ -1,0 +1,31 @@
+.review-company-details {
+  background: #fff; }
+  .review-company-details__description {
+    padding: 10px; }
+  .review-company-details__title {
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: underline;
+    color: #474747; }
+  .review-company-details__address {
+    font-size: 12px; }
+  .review-company-details__photo {
+    text-align: center;
+    border-bottom: 5px solid #36b6ff; }
+  .review-company-details__phone {
+    margin-top: 5px; }
+
+.review-alert {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  min-width: 30px;
+  max-width: 1000px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 32px; }

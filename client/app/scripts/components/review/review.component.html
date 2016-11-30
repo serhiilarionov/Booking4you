@@ -1,0 +1,8 @@
+<div class="review">
+    <div class="review__rating _ff-ubuntu" *ngIf="review.rating">{{review?.rating || 0}}</div>
+    <span class="review__date">{{review?.createdAt}}</span>
+    <div class="review__username _ff-ubuntu"> <i class="fa fa-user-circle" aria-hidden="true"></i>
+         {{review?.displayName}}</div>
+    <p class="review__text _positive" *ngIf="review.positiveMessage"> {{review?.positiveMessage}}</p>
+    <p class="review__text _negative" *ngIf="review.negativeMessage"> {{review?.negativeMessage}}</p>
+</div>

@@ -1,0 +1,82 @@
+@import "main";
+
+.review {
+  position: relative;
+  margin-bottom: 15px;
+  padding: 25px 30px 25px 30px;
+  background: #fff;
+  overflow: hidden;
+  border-top: 1px solid #c7c7c7;
+  border-bottom: 4px solid #c7c7c7;
+
+  &__text {
+    position: relative;
+    margin: 0;
+    padding-left: 30px;
+    font-size: 14px;
+
+    &:before, &:after {
+      display: inline-block;
+      font-family: FontAwesome;
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 18px;
+    }
+
+    &._positive {
+      margin-bottom: 10px;
+      &:before {
+        content: '\f067';
+        color: #00bc30;
+      }
+    }
+
+    &._negative {
+      &:after {
+        content: '\f068';
+        color: $c-grey-bright;
+      }
+    }
+  }
+
+  &__username {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: $c-dark-blue;
+
+    .fa {
+      margin-right: 5px;
+      margin-left: -5px;
+      font-size: 24px;
+      vertical-align: top;
+    }
+
+  }
+
+  &__rating {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    width: 45px;
+    text-align: center;
+    background: $c-blue-main;
+    color: #fff;
+    padding: 7px 0;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__date {
+    display: inline-block;
+    font-size: 10px;
+    margin-top: -10px;
+    color: $c-grey-bright;
+  }
+}
+
+._ff-ubuntu {
+  font-family: $ff-secondary;
+}

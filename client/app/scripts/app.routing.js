@@ -49,6 +49,11 @@ var routes = [
         component: Pages.CommingSoonPageComponent
     },
     {
+        path: 'review/:bookingId',
+        component: Pages.ReviewPageComponent,
+        canActivate: [index_1.AuthGuardService]
+    },
+    {
         path: '**',
         redirectTo: 'comming-soon'
     }

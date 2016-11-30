@@ -67,19 +67,11 @@
 
         <!--company rating-->
 
-        <aside class="aside-box aside-box_white clearfix">
-          <div class="aside-box__caption pull-left">
+        <aside class="aside-box aside-box_white company-detail__rating clearfix">
+          <div class="aside-box__caption _rating text-center">
             Rating
           </div>
-
-          <div class="company-detail-rating star-rating pull-right">
-            <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="1"></i>
-            <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="2"></i>
-            <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="3"></i>
-            <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="4"></i>
-            <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
-          </div>
-
+            <star-rating [show]="7.5" [max]="10"></star-rating>
         </aside>
 
 
@@ -329,194 +321,17 @@
         </div>
 
         <!--Reviews-->
-        <div class="main-box reviews-wrapper">
-          <div class="main-box__title reviews-wrapper__title clearfix">
+        <div class="main-box reviews-wrapper" *ngIf="commentList?.length">
+          <div class="main-box__title reviews-wrapper__title">
             Reviews
-
-
-            <a href="/company-details#write-review" class="btn pull-right btn-wrrite-review">Write a review <i
-              class="fa fa-pencil btn-wrrite-review__icon"></i></a>
-
           </div>
 
           <div class="reviews-wrapper__over-rating clearfix">
             <strong class="pull-left">Over rating</strong>
-            <div class="company-detail-rating star-rating pull-right">
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="1"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="2"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="3"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="4"></i>
-              <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
-            </div>
+            <star-rating [show]="7.5" [max]="10" class="pull-right"></star-rating>
           </div>
 
-
-          <div class="review-box">
-            <div class="review-box__avatar pull-left">
-              <img src="scripts/pages/company-details/assets/default-avatar.png" alt="">
-              <div class="review-box__date">12.12.2016</div>
-            </div>
-
-            <div class="review-box__username">Charlie Brown</div>
-            <div class="review-box__rating star-rating">
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="1"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="2"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="3"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="4"></i>
-              <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
-            </div>
-
-            <div class="review-box__txt">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Nulla vestibulum, sem ut sollicitudin consectetur, augue diam ornare massa,
-              ac vehicula leo turpis eget purus. Nunc pellentesque vestibulum mauris,
-              eget suscipit mauris imperdiet vel. Nulla et massa metus.
-            </div>
-
-            <div class="review-box__evaluation clearfix">
-              <span class="pull-left">Value</span>
-              <span class="pull-right star-rating">
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="1"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="2"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="3"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="4"></i>
-                <i class="fa fa-star star-rating__star" data-score="5"></i>
-              </span>
-            </div>
-
-            <div class="review-box__evaluation clearfix">
-              <span class="pull-left">Service</span>
-              <span class="pull-right star-rating">
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="1"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="2"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="3"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="4"></i>
-                <i class="fa fa-star star-rating__star" data-score="5"></i>
-              </span>
-            </div>
-          </div>
-
-
-          <div class="review-box">
-            <div class="review-box__avatar pull-left">
-              <img src="scripts/pages/company-details/assets/default-avatar.png" alt="">
-              <div class="review-box__date">12.12.2016</div>
-            </div>
-
-            <div class="review-box__username">Charlie Brown</div>
-            <div class="review-box__rating star-rating">
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="1"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="2"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="3"></i>
-              <i class="fa fa-star star-rating__star star-rating__star_active fa-lg" data-score="4"></i>
-              <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
-            </div>
-
-            <div class="review-box__txt">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Nulla vestibulum, sem ut sollicitudin consectetur, augue diam ornare massa,
-              ac vehicula leo turpis eget purus. Nunc pellentesque vestibulum mauris,
-              eget suscipit mauris imperdiet vel. Nulla et massa metus.
-            </div>
-
-            <div class="review-box__evaluation clearfix">
-              <span class="pull-left">Value</span>
-              <span class="pull-right star-rating">
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="1"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="2"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="3"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="4"></i>
-                <i class="fa fa-star star-rating__star" data-score="5"></i>
-              </span>
-            </div>
-
-            <div class="review-box__evaluation clearfix">
-              <span class="pull-left">Service</span>
-              <span class="pull-right star-rating">
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="1"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="2"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="3"></i>
-                <i class="fa fa-star star-rating__star star-rating__star_active" data-score="4"></i>
-                <i class="fa fa-star star-rating__star" data-score="5"></i>
-              </span>
-            </div>
-
-          </div>
-
-
-          <div class="main-box main-box_review-form" id="write-review">
-            <div class="main-box__title main-box__title_lg">Write a review</div>
-
-
-            <div class="review-form-box clearfix">
-              <div class="row">
-                <div class="col-md-8">
-
-                  <div class="review-form">
-
-                    <div class="form-group">
-                      <label for="review-form-name">Name</label>
-                      <input type="text" class="form-control review-form__name" id="review-form-name"
-                             name="review-form-name" required="">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="review-form-email">Email</label>
-                      <input type="email" class="form-control review-form__email" id="review-form-email"
-                             name="review-form-email" required="">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="review-form-message">Message</label>
-                      <textarea class="form-control review-form__message" id="review-form-message"
-                                name="review-form-message" rows="3" required=""></textarea>
-                    </div>
-
-                    <div class="form-group">
-                      <button type="submit" class="btn review-form__btn">Submit Review</button>
-                    </div>
-
-
-                  </div>
-
-                </div>
-
-                <div class=" col-md-4">
-
-
-                  <div class="review-form__evaluate">
-                    Value
-                    <div class="star-rating">
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="1"></i>
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="2"></i>
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="3"></i>
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="4"></i>
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
-                    </div>
-                  </div>
-
-
-                  <div class="review-form__evaluate">
-                    Service
-                    <div class="star-rating">
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="1"></i>
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="2"></i>
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="3"></i>
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="4"></i>
-                      <i class="fa fa-star star-rating__star fa-lg" data-score="5"></i>
-                    </div>
-                  </div>
-
-
-                </div>
-
-              </div>
-
-
-            </div>
-
-
-          </div>
+          <review *ngFor="let comment of commentList" [review]="comment"></review>
 
         </div>
 
